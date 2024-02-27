@@ -10,7 +10,14 @@ initMDB({ Collapse, Ripple });
     <header class="fixed-top">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid m-0 p-0 d-flex align-items-center">
-                <div class="region region-nav-branding">
+                <div class="region region-nav-branding d-flex align-items-center">
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                     <div class="navbar-brand d-flex align-items-center">
                         <div>
                             <a href="/">
@@ -19,13 +26,7 @@ initMDB({ Collapse, Ripple });
                         </div>
                     </div>
                 </div>
-                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+
                 <div class="collapse navbar-collapse justify-content-md-start">
                     <div class="region region-nav-main">
                         <div class="block block-tb-megamenu block-tb-megamenu-menu-blockmain">
@@ -55,7 +56,7 @@ initMDB({ Collapse, Ripple });
             </div>
         </nav>
         <div class="collapse" id="navbarSupportedContent">
-            <div class="bg-dark p-4">
+            <div class="p-4">
                 <!-- <ul class="tb-megamenu-nav d-block nav level-0 items-6">
                     <li class="tb-megamenu-item level-2 mega px-2">
                         <a href="/pedido">Cesta</a>
@@ -81,8 +82,7 @@ header {
     font-size: 20px;
     padding: 0 1rem;
     background: rgba(8, 8, 8, 0.7);
-    backdrop-filter: blur(15px);
-    transition: background .3s ease-in-out;
+    backdrop-filter: blur(20px);
 }
 
 @media all and (min-width: 992px) {
@@ -102,11 +102,7 @@ header {
 }
 
 .nav-link {
-    color: purple;
-}
-
-header:hover {
-    background: rgba(8, 8, 8, 1);
+    color: #730DD9;
 }
 
 form {
@@ -116,13 +112,13 @@ form {
 form input {
     background-color: #212226;
     border: 0;
-    color: purple;
+    color: #730DD9;
     padding: .5rem;
 }
 
 form input:focus {
     background-color: #212226;
-    color: purple;
+    color: #730DD9;
     border: none;
 }
 
@@ -143,11 +139,11 @@ input::placeholder {
     font-weight: 700;
     font-size: 1rem;
     background-color: transparent;
-    color: purple;
+    color: #730DD9;
 }
 
 ul a {
-    box-shadow: inset 0 0 0 0 purple;
+    box-shadow: inset 0 0 0 0 #730DD9;
     margin: 0 -.25rem;
     padding: 0 .25rem;
     padding: .4rem;
@@ -156,7 +152,7 @@ ul a {
 }
 
 ul a:hover {
-    box-shadow: inset 300px 0 0 0 purple;
+    box-shadow: inset 300px 0 0 0 #730DD9;
     color: white;
 }
 
@@ -176,7 +172,7 @@ button {
         position: relative;
         width: 25px;
         height: 2px;
-        background: purple;
+        background: #730DD9;
         opacity: 1;
         transition: all 0.25s;
     }
