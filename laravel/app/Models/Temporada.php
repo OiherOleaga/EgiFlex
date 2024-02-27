@@ -15,4 +15,10 @@ class Temporada extends Model
         'numero_episodios',
         'fecha_estreno',
     ];
+
+    public function serie()
+    {
+        return $this->belongsTo(Serie::class, 'id_serie');
+    }
+
 }
