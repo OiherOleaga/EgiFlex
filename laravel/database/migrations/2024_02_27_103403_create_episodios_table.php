@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_temporada');
             $table->foreign('id_temporada')->references('id')->on('temporadas')->onDelete('cascade');
-            $table->string('Titulo');
+            $table->string('titulo');
             $table->integer('numero_episodio');
-            $table->integer('Duracion');
-            $table->text('Sinopsis');
+            $table->integer('duracion');
+            $table->text('sinopsis');
             $table->date('fecha_estreno');
             $table->timestamps();
         });

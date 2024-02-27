@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->id();
-            $table->string('Titulo');
-            $table->string('Director');
-            $table->integer('Año_lanzamiento');
-            $table->text('Sinopsis');
+            $table->string('titulo');
+            $table->string('director');
+            $table->integer('ano_lanzamiento');
+            $table->text('sinopsis');
             $table->timestamps();
         });
     }
