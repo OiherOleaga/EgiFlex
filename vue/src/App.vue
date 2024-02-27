@@ -10,7 +10,6 @@ import Header from './components/partials/HeaderPartial.vue';
   </main>
 
   <footer>
-
   </footer>
 </template>
 
