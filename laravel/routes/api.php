@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PeliculaController;
+use App\Http\Controllers\SerieController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get("/contenido", [PeliculaController::class, "getContenido"]);
+
+Route::get("/peliculas", [PeliculaController::class, "getPeliculas"]);
+
+Route::get("/series", [SerieController::class, "getSeries"]);

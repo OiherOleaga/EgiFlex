@@ -52,12 +52,33 @@ class EpisodioController extends Controller
         return view('episodios.edit', compact('episodio', 'temporadas'));
     }
 
-    public function update(Request $request, Episodio $episodio)
+    public function update(Request $request, $id)
     {
-        $episodio->update($request->all());
-
-        return redirect()->route('episodios.index')->with('success', 'Episodio actualizado exitosamente.');
+        $episodio = Episodio::findOrFail($id);
+    
+        if ($request->hasFile('archivo')) {
+            if ($episodio->archivo) {
+                Storage::delete($episodio->archivo);
+            }
+    
+            $archivo = $request->file('archivo');
+            $rutaArchivo = $archivo->store('public/media');
+    
+            $episodio->archivo = $rutaArchivo;
+        }
+    
+        $episodio->id_temporada = $request->id_temporada;
+        $episodio->titulo = $request->titulo;
+        $episodio->numero_episodio = $request->numero_episodio;
+        $episodio->duracion = $request->duracion;
+        $episodio->sinopsis = $request->sinopsis;
+        $episodio->fecha_estreno = $request->fecha_estreno;
+    
+        $episodio->save();
+    
+        return redirect()->route('episodios.index');
     }
+    
 
     public function destroy(Episodio $episodio)
     {

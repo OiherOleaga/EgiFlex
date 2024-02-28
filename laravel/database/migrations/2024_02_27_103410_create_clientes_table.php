@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('correo');
-            $table->enum('estado', ['activo', 'inactivo'])->default('activo');
+            $table->enum('estado', ['activo', 'inactivo'])->default('inactivo');
             $table->string('contrasena', 255);
             $table->string('nombre');
             $table->string('apellido');

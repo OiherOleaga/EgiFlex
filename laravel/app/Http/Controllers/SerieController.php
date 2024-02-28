@@ -62,4 +62,12 @@ class SerieController extends Controller
 
         return redirect()->route('series.index');
     }
+
+    function getPelicualas() {
+        
+        return ClienteController::checkSession(function () {
+            return ["series" => Serie::inRandomOrder()->limit(10)->get()];
+        });
+
+    }
 }
