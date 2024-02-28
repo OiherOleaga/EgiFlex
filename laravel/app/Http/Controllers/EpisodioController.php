@@ -62,7 +62,7 @@ class EpisodioController extends Controller
             }
     
             $archivo = $request->file('archivo');
-            $rutaArchivo = $archivo->store('public/media');
+            $rutaArchivo = $archivo->store('public/media/episodios');
     
             $episodio->archivo = $rutaArchivo;
         }
