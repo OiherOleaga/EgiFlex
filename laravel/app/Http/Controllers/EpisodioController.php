@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Episodio;
 use Illuminate\Http\Request;
 use App\Models\Temporada;
+use Illuminate\Support\Facades\Storage;
+
 
 class EpisodioController extends Controller
 {
@@ -36,9 +38,11 @@ class EpisodioController extends Controller
                 'fecha_estreno' => $request->fecha_estreno,
                 'archivo' => 'media/episodios/' . $nombreArchivo,
             ]);
+
+            return redirect()->route('episodios.index')->with('success', 'Película creada exitosamente.');
         }
 
-        return redirect()->route('episodios.index');
+        return redirect()->route('episodios.index')->with('error', 'No se ha proporcionado ningún archivo.');
     }
 
     public function show(Episodio $episodio)
@@ -76,14 +80,18 @@ class EpisodioController extends Controller
     
         $episodio->save();
     
-        return redirect()->route('episodios.index');
+        return redirect()->route('episodios.index')->with('success', 'Película editada exitosamente.');
     }
     
 
     public function destroy(Episodio $episodio)
     {
+        if ($episodio->archivo) {
+            Storage::delete('media/episodios/' . $episodio->archivo);
+        }
+    
         $episodio->delete();
-
-        return redirect()->route('episodios.index')->with('success', 'Episodio eliminado exitosamente.');
+    
+        return redirect()->route('episodios.index')->with('success', 'Película eliminada exitosamente.');
     }
 }
