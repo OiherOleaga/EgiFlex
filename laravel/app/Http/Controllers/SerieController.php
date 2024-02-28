@@ -21,15 +21,15 @@ class SerieController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Titulo' => 'required',
-            'Director' => 'required',
-            'Año_lanzamiento' => 'required',
-            'Sinopsis' => 'required',
+            'titulo' => 'required',
+            'director' => 'required',
+            'ano_lanzamiento' => 'required',
+            'sinopsis' => 'required',
         ]);
 
         Serie::create($request->all());
 
-        return redirect()->route('series.index');
+        return redirect()->route('series.index')->with('success', 'Serie creada exitosamente');
     }
 
     public function show(Serie $serie)
@@ -45,22 +45,22 @@ class SerieController extends Controller
     public function update(Request $request, Serie $serie)
     {
         $request->validate([
-            'Titulo' => 'required',
-            'Director' => 'required',
-            'Año_lanzamiento' => 'required',
-            'Sinopsis' => 'required',
+            'titulo' => 'required',
+            'director' => 'required',
+            'ano_lanzamiento' => 'required',
+            'sinopsis' => 'required',
         ]);
 
         $serie->update($request->all());
 
-        return redirect()->route('series.index');
+        return redirect()->route('series.index')->with('success', 'Serie editada exitosamente');
     }
 
     public function destroy(Serie $serie)
     {
         $serie->delete();
 
-        return redirect()->route('series.index');
+        return redirect()->route('series.index')->with('success', 'Serie eliminada exitosamente');
     }
 
     function getPelicualas() {

@@ -9,37 +9,50 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-                    <form method="POST" action="{{ route('series.store') }}">
+                    <form action="{{ route('series.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700">
                         @csrf
 
-                        <div class="mt-4">
-                            <x-label for="titulo" :value="__('Título')" />
+                        <div class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700 sm:space-y-5">
+                            <div class="space-y-6 sm:space-y-5">
+                                <div>
+                                    <label for="titulo" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Título</label>
+                                    <div class="mt-1">
+                                        <input type="text" name="titulo" id="titulo" autocomplete="titulo" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                    </div>
+                                </div>
 
-                            <x-input id="titulo" class="block mt-1 w-full" type="text" name="titulo" :value="old('titulo')" required autofocus />
+                                <div>
+                                    <label for="director" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Director</label>
+                                    <div class="mt-1">
+                                        <input type="text" name="director" id="director" autocomplete="director" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="ano_lanzamiento" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Año de Lanzamiento</label>
+                                    <div class="mt-1">
+                                        <input type="number" min="1885" name="ano_lanzamiento" id="ano_lanzamiento" autocomplete="ano_lanzamiento" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="sinopsis" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Sinopsis</label>
+                                    <div class="mt-1">
+                                        <textarea name="sinopsis" id="sinopsis" autocomplete="sinopsis" rows="3" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md"></textarea>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="mt-4">
-                            <x-label for="director" :value="__('Director')" />
-
-                            <x-input id="director" class="block mt-1 w-full" type="text" name="director" :value="old('director')" required />
-                        </div>
-
-                        <div class="mt-4">
-                            <x-label for="ano_lanzamiento" :value="__('Año de Lanzamiento')" />
-
-                            <x-input id="ano_lanzamiento" class="block mt-1 w-full" type="text" name="ano_lanzamiento" :value="old('ano_lanzamiento')" required />
-                        </div>
-
-                        <div class="mt-4">
-                            <x-label for="sinopsis" :value="__('Sinopsis')" />
-
-                            <textarea id="sinopsis" class="block mt-1 w-full" name="sinopsis" required>{{ old('sinopsis') }}</textarea>
-                        </div>
-
-                        <div class="flex items-center justify-end mt-4">
-                            <x-button class="ml-4">
-                                {{ __('Crear Serie') }}
-                            </x-button>
+                        <div class="pt-5">
+                            <div class="flex justify-end space-x-4">
+                                <a href="{{ route('series.index') }}" class="inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Cancelar
+                                </a>
+                                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Guardar
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>
