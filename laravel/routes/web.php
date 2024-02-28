@@ -90,6 +90,13 @@ Route::middleware('auth')->group(function () {
 
     //Temporadas
     Route::get('/temporadas', [TemporadaController::class, 'index'])->name('temporadas.index');
+    Route::get('/temporadas/create', [TemporadaController::class, 'create'])->name('temporadas.create');
+    Route::post('/temporadas', [TemporadaController::class, 'store'])->name('temporadas.store');
+    Route::get('/temporadas/{temporada}', [TemporadaController::class, 'show'])->name('temporadas.show');
+    Route::get('/temporadas/{temporada}/edit', [TemporadaController::class, 'edit'])->name('temporadas.edit');
+    Route::put('/temporadas/{temporada}', [TemporadaController::class, 'update'])->name('temporadas.update');
+    Route::delete('/temporadas/{temporada}', [TemporadaController::class, 'destroy'])->name('temporadas.destroy');
+
 
 });
 

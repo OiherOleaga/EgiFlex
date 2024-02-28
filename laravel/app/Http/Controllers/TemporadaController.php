@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Temporada;
+use App\Models\Serie;
+
 use Illuminate\Http\Request;
 
 class TemporadaController extends Controller
@@ -15,7 +17,8 @@ class TemporadaController extends Controller
 
     public function create()
     {
-        return view('temporadas.create');
+        $series = Serie::all();
+        return view('temporadas.create', compact('series'));
     }
 
     public function store(Request $request)
@@ -28,7 +31,7 @@ class TemporadaController extends Controller
 
         Temporada::create($request->all());
 
-        return redirect()->route('temporadas.index');
+        return redirect()->route('temporadas.index')->with('success', 'Temporada creada exitosamente');
     }
 
     public function show(Temporada $temporada)
@@ -38,7 +41,8 @@ class TemporadaController extends Controller
 
     public function edit(Temporada $temporada)
     {
-        return view('temporadas.edit', compact('temporada'));
+        $series = Serie::all();
+        return view('temporadas.edit', compact('temporada', 'series'));
     }
 
     public function update(Request $request, Temporada $temporada)
@@ -51,13 +55,13 @@ class TemporadaController extends Controller
 
         $temporada->update($request->all());
 
-        return redirect()->route('temporadas.index');
+        return redirect()->route('temporadas.index')->with('success', 'Temporada editada exitosamente');
     }
 
     public function destroy(Temporada $temporada)
     {
         $temporada->delete();
 
-        return redirect()->route('temporadas.index');
+        return redirect()->route('temporadas.index')->with('success', 'Temporada eliminada exitosamente');
     }
 }
