@@ -25,7 +25,7 @@ class EpisodioController extends Controller
         if ($request->hasFile('archivo')) {
             $archivo = $request->file('archivo');
             $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
-            $archivo->move(public_path('media'), $nombreArchivo);
+            $archivo->move(public_path('media/episodios'), $nombreArchivo);
 
             $episodio = Episodio::create([
                 'id_temporada' => $request->id_temporada,
@@ -34,7 +34,7 @@ class EpisodioController extends Controller
                 'duracion' => $request->duracion,
                 'sinopsis' => $request->sinopsis,
                 'fecha_estreno' => $request->fecha_estreno,
-                'archivo' => 'media/' . $nombreArchivo,
+                'archivo' => 'media/episodios/' . $nombreArchivo,
             ]);
         }
 
