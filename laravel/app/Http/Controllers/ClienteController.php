@@ -62,4 +62,17 @@ class ClienteController extends Controller
 
         return redirect()->route('clientes.index');
     }
+
+    static function checkSession($callback) {
+        session_start();
+        
+        if (!isset($_SESSION["logged"]) || !$_SESSION["logged"]) {
+            return response()->json(["false"]);
+        }
+
+        return response()->json([
+            "logged" => true,
+            $callback()     
+        ]);
+    }
 }

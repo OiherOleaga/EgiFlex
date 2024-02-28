@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pelicula;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PeliculaController extends Controller
 {
@@ -63,5 +64,30 @@ class PeliculaController extends Controller
         $pelicula->delete();
 
         return redirect()->route('peliculas.index');
+    }
+
+    function getContenido() {
+
+        return ClienteController::checkSession(function () {
+
+            return DB::select(
+            "SELECT * FROM (
+                SELECT * FROM peliculas ORDER BY RAND() LIMIT 4
+            ) AS peliculas
+            UNION
+            SELECT * FROM (
+                SELECT * FROM series ORDER BY RAND() LIMIT 4
+            ) AS series"
+            );
+
+        });
+    }
+
+    function getPelicualas() {
+        
+        return ClienteController::checkSession(function () {
+            return ["peliculas" => Pelicula::inRandomOrder()->limit(10)->get()];
+        });
+
     }
 }
