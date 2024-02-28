@@ -21,17 +21,9 @@ class PeliculaController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'Titulo' => 'required',
-            'Director' => 'required',
-            'Año_lanzamiento' => 'required',
-            'Sinopsis' => 'required',
-            'Duracion' => 'required',
-        ]);
-
         Pelicula::create($request->all());
 
-        return redirect()->route('peliculas.index');
+        return redirect()->route('peliculas.index')->with('success', 'Película creada exitosamente.');
     }
 
     public function show(Pelicula $pelicula)
@@ -46,24 +38,16 @@ class PeliculaController extends Controller
 
     public function update(Request $request, Pelicula $pelicula)
     {
-        $request->validate([
-            'Titulo' => 'required',
-            'Director' => 'required',
-            'Año_lanzamiento' => 'required',
-            'Sinopsis' => 'required',
-            'Duracion' => 'required',
-        ]);
-
         $pelicula->update($request->all());
 
-        return redirect()->route('peliculas.index');
+        return redirect()->route('peliculas.index')->with('success', 'Película actualizada exitosamente.');
     }
 
     public function destroy(Pelicula $pelicula)
     {
         $pelicula->delete();
 
-        return redirect()->route('peliculas.index');
+        return redirect()->route('peliculas.index')->with('success', 'Película eliminada exitosamente.');
     }
 
     function getContenido() {

@@ -70,9 +70,14 @@ Route::middleware('auth')->group(function () {
     Route::put('/episodios/{episodio}', [EpisodioController::class, 'update'])->name('episodios.update');
     Route::delete('/episodios/{episodio}', [EpisodioController::class, 'destroy'])->name('episodios.destroy');
 
-
-    //Peliculas
+    // Películas
     Route::get('/peliculas', [PeliculaController::class, 'index'])->name('peliculas.index');
+    Route::get('/peliculas/create', [PeliculaController::class, 'create'])->name('peliculas.create');
+    Route::post('/peliculas', [PeliculaController::class, 'store'])->name('peliculas.store');
+    Route::get('/peliculas/{pelicula}', [PeliculaController::class, 'show'])->name('peliculas.show');
+    Route::get('/peliculas/{pelicula}/edit', [PeliculaController::class, 'edit'])->name('peliculas.edit');
+    Route::put('/peliculas/{pelicula}', [PeliculaController::class, 'update'])->name('peliculas.update');
+    Route::delete('/peliculas/{pelicula}', [PeliculaController::class, 'destroy'])->name('peliculas.destroy');
 
     //Series
     Route::get('/series', [SerieController::class, 'index'])->name('series.index');
