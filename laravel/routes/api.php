@@ -1,9 +1,8 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\SerieController;
-use App\Http\Controllers\ClienteController;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,8 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get("/contenido", [PeliculaController::class, "getContenido"]);
 
-Route::get("/iniciarSesion", [ClienteController::class, "comprobarInicioSesion"]);
-
 Route::get("/peliculas", [PeliculaController::class, "getPeliculas"]);
 
 Route::get("/series", [SerieController::class, "getSeries"]);
+
+Route::get("/registrar", [ClienteController::class, "registre"]);

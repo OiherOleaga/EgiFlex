@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-                    <form action="{{ route('peliculas.store') }}" method="POST" class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700">
+                    <form action="{{ route('peliculas.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700">
                         @csrf
 
                         <div class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700 sm:space-y-5">

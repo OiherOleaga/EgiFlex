@@ -81,6 +81,12 @@ Route::middleware('auth')->group(function () {
 
     //Series
     Route::get('/series', [SerieController::class, 'index'])->name('series.index');
+    Route::get('/series/create', [SerieController::class, 'create'])->name('series.create');
+    Route::post('/series', [SerieController::class, 'store'])->name('series.store');
+    Route::get('/series/{serie}', [SerieController::class, 'show'])->name('series.show');
+    Route::get('/series/{serie}/edit', [SerieController::class, 'edit'])->name('series.edit');
+    Route::put('/series/{serie}', [SerieController::class, 'update'])->name('series.update');
+    Route::delete('/series/{serie}', [SerieController::class, 'destroy'])->name('series.destroy');
 
     //Temporadas
     Route::get('/temporadas', [TemporadaController::class, 'index'])->name('temporadas.index');

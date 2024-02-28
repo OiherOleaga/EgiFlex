@@ -1,7 +1,23 @@
 <script setup>
+import router from '@/router';
+import { ref } from 'vue'
+import { useMethods } from '@/stores/methods';
+const methods = useMethods();
 
-function validar() {
-    validarContrasena();
+const cliente = ref({});
+
+function resgistrar() {
+
+    if (validarContrasena()) {
+        methods.POST("/", cliente.value).then((res) => {
+            if (res.ok) {
+                router.push("/login")
+            } else {
+                alert("error al registrar")
+            }
+        })
+    }
+
 }
 
 function validarContrasena() {
@@ -27,9 +43,8 @@ function validarContrasena() {
         contrasenaInput.focus();
         return false;
     }
-    alert('Contraseña válida');
-    return true;
 
+    return true;
 }
 </script>
 <template>
@@ -51,26 +66,26 @@ function validarContrasena() {
                                         <p>Crear una cuenta</p>
 
                                         <div class="form-outline mb-4">
-                                            <input type="email" id="correo" name="correo" class="form-control"
+                                            <input type="email" id="correo" v-model="cliente.correo" class="form-control"
                                                 placeholder="Correo electronico" />
                                         </div>
                                         <div class="form-outline mb-4">
-                                            <input type="password" id="contra" name="contra" class="form-control"
+                                            <input type="password" id="contra" v-model="cliente.contrasena" class="form-control"
                                                 placeholder="Contrasena" />
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="nombre" name="nombre" class="form-control"
+                                            <input type="text" id="nombre" v-model="cliente.nombre" class="form-control"
                                                 placeholder="Nombre" />
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="apellido" name="apellido" class="form-control"
+                                            <input type="text" id="apellido" v-model="cliente.apellido" class="form-control"
                                                 placeholder="Apellido" />
                                         </div>
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button class="btn btn-primary btn-block fa-lg gradient-custom-1 mb-3"
-                                                @click="validar" type="button"> Crear cuenta</button>
+                                                @click="resgistrar" type="button"> Crear cuenta</button>
                                         </div>
 
                                         <div class="d-flex align-items-center justify-content-center pb-4">
