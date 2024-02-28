@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('director');
             $table->date('ano_lanzamiento');
-            $table->text('sinopsis');
-            $table->integer('duracion');
+            $table->string('sinopsis');
+            $table->bigInteger('duracion');
+            $table->char('archivo', 255);
             $table->timestamps();
         });
     }
