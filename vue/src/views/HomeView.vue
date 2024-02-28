@@ -436,9 +436,8 @@
 
 .accordion-button {
   color: #730DD9;
-
   font-weight: 100;
-  text-shadow: 0px 0px 15px #aa6be9;
+  text-shadow: 0px 0px 15px #aa6be968;
 }
 
 .accordion-button:focus,

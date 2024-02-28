@@ -1,7 +1,6 @@
 <!-- HeaderPartial.vue -->
 <script setup>
 import { Collapse, Ripple, initMDB } from "mdb-ui-kit";
-import { defineProps } from "vue";
 
 initMDB({ Collapse, Ripple });
 </script>
@@ -59,8 +58,8 @@ initMDB({ Collapse, Ripple });
             </div>
         </nav>
         <div class="collapse" id="navbarSupportedContent">
-            <div class="p-4">
-                <ul class="tb-megamenu-nav d-block nav level-0 items-6">
+            <div class="pb-3">
+                <ul class="tb-megamenu-nav gap-2 d-flex flex-column nav level-0 items-6">
                     <li class="tb-megamenu-item level-2 mega px-2">
                         <a href="#important">Imprescindibles</a>
                     </li>
