@@ -28,8 +28,8 @@
         <div class="layout row m-0 d-flex">
           <div class="d-flex flex-column col-md-4 align-items-start justify-content-center col-md-6">
             <div class="text-center text-md-start text-white">
-              <h2>Todo lo que no te puedes perder</h2>
-              <p>Disfruta de todos nuestros títulos más rompedores, series aclamadas por la crítica.</p>
+              <h2 class="h1">Todo lo que no te puedes perder</h2>
+              <p class="fst-italic fs-4">Disfruta de todos nuestros títulos más rompedores, las series y pel&iacute;culas m&aacute;s aclamadas por la crítica.</p>
             </div>
           </div>
           <div class="d-flex flex-column col-md-4 align-items-start justify-content-center col-md-6">
