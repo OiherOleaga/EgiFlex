@@ -49,16 +49,33 @@ class ClienteController extends Controller
         return redirect()->route('clientes.index')->with('success', 'Cliente eliminado exitosamente.');
     }
 
-    static function checkSession($callback) {
+
+    function comprobarInicioSesion(Request $request)
+    {
+        $correo = $request->input('correo');
+        $contra = $request->input('contra');
+
+        $usuario = Cliente::where('correo', $correo)->where('contra', $contra)->first();
+
+        if ($usuario) {
+            return response()->json(['logged' => true]);
+        } else {
+            return response()->json(['logged' => false]);
+        }
+    }
+
+
+    static function checkSession($callback)
+    {
         session_start();
-        
+
         if (!isset($_SESSION["logged"]) || !$_SESSION["logged"]) {
             return response()->json(["false"]);
         }
 
         return response()->json([
             "logged" => true,
-            $callback()     
+            $callback()
         ]);
     }
 }

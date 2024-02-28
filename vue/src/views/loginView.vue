@@ -1,6 +1,11 @@
 
 
 <script setup>
+
+import { useMethods } from '@/stores/methods';
+const methods = useMethods();
+
+
 function validarCorreo() {
     const correoInput = document.getElementById('correo');
 
@@ -13,9 +18,17 @@ function validarCorreo() {
 }
 
 function validar() {
+    correo = document.getElementById('correo');
+    contra = document.getElementById('contrasena');
     validarCorreo();
-
+    methods.POST('/iniciarSesion', { correo: correo.value, contra: contra.value });
+    if (res.logged) {
+        router.push("/");
+    } else {
+        alert("codigo no valido");
+    }
 }
+
 
 
 
@@ -41,7 +54,7 @@ function validar() {
                                         <p>Inicia sesion en tu cuenta</p>
 
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="correo" came="correo" class="form-control"
+                                            <input type="text" id="correo" name="correo" class="form-control"
                                                 placeholder="Correo electronico" />
                                         </div>
                                         <div class="form-outline mb-4">
