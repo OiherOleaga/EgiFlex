@@ -44,10 +44,10 @@ initMDB({ Collapse, Ripple });
                                     <a href="#important">Imprescindibles</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="#films">Peliculas</a>
+                                    <a href="#series">Series</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="#series">Series</a>
+                                    <a href="#faq">Preguntas Frecuentes</a>
                                 </li>
                             </ul>
                         </div>

@@ -23,7 +23,7 @@
         </div>
       </div>
     </section>
-    <section class="beam-must-sees-parent">
+    <section id="important" class="beam-must-sees-parent">
       <div class="py-5 container beam-must-sees">
         <div class="layout row m-0 d-flex">
           <div class="d-flex flex-column col-md-4 align-items-start justify-content-center col-md-6">
@@ -76,6 +76,137 @@
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+    <section id="series" class="beam-series-parent">
+      <div class="py-5 container beam-series">
+        <div class="layout row m-0 d-flex">
+          <div class="d-flex flex-column col-md-4 align-items-start justify-content-center col-md-6">
+            <div class="text-center text-md-start text-white">
+              <h2 class="h1">Las series de las que todos hablan</h2>
+              <p class="fst-italic fs-4">Encuentra tu nueva obsesión en nuestro creciente catálogo lleno de series
+                adictivas, reality shows y clásicos icónicos de la televisión.</p>
+            </div>
+          </div>
+          <div class="d-flex flex-column col-md-4 align-items-start justify-content-center col-md-6">
+            <div>
+              <img src="../components/img/friends_leadimage.avif" class="img img-fluid" alt="tlou">
+            </div>
+            <div class="friendslogo">
+              <img
+                src="https://hbomax-images.warnermediacdn.com/2023-05/friends_tt_en.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=400"
+                class="img img-fluid" alt="tloulogo">
+            </div>
+          </div>
+          <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+            <div class="container image-grid gap-3 d-flex flex-column">
+              <div class="row gap-3 gap-md-0">
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/Peaky_Blinders_Serie_de_TV-549874356-large.jpg"
+                    class="rounded img img-fluid equal-image" alt="">
+                </div>
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/tendenciasdebodas-que-ver-series-netflix-thesinner.jpg"
+                    class="rounded img img-fluid equal-image" alt="">
+                </div>
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/maldicion-hill-house-portada.jpg" class="rounded img img-fluid equal-image"
+                    alt="">
+                </div>
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/a74a9f9bb7a278bd11d78cf036d0aa14.jpg"
+                    class="rounded img img-fluid equal-image" alt="">
+                </div>
+              </div>
+              <div class="row gap-3 gap-md-0">
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/227436.jpg" class="rounded img img-fluid equal-image" alt="">
+                </div>
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/lacasadepapel-cartel.jpg" class="rounded img img-fluid equal-image" alt="">
+                </div>
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/2148622.jpg" class="rounded img img-fluid equal-image" alt="">
+                </div>
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/086520.jpg" class="rounded img img-fluid equal-image" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section id="faq" class="beam-faq-parent">
+      <div class="py-5 container beam-series">
+        <div class="layout row m-0 d-flex">
+          <div class="d-flex flex-column col-md-4 mb-2 align-items-center justify-content-center col-md-12">
+            <div class="text-center text-white">
+              <h1 class="h1">Lo que todo el mundo se pregunta sobre <span class="rounded p-1">EgiFlex</span></h1>
+            </div>
+          </div>
+          <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+            <div class="container">
+              <div class="row mx-0 mx-md-5">
+                <div class="col">
+                  <div class="accordion text-white bg-transparent" id="accordionExample">
+                    <div class="accordion-item border-0 bg-transparent text-white">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button fs-3 collapsed bg-transparent" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                          aria-controls="collapseOne">
+                          ¿Qué es EgiFlex?
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse bg-transparent"
+                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body bg-transparent">
+                          EgiFlex es una experiencia de streaming y descarga espectacular que te trae las mejores
+                          historias de Warner
+                          Bros., HBO, Netflix, DC, Cartoon Network y mucho más... ¡GRATIS!.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="accordion-item border-0 bg-transparent">
+                      <h2 class="accordion-header bg-transparent" id="headingTwo">
+                        <button class="accordion-button collapsed fs-3 bg-transparent" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                          aria-controls="collapseTwo">
+                          ¿Por qué es exclusivo de Egibide?
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse bg-transparent"
+                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body bg-transparent">
+                          En un esfuerzo por enriquecer la experiencia educativa y cultural de sus estudiantes, Egibide se
+                          asoció con EgiFlex, un innovador servicio de streaming de series y películas, para crear una
+                          plataforma exclusiva y adaptada a las necesidades educativas únicas de la institución. </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item border-0 bg-transparent">
+                      <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed fs-3 border-0 bg-transparent" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                          aria-controls="collapseThree">
+                          ¿Cuáles son los titulos más populares?
+                        </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          Nuestros títulos más vistos son True Detective: Noche polar, Barbie, Succession, Friends y Juego
+                          de Tronos.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -156,6 +287,8 @@
   text-transform: uppercase;
 }
 
+
+
 .bestmodulePrice p span:last-child {
   font-weight: 500;
   text-transform: uppercase;
@@ -178,6 +311,14 @@
     background-image: url(https://hbomax-images.warnermediacdn.com/2024-02/Aquaman2_Takeover_mobile_1.jpg?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=767);
   }
 
+  .friendslogo {
+    max-width: 300px;
+  }
+
+  .equal-image {
+    object-fit: cover;
+    aspect-ratio: 0.5;
+  }
 
 }
 
@@ -210,5 +351,60 @@
 .equal-image {
   object-fit: cover;
   aspect-ratio: 0.7;
+}
+
+.beam-series-parent {
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+  background-image: url(https://hbomax-images.warnermediacdn.com/2023-05/frinds_background.jpg?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=2000);
+}
+
+.beam-series-parent::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 100%);
+}
+
+.friendslogo {
+  position: relative;
+  right: -20%;
+  align-self: flex-start;
+  bottom: 70px;
+}
+
+.beam-faq-parent {
+  background-size: cover;
+  background-position: center center;
+  background-image: url(https://hbomax-images.warnermediacdn.com/2021-07/hbo_max_background_faded.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
+}
+
+.beam-faq-parent span:first-child {
+  background-color: #730DD9;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.accordion-body {
+  color: white;
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.accordion-button {
+  color: #730DD9;
+
+  font-weight: 100;
+  text-shadow: 0px 0px 15px #aa6be9;
+}
+
+.accordion-button:focus,
+.accordion-button:not(:focus) {
+  box-shadow: none;
 }
 </style>
