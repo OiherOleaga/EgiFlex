@@ -16,8 +16,8 @@
               </p>
               <a href="/register" class="rounded-pill btn btn-md px-4 fw-bold text-white">REGISTRATE YA</a>
             </div>
-            <div class="logo d-none d-md-block">
-              <img src="../components/img/spa.avif" class="img-fluid img" alt="aquamanlogo">
+            <div class="logo d-none d-md-block ">
+              <img src="../components/img/spa.avif" class="img-fluid img opacity-75" alt="aquamanlogo">
             </div>
           </div>
         </div>
