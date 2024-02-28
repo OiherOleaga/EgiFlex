@@ -37,31 +37,46 @@
               <img src="../components/img/thelastofus_personajes.avif" class="img img-fluid" alt="tlou">
             </div>
             <div class="tloulogo">
-              <img src="../components/img/the-last-of-us-logo.avif" class="img img-fluid" width="180px" alt="tloulogo">
+              <img src="../components/img/the-last-of-us-logo.avif" class="img img-fluid" width="200px" alt="tloulogo">
             </div>
           </div>
-          <div class="d-flex flex-column col-md-4 align-items-start justify-content-start col-md-12">
-            <div class="container px-0 image-grid">
-              <div class="row gap-sm-4 gap-md-0 justify-content-center">
+          <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+            <div class="container image-grid gap-3 d-flex flex-column">
+              <div class="row gap-sm-3 gap-md-0">
                 <div class="col-12 col-md-3">
                   <img src="../components/img/Caratula-BSO-Wednesday-Danny-Elfman-Chris-Bacon.jpeg"
-                    class="rounded img img-fluid" alt="">
+                    class="rounded img img-fluid equal-image" alt="">
                 </div>
                 <div class="col-12 col-md-3">
-                  <img src="../components/img/Caratula-BSO-Wednesday-Danny-Elfman-Chris-Bacon.jpeg"
-                    class="rounded img img-fluid" alt="">
+                  <img src="../components/img/strangerthings.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
                 <div class="col-12 col-md-3">
-                  <img src="../components/img/Caratula-BSO-Wednesday-Danny-Elfman-Chris-Bacon.jpeg"
-                    class="rounded img img-fluid" alt="">
+                  <img src="../components/img/13_reasons_why_season_2_a_netflix_original_series_soundtrack-portada.jpg"
+                    class="rounded img img-fluid equal-image" alt="">
                 </div>
                 <div class="col-12 col-md-3">
-                  <img src="../components/img/Caratula-BSO-Wednesday-Danny-Elfman-Chris-Bacon.jpeg"
-                    class="rounded img img-fluid" alt="">
+                  <img src="../components/img/2022100519442283899.jpg" class="rounded img img-fluid equal-image" alt="">
+                </div>
+              </div>
+              <div class="row gap-sm-3 gap-md-0">
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/mindhunter.jpg"
+                    class="rounded img img-fluid equal-image" alt="">
+                </div>
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/punisher-1560758007.jpg" class="rounded img img-fluid equal-image" alt="">
+                </div>
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/SuicideSquad.jpeg"
+                    class="rounded img img-fluid equal-image" alt="">
+                </div>
+                <div class="col-12 col-md-3">
+                  <img src="../components/img/openhaimer.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -99,6 +114,7 @@
     position: relative;
     bottom: -210px;
   }
+
 }
 
 .bestmodulePrice .logo img {
@@ -162,6 +178,8 @@
     background-size: 100% !important;
     background-image: url(https://hbomax-images.warnermediacdn.com/2024-02/Aquaman2_Takeover_mobile_1.jpg?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=767);
   }
+
+
 }
 
 .beam-must-sees-parent {
@@ -185,7 +203,13 @@
 
 .tloulogo {
   position: relative;
-  align-self: center;
-  right: 60px;
+  right: -24%;
+  align-self: flex-start;
   bottom: 70px;
-}</style>
+}
+
+.equal-image {
+  object-fit: cover;
+  aspect-ratio: 0.7;
+}
+</style>
