@@ -14,7 +14,7 @@
                 y mucho más.<br>
                 <span class="fs-6 text-white">*Exclusivo para Egibide.</span>
               </p>
-              <a href="/register" class="rounded-pill btn btn-md px-4 fw-bold text-white">REGISTRATE YA</a>
+              <a href="/registro" class="rounded-pill btn btn-md px-4 fw-bold text-white">REGISTRATE YA</a>
             </div>
             <div class="logo d-none d-md-block ">
               <img src="../components/img/spa.avif" class="img-fluid img opacity-75" alt="aquamanlogo">
@@ -29,7 +29,8 @@
           <div class="d-flex flex-column col-md-4 align-items-start justify-content-center col-md-6">
             <div class="text-center text-md-start text-white">
               <h2 class="h1">Todo lo que no te puedes perder</h2>
-              <p class="fst-italic fs-4">Disfruta de todos nuestros títulos más rompedores, las series y pel&iacute;culas m&aacute;s aclamadas por la crítica.</p>
+              <p class="fst-italic fs-4">Disfruta de todos nuestros títulos más rompedores, las series y pel&iacute;culas
+                m&aacute;s aclamadas por la crítica.</p>
             </div>
           </div>
           <div class="d-flex flex-column col-md-4 align-items-start justify-content-center col-md-6">
@@ -60,15 +61,13 @@
               </div>
               <div class="row gap-3 gap-md-0">
                 <div class="col-12 col-md-3">
-                  <img src="../components/img/mindhunter.jpg"
-                    class="rounded img img-fluid equal-image" alt="">
+                  <img src="../components/img/mindhunter.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
                 <div class="col-12 col-md-3">
                   <img src="../components/img/punisher-1560758007.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
                 <div class="col-12 col-md-3">
-                  <img src="../components/img/SuicideSquad.jpeg"
-                    class="rounded img img-fluid equal-image" alt="">
+                  <img src="../components/img/SuicideSquad.jpeg" class="rounded img img-fluid equal-image" alt="">
                 </div>
                 <div class="col-12 col-md-3">
                   <img src="../components/img/openhaimer.jpg" class="rounded img img-fluid equal-image" alt="">
