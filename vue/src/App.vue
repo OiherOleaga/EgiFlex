@@ -7,7 +7,7 @@ import Header from './components/partials/HeaderPartial.vue';
 </script>
 
 <template class="">
-  <Header v-if="!['login', 'register'].includes($route.name)"></Header>
+  <Header v-if="!['login', 'registro'].includes($route.name)"></Header>
   <main>
     <RouterView />
   </main>
