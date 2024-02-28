@@ -49,6 +49,9 @@ initMDB({ Collapse, Ripple });
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="#faq">Preguntas Frecuentes</a>
                                 </li>
+                                <li class="tb-megamenu-item level-2 mega px-2">
+                                    <a href="#sponsors">Nuestros Patrocinadores</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -57,20 +60,20 @@ initMDB({ Collapse, Ripple });
         </nav>
         <div class="collapse" id="navbarSupportedContent">
             <div class="p-4">
-                <!-- <ul class="tb-megamenu-nav d-block nav level-0 items-6">
+                <ul class="tb-megamenu-nav d-block nav level-0 items-6">
                     <li class="tb-megamenu-item level-2 mega px-2">
-                        <a href="/pedido">Cesta</a>
-                    </li>
-                    <li class="tb-megamenu-item level-1 mega px-2">
-                        <a href="/beer">Bebidas</a>
+                        <a href="#important">Imprescindibles</a>
                     </li>
                     <li class="tb-megamenu-item level-2 mega px-2">
-                        <a href="/about">Sobre Nosotros</a>
+                        <a href="#series">Series</a>
                     </li>
                     <li class="tb-megamenu-item level-2 mega px-2">
-                        <a href="/historial">Mis pedidos</a>
+                        <a href="#faq">Preguntas Frecuentes</a>
                     </li>
-                </ul> -->
+                    <li class="tb-megamenu-item level-2 mega px-2">
+                        <a href="#sponsors">Nuestros Patrocinadores</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </header>
