@@ -20,14 +20,6 @@ class PeliculaController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'Titulo' => 'required',
-            'Director' => 'required',
-            'Año_lanzamiento' => 'required',
-            'Sinopsis' => 'required',
-            'Duracion' => 'required',
-        ]);
-
         Pelicula::create($request->all());
 
         return redirect()->route('peliculas.index');
@@ -45,14 +37,6 @@ class PeliculaController extends Controller
 
     public function update(Request $request, Pelicula $pelicula)
     {
-        $request->validate([
-            'Titulo' => 'required',
-            'Director' => 'required',
-            'Año_lanzamiento' => 'required',
-            'Sinopsis' => 'required',
-            'Duracion' => 'required',
-        ]);
-
         $pelicula->update($request->all());
 
         return redirect()->route('peliculas.index');
