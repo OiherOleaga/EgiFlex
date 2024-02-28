@@ -17,4 +17,9 @@ class Episodio extends Model
         'sinopsis',
         'fecha_estreno',
     ];
+
+    public function temporada()
+    {
+        return $this->belongsTo(Temporada::class, 'id_temporada');
+    }
 }

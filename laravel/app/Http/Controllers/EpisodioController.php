@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Episodio;
 use Illuminate\Http\Request;
-use App\Models\Temporada; 
+use App\Models\Temporada;
+
 class EpisodioController extends Controller
 {
     public function index()
@@ -16,14 +17,14 @@ class EpisodioController extends Controller
     public function create()
     {
         $temporadas = Temporada::all();
-        return view('episodios.create', ['temporadas' => $temporadas]);
+        return view('episodios.create', compact('temporadas'));
     }
 
     public function store(Request $request)
     {
         Episodio::create($request->all());
 
-        return redirect()->route('episodios.index');
+        return redirect()->route('episodios.index')->with('success', 'Episodio creado exitosamente.');
     }
 
     public function show(Episodio $episodio)
@@ -41,13 +42,13 @@ class EpisodioController extends Controller
     {
         $episodio->update($request->all());
 
-        return redirect()->route('episodios.index');
+        return redirect()->route('episodios.index')->with('success', 'Episodio actualizado exitosamente.');
     }
 
     public function destroy(Episodio $episodio)
     {
         $episodio->delete();
 
-        return redirect()->route('episodios.index');
+        return redirect()->route('episodios.index')->with('success', 'Episodio eliminado exitosamente.');
     }
 }

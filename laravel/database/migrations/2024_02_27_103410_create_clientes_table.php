@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('correo');
             $table->enum('estado', ['activo', 'inactivo'])->default('activo');
             $table->string('contrasena', 255);
-            $table->bigInteger('nombre');
-            $table->bigInteger('apellido');
+            $table->string('nombre');
+            $table->string('apellido');
             $table->timestamps();
         });
     }

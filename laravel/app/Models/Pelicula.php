@@ -15,5 +15,6 @@ class Pelicula extends Model
         'ano_lanzamiento',
         'sinopsis',
         'duracion',
+        'archivo',
     ];
 }
