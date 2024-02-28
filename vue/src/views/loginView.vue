@@ -30,8 +30,8 @@ function validar() {
 
 
 <template>
-    <body style=" background-color: black;" class="d-flex justify-content-center align-items-center">
-        <div class="container gradient-form">
+    <section class="d-flex justify-content-center align-items-center">
+        <div class="container-fluid mx-6 py-2 gradient-form">
             <div class="row h-100 d-flex justify-content-center align-items-center">
                 <div class="col-xl-10">
                     <div class="card rounded-3 text-black contenedor">
@@ -92,7 +92,7 @@ function validar() {
                 </div>
             </div>
         </div>
-    </body>
+    </section>
 </template>
 
 
@@ -101,6 +101,22 @@ function validar() {
 
 
 <style scoped>
+section {
+    position: relative;
+}
+
+section::before {
+    content: "";
+    background-image: url(../components/img/ES-es-20240226-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+
 .volver {
     box-shadow: inset 0 0 10px 0 #730DD9;
 }
@@ -127,6 +143,7 @@ a {
 @media (min-width: 768px) {
     .gradient-form {
         height: 100vh !important;
+        backdrop-filter: blur(2px);
     }
 }
 
