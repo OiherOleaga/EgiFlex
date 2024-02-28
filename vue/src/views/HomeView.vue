@@ -38,38 +38,38 @@
               <img src="../components/img/thelastofus_personajes.avif" class="img img-fluid" alt="tlou">
             </div>
             <div class="tloulogo">
-              <img src="../components/img/the-last-of-us-logo.avif" class="img img-fluid" width="200px" alt="tloulogo">
+              <img src="../components/img/the-last-of-us-logo.avif" class="img img-fluid" alt="tloulogo">
             </div>
           </div>
           <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
             <div class="container image-grid gap-3 d-flex flex-column">
-              <div class="row gap-3 gap-md-0">
-                <div class="col-12 col-md-3">
+              <div class="row gap-3 gap-md-0 justify-content-center">
+                <div class="col-5 col-md-3 ">
                   <img src="../components/img/Caratula-BSO-Wednesday-Danny-Elfman-Chris-Bacon.jpeg"
                     class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/strangerthings.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/13_reasons_why_season_2_a_netflix_original_series_soundtrack-portada.jpg"
                     class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/2022100519442283899.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
               </div>
-              <div class="row gap-3 gap-md-0">
-                <div class="col-12 col-md-3">
+              <div class="row gap-3 gap-md-0 justify-content-center">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/mindhunter.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/punisher-1560758007.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/SuicideSquad.jpeg" class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/openhaimer.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
               </div>
@@ -100,35 +100,35 @@
           </div>
           <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
             <div class="container image-grid gap-3 d-flex flex-column">
-              <div class="row gap-3 gap-md-0">
-                <div class="col-12 col-md-3">
+              <div class="row gap-3 gap-md-0 justify-content-center">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/Peaky_Blinders_Serie_de_TV-549874356-large.jpg"
                     class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/tendenciasdebodas-que-ver-series-netflix-thesinner.jpg"
                     class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/maldicion-hill-house-portada.jpg" class="rounded img img-fluid equal-image"
                     alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/a74a9f9bb7a278bd11d78cf036d0aa14.jpg"
                     class="rounded img img-fluid equal-image" alt="">
                 </div>
               </div>
-              <div class="row gap-3 gap-md-0">
-                <div class="col-12 col-md-3">
+              <div class="row gap-3 gap-md-0 justify-content-center">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/227436.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/lacasadepapel-cartel.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/2148622.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-5 col-md-3">
                   <img src="../components/img/086520.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
               </div>
@@ -190,7 +190,7 @@
                         <button class="accordion-button collapsed fs-3 border-0 bg-transparent" type="button"
                           data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
                           aria-controls="collapseThree">
-                          ¿Cuáles son los titulos más populares?
+                          ¿Cuáles son los titulos más populares entre los alumnos?
                         </button>
                       </h2>
                       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
@@ -202,6 +202,33 @@
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="sponsors" class="beam-sponsors-parent">
+      <div class="py-5 container beam-series">
+        <div class="layout row m-0 d-flex">
+          <div class="d-flex flex-column col-md-4 mb-2 align-items-center justify-content-center col-md-12">
+            <div class="text-center text-white">
+              <h1 class="h1">Nuestros patrocinadores</h1>
+            </div>
+          </div>
+          <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+            <div class="container img-grid">
+              <div class="row gap mx-2 mx-md-5">
+                <div class="col-12 col-sponsors gap-3 justify-content-center d-flex">
+                  <img src="../components/img/Orange_logo.svg.png" class="sponsors img img-fluid" alt="">
+                  <img src="../components/img/Warner_Bros_logo.svg.png" class="sponsors img img-fluid" alt="">
+                  <img src="../components/img/dg18rij-b1c260ee-4ac9-4f74-ad9a-8639563b76da.png"
+                    class="sponsors img img-fluid" width="200px" alt="">
+                  <img src="../components/img/dazn-logo-1-1.png" class="sponsors img img-fluid" alt="">
+                  <img src="../components/img/Disney+_logo.svg.png" class="sponsors img img-fluid" alt="">
+                  <img src="../components/img/Netflix_2015_logo.svg.png" class="sponsors img img-fluid" alt="">
+                  <img src="../components/img/Amazon-Prime-Video-Logo.png" class="sponsors img img-fluid" alt="">
                 </div>
               </div>
             </div>
@@ -287,7 +314,6 @@
 }
 
 
-
 .bestmodulePrice p span:last-child {
   font-weight: 500;
   text-transform: uppercase;
@@ -311,7 +337,13 @@
   }
 
   .friendslogo {
-    max-width: 300px;
+    max-width: 60%;
+    align-self: center;
+  }
+
+  .tloulogo {
+    max-width: 50%;
+    align-self: center;
   }
 
   .equal-image {
@@ -345,6 +377,10 @@
   right: -24%;
   align-self: flex-start;
   bottom: 70px;
+}
+
+.tloulogo img {
+  width: 200px;
 }
 
 .equal-image {
@@ -406,4 +442,18 @@
 .accordion-button:not(:focus) {
   box-shadow: none;
 }
+
+.beam-sponsors-parent {
+  background-size: cover;
+  background-position: center center;
+  background-image: url(https://hbomax-images.warnermediacdn.com/2021-10/HBOMax%20price%20background%20V2.jpg?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
+}
+
+.sponsors {
+  object-fit: contain;
+  width: 13%;
+  z-index: 1;
+}
+
+
 </style>

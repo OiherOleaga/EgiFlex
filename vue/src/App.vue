@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue';
 import Header from './components/partials/HeaderPartial.vue';
-// import Footer from './components/partials/FooterPartial.vue';
+import Footer from './components/partials/FooterPartial.vue';
 
 </script>
 
@@ -11,8 +11,7 @@ import Header from './components/partials/HeaderPartial.vue';
   <main>
     <RouterView />
   </main>
-  <footer>
-  </footer>
+  <Footer v-if="!['login', 'registro'].includes($route.name)"></Footer>
 </template>
 
 <style></style>
