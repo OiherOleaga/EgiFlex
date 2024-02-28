@@ -8,17 +8,7 @@ const methods = useMethods();
 const correo = ref();
 const contra = ref();
 
-function validarCorreo() {
-    const correoInput = document.getElementById('correo');
-
-    if (!correoInput.value.endsWith('@ikasle.egibide.org')) {
-        alert('El correo electrónico debe ser @ikasle.egibide.org');
-        correoInput.focus();
-    }
-}
-
 function validar() {
-    validarCorreo();
     methods.POST('/iniciarSesion', { correo: correo.value, contra: contra.value })
         .then(function (response) {
             if (response.logged) {
