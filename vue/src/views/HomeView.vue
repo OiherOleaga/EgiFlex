@@ -143,7 +143,7 @@
         <div class="layout row m-0 d-flex">
           <div class="d-flex flex-column col-md-4 mb-2 align-items-center justify-content-center col-md-12">
             <div class="text-center text-white">
-              <h1 class="h1">Lo que todo el mundo se pregunta sobre <span class="rounded p-1">EgiFlex</span></h1>
+              <h1 class="fs-1 lh-base">Lo que todo el mundo se pregunta sobre <span class="rounded p-1">EgiFlex</span></h1>
             </div>
           </div>
           <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
