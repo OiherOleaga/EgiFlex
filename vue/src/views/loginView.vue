@@ -1,12 +1,17 @@
 
 
 <script setup>
+
+import { useMethods } from '@/stores/methods';
+import { ref } from 'vue';
+const methods = useMethods();
+const correo = ref();
+const contra = ref();
+
 function validarCorreo() {
     const correoInput = document.getElementById('correo');
 
-    if (correoInput.value.endsWith('@ikasle.egibide.org')) {
-        alert('Correo electrónico válido');
-    } else {
+    if (!correoInput.value.endsWith('@ikasle.egibide.org')) {
         alert('El correo electrónico debe ser @ikasle.egibide.org');
         correoInput.focus();
     }
@@ -14,8 +19,20 @@ function validarCorreo() {
 
 function validar() {
     validarCorreo();
-
+    methods.POST('/iniciarSesion', { correo: correo.value, contra: contra.value })
+        .then(function (response) {
+            if (response.logged) {
+                router.push("/");
+            } else {
+                alert("Código no válido");
+            }
+        })
+        .catch(function (error) {
+            console.error('Error al procesar la solicitud:', error);
+        });
 }
+
+
 
 
 
@@ -41,12 +58,12 @@ function validar() {
                                         <p>Inicia sesion en tu cuenta</p>
 
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="correo" came="correo" class="form-control"
-                                                placeholder="Correo electronico" />
+                                            <input type="text" id="correo" name="correo" class="form-control"
+                                                v-model="correo" placeholder="Correo electronico" />
                                         </div>
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="contrasena" name="contrasena" class="form-control"
-                                                placeholder="Contrasena" />
+                                            <input type="text" id="contra" name="contra" class="form-control"
+                                                v-model="contra" placeholder="Contrasena" />
                                         </div>
                                         <div class="text-center pt-1 mb-5 pb-1">
                                             <button class="btn btn-primary btn-block fa-lg gradient-custom-1 mb-3"

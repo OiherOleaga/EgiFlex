@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-                    <form action="{{ route('peliculas.store') }}" method="POST" class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700">
+                    <form action="{{ route('peliculas.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700">
                         @csrf
 
                         <div class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700 sm:space-y-5">
@@ -48,6 +48,14 @@
                                         <input type="number" name="duracion" id="duracion" autocomplete="duracion" min="1" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
                                     </div>
                                 </div>
+
+                                <div>
+                                    <label for="archivo" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Archivo</label>
+                                    <div class="mt-1">
+                                        <input type="file" name="archivo" id="archivo" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 

@@ -60,6 +60,14 @@
                                         <input type="date" name="fecha_estreno" id="fecha_estreno" autocomplete="fecha_estreno" value="{{ $episodio->fecha_estreno }}" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
                                     </div>
                                 </div>
+                                
+                                <div>
+                                    <label for="archivo" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Archivo</label>
+                                    <div class="mt-1">
+                                        <input type="file" name="archivo" id="archivo" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 

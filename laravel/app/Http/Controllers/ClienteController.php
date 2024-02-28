@@ -62,7 +62,24 @@ class ClienteController extends Controller
 
         return response()->json(["ok" => true]);
     }
-    static function checkSession($callback) {
+
+    function comprobarInicioSesion(Request $request)
+    {
+        $correo = $request->input('correo');
+        $contra = $request->input('contra');
+
+        $usuario = Cliente::where('correo', $correo)->where('contra', $contra)->first();
+
+        if ($usuario) {
+            return response()->json(['logged' => true]);
+        } else {
+            return response()->json(['logged' => false]);
+        }
+    }
+
+
+    static function checkSession($callback)
+    {
         session_start();
         
         if (!isset($_SESSION["logged"]) || !$_SESSION["logged"]) {
