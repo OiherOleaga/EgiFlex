@@ -14,4 +14,19 @@ import Footer from './components/partials/FooterPartial.vue';
   <Footer v-if="!['login', 'registro'].includes($route.name)"></Footer>
 </template>
 
-<style></style>
+<style>
+::-webkit-scrollbar{
+  width: .75rem;
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(128, 128, 128);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:active{
+  background-color: rgb(171, 171, 171);
+}
+
+</style>

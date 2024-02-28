@@ -220,12 +220,10 @@
           <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
             <div class="container img-grid">
               <div class="row gap mx-2 mx-md-5">
-                <div class="col-12 col-sponsors gap-3 justify-content-center d-flex">
-                  <img src="../components/img/Orange_logo.svg.png" class="sponsors img img-fluid" alt="">
+                <div class="col-12 col-sponsors gap-4 gap-md5 justify-content-center d-flex">
                   <img src="../components/img/Warner_Bros_logo.svg.png" class="sponsors img img-fluid" alt="">
                   <img src="../components/img/dg18rij-b1c260ee-4ac9-4f74-ad9a-8639563b76da.png"
                     class="sponsors img img-fluid" width="200px" alt="">
-                  <img src="../components/img/dazn-logo-1-1.png" class="sponsors img img-fluid" alt="">
                   <img src="../components/img/Disney+_logo.svg.png" class="sponsors img img-fluid" alt="">
                   <img src="../components/img/Netflix_2015_logo.svg.png" class="sponsors img img-fluid" alt="">
                   <img src="../components/img/Amazon-Prime-Video-Logo.png" class="sponsors img img-fluid" alt="">
