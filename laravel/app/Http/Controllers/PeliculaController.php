@@ -56,11 +56,30 @@ class PeliculaController extends Controller
         return view('peliculas.edit', compact('pelicula'));
     }
 
-    public function update(Request $request, Pelicula $pelicula)
+    public function update(Request $request, $id)
     {
-        $pelicula->update($request->all());
-
-        return redirect()->route('peliculas.index')->with('success', 'Película actualizada exitosamente.');
+        $pelicula = Pelicula::findOrFail($id);
+    
+        if ($request->hasFile('archivo')) {
+            if ($pelicula->archivo) {
+                Storage::delete($pelicula->archivo);
+            }
+    
+            $archivo = $request->file('archivo');
+            $rutaArchivo = $archivo->store('public/media/pelis');
+    
+            $pelicula->archivo = $rutaArchivo;
+        }
+    
+        $pelicula->titulo = $request->titulo;
+        $pelicula->director = $request->director;
+        $pelicula->ano_lanzamiento = $request->ano_lanzamiento;
+        $pelicula->sinopsis = $request->sinopsis;
+        $pelicula->duracion = $request->duracion;
+    
+        $pelicula->save();
+    
+        return redirect()->route('peliculas.index')->with('success', 'Película editada exitosamente.');
     }
 
     public function destroy(Pelicula $pelicula)
