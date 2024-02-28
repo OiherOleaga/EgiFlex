@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('duracion');
             $table->text('sinopsis');
             $table->date('fecha_estreno');
+            $table->char('archivo', 255);
             $table->timestamps();
         });
     }

@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('correo');
-            $table->string('contrasena');
-            $table->enum('estado', ['activo', 'inactivo'])->default('activo');
-            $table->bigInteger('codigo');
+            $table->enum('estado', ['activo', 'inactivo'])->default('inactivo');
+            $table->string('contrasena', 255);
+            $table->string('nombre');
+            $table->string('apellido');
             $table->timestamps();
         });
     }

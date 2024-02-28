@@ -25,7 +25,10 @@
                         </div>
 
                         <div class="pt-5">
-                            <div class="flex justify-end">
+                            <div class="flex justify-end space-x-4">
+                                <a href="{{ route('categorias.index') }}" class="inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Cancelar
+                                </a>
                                 <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     Guardar
                                 </button>

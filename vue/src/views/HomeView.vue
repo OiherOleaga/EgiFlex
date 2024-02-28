@@ -14,7 +14,7 @@
                 y mucho más.<br>
                 <span class="fs-6 text-white">*Exclusivo para Egibide.</span>
               </p>
-              <a href="/register" class="rounded-pill btn btn-md px-4 fw-bold text-white">REGISTRATE YA</a>
+              <a href="/registro" class="rounded-pill btn btn-md px-4 fw-bold text-white">REGISTRATE YA</a>
             </div>
             <div class="logo d-none d-md-block ">
               <img src="../components/img/spa.avif" class="img-fluid img opacity-75" alt="aquamanlogo">
@@ -67,8 +67,7 @@
                   <img src="../components/img/punisher-1560758007.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
                 <div class="col-12 col-md-3">
-                  <img src="../components/img/Dragonball_Evolution-957604390-large.jpg"
-                    class="rounded img img-fluid equal-image" alt="">
+                  <img src="../components/img/SuicideSquad.jpeg" class="rounded img img-fluid equal-image" alt="">
                 </div>
                 <div class="col-12 col-md-3">
                   <img src="../components/img/openhaimer.jpg" class="rounded img img-fluid equal-image" alt="">

@@ -54,12 +54,30 @@ Route::middleware('auth')->group(function () {
 
     //Clientes
     Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.index');
+    Route::get('/clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
+    Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
+    Route::get('/clientes/{cliente}', [ClienteController::class, 'show'])->name('clientes.show');
+    Route::get('/clientes/{cliente}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
+    Route::put('/clientes/{cliente}', [ClienteController::class, 'update'])->name('clientes.update');
+    Route::delete('/clientes/{cliente}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
 
     //Episodios
     Route::get('/episodios', [EpisodioController::class, 'index'])->name('episodios.index');
+    Route::get('/episodios/create', [EpisodioController::class, 'create'])->name('episodios.create');
+    Route::post('/episodios', [EpisodioController::class, 'store'])->name('episodios.store');
+    Route::get('/episodios/{episodio}', [EpisodioController::class, 'show'])->name('episodios.show');
+    Route::get('/episodios/{episodio}/edit', [EpisodioController::class, 'edit'])->name('episodios.edit');
+    Route::put('/episodios/{episodio}', [EpisodioController::class, 'update'])->name('episodios.update');
+    Route::delete('/episodios/{episodio}', [EpisodioController::class, 'destroy'])->name('episodios.destroy');
 
-    //Peliculas
+    // Películas
     Route::get('/peliculas', [PeliculaController::class, 'index'])->name('peliculas.index');
+    Route::get('/peliculas/create', [PeliculaController::class, 'create'])->name('peliculas.create');
+    Route::post('/peliculas', [PeliculaController::class, 'store'])->name('peliculas.store');
+    Route::get('/peliculas/{pelicula}', [PeliculaController::class, 'show'])->name('peliculas.show');
+    Route::get('/peliculas/{pelicula}/edit', [PeliculaController::class, 'edit'])->name('peliculas.edit');
+    Route::put('/peliculas/{pelicula}', [PeliculaController::class, 'update'])->name('peliculas.update');
+    Route::delete('/peliculas/{pelicula}', [PeliculaController::class, 'destroy'])->name('peliculas.destroy');
 
     //Series
     Route::get('/series', [SerieController::class, 'index'])->name('series.index');
