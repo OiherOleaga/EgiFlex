@@ -49,6 +49,19 @@ class ClienteController extends Controller
         return redirect()->route('clientes.index')->with('success', 'Cliente eliminado exitosamente.');
     }
 
+    function regristro(Request $request) {
+
+        $datos = $request->validate([
+            'correo' => 'required|email',
+            'constrasena' => 'required|string',
+            'nombre' => 'required|string',
+            'epellido' => 'required|string|min:9|max:9',
+        ]);
+
+        Cliente::create($datos);
+
+        return response()->json(["ok" => true]);
+    }
     static function checkSession($callback) {
         session_start();
         
@@ -56,9 +69,16 @@ class ClienteController extends Controller
             return response()->json(["false"]);
         }
 
+        if (!is_callable($callback)) {
+            return response()->json([
+                "logged" => true,
+            ]);
+        }
+        
         return response()->json([
             "logged" => true,
             $callback()     
         ]);
     }
+
 }

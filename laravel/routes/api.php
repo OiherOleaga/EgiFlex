@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\SerieController;
 use Illuminate\Http\Request;
@@ -25,3 +26,5 @@ Route::get("/contenido", [PeliculaController::class, "getContenido"]);
 Route::get("/peliculas", [PeliculaController::class, "getPeliculas"]);
 
 Route::get("/series", [SerieController::class, "getSeries"]);
+
+Route::get("/registrar", [ClienteController::class, "registre"]);
