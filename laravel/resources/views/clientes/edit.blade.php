@@ -25,7 +25,7 @@
                                 <div>
                                     <label for="contrasena" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Contraseña</label>
                                     <div class="mt-1">
-                                        <input type="password" name="contrasena" id="contrasena" autocomplete="contrasena" value="{{ $cliente->contrasena }}" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                        <input type="text" name="contrasena" id="contrasena" autocomplete="contrasena" value="{{ $cliente->contrasena }}" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
                                     </div>
                                 </div>
 
@@ -40,17 +40,25 @@
                                 </div>
 
                                 <div>
-                                    <label for="codigo" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Código</label>
+                                    <label for="nombre" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nombre</label>
                                     <div class="mt-1">
-                                        <input type="text" name="codigo" id="codigo" autocomplete="codigo" value="{{ $cliente->codigo }}" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                        <input type="text" name="nombre" id="nombre" autocomplete="nombre" value="{{ $cliente->nombre }}" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
                                     </div>
                                 </div>
+
+                                <div>
+                                    <label for="apellido" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Apellido</label>
+                                    <div class="mt-1">
+                                        <input type="text" name="apellido" id="apellido" autocomplete="apellido" value="{{ $cliente->apellido }}" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
                         <div class="pt-5">
                             <div class="flex justify-end space-x-4">
-                                <a href="{{ url()->previous() }}" class="inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                <a href="{{ route('clientes.index') }}" class="inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     Cancelar
                                 </a>
                                 <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

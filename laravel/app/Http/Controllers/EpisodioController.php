@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Episodio;
 use Illuminate\Http\Request;
+use App\Models\Temporada;
 
 class EpisodioController extends Controller
 {
@@ -15,23 +16,15 @@ class EpisodioController extends Controller
 
     public function create()
     {
-        return view('episodios.create');
+        $temporadas = Temporada::all();
+        return view('episodios.create', compact('temporadas'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'id_temporada' => 'required|exists:temporadas,id',
-            'Titulo' => 'required',
-            'numero_episodio' => 'required',
-            'Duracion' => 'required',
-            'Sinopsis' => 'required',
-            'fecha_estreno' => 'required',
-        ]);
-
         Episodio::create($request->all());
 
-        return redirect()->route('episodios.index');
+        return redirect()->route('episodios.index')->with('success', 'Episodio creado exitosamente.');
     }
 
     public function show(Episodio $episodio)
@@ -41,29 +34,21 @@ class EpisodioController extends Controller
 
     public function edit(Episodio $episodio)
     {
-        return view('episodios.edit', compact('episodio'));
+        $temporadas = Temporada::all();
+        return view('episodios.edit', compact('episodio', 'temporadas'));
     }
 
     public function update(Request $request, Episodio $episodio)
     {
-        $request->validate([
-            'id_temporada' => 'required|exists:temporadas,id',
-            'Titulo' => 'required',
-            'numero_episodio' => 'required',
-            'Duracion' => 'required',
-            'Sinopsis' => 'required',
-            'fecha_estreno' => 'required',
-        ]);
-
         $episodio->update($request->all());
 
-        return redirect()->route('episodios.index');
+        return redirect()->route('episodios.index')->with('success', 'Episodio actualizado exitosamente.');
     }
 
     public function destroy(Episodio $episodio)
     {
         $episodio->delete();
 
-        return redirect()->route('episodios.index');
+        return redirect()->route('episodios.index')->with('success', 'Episodio eliminado exitosamente.');
     }
 }
