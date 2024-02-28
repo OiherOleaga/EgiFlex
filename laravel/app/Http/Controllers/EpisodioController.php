@@ -22,9 +22,23 @@ class EpisodioController extends Controller
 
     public function store(Request $request)
     {
-        Episodio::create($request->all());
+        if ($request->hasFile('archivo')) {
+            $archivo = $request->file('archivo');
+            $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
+            $archivo->move(public_path('media'), $nombreArchivo);
 
-        return redirect()->route('episodios.index')->with('success', 'Episodio creado exitosamente.');
+            $episodio = Episodio::create([
+                'id_temporada' => $request->id_temporada,
+                'titulo' => $request->titulo,
+                'numero_episodio' => $request->numero_episodio,
+                'duracion' => $request->duracion,
+                'sinopsis' => $request->sinopsis,
+                'fecha_estreno' => $request->fecha_estreno,
+                'archivo' => 'media/' . $nombreArchivo,
+            ]);
+        }
+
+        return redirect()->route('episodios.index');
     }
 
     public function show(Episodio $episodio)
