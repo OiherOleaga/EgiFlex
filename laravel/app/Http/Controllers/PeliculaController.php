@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pelicula;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PeliculaController extends Controller
 {
@@ -23,22 +24,26 @@ class PeliculaController extends Controller
     {
         if ($request->hasFile('archivo')) {
             $archivo = $request->file('archivo');
+            
             $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
-            $archivo->move(public_path('media'), $nombreArchivo);
-
-            $episodio = Episodio::create([
-                'id_temporada' => $request->id_temporada,
+            
+            $archivo->move(public_path('media/pelis'), $nombreArchivo);
+    
+            $pelicula = Pelicula::create([
                 'titulo' => $request->titulo,
-                'numero_episodio' => $request->numero_episodio,
-                'duracion' => $request->duracion,
+                'director' => $request->director,
+                'ano_lanzamiento' => $request->ano_lanzamiento,
                 'sinopsis' => $request->sinopsis,
-                'fecha_estreno' => $request->fecha_estreno,
-                'archivo' => 'media/' . $nombreArchivo,
+                'duracion' => $request->duracion,
+                'archivo' => 'media/pelis/' . $nombreArchivo,
             ]);
+    
+            return redirect()->route('peliculas.index')->with('success', 'Película creada exitosamente.');
         }
-
-        return redirect()->route('peliculas.index');
+    
+        return redirect()->route('peliculas.index')->with('error', 'No se ha proporcionado ningún archivo.');
     }
+    
     
 
     public function show(Pelicula $pelicula)
@@ -51,17 +56,40 @@ class PeliculaController extends Controller
         return view('peliculas.edit', compact('pelicula'));
     }
 
-    public function update(Request $request, Pelicula $pelicula)
+    public function update(Request $request, $id)
     {
-        $pelicula->update($request->all());
-
-        return redirect()->route('peliculas.index')->with('success', 'Película actualizada exitosamente.');
+        $pelicula = Pelicula::findOrFail($id);
+    
+        if ($request->hasFile('archivo')) {
+            if ($pelicula->archivo) {
+                Storage::delete($pelicula->archivo);
+            }
+    
+            $archivo = $request->file('archivo');
+            $rutaArchivo = $archivo->store('public/media/pelis');
+    
+            $pelicula->archivo = $rutaArchivo;
+        }
+    
+        $pelicula->titulo = $request->titulo;
+        $pelicula->director = $request->director;
+        $pelicula->ano_lanzamiento = $request->ano_lanzamiento;
+        $pelicula->sinopsis = $request->sinopsis;
+        $pelicula->duracion = $request->duracion;
+    
+        $pelicula->save();
+    
+        return redirect()->route('peliculas.index')->with('success', 'Película editada exitosamente.');
     }
 
     public function destroy(Pelicula $pelicula)
     {
+        if ($pelicula->archivo) {
+            Storage::delete('media/pelis/' . $pelicula->archivo);
+        }
+    
         $pelicula->delete();
-
+    
         return redirect()->route('peliculas.index')->with('success', 'Película eliminada exitosamente.');
     }
 

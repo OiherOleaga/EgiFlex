@@ -12,6 +12,17 @@
                     <div class="mb-4">
                         <a href="{{ route('peliculas.create') }}" class="inline-block px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:bg-green-700">Crear Pelicula</a>
                     </div>
+                    @if (session('success'))
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">¡Éxito!</strong>
+                            <span class="block sm:inline">{{ session('success') }}</span>
+                        </div>
+                    @elseif (session('error'))
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">¡Error!</strong>
+                            <span class="block sm:inline">{{ session('error') }}</span>
+                        </div>
+                    @endif
                     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                         <thead class="bg-gray-50 dark:bg-gray-700">
                             <tr>
@@ -64,7 +75,9 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
                                     @if ($pelicula->archivo)
-                                        <a href="{{ asset($pelicula->archivo) }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-900 dark:hover:text-indigo-300">Descargar</a>
+                                        <a href="{{ asset($pelicula->archivo) }}" download="{{ $pelicula->titulo }}" class="inline-block bg-transparent border border-transparent rounded font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 focus:outline-none focus:border-indigo-700 dark:focus:border-indigo-600 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 p-2">
+                                            Descargar
+                                        </a> 
                                     @else
                                         Sin archivo
                                     @endif
