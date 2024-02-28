@@ -42,7 +42,7 @@
           </div>
           <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
             <div class="container image-grid gap-3 d-flex flex-column">
-              <div class="row gap-sm-3 gap-md-0">
+              <div class="row gap-3 gap-md-0">
                 <div class="col-12 col-md-3">
                   <img src="../components/img/Caratula-BSO-Wednesday-Danny-Elfman-Chris-Bacon.jpeg"
                     class="rounded img img-fluid equal-image" alt="">
@@ -58,7 +58,7 @@
                   <img src="../components/img/2022100519442283899.jpg" class="rounded img img-fluid equal-image" alt="">
                 </div>
               </div>
-              <div class="row gap-sm-3 gap-md-0">
+              <div class="row gap-3 gap-md-0">
                 <div class="col-12 col-md-3">
                   <img src="../components/img/mindhunter.jpg"
                     class="rounded img img-fluid equal-image" alt="">
