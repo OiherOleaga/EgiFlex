@@ -9,7 +9,7 @@
         <div class="layout row m-0 d-flex">
           <div class="d-flex flex-column col-md-12 align-items-center justify-content-start px-4 p-0 m-0">
             <div class="d-flex flex-column align-items-center gap-4 text-center">
-              <img src="../components/img/generatedtext (2).png" alt="">
+              <img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid" alt="egiflex">
               <p class="w-75">En <span class="rounded p-1">EgiFlex</span> encontrarás películas icónicas, series premiadas
                 y mucho más.<br>
                 <span class="fs-6 text-white">*Exclusivo para Egibide.</span>
@@ -240,6 +240,11 @@
 </template>
 
 <style scoped>
+.egiflex {
+  transform: skew(-12deg);
+  transform-origin: top;
+}
+
 .bestmodulePrice-parent {
   position: relative;
   margin-bottom: 0rem;
@@ -454,6 +459,4 @@
   width: 13%;
   z-index: 1;
 }
-
-
 </style>
