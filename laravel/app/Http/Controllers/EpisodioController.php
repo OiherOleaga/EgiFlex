@@ -6,7 +6,7 @@ use App\Models\Episodio;
 use Illuminate\Http\Request;
 use App\Models\Temporada;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\File;
 
 class EpisodioController extends Controller
 {
@@ -86,12 +86,21 @@ class EpisodioController extends Controller
 
     public function destroy(Episodio $episodio)
     {
-        if ($episodio->archivo) {
-            Storage::delete('media/episodios/' . $episodio->archivo);
+        $archivo = $episodio->archivo;
+    
+        if ($archivo) {
+            $rutaArchivo = public_path($archivo);
+    
+            if (File::exists($rutaArchivo)) {
+                File::delete($rutaArchivo);
+                $episodio->delete();
+                return redirect()->route('episodios.index')->with('success', 'Episodio eliminado exitosamente.');
+            } else {
+                return redirect()->route('episodios.index')->with('error', 'No se encontró el archivo asociado.');
+            }
+        } else {
+            return redirect()->route('episodios.index')->with('error', 'No se encontró el archivo asociado.');
         }
-    
-        $episodio->delete();
-    
-        return redirect()->route('episodios.index')->with('success', 'Película eliminada exitosamente.');
     }
+
 }

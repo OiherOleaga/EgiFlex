@@ -6,6 +6,7 @@ use App\Models\Pelicula;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class PeliculaController extends Controller
 {
@@ -84,13 +85,21 @@ class PeliculaController extends Controller
 
     public function destroy(Pelicula $pelicula)
     {
-        if ($pelicula->archivo) {
-            Storage::delete('media/pelis/' . $pelicula->archivo);
+        $archivo = $pelicula->archivo;
+    
+        if ($archivo) {
+            $rutaArchivo = public_path($archivo);
+    
+            if (File::exists($rutaArchivo)) {
+                File::delete($rutaArchivo);
+                $pelicula->delete();
+                return redirect()->route('peliculas.index')->with('success', 'Película eliminada exitosamente.');
+            } else {
+                return redirect()->route('peliculas.index')->with('error', 'No se encontró el archivo asociado.');
+            }
+        } else {
+            return redirect()->route('peliculas.index')->with('error', 'No se encontró el archivo asociado.');
         }
-    
-        $pelicula->delete();
-    
-        return redirect()->route('peliculas.index')->with('success', 'Película eliminada exitosamente.');
     }
 
     function getContenido() {
