@@ -107,14 +107,14 @@ class PeliculaController extends Controller
     function getContenido(Request $request)
     {
         return ClienteController::checkSession($request, function () {
-            $peliculas = DB::table('peliculas')->get();
-            $series = DB::table('series')->get();
+            $peliculas = DB::table('peliculas')->get()->toArray();
+            $series = DB::table('series')->get()->toArray();
 
-            $contenido = $peliculas->concat($series);
+            $contenido = array_merge($peliculas, $series);
 
-            $contenido = $contenido->shuffle();
+            shuffle($contenido);
 
-            return $contenido->take(8);
+            return ["datosRandom" => array_slice($contenido, 0, 8)];
         });
     }
 
