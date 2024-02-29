@@ -32,6 +32,10 @@ class EpisodioController extends Controller
         $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
         $archivo->move(public_path('media/episodios'), $nombreArchivo);
     
+        $portada = $request->file('portada');
+        $nombrePortada = time() . '_' . $portada->getClientOriginalName();
+        $portada->move(public_path('media/portadas'), $nombrePortada);
+
         $episodio = Episodio::create([
             'id_temporada' => $request->id_temporada,
             'titulo' => $request->titulo,
@@ -40,6 +44,7 @@ class EpisodioController extends Controller
             'sinopsis' => $request->sinopsis,
             'fecha_estreno' => $request->fecha_estreno,
             'archivo' => 'media/episodios/' . $nombreArchivo,
+            'portada' => 'media/portadas/' . $nombrePortada,
         ]);
     
         return redirect()->route('episodios.index')->with('success', 'Episodio creado exitosamente.');
@@ -89,7 +94,20 @@ class EpisodioController extends Controller
 
             $episodio->archivo = 'media/episodios/' . $nombreArchivo;
         }
-        
+
+        if ($request->hasFile('portada')) {
+            if ($episodio->portada) {
+                if (File::exists(public_path($episodio->portada))) {
+                    File::delete(public_path($episodio->portada));
+                }
+            }
+            
+            $portada = $request->file('portada');
+            $nombrePortada = time() . '_' . $portada->getClientOriginalName();
+            $portada->move(public_path('media/portadas'), $nombrePortada);
+
+            $episodio->portada = 'media/portadas/' . $nombrePortada;
+        }
     
         $episodio->save();
     
