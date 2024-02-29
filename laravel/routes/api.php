@@ -25,6 +25,8 @@ Route::get("/contenido", [PeliculaController::class, "getContenido"]);
 Route::post("/iniciarSesion", [ClienteController::class, "comprobarInicioSesion"]);
 
 Route::get("/peliculas", [PeliculaController::class, "getPeliculas"]);
+Route::get("/peliculas/random", [PeliculaController::class, "getpelisRandom"]);
+
 
 Route::get("/series", [SerieController::class, "getSeries"]);
 

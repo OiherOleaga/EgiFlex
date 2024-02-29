@@ -1,7 +1,30 @@
 <script setup>
-/**
- * ! Aqui ya se usa la api
- */
+
+import router from '@/router';
+import { ref } from 'vue';
+
+
+function cargarRandom() {
+    return GET('/peliculas/random')
+        .then(function (response) {
+            return response;
+        })
+        .catch(function (error) {
+            console.error('Error al procesar la solicitud:', error);
+            throw error;
+        });
+}
+
+
+cargarRandom()
+    .then(function (response) {
+        console.log(response);
+    })
+    .catch(function (error) {
+        console.error('Error al cargar datos aleatorios:', error);
+    });
+
+
 
 </script>
 
@@ -125,9 +148,10 @@
                 <div class="container beam-films">
                     <div class="row">
                         <div class="col-12 text-white">
-                            <div class="d-flex flex-wrap flex-row align-items-center text-center justify-content-between gap-2">
+                            <div
+                                class="d-flex flex-wrap flex-row align-items-center text-center justify-content-between gap-2">
                                 <p class="fs-2 fw-semibold">
-                                    Las  <span class="rounded p-1 fs-3">peliculas más populares</span> entre los alumnos
+                                    Las <span class="rounded p-1 fs-3">peliculas más populares</span> entre los alumnos
                                 </p>
                                 <a href="" class="text-white">Ver todas las peliculas</a>
                             </div>
@@ -237,9 +261,10 @@
                 <div class="container beam-films">
                     <div class="row">
                         <div class="col-12 text-white">
-                            <div class="d-flex flex-wrap flex-row align-items-center text-center justify-content-between gap-2">
+                            <div
+                                class="d-flex flex-wrap flex-row align-items-center text-center justify-content-between gap-2">
                                 <p class="fs-2 fw-semibold">
-                                    Las  <span class="rounded p-1 fs-3">series más populares</span> entre los alumnos
+                                    Las <span class="rounded p-1 fs-3">series más populares</span> entre los alumnos
                                 </p>
                                 <a href="" class="text-white">Ver todas las series</a>
                             </div>
@@ -376,7 +401,8 @@ article {
     word-wrap: normal;
 }
 
-.beam-populares p span:first-child, .beam-films p span:first-child {
+.beam-populares p span:first-child,
+.beam-films p span:first-child {
     background-color: #730DD9;
     font-weight: 700;
     text-transform: uppercase;
