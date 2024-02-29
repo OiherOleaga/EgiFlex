@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Serie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SerieController extends Controller
 {
@@ -51,15 +52,36 @@ class SerieController extends Controller
         return view('series.edit', compact('serie'));
     }
 
-    public function update(Request $request, Serie $serie)
+    public function update(Request $request, $id)
     {
-        if (empty($request->titulo) || empty($request->director) || empty($request->ano_lanzamiento) || empty($request->sinopsis)) {
-            return redirect()->route('series.index')->with('error', 'Por favor completa todos los campos.');
+        $serie = Serie::findOrFail($id);
+    
+        if (!$request->hasFile('portada') && !$serie->portada) {
+            return redirect()->route('series.index')->with('error', 'Por favor selecciona una portada.');
         }
+    
+        $serie->titulo = $request->titulo;
+        $serie->director = $request->director;
+        $serie->ano_lanzamiento = $request->ano_lanzamiento;
+        $serie->sinopsis = $request->sinopsis;
 
-        $serie->update($request->all());
+        if ($request->hasFile('portada')) {
+            if ($serie->portada) {
+                if (File::exists(public_path($serie->portada))) {
+                    File::delete(public_path($serie->portada));
+                }
+            }
+            $portada = $request->file('portada');
+            $nombrePortada = time() . '_' . $portada->getClientOriginalName();
+            $portada->move(public_path('media/portadas'), $nombrePortada);
 
-        return redirect()->route('series.index')->with('success', 'Serie editada exitosamente');
+            $serie->portada = 'media/portadas/' . $nombrePortada;
+        }
+        
+    
+        $serie->save();
+    
+        return redirect()->route('series.index')->with('success', 'Serie editado exitosamente.');
     }
 
     public function destroy(Serie $serie)
