@@ -2,16 +2,17 @@
 
 <script setup>
 
-import { useMethods } from '@/stores/methods';
+import router from '@/router';
 import { ref } from 'vue';
-const methods = useMethods();
 const correo = ref();
 const contra = ref();
 
 function validar() {
-    methods.POST('/iniciarSesion', { correo: correo.value, contra: contra.value })
+    POST('/iniciarSesion', { correo: correo.value, contra: contra.value })
         .then(function (response) {
+            console.log(response)
             if (response.logged) {
+                localStorage.setItem("sessionId", response.sessionId);
                 router.push("/");
             } else {
                 alert("Código no válido");
@@ -21,10 +22,6 @@ function validar() {
             console.error('Error al procesar la solicitud:', error);
         });
 }
-
-
-
-
 
 </script>
 

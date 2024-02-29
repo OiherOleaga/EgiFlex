@@ -1,15 +1,14 @@
 <script setup>
 import router from '@/router';
 import { ref } from 'vue'
-import { useMethods } from '@/stores/methods';
-const methods = useMethods();
-
 const cliente = ref({});
 
 function resgistrar() {
 
     if (validarContrasena()) {
-        methods.POST("/registrar", cliente.value).then((res) => {
+        console.log(JSON.stringify(cliente.value))
+        POST("/registrar", cliente.value).then((res) => {
+            console.log(res)
             if (res.ok) {
                 router.push("/login")
             } else {

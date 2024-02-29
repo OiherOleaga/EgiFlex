@@ -11,6 +11,70 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script>
+    function route(uri) {
+      return `http://localhost/api${uri}`
+    }
+
+    async function POST(uri, json) {
+
+      if (typeof json !== "string") {
+        json = JSON.stringify(json);
+      }
+
+      try {
+        res = await fetch(route(uri), {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            "sessionId": localStorage.getItem("sessionId")
+          },
+          body: json
+        })
+
+        if (res.headers.get("Content-Type") != 'application/json') {
+          console.log(await res.text());
+          return false;
+        }
+
+        json = await res.json();
+
+        if (uri != "/login" && uri != "/registrar" && !json.logged) {
+          window.location.pathname = "/login"
+        }
+
+        return json;
+      } catch (error) {
+        console.log("Error en " + uri + " POST");
+        console.log(error)
+      }
+    }
+
+    async function GET(uri) {
+      try {
+        let res = await fetch(route(uri), {
+          method: "GET",
+          headers: { "sessionId": localStorage.getItem("sessionId") }
+        })
+
+        if (res.headers.get("Content-Type") != 'application/json') {
+          console.log(await res.text());
+          return false;
+        }
+
+        let json = await res.json();
+
+        if (!json.logged) {
+          window.location.pathname = "/login"
+        }
+
+        return json;
+      } catch (error) {
+        console.log("Error en " + uri + " GET");
+        console.log(error)
+      }
+    }  
+  </script>
 </head>
 
 <body class="container-fluid m-0 p-0 overflow-x-hidden bg-black">
