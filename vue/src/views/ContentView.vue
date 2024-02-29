@@ -16,14 +16,19 @@ function cargarRandom() {
 }
 
 
+let datosAleatorios = [];
+
 cargarRandom()
     .then(function (response) {
-        console.log(response);
+        datosAleatorios = response;
+        console.log(datosAleatorios);
     })
     .catch(function (error) {
         console.error('Error al cargar datos aleatorios:', error);
     });
 
+const primerArray = datosAleatorios.datos.slice(0, 4);
+const segundoArray = datosAleatorios.datos.slice(4, 8);
 
 
 </script>
@@ -48,50 +53,21 @@ cargarRandom()
                         <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div class="col-5 col-md-3">
-                                        <a href="">
+
+                                    <div class="col-5 col-md-3 image-container" v-for="item in primerArray.datos"
+                                        :key="item.id">
+                                        <a :href="item.id">
                                             <figure class="rounded">
-                                                <img src="../components/img/Wonka-476523968-large.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <img :src="item.portada" class="rounded img img-fluid equal-image"
+                                                    :alt="item.titulo">
                                                 <figcaption class="d-none d-md-block text-center">
                                                     <span class="button-green-download2-big">Ver detalles</span>
                                                 </figcaption>
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/Spider_Man_Cruzando_el_Multiverso-257260163-large.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/barbie-cartel-11222.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/es-ES_sots_main_theatrical_vertical_27x40_cmyk_pre_1.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
+
+
                                 </div>
                                 <div class="row gap-3 gap-md-0 justify-content-center">
                                     <div class="col-5 col-md-3">
