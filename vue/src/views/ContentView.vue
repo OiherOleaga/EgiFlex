@@ -16,7 +16,7 @@
                                 <img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid"
                                     alt="egiflex">
                                 <p class="fs-2 fw-semibold">
-                                    Las descargas <span class="rounded p-1 fs-3">más populares</span> entre los alumnos
+                                    Las <span class="rounded p-1 fs-3">descargas más populares</span> entre los alumnos
                                 </p>
                             </div>
                         </div>
@@ -96,6 +96,72 @@
                                     <div class="col-5 col-md-3 image-container">
                                         <a href="">
                                             <figure class="rounded">
+                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/1091444.png "
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="beam-films-parent mt-4">
+                <div class="container beam-films">
+                    <div class="row">
+                        <div class="col-12 text-white">
+                            <div class="d-flex flex-wrap flex-row align-items-center text-center justify-content-between gap-2">
+                                <p class="fs-2 fw-semibold">
+                                    Las  <span class="rounded p-1 fs-3">peliculas más populares</span> entre los alumnos
+                                </p>
+                                <a href="" class="text-white">Ver todas las peliculas</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 text-white">
+                        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+                            <div class="container image-grid gap-3 d-flex flex-column">
+                                <div class="row gap-3 gap-md-0 justify-content-center">
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Wonka-476523968-large.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Spider_Man_Cruzando_el_Multiverso-257260163-large.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
                                                 <img src="../components/img/barbie-cartel-11222.jpg"
                                                     class="rounded img img-fluid equal-image" alt="">
                                                 <figcaption class="d-none d-md-block text-center">
@@ -116,12 +182,169 @@
                                         </a>
                                     </div>
                                 </div>
+                                <div class="row gap-3 gap-md-0 justify-content-center">
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/0128038.png"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/1091444.png "
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
+            <section class="beam-series-parent mt-4">
+                <div class="container beam-films">
+                    <div class="row">
+                        <div class="col-12 text-white">
+                            <div class="d-flex flex-wrap flex-row align-items-center text-center justify-content-between gap-2">
+                                <p class="fs-2 fw-semibold">
+                                    Las  <span class="rounded p-1 fs-3">series más populares</span> entre los alumnos
+                                </p>
+                                <a href="" class="text-white">Ver todas las series</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 text-white">
+                        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+                            <div class="container image-grid gap-3 d-flex flex-column">
+                                <div class="row gap-3 gap-md-0 justify-content-center">
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Wonka-476523968-large.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Spider_Man_Cruzando_el_Multiverso-257260163-large.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/barbie-cartel-11222.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/es-ES_sots_main_theatrical_vertical_27x40_cmyk_pre_1.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row gap-3 gap-md-0 justify-content-center">
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/0128038.png"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/1091444.png "
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </article>
 </template>
@@ -153,7 +376,7 @@ article {
     word-wrap: normal;
 }
 
-.beam-populares p span:first-child {
+.beam-populares p span:first-child, .beam-films p span:first-child {
     background-color: #730DD9;
     font-weight: 700;
     text-transform: uppercase;
