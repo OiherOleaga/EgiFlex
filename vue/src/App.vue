@@ -4,6 +4,9 @@ import { ref } from 'vue';
 import Header from './components/partials/HeaderPartial.vue';
 import Footer from './components/partials/FooterPartial.vue';
 
+/**
+* ! Hacer que el Header se cambie cuando este logeado
+*/
 </script>
 
 <template class="">
@@ -27,6 +30,10 @@ import Footer from './components/partials/FooterPartial.vue';
 
 ::-webkit-scrollbar-thumb:active{
   background-color: rgb(171, 171, 171);
+}
+
+body{
+  background: #030328;
 }
 
 </style>

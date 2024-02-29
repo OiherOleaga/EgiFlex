@@ -17,6 +17,7 @@ class Episodio extends Model
         'sinopsis',
         'fecha_estreno',
         'archivo',
+        'portada',
     ];
 
     public function temporada()

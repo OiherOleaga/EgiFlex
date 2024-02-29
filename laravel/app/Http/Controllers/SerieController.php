@@ -20,12 +20,9 @@ class SerieController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'titulo' => 'required',
-            'director' => 'required',
-            'ano_lanzamiento' => 'required',
-            'sinopsis' => 'required',
-        ]);
+        if (empty($request->titulo) || empty($request->director) || empty($request->ano_lanzamiento) || empty($request->sinopsis)) {
+            return redirect()->route('series.index')->with('error', 'Por favor completa todos los campos.');
+        }
 
         Serie::create($request->all());
 
@@ -44,12 +41,9 @@ class SerieController extends Controller
 
     public function update(Request $request, Serie $serie)
     {
-        $request->validate([
-            'titulo' => 'required',
-            'director' => 'required',
-            'ano_lanzamiento' => 'required',
-            'sinopsis' => 'required',
-        ]);
+        if (empty($request->titulo) || empty($request->director) || empty($request->ano_lanzamiento) || empty($request->sinopsis)) {
+            return redirect()->route('series.index')->with('error', 'Por favor completa todos los campos.');
+        }
 
         $serie->update($request->all());
 
