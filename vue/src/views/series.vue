@@ -12,4 +12,14 @@ methods.GET("/series").then((res) => {
 </script>
 
 <template>
+
+    
 </template>
+
+
+
+<style scoped>
+
+
+
+</style>

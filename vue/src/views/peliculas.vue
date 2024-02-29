@@ -14,3 +14,8 @@ methods.GET("/peliculas").then((res) => {
 <template>
 
 </template>
+
+<style scoped>
+
+
+</style>
