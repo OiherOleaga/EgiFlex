@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class ClienteController extends Controller
 {
@@ -58,14 +59,16 @@ class ClienteController extends Controller
 
     function regristro(Request $request) {
 
+        /*
         $datos = $request->validate([
             'correo' => 'required|email',
             'constrasena' => 'required|string',
             'nombre' => 'required|string',
-            'epellido' => 'required|string|min:9|max:9',
+            'apellido' => 'required|string',
         ]);
+        */
 
-        Cliente::create($datos);
+        Cliente::create($request->all());
 
         return response()->json(["ok" => true]);
     }
@@ -78,18 +81,17 @@ class ClienteController extends Controller
         $usuario = Cliente::where('correo', $correo)->where('contrasena', $contra)->first();
 
         if ($usuario) {
-            return response()->json(['logged' => true]);
+            return response()->json(['logged' => true, 'sessionId' => Crypt::encrypt($usuario['id'])]);
         } else {
             return response()->json(['logged' => false]);
         }
     }
 
 
-    static function checkSession($callback)
+    static function checkSession(Request $request, $callback)
     {
-        session_start();
-        
-        if (!isset($_SESSION["logged"]) || !$_SESSION["logged"]) {
+
+        if (Cliente::find(Crypt::decrypt($request->header("sessionId")))) {
             return response()->json(["false"]);
         }
 
