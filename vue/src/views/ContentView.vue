@@ -229,7 +229,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="" class="rounded-pill btn btn-md px-4 fw-bold text-white">Ver todas las peliculas</a>
+                            <a href="/peliculas" class="rounded-pill btn btn-md px-4 fw-bold text-white">Ver todas las peliculas</a>
                         </div>
                     </div>
                 </div>
@@ -342,7 +342,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="" class="rounded-pill btn btn-md px-4 fw-bold text-white">Ver todas las series</a>
+                            <a href="/series" class="rounded-pill btn btn-md px-4 fw-bold text-white">Ver todas las series</a>
 
                         </div>
                     </div>
@@ -353,6 +353,11 @@
 </template>
 
 <style scoped>
+.egiflex {
+  transform: skew(-12deg);
+  transform-origin: top;
+}
+
 a {
     text-decoration: none;
     color: transparent;

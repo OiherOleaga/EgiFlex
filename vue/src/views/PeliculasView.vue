@@ -1,21 +1,407 @@
 <script setup>
-import { useMethods } from '@/stores/methods';
-import { ref } from 'vue';
-const methods = useMethods();
+// import { useMethods } from '@/stores/methods';
+// import { ref } from 'vue';
+// const methods = useMethods();
 
-const peliculas = ref([])
+// const peliculas = ref([])
 
-methods.GET("/peliculas").then((res) => {
-    peliculas.value = res.peliculas;
-})
+// methods.GET("/peliculas").then((res) => {
+//     peliculas.value = res.peliculas;
+// })
+
+/**
+ * ! Hacer si se puede que vayan cargando al llegar al final
+ * ! Poner los href para que coja el id 
+ */
 
 </script>
 
 <template>
-
+    <article class="w-100 min-vh-100">
+        <div class="content">
+            <section class="beam-peliculas-parent">
+                <div class="container beam-peliculas">
+                    <div class="row">
+                        <div class="col-12 text-white">
+                            <div class="d-flex flex-column align-items-center gap-2 text-center">
+                                <img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid"
+                                    alt="egiflex">
+                                <p class="fs-2 fw-semibold">
+                                    La lista completa de <span class="rounded p-1 fs-3">peliculas</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-white ">
+                            <form action="" method="">
+                                <div
+                                    class="d-flex flex-wrap flex-row align-items-center justify-content-center justify-content-md-end justify-content-md-end gap-2 text-center">
+                                    <div class="dropdown ">
+                                        <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            Género
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Horror</a></li>
+                                            <li><a class="dropdown-item" href="#">Fantasia</a></li>
+                                            <li><a class="dropdown-item" href="#">Drama</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            Año de publicación
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Horror</a></li>
+                                            <li><a class="dropdown-item" href="#">Fantasia</a></li>
+                                            <li><a class="dropdown-item" href="#">Drama</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <input class="form-control p-1 search" type="search" placeholder="Buscar"
+                                            aria-label="Buscar">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row mt-3 text-white">
+                        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+                            <div class="container image-grid gap-3 d-flex flex-column">
+                                <div class="row gap-3 gap-md-0 justify-content-center">
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Wonka-476523968-large.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Spider_Man_Cruzando_el_Multiverso-257260163-large.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/barbie-cartel-11222.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/es-ES_sots_main_theatrical_vertical_27x40_cmyk_pre_1.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/0128038.png"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/1091444.png "
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/0128038.png"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/1091444.png "
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/0128038.png"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </article>
 </template>
 
 <style scoped>
+.egiflex {
+    transform: skew(-12deg);
+    transform-origin: top;
+}
 
+a {
+    text-decoration: none;
+    color: #8000ff;
+    font-weight: 600;
+}
 
+.dropdown-menu {
+    text-align: center;
+    background-color: rgba(0, 0, 0, .7);
+    border: 0;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+    color: white;
+}
+
+.search {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    font-weight: 600;
+    color: #730DD9;
+    border: 2px solid #730DD9;
+}
+
+.search:focus {
+    box-shadow: none;
+}
+
+.search::placeholder {
+    color: #730DD9;
+}
+
+button {
+    color: #730DD9;
+
+}
+
+article {
+    background-image: linear-gradient(to top, transparent, #730dd921), linear-gradient(to bottom, transparent, #730dd921), url('../components/img/1KgjKh5.png');
+}
+
+.content {
+    backdrop-filter: blur(2px);
+    min-height: 100vh;
+}
+
+.beam-peliculas-parent {
+    margin-bottom: 0rem;
+}
+
+.beam-peliculas {
+    padding-top: 6rem;
+}
+
+.beam-peliculas p {
+    word-wrap: normal;
+}
+
+.beam-peliculas p span:first-child {
+    background-color: #730DD9;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 767px) {
+    .equal-image {
+        object-fit: cover;
+        aspect-ratio: 0.5;
+    }
+}
+
+.equal-image {
+    object-fit: cover;
+    aspect-ratio: 0.7;
+}
+
+figure {
+    position: relative;
+    transition: border 200ms ease-in-out;
+}
+
+figure:hover {
+    border: 5px solid #730DD9;
+}
+
+figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.button-green-download2-big {
+    background: #730DD9;
+    border-radius: 3px;
+    display: block;
+    font-weight: 700;
+    color: #fff;
+    font-size: 16px;
+    position: absolute;
+    width: 130px;
+    padding: 7px 0;
+    margin: 0 auto;
+    opacity: 0;
+    z-index: 2;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 300ms ease, transform 300ms ease;
+}
+
+figure:hover figcaption,
+figure:hover .button-green-download2-big {
+    opacity: 1;
+}
+
+figure img {
+    filter: blur(0);
+    transition: all 300ms ease;
+}
+
+figure:hover img {
+    filter: blur(2px);
+}
+
+figure span {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 300ms ease, transform 300ms ease;
+}
+
+figure:hover span {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
 </style>
