@@ -1,7 +1,30 @@
 <script setup>
-/**
- * ! Aqui ya se usa la api
- */
+
+import router from '@/router';
+import { ref } from 'vue';
+
+
+function cargarRandom() {
+    return GET('/peliculas/random')
+        .then(function (response) {
+            return response;
+        })
+        .catch(function (error) {
+            console.error('Error al procesar la solicitud:', error);
+            throw error;
+        });
+}
+
+
+cargarRandom()
+    .then(function (response) {
+        console.log(response);
+    })
+    .catch(function (error) {
+        console.error('Error al cargar datos aleatorios:', error);
+    });
+
+
 
 </script>
 
