@@ -86,9 +86,22 @@ class SerieController extends Controller
 
     public function destroy(Serie $serie)
     {
-        $serie->delete();
+        $portada = $serie->portada;
+    
+        if ($portada) {
+            $rutaPortada = public_path($portada);
+    
+            if (File::exists($rutaPortada)) {
+                File::delete($rutaPortada);
+                $serie->delete();
+                return redirect()->route('series.index')->with('success', 'Serie eliminada exitosamente.');
+            } else {
+                return redirect()->route('series.index')->with('error', 'No se encontró la portada asociada.');
+            }
+        } else {
+            return redirect()->route('series.index')->with('error', 'No se encontró la portada asociada.');
+        }
 
-        return redirect()->route('series.index')->with('success', 'Serie eliminada exitosamente');
     }
 
     function getSeries(Request $request) {
