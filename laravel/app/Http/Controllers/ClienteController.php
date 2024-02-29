@@ -88,11 +88,16 @@ class ClienteController extends Controller
     }
 
 
-    static function checkSession(Request $request, $callback)
+    static function checkSession(Request $request, $callback = null)
     {
+        try {
 
-        if (Cliente::find(Crypt::decrypt($request->header("sessionId")))) {
-            return response()->json(["false"]);
+            if (!Cliente::find(Crypt::decrypt($request->header("sessionId")))) {
+                return response()->json(["logged" => false]);
+            }
+
+        } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+            return response()->json(["logged" => false]);
         }
 
         if (!is_callable($callback)) {
