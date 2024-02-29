@@ -17,7 +17,7 @@ fetch(route("/checkSession"), {
         router.push("/content")
     }
 })
-
+// LA CONTRASEÑA HAY QUE DESENCRIPTARLA
 function validar() {
     POST('/iniciarSesion', { correo: correo.value, contra: contra.value })
         .then(function (response) {

@@ -17,8 +17,8 @@ GET("/peliculas").then((res) => {
                     <div class="row">
                         <div class="col-12 text-white">
                             <div class="d-flex flex-column align-items-center gap-2 text-center">
-                                <img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid"
-                                    alt="egiflex">
+                                <a href="/content"><img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid"
+                                    alt="egiflex"></a>
                                 <p class="fs-2 fw-semibold">
                                     La lista completa de <span class="rounded p-1 fs-3">peliculas</span>
                                 </p>
@@ -28,6 +28,16 @@ GET("/peliculas").then((res) => {
                             <form action="" method="">
                                 <div
                                     class="d-flex flex-wrap flex-row align-items-center justify-content-center justify-content-md-end justify-content-md-end gap-2 text-center">
+                                    <div class="dropdown">
+                                        <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            Ordenar por
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Descargas</a></li>
+                                            <li><a class="dropdown-item" href="#">Recientes</a></li>
+                                        </ul>
+                                    </div>
                                     <div class="dropdown ">
                                         <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
                                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,7 +72,7 @@ GET("/peliculas").then((res) => {
                         <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div class="col-5 col-md-3">
+                                    <div class="col-5 col-md-2">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/Wonka-476523968-large.jpg"
@@ -73,7 +83,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/Spider_Man_Cruzando_el_Multiverso-257260163-large.jpg"
@@ -84,7 +94,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/barbie-cartel-11222.jpg"
@@ -95,7 +105,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/es-ES_sots_main_theatrical_vertical_27x40_cmyk_pre_1.jpg"
@@ -106,7 +116,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3">
+                                    <div class="col-5 col-md-2">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
@@ -117,7 +127,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3">
+                                    <div class="col-5 col-md-2">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
@@ -128,7 +138,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/0128038.png"
@@ -139,7 +149,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
@@ -150,7 +160,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/1091444.png "
@@ -161,7 +171,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3">
+                                    <div class="col-5 col-md-2">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
@@ -172,7 +182,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/0128038.png"
@@ -183,7 +193,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
@@ -194,7 +204,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/1091444.png "
@@ -205,7 +215,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3">
+                                    <div class="col-5 col-md-2">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
@@ -216,7 +226,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/0128038.png"
@@ -227,7 +237,7 @@ GET("/peliculas").then((res) => {
                                             </figure>
                                         </a>
                                     </div>
-                                    <div class="col-5 col-md-3 image-container">
+                                    <div class="col-5 col-md-2 image-container">
                                         <a href="">
                                             <figure class="rounded">
                                                 <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
@@ -256,12 +266,12 @@ GET("/peliculas").then((res) => {
 
 a {
     text-decoration: none;
-    color: #8000ff;
+    color: white;
     font-weight: 600;
 }
 
 .dropdown-menu {
-    text-align: center;
+    text-align: start;
     background-color: rgba(0, 0, 0, .7);
     border: 0;
     backdrop-filter: blur(10px);
@@ -276,8 +286,8 @@ a {
     background-color: transparent;
     backdrop-filter: blur(10px);
     font-weight: 600;
-    color: #730DD9;
-    border: 2px solid #730DD9;
+    color: white;
+    border: 2px solid white;
 }
 
 .search:focus {
@@ -285,11 +295,11 @@ a {
 }
 
 .search::placeholder {
-    color: #730DD9;
+    color: white;
 }
 
 button {
-    color: #730DD9;
+    color: white;
 
 }
 

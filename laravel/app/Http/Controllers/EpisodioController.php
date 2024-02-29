@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Temporada;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-
 class EpisodioController extends Controller
 {
     public function index()
@@ -134,7 +133,7 @@ class EpisodioController extends Controller
                 return redirect()->route('episodios.index')->with('error', 'No se encontró el archivo asociado.');
             }
         } else {
-            return redirect()->route('episodios.index')-    >with('error', 'No se encontró el archivo asociado.');
+            return redirect()->route('episodios.index')->with('error', 'No se encontró el archivo asociado.');
         }
     }
 
