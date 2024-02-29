@@ -125,4 +125,12 @@ class PeliculaController extends Controller
             return ["peliculas" => Pelicula::inRandomOrder()->limit(10)->get()];
         });
     }
+
+    function getDetallesPelicula(Request $request) {
+
+        return ClienteController::checkSession($request, function ($request) {
+            return ["detalles" => Pelicula::find($request["id"])];
+        });
+
+    }
 }

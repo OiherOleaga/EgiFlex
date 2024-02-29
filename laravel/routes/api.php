@@ -23,9 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get("/contenido", [PeliculaController::class, "getContenido"]);
 Route::get("/peliculas", [PeliculaController::class, "getPeliculas"]);
 Route::get("/peliculas/random", [PeliculaController::class, "getContenido"]);
+Route::post("/getDetallesPelicula", [PeliculaController::class, "getDetallesPelicula"]);
 
 
 Route::get("/series", [SerieController::class, "getSeries"]);
+Route::post("/getDetallesSerie", [SerieController::class, "getDetallesSerie"]);
 
 Route::post("/iniciarSesion", [ClienteController::class, "comprobarInicioSesion"]);
 Route::post("/registrar", [ClienteController::class, "regristro"]);

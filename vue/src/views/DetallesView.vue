@@ -3,13 +3,13 @@ import { ref } from 'vue';
 
 const detalles = ref();
 
-console.log(window.location.search.split("?")[1])
-if (args.get('s')) {
-    POST("/getDetallesSerie", { id: args.get('s') }).then(res => {
+let args = window.location.search.split("?")[1].split("=")
+if (args[0] == 's') {
+    POST("/getDetallesSerie", { id: args[1] }).then(res => {
         detalles.value = res.detalles  
     })
-} else if (args.get('p')) {
-    POST("/getDetallesPelicula", { id: args.get('p') }).then(res => {
+} else if (args[0] == 'p') {
+    POST("/getDetallesPelicula", { id: args[1] }).then(res => {
         detalles.value = res.detalles  
     })
 }
