@@ -23,11 +23,9 @@ class TemporadaController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'id_serie' => 'required|exists:series,id',
-            'numero_temporada' => 'required',
-            'fecha_estreno' => 'required',
-        ]);
+        if (empty($request->id_serie) || empty($request->numero_temporada) || empty($request->fecha_estreno) || empty($request->numero_episodios)) {
+            return redirect()->route('temporadas.index')->with('error', 'Por favor completa todos los campos.');
+        }
 
         Temporada::create($request->all());
 
@@ -47,11 +45,9 @@ class TemporadaController extends Controller
 
     public function update(Request $request, Temporada $temporada)
     {
-        $request->validate([
-            'id_serie' => 'required|exists:series,id',
-            'numero_temporada' => 'required',
-            'fecha_estreno' => 'required',
-        ]);
+        if (empty($request->id_serie) || empty($request->numero_temporada) || empty($request->fecha_estreno) || empty($request->numero_episodios)) {
+            return redirect()->route('temporadas.index')->with('error', 'Por favor completa todos los campos.');
+        }
 
         $temporada->update($request->all());
 
