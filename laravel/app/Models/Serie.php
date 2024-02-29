@@ -14,5 +14,6 @@ class Serie extends Model
         'director',
         'ano_lanzamiento',
         'sinopsis',
+        'portada',
     ];
 }

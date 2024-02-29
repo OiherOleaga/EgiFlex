@@ -16,5 +16,6 @@ class Pelicula extends Model
         'sinopsis',
         'duracion',
         'archivo',
+        'portada',
     ];
 }
