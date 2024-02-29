@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('sinopsis');
             $table->date('fecha_estreno');
             $table->char('archivo', 255);
+            $table->char('portada');
             $table->timestamps();
         });
     }
