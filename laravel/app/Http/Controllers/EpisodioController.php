@@ -119,12 +119,15 @@ class EpisodioController extends Controller
     public function destroy(Episodio $episodio)
     {
         $archivo = $episodio->archivo;
-    
-        if ($archivo) {
+        $portada = $episodio->portada;
+
+        if ($archivo && $portada) {
             $rutaArchivo = public_path($archivo);
-    
-            if (File::exists($rutaArchivo)) {
+            $rutaPortada = public_path($portada);
+
+            if (File::exists($rutaArchivo) && File::exists($rutaPortada)) {
                 File::delete($rutaArchivo);
+                File::delete($rutaPortada);
                 $episodio->delete();
                 return redirect()->route('episodios.index')->with('success', 'Episodio eliminado exitosamente.');
             } else {
