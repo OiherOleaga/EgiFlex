@@ -101,15 +101,10 @@ class ClienteController extends Controller
         }
 
         if (!is_callable($callback)) {
-            return response()->json([
-                "logged" => true,
-            ]);
+            return response()->json(["logged" => true]);
         }
-        
-        return response()->json([
-            "logged" => true,
-            $callback()     
-        ]);
+
+        return response()->json(array_merge(["logged" => true], $callback()));
     }
 
 }
