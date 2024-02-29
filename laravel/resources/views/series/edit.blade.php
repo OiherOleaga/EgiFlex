@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-                    <form action="{{ route('series.update', $serie->id) }}" method="POST" class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700">
+                    <form action="{{ route('series.update', $serie->id) }}" method="POST" class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -40,6 +40,13 @@
                                     <label for="sinopsis" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Sinopsis</label>
                                     <div class="mt-1">
                                         <textarea name="sinopsis" id="sinopsis" autocomplete="sinopsis" rows="3" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">{{ $serie->sinopsis }}</textarea>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="portada" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Portada</label>
+                                    <div class="mt-1">
+                                        <input type="file" name="portada" id="portada" accept="image/*" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
                                     </div>
                                 </div>
 

@@ -23,9 +23,12 @@
                             <span class="block sm:inline">{{ session('error') }}</span>
                         </div>
                     @endif
-                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 ">
                         <thead class="bg-gray-50 dark:bg-gray-700">
                             <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    Portada
+                                </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                                     ID
                                 </th>
@@ -61,6 +64,13 @@
                         <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700">
                             @foreach($episodios as $episodio)
                             <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
+                                    @if ($episodio->portada)
+                                        <a href="{{ asset($episodio->portada) }}" data-fancybox>
+                                            <img src="{{ asset($episodio->portada) }}" alt="Portada actual" class="mt-2 rounded-md" style="max-width: 50px; max-height: 50px;">
+                                        </a>
+                                    @endif
+                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
                                     {{ $episodio->id }}
                                 </td>
