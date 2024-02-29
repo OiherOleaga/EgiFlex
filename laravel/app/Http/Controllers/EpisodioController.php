@@ -24,26 +24,27 @@ class EpisodioController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->hasFile('archivo')) {
-            $archivo = $request->file('archivo');
-            $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
-            $archivo->move(public_path('media/episodios'), $nombreArchivo);
-
-            $episodio = Episodio::create([
-                'id_temporada' => $request->id_temporada,
-                'titulo' => $request->titulo,
-                'numero_episodio' => $request->numero_episodio,
-                'duracion' => $request->duracion,
-                'sinopsis' => $request->sinopsis,
-                'fecha_estreno' => $request->fecha_estreno,
-                'archivo' => 'media/episodios/' . $nombreArchivo,
-            ]);
-
-            return redirect()->route('episodios.index')->with('success', 'Película creada exitosamente.');
+        if (empty($request->id_temporada) || empty($request->titulo) || empty($request->numero_episodio) || empty($request->duracion) || empty($request->sinopsis) || empty($request->fecha_estreno) || !$request->hasFile('archivo')) {
+            return redirect()->route('episodios.index')->with('error', 'Por favor completa todos los campos y proporciona un archivo.');
         }
-
-        return redirect()->route('episodios.index')->with('error', 'No se ha proporcionado ningún archivo.');
+    
+        $archivo = $request->file('archivo');
+        $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
+        $archivo->move(public_path('media/episodios'), $nombreArchivo);
+    
+        $episodio = Episodio::create([
+            'id_temporada' => $request->id_temporada,
+            'titulo' => $request->titulo,
+            'numero_episodio' => $request->numero_episodio,
+            'duracion' => $request->duracion,
+            'sinopsis' => $request->sinopsis,
+            'fecha_estreno' => $request->fecha_estreno,
+            'archivo' => 'media/episodios/' . $nombreArchivo,
+        ]);
+    
+        return redirect()->route('episodios.index')->with('success', 'Episodio creado exitosamente.');
     }
+    
 
     public function show(Episodio $episodio)
     {
@@ -58,17 +59,14 @@ class EpisodioController extends Controller
 
     public function update(Request $request, $id)
     {
+        if (empty($request->id_temporada) || empty($request->titulo) || empty($request->numero_episodio) || empty($request->duracion) || empty($request->sinopsis) || empty($request->fecha_estreno)) {
+            return redirect()->route('episodios.index')->with('error', 'Por favor completa todos los campos obligatorios.');
+        }
+    
         $episodio = Episodio::findOrFail($id);
     
-        if ($request->hasFile('archivo')) {
-            if ($episodio->archivo) {
-                Storage::delete($episodio->archivo);
-            }
-    
-            $archivo = $request->file('archivo');
-            $rutaArchivo = $archivo->store('public/media/episodios');
-    
-            $episodio->archivo = $rutaArchivo;
+        if (!$request->hasFile('archivo') && !$episodio->archivo) {
+            return redirect()->route('episodios.index')->with('error', 'Por favor selecciona un archivo.');
         }
     
         $episodio->id_temporada = $request->id_temporada;
@@ -77,11 +75,27 @@ class EpisodioController extends Controller
         $episodio->duracion = $request->duracion;
         $episodio->sinopsis = $request->sinopsis;
         $episodio->fecha_estreno = $request->fecha_estreno;
+
+
+        if ($request->hasFile('archivo')) {
+            if ($episodio->archivo) {
+                if (File::exists(public_path($episodio->archivo))) {
+                    File::delete(public_path($episodio->archivo));
+                }
+            }
+            $archivo = $request->file('archivo');
+            $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
+            $archivo->move(public_path('media/episodios'), $nombreArchivo);
+
+            $episodio->archivo = 'media/episodios/' . $nombreArchivo;
+        }
+        
     
         $episodio->save();
     
-        return redirect()->route('episodios.index')->with('success', 'Película editada exitosamente.');
+        return redirect()->route('episodios.index')->with('success', 'Episodio editado exitosamente.');
     }
+    
     
 
     public function destroy(Episodio $episodio)

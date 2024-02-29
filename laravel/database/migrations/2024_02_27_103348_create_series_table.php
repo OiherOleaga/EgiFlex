@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('director');
             $table->integer('ano_lanzamiento');
             $table->text('sinopsis');
+            $table->char('portada');
             $table->timestamps();
         });
     }

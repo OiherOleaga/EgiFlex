@@ -20,14 +20,17 @@ class CategoriaController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required|string|max:255',
-        ]);
-
-        Categoria::create($request->all());
-
-        return redirect()->route('categorias.index')->with('success', 'Categoria creada exitosamente.');
-    }
+        if (empty($request->nombre)) {
+            return redirect()->route('categorias.index')->with('error', 'Error: El campo nombre no puede estar vacío.');
+        }
+    
+        try {
+            Categoria::create($request->all());
+            return redirect()->route('categorias.index')->with('success', 'Categoria creada exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->route('categorias.index')->with('error', 'Error al crear la categoría: ' . $e->getMessage());
+        }
+    }    
 
     public function show(Categoria $categoria)
     {

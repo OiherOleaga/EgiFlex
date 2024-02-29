@@ -20,10 +20,17 @@ class ClienteController extends Controller
 
     public function store(Request $request)
     {
-        Cliente::create($request->all());
-
-        return redirect()->route('clientes.index')->with('success', 'Cliente creado exitosamente.');
-    }
+        if (empty($request->nombre)) {
+            return redirect()->route('clientes.index')->with('error', 'Error: El campo nombre no puede estar vacío.');
+        }
+    
+        try {
+            Cliente::create($request->all());
+            return redirect()->route('clientes.index')->with('success', 'Cliente creado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->route('clientes.index')->with('error', 'Error al crear el cliente: ' . $e->getMessage());
+        }
+    }    
 
     public function show(Cliente $cliente)
     {
@@ -68,7 +75,7 @@ class ClienteController extends Controller
         $correo = $request->input('correo');
         $contra = $request->input('contra');
 
-        $usuario = Cliente::where('correo', $correo)->where('contra', $contra)->first();
+        $usuario = Cliente::where('correo', $correo)->where('contrasena', $contra)->first();
 
         if ($usuario) {
             return response()->json(['logged' => true]);

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('sinopsis');
             $table->bigInteger('duracion');
             $table->char('archivo', 255);
+            $table->char('portada');
             $table->timestamps();
         });
     }

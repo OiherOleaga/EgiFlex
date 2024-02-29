@@ -16,21 +16,12 @@
                         {{ __('Index') }}
                     </x-nav-link>
 
-
-                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
-                        {{ __('Categorias') }}
-                    </x-nav-link>
-
                     <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
                         {{ __('Clientes') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('episodios.index')" :active="request()->routeIs('episodios.index')">
-                        {{ __('Episodios') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('peliculas.index')" :active="request()->routeIs('peliculas.index')">
-                        {{ __('Peliculas') }}
+                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
+                        {{ __('Categorias') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('series.index')" :active="request()->routeIs('series.index')">
@@ -39,6 +30,14 @@
 
                     <x-nav-link :href="route('temporadas.index')" :active="request()->routeIs('temporadas.index')">
                         {{ __('Temporadas') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('episodios.index')" :active="request()->routeIs('episodios.index')">
+                        {{ __('Episodios') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('peliculas.index')" :active="request()->routeIs('peliculas.index')">
+                        {{ __('Peliculas') }}
                     </x-nav-link>
                 </div>
 
@@ -95,6 +94,30 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('index')" :active="request()->routeIs('index')">
                 {{ __('Index') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
+                {{ __('Clientes') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
+                {{ __('Categorias') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('series.index')" :active="request()->routeIs('series.index')">
+                {{ __('Series') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('temporadas.index')" :active="request()->routeIs('temporadas.index')">
+                {{ __('Temporadas') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('episodios.index')" :active="request()->routeIs('episodios.index')">
+                {{ __('Episodios') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('peliculas.index')" :active="request()->routeIs('peliculas.index')">
+                {{ __('Peliculas') }}
             </x-responsive-nav-link>
         </div>
 

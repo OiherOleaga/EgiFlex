@@ -9,7 +9,7 @@ const cliente = ref({});
 function resgistrar() {
 
     if (validarContrasena()) {
-        methods.POST("/", cliente.value).then((res) => {
+        methods.POST("/registrar", cliente.value).then((res) => {
             if (res.ok) {
                 router.push("/login")
             } else {
