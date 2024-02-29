@@ -1,18 +1,11 @@
 <script setup>
-// import { useMethods } from '@/stores/methods';
-// import { ref } from 'vue';
-// const methods = useMethods();
+import { ref } from 'vue';
 
 // const peliculas = ref([])
 
-// methods.GET("/peliculas").then((res) => {
-//     peliculas.value = res.peliculas;
-// })
-
-/**
- * ! Hacer si se puede que vayan cargando al llegar al final
- * ! Poner los href para que coja el id 
- */
+GET("/peliculas").then((res) => {
+    peliculas.value = res.peliculas;
+})
 
 </script>
 
