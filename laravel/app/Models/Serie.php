@@ -16,4 +16,9 @@ class Serie extends Model
         'sinopsis',
         'portada',
     ];
+
+    public function categorias()
+    {
+        return $this->belongsToMany(Categoria::class, 'categoria_series');
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Serie;
+use App\Models\Categoria;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -10,22 +12,21 @@ class SerieController extends Controller
 {
     public function index()
     {
-        $series = Serie::all();
+        $series = Serie::with('categorias')->get();
         return view('series.index', compact('series'));
     }
 
     public function create()
     {
-        return view('series.create');
+        $categorias = Categoria::all();
+        return view('series.create', compact('categorias'));
     }
 
     public function store(Request $request)
     {
         if ($request->hasFile('portada')) {
             $portada = $request->file('portada');
-            
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
-            
             $portada->move(public_path('media/portadas'), $nombrePortada);
     
             $serie = Serie::create([
@@ -36,11 +37,17 @@ class SerieController extends Controller
                 'portada' => 'media/portadas/' . $nombrePortada,
             ]);
     
+            if ($request->has('categoria')) {
+                $categoria_id = $request->categoria;
+                $serie->categorias()->attach($categoria_id);
+            }
+    
             return redirect()->route('series.index')->with('success', 'Serie creada exitosamente.');
         }
     
         return redirect()->route('peliculas.index')->with('error', 'No se ha proporcionado ningún archivo.');
     }
+    
 
     public function show(Serie $serie)
     {
@@ -49,7 +56,8 @@ class SerieController extends Controller
 
     public function edit(Serie $serie)
     {
-        return view('series.edit', compact('serie'));
+        $categorias = Categoria::all();
+        return view('series.edit', compact('serie', 'categorias'));
     }
 
     public function update(Request $request, $id)
@@ -64,7 +72,7 @@ class SerieController extends Controller
         $serie->director = $request->director;
         $serie->ano_lanzamiento = $request->ano_lanzamiento;
         $serie->sinopsis = $request->sinopsis;
-
+    
         if ($request->hasFile('portada')) {
             if ($serie->portada) {
                 if (File::exists(public_path($serie->portada))) {
@@ -74,15 +82,20 @@ class SerieController extends Controller
             $portada = $request->file('portada');
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
             $portada->move(public_path('media/portadas'), $nombrePortada);
-
+    
             $serie->portada = 'media/portadas/' . $nombrePortada;
         }
-        
+    
+        if ($request->has('categoria')) {
+            $categoria = $request->categoria;
+            $serie->categorias()->sync($categoria);
+        }
     
         $serie->save();
     
-        return redirect()->route('series.index')->with('success', 'Serie editado exitosamente.');
+        return redirect()->route('series.index')->with('success', 'Serie editada exitosamente.');
     }
+    
 
     public function destroy(Serie $serie)
     {
