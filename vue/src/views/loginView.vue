@@ -7,13 +7,23 @@ import { ref } from 'vue';
 const correo = ref();
 const contra = ref();
 
+fetch(route("/checkSession"), {
+    headers: { "sessionId": localStorage.getItem("sessionId") }
+})
+.then(res => res.json())
+.then(res => {
+    console.log(res)
+    if (res.logged) {
+        router.push("/content")
+    }
+})
+
 function validar() {
     POST('/iniciarSesion', { correo: correo.value, contra: contra.value })
         .then(function (response) {
-            console.log(response)
             if (response.logged) {
                 localStorage.setItem("sessionId", response.sessionId);
-                router.push("/");
+                router.push("/content");
             } else {
                 alert("Código no válido");
             }

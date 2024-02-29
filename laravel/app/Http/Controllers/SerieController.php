@@ -57,9 +57,9 @@ class SerieController extends Controller
         return redirect()->route('series.index')->with('success', 'Serie eliminada exitosamente');
     }
 
-    function getPelicualas() {
+    function getPelicualas(Request $request) {
         
-        return ClienteController::checkSession(function () {
+        return ClienteController::checkSession($request, function () {
             return ["series" => Serie::inRandomOrder()->limit(10)->get()];
         });
 

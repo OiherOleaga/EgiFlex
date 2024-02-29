@@ -3,14 +3,23 @@ import { useMethods } from '@/stores/methods';
 import { ref } from 'vue';
 const methods = useMethods();
 
-const peliculas = ref([])
+const series = ref([])
 
-methods.GET("/peliculas").then((res) => {
-    peliculas.value = res.peliculas;
+methods.GET("/series").then((res) => {
+    series.value = res.peliculas;
 })
 
 </script>
 
 <template>
 
+    
 </template>
+
+
+
+<style scoped>
+
+
+
+</style>

@@ -54,7 +54,7 @@ cargarRandom()
                                                 <img src="../components/img/Wonka-476523968-large.jpg"
                                                     class="rounded img img-fluid equal-image" alt="">
                                                 <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                    <span class="button-green-download2-big">Ver detalles</span>
                                                 </figcaption>
                                             </figure>
                                         </a>
@@ -149,11 +149,10 @@ cargarRandom()
                     <div class="row">
                         <div class="col-12 text-white">
                             <div
-                                class="d-flex flex-wrap flex-row align-items-center text-center justify-content-between gap-2">
+                                class="d-flex flex-wrap flex-row align-items-center text-center justify-content-center gap-2">
                                 <p class="fs-2 fw-semibold">
                                     Las <span class="rounded p-1 fs-3">peliculas más populares</span> entre los alumnos
                                 </p>
-                                <a href="" class="text-white">Ver todas las peliculas</a>
                             </div>
                         </div>
                     </div>
@@ -253,6 +252,7 @@ cargarRandom()
                                     </div>
                                 </div>
                             </div>
+                            <a href="" class="rounded-pill btn btn-md px-4 fw-bold text-white">Ver todas las peliculas</a>
                         </div>
                     </div>
                 </div>
@@ -262,16 +262,15 @@ cargarRandom()
                     <div class="row">
                         <div class="col-12 text-white">
                             <div
-                                class="d-flex flex-wrap flex-row align-items-center text-center justify-content-between gap-2">
+                                class="d-flex flex-wrap flex-row align-items-center text-center justify-content-center gap-2">
                                 <p class="fs-2 fw-semibold">
                                     Las <span class="rounded p-1 fs-3">series más populares</span> entre los alumnos
                                 </p>
-                                <a href="" class="text-white">Ver todas las series</a>
                             </div>
                         </div>
                     </div>
                     <div class="row mt-3 text-white">
-                        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+                        <div class="d-flex mb-2 flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
                                     <div class="col-5 col-md-3">
@@ -366,6 +365,8 @@ cargarRandom()
                                     </div>
                                 </div>
                             </div>
+                            <a href="" class="rounded-pill btn btn-md px-4 fw-bold text-white">Ver todas las series</a>
+
                         </div>
                     </div>
                 </div>
@@ -381,12 +382,16 @@ a {
 }
 
 article {
-    background-image: linear-gradient(to top, transparent, #730dd928), url('../components/img/1KgjKh5.png');
+    background-image: linear-gradient(to top, transparent, #730dd921), linear-gradient(to bottom, transparent, #730dd921), url('../components/img/1KgjKh5.png');
 }
 
 .content {
     backdrop-filter: blur(2px);
     min-height: 100vh;
+}
+
+.content a {
+    background-color: #730DD9;
 }
 
 .beam-populares-parent {

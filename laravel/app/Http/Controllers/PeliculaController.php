@@ -104,8 +104,9 @@ class PeliculaController extends Controller
         }
     }
 
-    function getpelisRandom(Request $request)
+    function getContenido(Request $request)
     {
+
         return ClienteController::checkSession($request, function () {
 
             return DB::select(

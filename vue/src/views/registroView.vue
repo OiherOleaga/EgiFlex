@@ -6,9 +6,7 @@ const cliente = ref({});
 function resgistrar() {
 
     if (validarContrasena()) {
-        console.log(JSON.stringify(cliente.value))
         POST("/registrar", cliente.value).then((res) => {
-            console.log(res)
             if (res.ok) {
                 router.push("/login")
             } else {
