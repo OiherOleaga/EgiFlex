@@ -102,9 +102,9 @@ class PeliculaController extends Controller
         }
     }
 
-    function getContenido() {
+    function getContenido(Request $request) {
 
-        return ClienteController::checkSession(function () {
+        return ClienteController::checkSession($request, function () {
 
             return DB::select(
             "SELECT * FROM (
@@ -119,9 +119,9 @@ class PeliculaController extends Controller
         });
     }
 
-    function getPelicualas() {
+    function getPelicualas(Request $request) {
         
-        return ClienteController::checkSession(function () {
+        return ClienteController::checkSession($request, function () {
             return ["peliculas" => Pelicula::inRandomOrder()->limit(10)->get()];
         });
 
