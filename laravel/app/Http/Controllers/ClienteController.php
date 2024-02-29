@@ -75,7 +75,7 @@ class ClienteController extends Controller
         $correo = $request->input('correo');
         $contra = $request->input('contra');
 
-        $usuario = Cliente::where('correo', $correo)->where('contra', $contra)->first();
+        $usuario = Cliente::where('correo', $correo)->where('contrasena', $contra)->first();
 
         if ($usuario) {
             return response()->json(['logged' => true]);
