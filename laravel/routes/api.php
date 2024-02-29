@@ -28,4 +28,4 @@ Route::get("/peliculas", [PeliculaController::class, "getPeliculas"]);
 
 Route::get("/series", [SerieController::class, "getSeries"]);
 
-Route::get("/registrar", [ClienteController::class, "registre"]);
+Route::post("/registrar", [ClienteController::class, "regristro"]);
