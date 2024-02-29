@@ -1,4 +1,5 @@
 <script setup>
+<<<<<<< HEAD
 import { ref } from 'vue';
 
 const series = ref([])
@@ -241,4 +242,29 @@ figure:hover span {
     opacity: 1;
     transform: translate(-50%, -50%);
 }
+=======
+import { useMethods } from '@/stores/methods';
+import { ref } from 'vue';
+const methods = useMethods();
+
+const series = ref([])
+
+methods.GET("/series").then((res) => {
+    series.value = res.peliculas;
+})
+
+</script>
+
+<template>
+
+    
+</template>
+
+
+
+<style scoped>
+
+
+
+>>>>>>> 6029c8ed187c13111162a4355b42f91f8b57e3e8
 </style>
