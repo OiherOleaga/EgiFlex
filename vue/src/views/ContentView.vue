@@ -16,19 +16,17 @@ function cargarRandom() {
 }
 
 
-let datosAleatorios = [];
+const datosAleatorios = ref([]);
 
 cargarRandom()
     .then(function (response) {
-        datosAleatorios = response;
+        datosAleatorios.value = response.datosRandom;
         console.log(datosAleatorios);
     })
     .catch(function (error) {
         console.error('Error al cargar datos aleatorios:', error);
     });
 
-const primerArray = datosAleatorios.datos.slice(0, 4);
-const segundoArray = datosAleatorios.datos.slice(4, 8);
 
 
 </script>
@@ -54,8 +52,8 @@ const segundoArray = datosAleatorios.datos.slice(4, 8);
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
 
-                                    <div class="col-5 col-md-3 image-container" v-for="item in primerArray.datos"
-                                        :key="item.id">
+                                    <div v-for="item in datosAleatorios" :key="item.id"
+                                        class="col-5 col-md-3 image-container">
                                         <a :href="item.id">
                                             <figure class="rounded">
                                                 <img :src="item.portada" class="rounded img img-fluid equal-image"
@@ -68,52 +66,6 @@ const segundoArray = datosAleatorios.datos.slice(4, 8);
                                     </div>
 
 
-                                </div>
-                                <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div class="col-5 col-md-3">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/0128038.png"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/1091444.png "
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -3,12 +3,14 @@ import { ref } from 'vue';
 
 const series = ref([])
 
+function detalles(id) {
+    return "/detalles?s=" + id;
+}
+
 GET("/series").then((res) => {
-    console.log(res)
-    series.value = res.peliculas;
+    series.value = res.series;
 })
 
-console.log(series.value)
 </script>
 
 <template>
@@ -31,92 +33,13 @@ console.log(series.value)
                         <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div class="col-5 col-md-3">
-                                        <a href="">
+                                    <div v-for="serie of series" class="col-5 col-md-3">
+                                        <a :href="detalles(serie.id)">
                                             <figure class="rounded">
                                                 <img src="../components/img/Wonka-476523968-large.jpg"
                                                     class="rounded img img-fluid equal-image" alt="">
                                                 <figcaption class="d-none d-md-block text-center">
                                                     <span class="button-green-download2-big roundedd">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/Spider_Man_Cruzando_el_Multiverso-257260163-large.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/barbie-cartel-11222.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/es-ES_sots_main_theatrical_vertical_27x40_cmyk_pre_1.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div class="col-5 col-md-3">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/0128038.png"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-3 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/1091444.png "
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
                                                 </figcaption>
                                             </figure>
                                         </a>
