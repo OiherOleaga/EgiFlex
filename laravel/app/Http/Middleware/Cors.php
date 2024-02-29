@@ -4,21 +4,31 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class Cors
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
-        $response->headers->set('Access-Control-Allow-Origin', "*");
-        $response->headers->set('Access-Control-Allow-Origin', "POST, GET, OPTIONS, PUT; DELETE");
-        $response->headers->set('Access-Control-Allow-Origin', "Content-Type, Accept, Authorization, X-Requested-With, Application");
+
+        // Permitir solicitudes desde cualquier origen
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+
+        // Permitir los siguientes métodos HTTP
+        $response->headers->set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE');
+
+        // Permitir los siguientes encabezados
+        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization, X-Requested-With');
+
+        // Permitir incluir credenciales en las solicitudes (si es necesario)
+        $response->headers->set('Access-Control-Allow-Credentials', 'true');
 
         return $response;
     }
