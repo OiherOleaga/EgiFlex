@@ -12,6 +12,10 @@ const router = createRouter({
       component: () => import('../views/HomeView.vue')
     },
     {
+      path: '/content',
+      component: () => import('../views/ContentView.vue')
+    },
+    {
       path: '/watch',
       component: () => import('../views/watch.vue')
     },

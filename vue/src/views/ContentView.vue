@@ -1,0 +1,239 @@
+<script setup>
+/**
+ * ! Aqui ya se usa la api
+ */
+
+</script>
+
+<template>
+    <article class="w-100 min-vh-100">
+        <div class="content">
+            <section class="beam-populares-parent">
+                <div class="container-fluid beam-populares">
+                    <div class="row">
+                        <div class="col-12 text-white">
+                            <div class="d-flex flex-column align-items-center gap-2 text-center">
+                                <img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid"
+                                    alt="egiflex">
+                                <p class="fs-2 fw-semibold">
+                                    Las descargas <span class="rounded p-1 fs-3">más populares</span> entre los alumnos
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 text-white">
+                        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+                            <div class="container image-grid gap-3 d-flex flex-column">
+                                <div class="row gap-3 gap-md-0 justify-content-center">
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Wonka-476523968-large.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Spider_Man_Cruzando_el_Multiverso-257260163-large.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/barbie-cartel-11222.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/es-ES_sots_main_theatrical_vertical_27x40_cmyk_pre_1.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row gap-3 gap-md-0 justify-content-center">
+                                    <div class="col-5 col-md-3">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/0128038.png"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/barbie-cartel-11222.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 col-md-3 image-container">
+                                        <a href="">
+                                            <figure class="rounded">
+                                                <img src="../components/img/es-ES_sots_main_theatrical_vertical_27x40_cmyk_pre_1.jpg"
+                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </article>
+</template>
+
+<style scoped>
+a {
+    text-decoration: none;
+    color: transparent;
+}
+
+article {
+    background-image: linear-gradient(to top, transparent, #730dd928), url('../components/img/1KgjKh5.png');
+}
+
+.content {
+    backdrop-filter: blur(2px);
+    min-height: 100vh;
+}
+
+.beam-populares-parent {
+    margin-bottom: 0rem;
+}
+
+.beam-populares {
+    padding-top: 6rem;
+}
+
+.beam-populares p {
+    word-wrap: normal;
+}
+
+.beam-populares p span:first-child {
+    background-color: #730DD9;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 767px) {
+    .equal-image {
+        object-fit: cover;
+        aspect-ratio: 0.5;
+    }
+}
+
+.equal-image {
+    object-fit: cover;
+    aspect-ratio: 0.7;
+}
+
+figure {
+    position: relative;
+    transition: border 200ms ease-in-out;
+}
+
+figure:hover {
+    border: 5px solid #730DD9;
+}
+
+figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.button-green-download2-big {
+    background: #730DD9;
+    border-radius: 3px;
+    display: block;
+    font-weight: 700;
+    color: #fff;
+    font-size: 16px;
+    position: absolute;
+    width: 130px;
+    padding: 7px 0;
+    margin: 0 auto;
+    opacity: 0;
+    z-index: 2;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 300ms ease, transform 300ms ease;
+}
+
+figure:hover figcaption,
+figure:hover .button-green-download2-big {
+    opacity: 1;
+}
+
+figure img {
+    filter: blur(0);
+    transition: all 300ms ease;
+}
+
+figure:hover img {
+    filter: blur(2px);
+}
+
+figure span {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 300ms ease, transform 300ms ease;
+}
+
+figure:hover span {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+</style>

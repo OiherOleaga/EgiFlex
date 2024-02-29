@@ -63,7 +63,7 @@ function validar() {
 
                                         <div class="d-flex align-items-center justify-content-center pb-4">
                                             <p class="mb-0 me-2">¿No tienes una cuenta?</p>
-                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-1 mb-3"
+                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-1 "
                                                 id="inicioSesion" type="button"><a href="/registro">Registrar
                                                     cuenta</a></button>
 
