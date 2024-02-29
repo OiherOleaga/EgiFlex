@@ -181,7 +181,7 @@
                         aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body bg-transparent">
                           En un esfuerzo por enriquecer la experiencia educativa y cultural de sus estudiantes, Egibide se
-                          asoció con EgiFlex, un innovador servicio de streaming de series y películas, para crear una
+                          asoció con EgiFlex, un innovador servicio de streaming y descarga de series y películas, para crear una
                           plataforma exclusiva y adaptada a las necesidades educativas únicas de la institución. </div>
                       </div>
                     </div>
