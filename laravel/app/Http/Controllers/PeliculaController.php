@@ -106,18 +106,15 @@ class PeliculaController extends Controller
 
     function getContenido(Request $request)
     {
-
         return ClienteController::checkSession($request, function () {
+            $peliculas = DB::table('peliculas')->get();
+            $series = DB::table('series')->get();
 
-            return DB::select(
-                "SELECT * FROM (
-                    SELECT * FROM peliculas ORDER BY RAND() LIMIT 4
-                ) AS peliculas
-                UNION
-                SELECT * FROM (
-                    SELECT * FROM series ORDER BY RAND() LIMIT 4
-                ) AS series"
-            );
+            $contenido = $peliculas->concat($series);
+
+            $contenido = $contenido->shuffle();
+
+            return $contenido->take(8);
         });
     }
 
