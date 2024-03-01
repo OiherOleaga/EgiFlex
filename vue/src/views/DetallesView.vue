@@ -18,11 +18,11 @@ const detalles = ref();
 
 </script>
 <template>
-    <article class="w-100 min-vh-100">
+    <article class="w-100 min-vh-100 overflow-x-hidden">
         <section class="beam-portada-parent">
             <div class="container-fluid m-0 p-0 beam-portada">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12 m-0 p-0">
                         <div class="portada-container">
                             <img src="../components/img/cyberpunk-edgerunners-david-lucy-rebecca-art-4k-wallpaper-uhdpaper.com-644@1@i.jpg"
                                 alt="Portada" class="portada-img" />
@@ -31,7 +31,7 @@ const detalles = ref();
                     </div>
                 </div>
                 <div class="container beam-detalles-parent rounded p-2 p-md-4 my-2">
-                    <div class="row">
+                    <div class="row ">
                         <div class="col-12 col-md-3 beam-detalles text-sm-center text-md-start">
                             <figure>
                                 <img src="../components/img/2148622.jpg" class="rounded img img-fluid equal-image" alt="">
@@ -70,7 +70,7 @@ const detalles = ref();
                                 </ul>
                             </div>
                             </p>
-                            <div class="episodios d-flex flex-column gap-2">
+                            <div class="episodios overflow-y-scroll d-flex flex-column gap-2">
                                 <div class="d-flex align-items-center justify-content-around gap-3">
                                     <p class="m-0 fw-semibold">1. No quiero decepcionarte</p>
                                     <div class="d-flex gap-2">
@@ -80,6 +80,62 @@ const detalles = ref();
                                 </div>
                                 <div class="d-flex align-items-center justify-content-around gap-3">
                                     <p class="m-0 fw-semibold">2. No quiero decepcionarte</p>
+                                    <div class="d-flex gap-2">
+                                        <button class="rounded-pill btn text-white p-2">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2">Ver ahora</button>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-around gap-3">
+                                    <p class="m-0 fw-semibold">3. No quiero decepcionarte</p>
+                                    <div class="d-flex gap-2">
+                                        <button class="rounded-pill btn text-white p-2">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2">Ver ahora</button>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-around gap-3">
+                                    <p class="m-0 fw-semibold">3. No quiero decepcionarte</p>
+                                    <div class="d-flex gap-2">
+                                        <button class="rounded-pill btn text-white p-2">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2">Ver ahora</button>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-around gap-3">
+                                    <p class="m-0 fw-semibold">3. No quiero decepcionarte</p>
+                                    <div class="d-flex gap-2">
+                                        <button class="rounded-pill btn text-white p-2">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2">Ver ahora</button>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-around gap-3">
+                                    <p class="m-0 fw-semibold">3. No quiero decepcionarte</p>
+                                    <div class="d-flex gap-2">
+                                        <button class="rounded-pill btn text-white p-2">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2">Ver ahora</button>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-around gap-3">
+                                    <p class="m-0 fw-semibold">3. No quiero decepcionarte</p>
+                                    <div class="d-flex gap-2">
+                                        <button class="rounded-pill btn text-white p-2">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2">Ver ahora</button>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-around gap-3">
+                                    <p class="m-0 fw-semibold">3. No quiero decepcionarte</p>
+                                    <div class="d-flex gap-2">
+                                        <button class="rounded-pill btn text-white p-2">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2">Ver ahora</button>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-around gap-3">
+                                    <p class="m-0 fw-semibold">3. No quiero decepcionarte</p>
+                                    <div class="d-flex gap-2">
+                                        <button class="rounded-pill btn text-white p-2">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2">Ver ahora</button>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-around gap-3">
+                                    <p class="m-0 fw-semibold">3. No quiero decepcionarte</p>
                                     <div class="d-flex gap-2">
                                         <button class="rounded-pill btn text-white p-2">Descargar</button>
                                         <button class="rounded-pill btn text-white p-2">Ver ahora</button>
@@ -127,7 +183,7 @@ const detalles = ref();
 
 .beam-detalles-parent {
     position: absolute;
-    top: 60%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -171,7 +227,7 @@ const detalles = ref();
     backdrop-filter: blur(10px);
 }
 
-.dropdown-item{
+.dropdown-item {
     color: white;
 }
 
@@ -180,4 +236,11 @@ const detalles = ref();
     color: white;
 }
 
+.episodios{
+    height: 450px;
+}
+
+.episodios::-webkit-scrollbar{
+    background-color: transparent;
+}
 </style>
