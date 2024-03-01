@@ -9,7 +9,7 @@ if (args[0] == 's') {
         detalles.value = res.detalles
     })
 } else if (args[0] == 'p') {
-POST("/getDetallesPelicula", { id: args[1] }).then(res => {
+    POST("/getDetallesPelicula", { id: args[1] }).then(res => {
         detalles.value = res.detalles
     })
 }
@@ -22,13 +22,15 @@ POST("/getDetallesPelicula", { id: args[1] }).then(res => {
                 <div class="row">
                     <div class="col-12 m-0 p-0">
                         <div class="portada-container">
-                            <img :src="detalles.poster"
-                                alt="Portada" class="portada-img" />
+                            <img :src="detalles.poster" alt="Portada" class="portada-img" />
+                            <!-- <a href="https://www.youtube.com/watch?v=4QezW0KhWvk" class="play-button"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_play_button_icon_%282013%E2%80%932017%29.svg/2560px-YouTube_play_button_icon_%282013%E2%80%932017%29.svg.png"
+                                    alt=""></a> -->
                             <div class="degradado"></div>
                         </div>
                     </div>
                 </div>
-                <div class="container beam-detalles-parent rounded p-2 p-md-4 my-2">
+                <div class="container beam-detalles-parent rounded p-2 p-md-4 my-5">
                     <div class="row ">
                         <div class="col-12 col-md-3 beam-detalles text-sm-center text-md-start">
                             <figure>
@@ -52,7 +54,8 @@ POST("/getDetallesPelicula", { id: args[1] }).then(res => {
                             </div>
                         </div>
                         <div class="col-12 col-md-9 text-start">
-                            <p class="fw-semibold fs-2">{{ detalles.titulo }} ({{ detalles.ano_lanzamiento.split("-")[0] }})</p>
+                            <p class="fw-semibold fs-2">{{ detalles.titulo }} ({{ detalles.ano_lanzamiento.split("-")[0] }})
+                            </p>
                             <p class="fw-semibold fs-5">{{ detalles.sinopsis }}</p>
 
                             <div v-if="args[0] == 's'">
@@ -89,9 +92,17 @@ POST("/getDetallesPelicula", { id: args[1] }).then(res => {
 .portada-container {
     position: relative;
     overflow: hidden;
-    height: 700px;
-    z-index: -1;
+    height: 630px;
+    z-index: 0;
 }
+
+/* .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+} */
 
 .portada-img {
     width: 100%;
@@ -110,10 +121,7 @@ POST("/getDetallesPelicula", { id: args[1] }).then(res => {
 }
 
 .beam-detalles-parent {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     text-align: center;
     color: #730DD9;
     background-color: #030328;
@@ -140,10 +148,7 @@ POST("/getDetallesPelicula", { id: args[1] }).then(res => {
     aspect-ratio: 0.7;
 }
 
-.btn {
-    background-color: #730DD9;
-}
-
+.btn,
 .btn:hover {
     background-color: #730DD9;
 }
@@ -164,11 +169,11 @@ POST("/getDetallesPelicula", { id: args[1] }).then(res => {
     color: white;
 }
 
-.episodios{
+.episodios {
     height: 450px;
 }
 
-.episodios::-webkit-scrollbar{
+.episodios::-webkit-scrollbar {
     background-color: transparent;
 }
 </style>
