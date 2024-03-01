@@ -36,6 +36,10 @@ class PeliculaController extends Controller
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
             $portada->move(public_path('media/portadas'), $nombrePortada);
 
+            $poster = $request->file('poster');
+            $nombrePoster = time() . '_' . $poster->getClientOriginalName();
+            $poster->move(public_path('media/posters'), $nombrePoster);
+
             $pelicula = Pelicula::create([
                 'titulo' => $request->titulo,
                 'director' => $request->director,
@@ -44,6 +48,7 @@ class PeliculaController extends Controller
                 'duracion' => $request->duracion,
                 'archivo' => 'media/pelis/' . $nombreArchivo,
                 'portada' => 'media/portadas/' . $nombrePortada,
+                'poster' => 'media/posters/' . $nombrePoster,
             ]);
 
             if ($request->has('categoria')) {
@@ -107,6 +112,20 @@ class PeliculaController extends Controller
             $pelicula->portada = 'media/portadas/' . $nombrePortada;
         }
 
+        if ($request->hasFile('poster')) {
+            if ($pelicula->poster) {
+                if (File::exists(public_path($pelicula->poster))) {
+                    File::delete(public_path($pelicula->poster));
+                }
+            }
+            
+            $portposterada = $request->file('poster');
+            $nombrePoster = time() . '_' . $poster->getClientOriginalName();
+            $poster->move(public_path('media/posters'), $nombrePoster);
+
+            $pelicula->poster = 'media/posters/' . $nombrePoster;
+        }
+
         if ($request->has('categoria')) {
             $categoria = $request->categoria;
             $pelicula->categorias()->sync($categoria);
@@ -121,14 +140,18 @@ class PeliculaController extends Controller
     {
         $archivo = $pelicula->archivo;
         $portada = $pelicula->portada;
+        $poster = $pelicula->poster;
 
         if ($archivo && $portada) {
             $rutaArchivo = public_path($archivo);
             $rutaPortada = public_path($portada);
+            $rutaPoster = public_path($poster);
 
-            if (File::exists($rutaArchivo) && File::exists($rutaPortada)) {
+            if (File::exists($rutaArchivo) && File::exists($rutaPortada) && File::exists($rutaPoster)) {
                 File::delete($rutaArchivo);
                 File::delete($rutaPortada);
+                File::delete($rutaPoster);
+
                 $pelicula->delete();
                 return redirect()->route('peliculas.index')->with('success', 'Pelicula eliminada exitosamente.');
             } else {
