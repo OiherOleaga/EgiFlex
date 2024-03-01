@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+const props = defineProps({tipo: String});
 
 
 function cargarRandom() {
@@ -22,6 +23,10 @@ function cargarPelis() {
             console.error('Error al procesar la solicitud:', error);
             throw error;
         });
+}
+
+function detalles(id, tipo) {
+    return `/detalles?${tipo}=${id}`;
 }
 
 function cargarSeries() {
@@ -89,10 +94,9 @@ cargarSeries()
                         <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
-
                                     <div v-for="item in datosAleatorios" :key="item.id"
                                         class="col-5 col-md-3 image-container">
-                                        <a :href="item.id">
+                                        <a :href="detalles(item.id, item.tipo)">
                                             <figure class="rounded">
                                                 <img :src="item.portada" class="rounded img img-fluid equal-image"
                                                     :alt="item.titulo">
@@ -102,8 +106,6 @@ cargarSeries()
                                             </figure>
                                         </a>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -126,15 +128,8 @@ cargarSeries()
                         <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
-
-
-
-
-
-
-
                                     <div v-for="item in Pelis" :key="item.id" class="col-5 col-md-3 image-container">
-                                        <a :href="item.id">
+                                        <a :href="'detalles/p='">
                                             <figure class="rounded">
                                                 <img :src="item.portada" class="rounded img img-fluid equal-image"
                                                     :alt="item.titulo">
@@ -144,12 +139,6 @@ cargarSeries()
                                             </figure>
                                         </a>
                                     </div>
-
-
-
-
-
-
                                 </div>
                             </div>
                             <a href="/peliculas" class="rounded-pill btn btn-md px-4 fw-bold text-white">Ver todas las

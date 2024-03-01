@@ -1,5 +1,3 @@
-
-
 <script setup>
 
 import router from '@/router';
@@ -17,7 +15,7 @@ fetch(route("/checkSession"), {
         router.push("/content")
     }
 })
-// LA CONTRASEÑA HAY QUE DESENCRIPTARLA
+
 function validar() {
     POST('/iniciarSesion', { correo: correo.value, contra: contra.value })
         .then(function (response) {
@@ -59,7 +57,7 @@ function validar() {
                                                 v-model="correo" placeholder="Correo electronico" />
                                         </div>
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="contra" name="contra" class="form-control"
+                                            <input type="password" id="contra" name="contra" class="form-control"
                                                 v-model="contra" placeholder="Contrasena" />
                                         </div>
                                         <div class="text-center pt-1 mb-5 pb-1">

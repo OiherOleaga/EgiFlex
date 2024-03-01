@@ -52,7 +52,7 @@ POST("/getDetallesPelicula", { id: args[1] }).then(res => {
                             </div>
                         </div>
                         <div class="col-12 col-md-9 text-start">
-                            <p class="fw-semibold fs-2">{{ detalles.titulo }} {{ detalles.ano_lanzamiento.split("-")[0] }}</p>
+                            <p class="fw-semibold fs-2">{{ detalles.titulo }} ({{ detalles.ano_lanzamiento.split("-")[0] }})</p>
                             <p class="fw-semibold fs-5">{{ detalles.sinopsis }}</p>
 
                             <div v-if="args[0] == 's'">
