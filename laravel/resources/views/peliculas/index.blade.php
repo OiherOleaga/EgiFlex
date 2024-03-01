@@ -27,6 +27,9 @@
                         <thead class="bg-gray-50 dark:bg-gray-700">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                    Portada
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                                     ID
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
@@ -62,6 +65,13 @@
                             @foreach($peliculas as $pelicula)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
+                                    @if ($pelicula->portada)
+                                        <a href="{{ asset($pelicula->portada) }}" data-fancybox>
+                                            <img src="{{ asset($pelicula->portada) }}" alt="Portada actual" class="mt-2 rounded-md" style="max-width: 50px; max-height: 50px;">
+                                        </a>
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
                                     {{ $pelicula->id }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
@@ -80,7 +90,7 @@
                                     {{ $pelicula->duracion }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-300">
-                                    @foreach($serie->categorias as $categoria)
+                                    @foreach($pelicula->categorias as $categoria)
                                         {{ $categoria->nombre }}
                                     @endforeach
                                 </td>

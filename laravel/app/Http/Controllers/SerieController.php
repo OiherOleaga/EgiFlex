@@ -30,12 +30,17 @@ class SerieController extends Controller
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
             $portada->move(public_path('media/portadas'), $nombrePortada);
 
+            $poster = $request->file('poster');
+            $nombrePoster = time() . '_' . $poster->getClientOriginalName();
+            $poster->move(public_path('media/posters'), $nombrePoster);
+
             $serie = Serie::create([
                 'titulo' => $request->titulo,
                 'director' => $request->director,
                 'ano_lanzamiento' => $request->ano_lanzamiento,
                 'sinopsis' => $request->sinopsis,
                 'portada' => 'media/portadas/' . $nombrePortada,
+                'poster' => 'media/portadas/' . $nombrePoster,
             ]);
 
             if ($request->has('categoria')) {
@@ -87,6 +92,20 @@ class SerieController extends Controller
             $serie->portada = 'media/portadas/' . $nombrePortada;
         }
 
+        if ($request->hasFile('poster')) {
+            if ($serie->poster) {
+                if (File::exists(public_path($serie->poster))) {
+                    File::delete(public_path($serie->poster));
+                }
+            }
+            
+            $portposterada = $request->file('poster');
+            $nombrePoster = time() . '_' . $poster->getClientOriginalName();
+            $poster->move(public_path('media/posters'), $nombrePoster);
+
+            $serie->poster = 'media/posters/' . $nombrePoster;
+        }
+
         if ($request->has('categoria')) {
             $categoria = $request->categoria;
             $serie->categorias()->sync($categoria);
@@ -101,12 +120,16 @@ class SerieController extends Controller
     public function destroy(Serie $serie)
     {
         $portada = $serie->portada;
+        $poster = $serie->poster;
 
         if ($portada) {
             $rutaPortada = public_path($portada);
+            $rutaPoster = public_path($poster);
 
-            if (File::exists($rutaPortada)) {
+            if (File::exists($rutaPortada) && File::exists($rutaPoster)) {
                 File::delete($rutaPortada);
+                File::delete($rutaPoster);
+
                 $serie->delete();
                 return redirect()->route('series.index')->with('success', 'Serie eliminada exitosamente.');
             } else {
