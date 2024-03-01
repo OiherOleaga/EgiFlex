@@ -51,8 +51,8 @@ class ContenidoController extends Controller
             array_push($datos, $request["busqueda"]);
         }
 
-        $select = $consulta . $where;
-        return ["select" => $select];
-        return DB::select( $consulta . $where, $datos);
+        $select = $consulta . $where ;
+        //return ["select" => $select];
+        return DB::select( $consulta . ($where), $datos);
     });}
 }

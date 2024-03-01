@@ -9,6 +9,7 @@ function detalles(id) {
 }
 
 GET("/series").then((res) => {
+    console.log(res)
     series.value = res.series;
 })
 

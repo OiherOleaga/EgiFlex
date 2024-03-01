@@ -51,7 +51,7 @@ function getInicioSesion() {
                                     <a href="#important">Imprescindibles</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="#series">Series</a>
+                                    <a href="/series">Series</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="#faq">Preguntas Frecuentes</a>
