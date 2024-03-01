@@ -96,7 +96,7 @@ if (args[0] == 's') {
 article {
     background-size: cover;
     background-position: center center;
-    background-image: url(https://hbomax-images.warnermediacdn.com/2021-07/hbo_max_background_faded.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
+    background-image: linear-gradient(rgba(0, 0, 0, 1) 45%, transparent 60%), url(https://hbomax-images.warnermediacdn.com/2021-07/hbo_max_background_faded.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
 }
 
 .portada-container {
