@@ -21,61 +21,66 @@ if (args[0] == 's') {
             <div class="container-fluid m-0 p-0 beam-portada">
                 <div class="row">
                     <div class="col-12 m-0 p-0">
-                        <div class="portada-container">
-                            <img :src="detalles.poster" alt="Portada" class="portada-img" />
-                            <!-- <a href="https://www.youtube.com/watch?v=4QezW0KhWvk" class="play-button"><img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_play_button_icon_%282013%E2%80%932017%29.svg/2560px-YouTube_play_button_icon_%282013%E2%80%932017%29.svg.png"
-                                    alt=""></a> -->
-                        </div>
+                        <a href="">
+                            <div class="portada-container">
+                                <img :src="detalles.poster" alt="Portada" class="portada-img" />
+                                <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png"
+                                    alt="" width="120px" class="play-button">
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div class="container beam-detalles-parent rounded p-2 p-md-4 my-5">
-                    <div class="row ">
-                        <div class="col-12 col-md-3 beam-detalles text-sm-center text-md-start">
-                            <figure>
-                                <img :src="detalles.portada" class="rounded img img-fluid equal-image" alt="">
-                                <figcaption v-if="args[0] == 'p'" class="gap-2 d-flex my-2">
-                                    <button class="rounded-pill btn w-50 text-white p-2">Descargar</button>
-                                    <button class="rounded-pill btn w-50 text-white p-2">Ver ahora</button>
-                                </figcaption>
-                            </figure>
-                            <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
-                                <p class="m-0 fs-5">Géneros:</p>
-                                <p>Fantasia, Accion</p>
-                            </div>
-                            <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
-                                <p class="m-0 fs-5">Fecha de lanzamiento:</p>
-                                <p>{{ detalles.ano_lanzamiento }}</p>
-                            </div>
-                            <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
-                                <p class="m-0 fs-5">Temporadas:</p>
-                                <p>1</p>
-                            </div>
+            </div>
+            <div class="container beam-detalles-parent rounded p-2 p-md-4 my-5">
+                <div class="row ">
+                    <div class="col-12 col-md-3 beam-detalles text-sm-center text-md-start">
+                        <figure>
+                            <img :src="detalles.portada" class="rounded img img-fluid equal-image" alt="">
+                            <figcaption v-if="args[0] == 'p'" class="gap-2 d-flex my-2">
+                                <button class="rounded-pill btn w-50 text-white p-2">Descargar</button>
+                                <button class="rounded-pill btn w-50 text-white p-2">Ver ahora</button>
+                            </figcaption>
+                        </figure>
+                        <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
+                            <p class="m-0 fs-5">Géneros:</p>
+                            <p>Fantasia, Accion</p>
                         </div>
-                        <div class="col-12 col-md-9 text-start">
-                            <p class="fw-semibold fs-2">{{ detalles.titulo }} ({{ detalles.ano_lanzamiento.split("-")[0] }})
-                            </p>
-                            <p class="fw-semibold fs-5">{{ detalles.sinopsis }}</p>
+                        <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
+                            <p class="m-0 fs-5">Fecha de lanzamiento:</p>
+                            <p>{{ detalles.ano_lanzamiento }}</p>
+                        </div>
+                        <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
+                            <p class="m-0 fs-5">Director:</p>
+                            <p>{{ detalles.director }}</p>
+                        </div>
+                        <div v-if="args[0] == 's'" class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
+                            <p class="m-0 fs-5">Temporadas:</p>
+                            <p>1</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-9 text-start">
+                        <p class="fw-semibold fs-2">{{ detalles.titulo }} ({{ detalles.ano_lanzamiento.split("-")[0] }})
+                        </p>
+                        <p class="fw-semibold fs-5">{{ detalles.sinopsis }}</p>
 
-                            <div v-if="args[0] == 's'">
-                                <p class="fw-semibold fs-2">Episodios
-                                <div class="dropdown">
-                                    <button class="btn bg-transparent text-white fw-bold dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Temporada
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">1</a></li>
-                                    </ul>
-                                </div>
-                                </p>
-                                <div class="episodios overflow-y-scroll d-flex flex-column gap-2">
-                                    <div class="d-flex align-items-center justify-content-around gap-3">
-                                        <p class="m-0 fw-semibold">1. No quiero decepcionarte</p>
-                                        <div class="d-flex gap-2">
-                                            <button class="rounded-pill btn text-white p-2">Descargar</button>
-                                            <button class="rounded-pill btn text-white p-2">Ver ahora</button>
-                                        </div>
+                        <div v-if="args[0] == 's'">
+                            <p class="fw-semibold fs-2">Episodios
+                            <div class="dropdown">
+                                <button class="btn bg-transparent text-white fw-bold dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Temporada
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">1</a></li>
+                                </ul>
+                            </div>
+                            </p>
+                            <div class="episodios overflow-y-scroll d-flex flex-column gap-2">
+                                <div class="d-flex align-items-center justify-content-around gap-3">
+                                    <p class="m-0 fw-semibold">1. No quiero decepcionarte</p>
+                                    <div class="d-flex gap-2">
+                                        <button class="rounded-pill btn text-white p-2">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2">Ver ahora</button>
                                     </div>
                                 </div>
                             </div>
@@ -107,17 +112,17 @@ if (args[0] == 's') {
 }
 
 
-/* .play-button {
+.play-button {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-} */
+}
 
 .portada-img {
     width: 100%;
-    height: 100%;
+    height: 130%;
     object-fit: cover;
     object-position: center;
 }
