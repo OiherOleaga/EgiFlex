@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('ano_lanzamiento');
             $table->text('sinopsis');
             $table->char('portada');
+            $table->char('poster');
             $table->timestamps();
         });
     }

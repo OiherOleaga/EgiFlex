@@ -9,9 +9,24 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 class EpisodioController extends Controller
 {
-    public function index()
+
+    public function index(Request $request)
     {
-        $episodios = Episodio::all();
+        $search = $request->input('search');
+        
+        $episodios = Episodio::query()
+            ->whereHas('temporada.serie', function ($query) use ($search) {
+                $query->where('titulo', 'LIKE', "%$search%");
+            })
+            ->orWhere('titulo', 'LIKE', "%$search%")
+            ->orWhere('numero_episodio', 'LIKE', "%$search%")
+            ->orWhere('duracion', 'LIKE', "%$search%")
+            ->orWhere('sinopsis', 'LIKE', "%$search%")
+            ->orWhere('fecha_estreno', 'LIKE', "%$search%")
+            ->paginate(5);
+    
+        $episodios->appends(['search' => $search]);
+    
         return view('episodios.index', compact('episodios'));
     }
 

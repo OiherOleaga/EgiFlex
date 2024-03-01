@@ -6,16 +6,37 @@ use App\Models\Serie;
 use App\Models\Categoria;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class SerieController extends Controller
 {
-    public function index()
+
+    public function index(Request $request)
     {
-        $series = Serie::with('categorias')->get();
+        $search = $request->input('search');
+        $categoria = $request->input('categoria');
+    
+        $series = Serie::query()
+            ->where(function ($query) use ($search) {
+                $query->where('titulo', 'LIKE', "%$search%")
+                      ->orWhere('director', 'LIKE', "%$search%")
+                      ->orWhere('ano_lanzamiento', 'LIKE', "%$search%")
+                      ->orWhere('sinopsis', 'LIKE', "%$search%");
+            })
+            ->when($categoria, function ($query, $categoria) {
+                return $query->whereHas('categorias', function ($query) use ($categoria) {
+                    $query->where('nombre', 'LIKE', "%$categoria%");
+                });
+            })
+            ->paginate(5);
+    
+        $series->appends(['search' => $search, 'categoria' => $categoria]);
+    
         return view('series.index', compact('series'));
     }
-
+    
+    
     public function create()
     {
         $categorias = Categoria::all();
@@ -29,12 +50,17 @@ class SerieController extends Controller
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
             $portada->move(public_path('media/portadas'), $nombrePortada);
 
+            $poster = $request->file('poster');
+            $nombrePoster = time() . '_' . $poster->getClientOriginalName();
+            $poster->move(public_path('media/posters'), $nombrePoster);
+
             $serie = Serie::create([
                 'titulo' => $request->titulo,
                 'director' => $request->director,
                 'ano_lanzamiento' => $request->ano_lanzamiento,
                 'sinopsis' => $request->sinopsis,
                 'portada' => 'media/portadas/' . $nombrePortada,
+                'poster' => 'media/posters/' . $nombrePoster,
             ]);
 
             if ($request->has('categoria')) {
@@ -86,6 +112,20 @@ class SerieController extends Controller
             $serie->portada = 'media/portadas/' . $nombrePortada;
         }
 
+        if ($request->hasFile('poster')) {
+            if ($serie->poster) {
+                if (File::exists(public_path($serie->poster))) {
+                    File::delete(public_path($serie->poster));
+                }
+            }
+            
+            $poster = $request->file('poster');
+            $nombrePoster = time() . '_' . $poster->getClientOriginalName();
+            $poster->move(public_path('media/posters'), $nombrePoster);
+
+            $serie->poster = 'media/posters/' . $nombrePoster;
+        }
+
         if ($request->has('categoria')) {
             $categoria = $request->categoria;
             $serie->categorias()->sync($categoria);
@@ -100,12 +140,16 @@ class SerieController extends Controller
     public function destroy(Serie $serie)
     {
         $portada = $serie->portada;
+        $poster = $serie->poster;
 
         if ($portada) {
             $rutaPortada = public_path($portada);
+            $rutaPoster = public_path($poster);
 
-            if (File::exists($rutaPortada)) {
+            if (File::exists($rutaPortada) && File::exists($rutaPoster)) {
                 File::delete($rutaPortada);
+                File::delete($rutaPoster);
+
                 $serie->delete();
                 return redirect()->route('series.index')->with('success', 'Serie eliminada exitosamente.');
             } else {
@@ -114,22 +158,31 @@ class SerieController extends Controller
         } else {
             return redirect()->route('series.index')->with('error', 'No se encontró la portada asociada.');
         }
-
     }
 
-    function getSeries(Request $request) {
+    function getSeries(Request $request)
+    {
 
         return ClienteController::checkSession($request, function () {
             return ["series" => Serie::inRandomOrder()->limit(10)->get()];
         });
-
     }
 
-    function getDetallesSerie(Request $request) {
+    function getDetallesSerie(Request $request)
+    {
 
         return ClienteController::checkSession($request, function ($request) {
             return ["detalles" => Serie::find($request["id"])];
         });
+    }
 
+    public function getSeriesRandom(Request $request)
+    {
+        return ClienteController::checkSession($request, function () {
+            $series = DB::table('series')->get()->toArray();
+            shuffle($series);
+            $seriesRandom = array_slice($series, 0, 8);
+            return ['series' => $seriesRandom];
+        });
     }
 }

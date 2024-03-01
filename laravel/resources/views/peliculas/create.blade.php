@@ -50,9 +50,34 @@
                                 </div>
 
                                 <div>
+                                    <label for="categoria" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Categoría</label>
+                                    <div class="mt-1">
+                                        <select name="categoria" id="categoria" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                            @foreach($categorias as $categoria)
+                                                <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
                                     <label for="archivo" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Archivo</label>
                                     <div class="mt-1">
                                         <input type="file" name="archivo" id="archivo" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="portada" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Portada</label>
+                                    <div class="mt-1">
+                                        <input type="file" name="portada" id="portada" accept="image/*" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="poster" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Poster</label>
+                                    <div class="mt-1">
+                                        <input type="file" name="poster" id="poster" accept="image/*" class="block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-md">
                                     </div>
                                 </div>
 

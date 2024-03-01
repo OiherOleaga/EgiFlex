@@ -15,6 +15,7 @@ class Serie extends Model
         'ano_lanzamiento',
         'sinopsis',
         'portada',
+        'poster',
     ];
 
     public function categorias()
