@@ -6,6 +6,7 @@ use App\Models\Serie;
 use App\Models\Categoria;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class SerieController extends Controller
@@ -114,22 +115,31 @@ class SerieController extends Controller
         } else {
             return redirect()->route('series.index')->with('error', 'No se encontró la portada asociada.');
         }
-
     }
 
-    function getSeries(Request $request) {
+    function getSeries(Request $request)
+    {
 
         return ClienteController::checkSession($request, function () {
             return ["series" => Serie::inRandomOrder()->limit(10)->get()];
         });
-
     }
 
-    function getDetallesSerie(Request $request) {
+    function getDetallesSerie(Request $request)
+    {
 
         return ClienteController::checkSession($request, function ($request) {
             return ["detalles" => Serie::find($request["id"])];
         });
+    }
 
+    public function getseriesRandom(Request $request)
+    {
+        return ClienteController::checkSession($request, function () {
+            $series = DB::table('series')->get()->toArray();
+            shuffle($series);
+            $seriesRandom = array_slice($series, 0, 8);
+            return ['series' => $seriesRandom];
+        });
     }
 }
