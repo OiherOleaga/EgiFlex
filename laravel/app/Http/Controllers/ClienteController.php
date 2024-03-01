@@ -24,14 +24,14 @@ class ClienteController extends Controller
         if (empty($request->nombre)) {
             return redirect()->route('clientes.index')->with('error', 'Error: El campo nombre no puede estar vacío.');
         }
-    
+
         try {
             Cliente::create($request->all());
             return redirect()->route('clientes.index')->with('success', 'Cliente creado exitosamente.');
         } catch (\Exception $e) {
             return redirect()->route('clientes.index')->with('error', 'Error al crear el cliente: ' . $e->getMessage());
         }
-    }    
+    }
 
     public function show(Cliente $cliente)
     {
@@ -104,7 +104,7 @@ class ClienteController extends Controller
             return response()->json(["logged" => true]);
         }
 
-        return response()->json(array_merge(["logged" => true], $callback()));
+        return response()->json(array_merge(["logged" => true], $callback($request)));
     }
 
 }

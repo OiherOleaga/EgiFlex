@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Temporada;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-
 class EpisodioController extends Controller
 {
     public function index()
