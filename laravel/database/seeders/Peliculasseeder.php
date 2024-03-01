@@ -194,6 +194,16 @@ class Peliculasseeder extends Seeder
                     'portada' => $url . '/portadas/the_lord_of_the_rings_the_fellowship_of_the_ring.jpg',
                     'poster' => $url . '/posters/the_lord_of_the_rings_the_fellowship_of_the_ring.jpg',
                 ],
+                [
+                    'titulo' => 'Crepúsculo',
+                    'director' => 'Catherine Hardwicke',
+                    'ano_lanzamiento' => '2008-11-21',
+                    'sinopsis' => 'Una joven llamada Bella Swan se muda a Forks, Washington, donde se enamora de Edward Cullen, un vampiro que oculta su verdadera naturaleza.',
+                    'duracion' => 122,
+                    'archivo' => $url . '/peliculas/crepusculo.mp4',
+                    'portada' => $url . '/portadas/crepusculo.jpg',
+                    'poster' => $url . '/posters/crepusculo.jpg',
+                ],
                 
         ];
 
