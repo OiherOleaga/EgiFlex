@@ -126,11 +126,22 @@ class PeliculaController extends Controller
         });
     }
 
-    function getDetallesPelicula(Request $request) {
+    function getDetallesPelicula(Request $request)
+    {
 
         return ClienteController::checkSession($request, function ($request) {
             return ["detalles" => Pelicula::find($request["id"])];
         });
+    }
 
+
+    public function getPelis(Request $request)
+    {
+        return ClienteController::checkSession($request, function () {
+            $peliculas = DB::table('peliculas')->get()->toArray();
+            shuffle($peliculas);
+            $peliculasRandom = array_slice($peliculas, 0, 8);
+            return ['pelis' => $peliculasRandom];
+        });
     }
 }
