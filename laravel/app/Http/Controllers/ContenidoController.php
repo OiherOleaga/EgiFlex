@@ -29,7 +29,7 @@ class ContenidoController extends Controller
         $datos = [];
         switch ($request["tipo"]) {
             case 'n':
-                $subConsulta .= ", tipo from 
+                $consulta .= ", tipo from 
                 (
                     SELECT id, titulo, portada, 'p' as tipo FROM peliculas
                     union all

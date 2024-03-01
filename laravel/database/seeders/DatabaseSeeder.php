@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(Peliculasseeder::class); 
+        $this->call(SeriesSeeder::class); 
+
         User::create([
             'name' => 'David',
             'email' => 'david.moreno@ikasle.egibide.org',
