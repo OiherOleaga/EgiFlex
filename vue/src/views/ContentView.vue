@@ -1,11 +1,9 @@
 <script setup>
-
-import router from '@/router';
 import { ref } from 'vue';
 
 
 function cargarRandom() {
-    return GET('/peliculas/random')
+    return GET('/contenido/random')
         .then(function (response) {
             return response;
         })

@@ -1,10 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 
-// const peliculas = ref([])
+const series = ref([])
+
+function detalles(id) {
+    return "/detalles?p=" + id;
+}
 
 GET("/peliculas").then((res) => {
-    peliculas.value = res.peliculas;
+    series.value = res.series;
 })
 
 </script>
@@ -12,8 +16,8 @@ GET("/peliculas").then((res) => {
 <template>
     <article class="w-100 min-vh-100">
         <div class="content">
-            <section class="beam-peliculas-parent">
-                <div class="container beam-peliculas">
+            <section class="beam-series-parent">
+                <div class="container beam-series">
                     <div class="row">
                         <div class="col-12 text-white">
                             <div class="d-flex flex-column align-items-center gap-2 text-center">
@@ -52,7 +56,7 @@ GET("/peliculas").then((res) => {
                                     <div class="dropdown">
                                         <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
                                             data-bs-toggle="dropdown" aria-expanded="false">
-                                            Año de publicación
+                                            Número de temporadas
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="#">Horror</a></li>
@@ -72,175 +76,10 @@ GET("/peliculas").then((res) => {
                         <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div class="col-5 col-md-2">
-                                        <a href="">
+                                    <div v-for="seire in series" class="col-5 col-md-2">
+                                        <a :href="detalles(seire.id)">
                                             <figure class="rounded">
                                                 <img src="../components/img/Wonka-476523968-large.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/Spider_Man_Cruzando_el_Multiverso-257260163-large.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/barbie-cartel-11222.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/es-ES_sots_main_theatrical_vertical_27x40_cmyk_pre_1.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/0128038.png"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/1091444.png "
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/0128038.png"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/1091444.png "
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/Cyberpunk-Edgerunners-S1-Poster-en.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big roundedd">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/0128038.png"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="col-5 col-md-2 image-container">
-                                        <a href="">
-                                            <figure class="rounded">
-                                                <img src="../components/img/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"
                                                     class="rounded img img-fluid equal-image" alt="">
                                                 <figcaption class="d-none d-md-block text-center">
                                                     <span class="button-green-download2-big">Ver detalles</span>
@@ -312,19 +151,19 @@ article {
     min-height: 100vh;
 }
 
-.beam-peliculas-parent {
+.beam-series-parent {
     margin-bottom: 0rem;
 }
 
-.beam-peliculas {
+.beam-series {
     padding-top: 6rem;
 }
 
-.beam-peliculas p {
+.beam-series p {
     word-wrap: normal;
 }
 
-.beam-peliculas p span:first-child {
+.beam-series p span:first-child {
     background-color: #730DD9;
     font-weight: 700;
     text-transform: uppercase;
