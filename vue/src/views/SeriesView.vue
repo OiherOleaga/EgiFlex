@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import filtro from '../components/filtro.vue'
 
 const series = ref([])
 
@@ -28,50 +29,8 @@ GET("/series").then((res) => {
                                 </p>
                             </div>
                         </div>
-                        <div class="col-12 text-white ">
-                            <form action="" method="">
-                                <div
-                                    class="d-flex flex-wrap flex-row align-items-center justify-content-center justify-content-md-end justify-content-md-end gap-2 text-center">
-                                    <div class="dropdown">
-                                        <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            Ordenar por
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Descargas</a></li>
-                                            <li><a class="dropdown-item" href="#">Recientes</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="dropdown ">
-                                        <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            Género
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Horror</a></li>
-                                            <li><a class="dropdown-item" href="#">Fantasia</a></li>
-                                            <li><a class="dropdown-item" href="#">Drama</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="dropdown">
-                                        <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            Número de temporadas
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Horror</a></li>
-                                            <li><a class="dropdown-item" href="#">Fantasia</a></li>
-                                            <li><a class="dropdown-item" href="#">Drama</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <input class="form-control p-1 search" type="search" placeholder="Buscar"
-                                            aria-label="Buscar">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
                     </div>
+                    <filtro :tipo="'s'"/>
                     <div class="row mt-3 text-white">
                         <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">

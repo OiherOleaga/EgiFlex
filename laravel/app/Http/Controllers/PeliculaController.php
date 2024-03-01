@@ -161,21 +161,6 @@ class PeliculaController extends Controller
             return redirect()->route('peliculas.index')->with('error', 'No se encontró el archivo asociado.');
         }
     }
-
-    function getContenido(Request $request)
-    {
-        return ClienteController::checkSession($request, function () {
-            $peliculas = DB::table('peliculas')->get()->toArray();
-            $series = DB::table('series')->get()->toArray();
-
-            $contenido = array_merge($peliculas, $series);
-
-            shuffle($contenido);
-
-            return ["datosRandom" => array_slice($contenido, 0, 8)];
-        });
-    }
-
     function getPeliculas(Request $request)
     {
 
