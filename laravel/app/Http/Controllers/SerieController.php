@@ -40,7 +40,7 @@ class SerieController extends Controller
                 'ano_lanzamiento' => $request->ano_lanzamiento,
                 'sinopsis' => $request->sinopsis,
                 'portada' => 'media/portadas/' . $nombrePortada,
-                'poster' => 'media/portadas/' . $nombrePoster,
+                'poster' => 'media/posters/' . $nombrePoster,
             ]);
 
             if ($request->has('categoria')) {
@@ -99,7 +99,7 @@ class SerieController extends Controller
                 }
             }
             
-            $portposterada = $request->file('poster');
+            $poster = $request->file('poster');
             $nombrePoster = time() . '_' . $poster->getClientOriginalName();
             $poster->move(public_path('media/posters'), $nombrePoster);
 
