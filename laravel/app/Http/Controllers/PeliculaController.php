@@ -175,14 +175,6 @@ class PeliculaController extends Controller
             return redirect()->route('peliculas.index')->with('error', 'No se encontró el archivo asociado.');
         }
     }
-    function getPeliculas(Request $request)
-    {
-
-        return ClienteController::checkSession($request, function () {
-            return ["peliculas" => Pelicula::inRandomOrder()->limit(10)->get()];
-        });
-    }
-
     function getDetallesPelicula(Request $request)
     {
 

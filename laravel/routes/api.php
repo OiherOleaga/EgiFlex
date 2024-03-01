@@ -21,14 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get("/peliculas", [PeliculaController::class, "getPeliculas"]);
+
 Route::get("/pelis/random", [PeliculaController::class, "getPelisRandom"]);
-
 Route::post("/getDetallesPelicula", [PeliculaController::class, "getDetallesPelicula"]);
-Route::get("/peliculas", [PeliculaController::class, "getPeliculas"]);
 
 
-Route::get("/series", [SerieController::class, "getSeries"]);
 Route::post("/getDetallesSerie", [SerieController::class, "getDetallesSerie"]);
 Route::get("/series/random", [SerieController::class, "getSeriesRandom"]);
 

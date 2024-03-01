@@ -1,16 +1,5 @@
 <script setup>
-import { ref } from 'vue';
 import filtro from '../components/filtro.vue'
-
-const series = ref([])
-
-function detalles(id) {
-    return "/detalles?p=" + id;
-}
-
-GET("/peliculas").then((res) => {
-    series.value = res.series;
-})
 
 </script>
 
@@ -30,25 +19,6 @@ GET("/peliculas").then((res) => {
                             </div>
                         </div>
                         <filtro :tipo="'p'"/>
-                    </div>
-                    <div class="row mt-3 text-white">
-                        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
-                            <div class="container image-grid gap-3 d-flex flex-column">
-                                <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div v-for="seire in series" class="col-5 col-md-2">
-                                        <a :href="detalles(seire.id)">
-                                            <figure class="rounded">
-                                                <img src="../components/img/Wonka-476523968-large.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>

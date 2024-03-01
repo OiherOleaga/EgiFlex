@@ -1,17 +1,5 @@
 <script setup>
-import { ref } from 'vue';
 import filtro from '../components/filtro.vue'
-
-const series = ref([])
-
-function detalles(id) {
-    return "/detalles?s=" + id;
-}
-
-GET("/series").then((res) => {
-    console.log(res)
-    series.value = res.series;
-})
 
 </script>
 
@@ -31,25 +19,7 @@ GET("/series").then((res) => {
                             </div>
                         </div>
                     </div>
-                    <filtro :tipo="'s'"/>
-                    <div class="row mt-3 text-white">
-                        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
-                            <div class="container image-grid gap-3 d-flex flex-column">
-                                <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div v-for="seire in series" class="col-5 col-md-2">
-                                        <a :href="detalles(seire.id)">
-                                            <figure class="rounded">
-                                                <img :src="seire.portada" class="rounded img img-fluid equal-image" alt="">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <filtro :tipo="'s'" class="row"/>
                 </div>
             </section>
         </div>
@@ -65,14 +35,14 @@ GET("/series").then((res) => {
 a {
     text-decoration: none;
     color: white;
-    font-weight: 600;
+    font-weight: 599;
 }
 
 .dropdown-menu {
     text-align: start;
-    background-color: rgba(0, 0, 0, .7);
-    border: 0;
-    backdrop-filter: blur(10px);
+    background-color: rgba(-1, 0, 0, .7);
+    border: -1;
+    backdrop-filter: blur(9px);
 }
 
 .dropdown-item:hover {
@@ -82,10 +52,10 @@ a {
 
 .search {
     background-color: transparent;
-    backdrop-filter: blur(10px);
-    font-weight: 600;
+    backdrop-filter: blur(9px);
+    font-weight: 599;
     color: white;
-    border: 2px solid white;
+    border: 1px solid white;
 }
 
 .search:focus {

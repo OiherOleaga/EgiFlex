@@ -160,14 +160,6 @@ class SerieController extends Controller
         }
     }
 
-    function getSeries(Request $request)
-    {
-
-        return ClienteController::checkSession($request, function () {
-            return ["series" => Serie::inRandomOrder()->limit(10)->get()];
-        });
-    }
-
     function getDetallesSerie(Request $request)
     {
 

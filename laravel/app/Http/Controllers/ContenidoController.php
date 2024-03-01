@@ -23,7 +23,7 @@ class ContenidoController extends Controller
 
     function filtro(Request $request) { return ClienteController::checkSession($request, function ($request) {
 
-        $consulta = "SELECT id, titulo ";
+        $consulta = "SELECT id, titulo, portada ";
 
         $where = "where ";
         $datos = [];
@@ -31,28 +31,28 @@ class ContenidoController extends Controller
             case 'n':
                 $subConsulta .= ", tipo from 
                 (
-                    SELECT id, titulo, 'p' as tipo FROM peliculas
+                    SELECT id, titulo, portada, 'p' as tipo FROM peliculas
                     union all
-                    SELECT id, titulo, 's' as tipo FROM series
+                    SELECT id, titulo, portada, 's' as tipo FROM series
                 ) contenido";
                 break;
             case 's':
-                $consulta .= "'s' as tipo series ";
+                $consulta .= ", 's' as tipo from series ";
                 break;
             case 'p':
-                $consulta .= "'p' as tipo peliculas ";
+                $consulta .= ", 'p' as tipo from peliculas ";
                 break;
             default: 
                 return [];
         }
 
         if (isset($request["busqueda"])) {
-            $where .= "like '%?%'";
-            array_push($datos, $request["busqueda"]);
+            $where .= "titulo like ?";
+            array_push($datos, "%" . $request["busqueda"] . "%");
         }
 
-        $select = $consulta . $where ;
-        //return ["select" => $select];
-        return DB::select( $consulta . ($where), $datos);
+        $select = $consulta . ($where == "where " ? "" : $where);
+        //return ["select" => $select, "datos" => $datos];
+        return ["contenido" => DB::select($select, $datos)];
     });}
 }
