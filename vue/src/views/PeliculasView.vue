@@ -1,14 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 
-const series = ref([])
+const peliculas = ref([])
 
 function detalles(id) {
     return "/detalles?p=" + id;
 }
 
 GET("/peliculas").then((res) => {
-    series.value = res.series;
+    peliculas.value = res.peliculas;
 })
 
 </script>
@@ -21,8 +21,8 @@ GET("/peliculas").then((res) => {
                     <div class="row">
                         <div class="col-12 text-white">
                             <div class="d-flex flex-column align-items-center gap-2 text-center">
-                                <a href="/content"><img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid"
-                                    alt="egiflex"></a>
+                                <a href="/content"><img src="../components/img/generatedtext (2).png"
+                                        class="img egiflex img-fluid" alt="egiflex"></a>
                                 <p class="fs-2 fw-semibold">
                                     La lista completa de <span class="rounded p-1 fs-3">peliculas</span>
                                 </p>
@@ -76,11 +76,11 @@ GET("/peliculas").then((res) => {
                         <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div v-for="seire in series" class="col-5 col-md-2">
-                                        <a :href="detalles(seire.id)">
+                                    <div v-for="pelicula in peliculas" class="col-5 col-md-2">
+                                        <a :href="detalles(pelicula.id)">
                                             <figure class="rounded">
-                                                <img src="../components/img/Wonka-476523968-large.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <img :src="pelicula.portada" class="rounded img img-fluid equal-image"
+                                                    alt="">
                                                 <figcaption class="d-none d-md-block text-center">
                                                     <span class="button-green-download2-big">Ver detalles</span>
                                                 </figcaption>
