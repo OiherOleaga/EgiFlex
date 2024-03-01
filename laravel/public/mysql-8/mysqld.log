@@ -1,0 +1,15 @@
+2024-03-01T17:07:24.258385Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2024-03-01T17:07:24.258444Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2024-03-01T17:07:24.258476Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 24424
+2024-03-01T17:07:24.290219Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2024-03-01T17:07:24.522509Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2024-03-01T17:07:24.520293Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2024-03-01T17:07:24.520347Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2024-03-01T17:07:24.520375Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 8992
+2024-03-01T17:07:24.554175Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2024-03-01T17:07:24.555138Z 1 [ERROR] [MY-012271] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2024-03-01T17:07:24.555494Z 1 [ERROR] [MY-012278] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2024-03-01T17:07:24.555865Z 1 [ERROR] [MY-010334] [Server] Failed to initialize DD Storage Engine
+2024-03-01T17:07:24.556426Z 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2024-03-01T17:07:24.556737Z 0 [ERROR] [MY-010119] [Server] Aborting
+2024-03-01T17:07:24.560739Z 0 [System] [MY-010910] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Shutdown complete (mysqld 8.0.30)  MySQL Community Server - GPL.
