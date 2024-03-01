@@ -26,7 +26,6 @@ if (args[0] == 's') {
                             <!-- <a href="https://www.youtube.com/watch?v=4QezW0KhWvk" class="play-button"><img
                                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_play_button_icon_%282013%E2%80%932017%29.svg/2560px-YouTube_play_button_icon_%282013%E2%80%932017%29.svg.png"
                                     alt=""></a> -->
-                            <div class="degradado"></div>
                         </div>
                     </div>
                 </div>
@@ -92,9 +91,21 @@ if (args[0] == 's') {
 .portada-container {
     position: relative;
     overflow: hidden;
-    height: 630px;
+    height: 700px;
     z-index: 0;
 }
+
+.portada-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1));
+    z-index: 0;
+}
+
 
 /* .play-button {
     position: absolute;
@@ -109,15 +120,6 @@ if (args[0] == 's') {
     height: 100%;
     object-fit: cover;
     object-position: center;
-}
-
-.degradado {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 1));
 }
 
 .beam-detalles-parent {
