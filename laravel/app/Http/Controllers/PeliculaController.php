@@ -13,11 +13,25 @@ use Illuminate\Support\Facades\File;
 
 class PeliculaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $peliculas = Pelicula::with('categorias')->get();
+        $search = $request->input('search');
+    
+        $peliculas = Pelicula::query()
+            ->where('titulo', 'LIKE', "%$search%")
+            ->orWhere('director', 'LIKE', "%$search%")
+            ->orWhere('ano_lanzamiento', 'LIKE', "%$search%")
+            ->orWhere('sinopsis', 'LIKE', "%$search%")
+            ->orWhere('duracion', 'LIKE', "%$search%")
+            ->orWhere('archivo', 'LIKE', "%$search%")
+            ->orWhere('portada', 'LIKE', "%$search%")
+            ->orWhere('poster', 'LIKE', "%$search%")
+            ->paginate(5);
+    
+        $peliculas->appends(['search' => $search]);
+    
         return view('peliculas.index', compact('peliculas'));
-    }
+    }    
 
     public function create()
     {
@@ -104,7 +118,7 @@ class PeliculaController extends Controller
                     File::delete(public_path($pelicula->portada));
                 }
             }
-            
+
             $portada = $request->file('portada');
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
             $portada->move(public_path('media/portadas'), $nombrePortada);
@@ -118,8 +132,8 @@ class PeliculaController extends Controller
                     File::delete(public_path($pelicula->poster));
                 }
             }
-            
-            $portposterada = $request->file('poster');
+
+            $poster = $request->file('poster');
             $nombrePoster = time() . '_' . $poster->getClientOriginalName();
             $poster->move(public_path('media/posters'), $nombrePoster);
 

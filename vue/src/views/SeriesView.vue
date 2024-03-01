@@ -22,8 +22,8 @@ GET("/series").then((res) => {
                     <div class="row">
                         <div class="col-12 text-white">
                             <div class="d-flex flex-column align-items-center gap-2 text-center">
-                                <a href="/content"><img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid"
-                                    alt="egiflex"></a>
+                                <a href="/content"><img src="../components/img/generatedtext (2).png"
+                                        class="img egiflex img-fluid" alt="egiflex"></a>
                                 <p class="fs-2 fw-semibold">
                                     La lista completa de <span class="rounded p-1 fs-3">series</span>
                                 </p>
@@ -38,8 +38,7 @@ GET("/series").then((res) => {
                                     <div v-for="seire in series" class="col-5 col-md-2">
                                         <a :href="detalles(seire.id)">
                                             <figure class="rounded">
-                                                <img src="../components/img/Wonka-476523968-large.jpg"
-                                                    class="rounded img img-fluid equal-image" alt="">
+                                                <img :src="seire.portada" class="rounded img img-fluid equal-image" alt="">
                                                 <figcaption class="d-none d-md-block text-center">
                                                     <span class="button-green-download2-big">Ver detalles</span>
                                                 </figcaption>

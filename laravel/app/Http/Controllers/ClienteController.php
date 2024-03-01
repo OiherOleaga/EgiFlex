@@ -8,12 +8,26 @@ use Illuminate\Support\Facades\Crypt;
 
 class ClienteController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $clientes = Cliente::all();
+        $search = $request->input('search');
+    
+        $clientes = Cliente::query()
+            ->where(function ($query) use ($search) {
+                $query->where('nombre', 'LIKE', "%$search%")
+                      ->orWhere('apellido', 'LIKE', "%$search%")
+                      ->orWhere('correo', 'LIKE', "%$search%")
+                      ->orWhere('estado', 'LIKE', "%$search%");
+            })
+            ->paginate(5);
+            
+        $clientes->appends(['search' => $search]);
+    
         return view('clientes.index', compact('clientes'));
     }
-
+    
+    
+    
     public function create()
     {
         return view('clientes.create');
