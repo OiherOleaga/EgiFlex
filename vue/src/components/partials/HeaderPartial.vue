@@ -1,8 +1,16 @@
 <!-- HeaderPartial.vue -->
 <script setup>
 import { Collapse, Ripple, initMDB } from "mdb-ui-kit";
+import { ref } from "vue";
 
 initMDB({ Collapse, Ripple });
+
+let inicioSesion=ref(false);
+
+function getInicioSesion() {
+    
+}
+
 </script>
 
 <template>
