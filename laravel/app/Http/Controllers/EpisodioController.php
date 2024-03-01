@@ -134,7 +134,7 @@ class EpisodioController extends Controller
                 return redirect()->route('episodios.index')->with('error', 'No se encontró el archivo asociado.');
             }
         } else {
-            return redirect()->route('episodios.index')-    >with('error', 'No se encontró el archivo asociado.');
+            return redirect()->route('episodios.index')->with('error', 'No se encontró el archivo asociado.');
         }
     }
 

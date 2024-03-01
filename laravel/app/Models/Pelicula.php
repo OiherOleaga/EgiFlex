@@ -18,4 +18,9 @@ class Pelicula extends Model
         'archivo',
         'portada',
     ];
+
+    public function categorias()
+    {
+        return $this->belongsToMany(Categoria::class, 'categoria_peliculas');
+    }
 }
