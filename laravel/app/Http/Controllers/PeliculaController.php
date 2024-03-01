@@ -13,11 +13,25 @@ use Illuminate\Support\Facades\File;
 
 class PeliculaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $peliculas = Pelicula::with('categorias')->get();
+        $search = $request->input('search');
+    
+        $peliculas = Pelicula::query()
+            ->where('titulo', 'LIKE', "%$search%")
+            ->orWhere('director', 'LIKE', "%$search%")
+            ->orWhere('ano_lanzamiento', 'LIKE', "%$search%")
+            ->orWhere('sinopsis', 'LIKE', "%$search%")
+            ->orWhere('duracion', 'LIKE', "%$search%")
+            ->orWhere('archivo', 'LIKE', "%$search%")
+            ->orWhere('portada', 'LIKE', "%$search%")
+            ->orWhere('poster', 'LIKE', "%$search%")
+            ->paginate(5);
+    
+        $peliculas->appends(['search' => $search]);
+    
         return view('peliculas.index', compact('peliculas'));
-    }
+    }    
 
     public function create()
     {
@@ -161,21 +175,6 @@ class PeliculaController extends Controller
             return redirect()->route('peliculas.index')->with('error', 'No se encontró el archivo asociado.');
         }
     }
-
-    function getContenido(Request $request)
-    {
-        return ClienteController::checkSession($request, function () {
-            $peliculas = DB::table('peliculas')->get()->toArray();
-            $series = DB::table('series')->get()->toArray();
-
-            $contenido = array_merge($peliculas, $series);
-
-            shuffle($contenido);
-
-            return ["datosRandom" => array_slice($contenido, 0, 8)];
-        });
-    }
-
     function getPeliculas(Request $request)
     {
 

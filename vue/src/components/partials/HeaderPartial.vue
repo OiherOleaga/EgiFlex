@@ -1,8 +1,16 @@
 <!-- HeaderPartial.vue -->
 <script setup>
 import { Collapse, Ripple, initMDB } from "mdb-ui-kit";
+import { ref } from "vue";
 
 initMDB({ Collapse, Ripple });
+
+let inicioSesion=ref(false);
+
+function getInicioSesion() {
+    
+}
+
 </script>
 
 <template>
@@ -43,7 +51,7 @@ initMDB({ Collapse, Ripple });
                                     <a href="#important">Imprescindibles</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="#series">Series</a>
+                                    <a href="/series">Series</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="#faq">Preguntas Frecuentes</a>

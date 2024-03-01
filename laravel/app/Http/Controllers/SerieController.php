@@ -11,12 +11,32 @@ use Illuminate\Support\Facades\File;
 
 class SerieController extends Controller
 {
-    public function index()
+
+    public function index(Request $request)
     {
-        $series = Serie::with('categorias')->get();
+        $search = $request->input('search');
+        $categoria = $request->input('categoria');
+    
+        $series = Serie::query()
+            ->where(function ($query) use ($search) {
+                $query->where('titulo', 'LIKE', "%$search%")
+                      ->orWhere('director', 'LIKE', "%$search%")
+                      ->orWhere('ano_lanzamiento', 'LIKE', "%$search%")
+                      ->orWhere('sinopsis', 'LIKE', "%$search%");
+            })
+            ->when($categoria, function ($query, $categoria) {
+                return $query->whereHas('categorias', function ($query) use ($categoria) {
+                    $query->where('nombre', 'LIKE', "%$categoria%");
+                });
+            })
+            ->paginate(5);
+    
+        $series->appends(['search' => $search, 'categoria' => $categoria]);
+    
         return view('series.index', compact('series'));
     }
-
+    
+    
     public function create()
     {
         $categorias = Categoria::all();

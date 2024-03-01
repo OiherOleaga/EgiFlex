@@ -1,5 +1,11 @@
 <script setup>
+import router from '@/router';
 
+GET("/checkSession").then(res => {
+  if (res.logged) {
+    router.push("/content");
+  }
+});
 </script>
 
 <template>

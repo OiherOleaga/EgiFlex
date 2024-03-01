@@ -7,8 +7,23 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="mb-4">
+                <form action="{{ route('temporadas.index') }}" method="GET">
+                    <input type="text" name="search" placeholder="Buscar temporada..." class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600">
+                    <button type="submit" class="mt-2 px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 focus:bg-indigo-700">Filtrar</button>
+                </form>
+            </div>
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                    <div class="row mb-4">
+                        <div class="col-md-12">
+                            @if ($temporadas->isEmpty())
+                                <p class="mt-4">No se encontraron resultados para los criterios de búsqueda especificados.</p>
+                            @else
+                                {{ $temporadas->links() }}
+                            @endif
+                        </div>
+                    </div>
                     <div class="mb-4">
                         <a href="{{ route('temporadas.create') }}" class="inline-block px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:bg-green-700">Crear Temporada</a>
                     </div>
@@ -80,4 +95,11 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('input[name="search"]');
+            
+            searchInput.focus();
+        });
+    </script>
 </x-app-layout>
