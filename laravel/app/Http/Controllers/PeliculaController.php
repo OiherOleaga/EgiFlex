@@ -13,11 +13,25 @@ use Illuminate\Support\Facades\File;
 
 class PeliculaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $peliculas = Pelicula::with('categorias')->get();
+        $search = $request->input('search');
+    
+        $peliculas = Pelicula::query()
+            ->where('titulo', 'LIKE', "%$search%")
+            ->orWhere('director', 'LIKE', "%$search%")
+            ->orWhere('ano_lanzamiento', 'LIKE', "%$search%")
+            ->orWhere('sinopsis', 'LIKE', "%$search%")
+            ->orWhere('duracion', 'LIKE', "%$search%")
+            ->orWhere('archivo', 'LIKE', "%$search%")
+            ->orWhere('portada', 'LIKE', "%$search%")
+            ->orWhere('poster', 'LIKE', "%$search%")
+            ->paginate(5);
+    
+        $peliculas->appends(['search' => $search]);
+    
         return view('peliculas.index', compact('peliculas'));
-    }
+    }    
 
     public function create()
     {

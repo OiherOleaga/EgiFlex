@@ -9,11 +9,25 @@ use Illuminate\Http\Request;
 
 class TemporadaController extends Controller
 {
-    public function index()
+
+    public function index(Request $request)
     {
-        $temporadas = Temporada::all();
+        $search = $request->input('search');
+        
+        $temporadas = Temporada::query()
+            ->whereHas('serie', function ($query) use ($search) {
+                $query->where('titulo', 'LIKE', "%$search%");
+            })
+            ->orWhere('numero_temporada', 'LIKE', "%$search%")
+            ->orWhere('numero_episodios', 'LIKE', "%$search%")
+            ->orWhere('fecha_estreno', 'LIKE', "%$search%")
+            ->paginate(5);
+    
+        $temporadas->appends(['search' => $search]);
+    
         return view('temporadas.index', compact('temporadas'));
     }
+    
 
     public function create()
     {
