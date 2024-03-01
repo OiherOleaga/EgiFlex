@@ -17,15 +17,15 @@ if (args[0] == 's') {
 </script>
 <template>
     <article class="w-100 min-vh-100 overflow-x-hidden">
-        <section v-if="detalles" class="beam-portada-parent">
+        <section v-if="detalles" class="container-fluid">
             <div class="container-fluid m-0 p-0 beam-portada">
                 <div class="row">
                     <div class="col-12 m-0 p-0">
                         <a href="">
                             <div class="portada-container">
                                 <img :src="detalles.poster" alt="Portada" class="portada-img" />
-                                <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png"
-                                    alt="" width="120px" class="play-button">
+                                <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png" alt="" width="120px"
+                                    class="play-button">
                             </div>
                         </a>
                     </div>
@@ -93,6 +93,12 @@ if (args[0] == 's') {
 </template>
   
 <style>
+article {
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://hbomax-images.warnermediacdn.com/2021-07/hbo_max_background_faded.png?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=1920);
+}
+
 .portada-container {
     position: relative;
     overflow: hidden;
@@ -139,7 +145,7 @@ if (args[0] == 's') {
 @media screen and (max-width: 767px) {
     .equal-image {
         object-fit: cover;
-        aspect-ratio: 0.5;
+        width: 80%;
     }
 
     .beam-detalles-parent {
