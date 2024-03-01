@@ -176,7 +176,7 @@ class PeliculaController extends Controller
         });
     }
 
-    function getPelicualas(Request $request)
+    function getPeliculas(Request $request)
     {
 
         return ClienteController::checkSession($request, function () {
@@ -193,7 +193,7 @@ class PeliculaController extends Controller
     }
 
 
-    public function getPelis(Request $request)
+    public function getPelisRandom(Request $request)
     {
         return ClienteController::checkSession($request, function () {
             $peliculas = DB::table('peliculas')->get()->toArray();

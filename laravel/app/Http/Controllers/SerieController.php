@@ -156,7 +156,7 @@ class SerieController extends Controller
         });
     }
 
-    public function getseriesRandom(Request $request)
+    public function getSeriesRandom(Request $request)
     {
         return ClienteController::checkSession($request, function () {
             $series = DB::table('series')->get()->toArray();
