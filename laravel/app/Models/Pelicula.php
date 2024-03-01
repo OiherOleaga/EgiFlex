@@ -17,6 +17,7 @@ class Pelicula extends Model
         'duracion',
         'archivo',
         'portada',
+        'poster',
     ];
 
     public function categorias()
