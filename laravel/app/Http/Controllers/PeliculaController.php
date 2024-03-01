@@ -118,7 +118,7 @@ class PeliculaController extends Controller
                     File::delete(public_path($pelicula->portada));
                 }
             }
-            
+
             $portada = $request->file('portada');
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
             $portada->move(public_path('media/portadas'), $nombrePortada);
@@ -132,7 +132,7 @@ class PeliculaController extends Controller
                     File::delete(public_path($pelicula->poster));
                 }
             }
-            
+
             $poster = $request->file('poster');
             $nombrePoster = time() . '_' . $poster->getClientOriginalName();
             $poster->move(public_path('media/posters'), $nombrePoster);
