@@ -51,7 +51,7 @@ class Peliculasseeder extends Seeder
                 'sinopsis' => 'Descripción de la película Wonka.',
                 'duracion' => 23,
                 'archivo' => $url  . '/peliculas/wonka.mp4',
-                'portada' => $url . '/portadas/wonka.jpg',
+                'portada' => $url . '/portadas/Wonka.jpg',
                 'poster' => $url . '/posters/wonka.jpg',
             ],
                 [
@@ -61,7 +61,7 @@ class Peliculasseeder extends Seeder
                     'sinopsis' => 'Descripción de la película Antes de ti.',
                     'duracion' => 233,
                     'archivo' => $url  . '/peliculas/antesDeTi.mp4',
-                    'portada' => $url . '/portadas/antesDeTi.jpg',
+                    'portada' => $url . '/portadas/AntesDeTi.jpg',
                     'poster' => $url . '/posters/antesDeTi.jpg',
                 ],
                 [
@@ -71,8 +71,8 @@ class Peliculasseeder extends Seeder
                     'sinopsis' => 'En un mundo distópico donde la sociedad está dividida en facciones basadas en virtudes humanas, una joven descubre que es divergente y no encaja en ninguna de las categorías predefinidas.',
                     'duracion' => 139,
                     'archivo' => $url . '/peliculas/divergente.mp4',
-                    'portada' => $url . '/portadas/divergente.jpg',
-                    'poster' => $url . '/posters/divergente.jpg',
+                    'portada' => $url . '/portadas/Divergente.jpg',
+                    'poster' => $url . '/posters/Divergente.jpg',
                 ],
                 [
                     'titulo' => 'Dune',
@@ -204,7 +204,7 @@ class Peliculasseeder extends Seeder
                     'portada' => $url . '/portadas/crepusculo.jpg',
                     'poster' => $url . '/posters/crepusculo.jpg',
                 ],
-                
+
         ];
 
 

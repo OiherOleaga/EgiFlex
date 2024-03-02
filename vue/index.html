@@ -39,7 +39,7 @@
 
         json = await res.json();
 
-        if (uri != "/login" && uri != "/registrar" && !json.logged) {
+        if (uri != "/iniciarSesion" && uri != "/registrar" && !json.logged) {
           window.location.pathname = "/login"
         }
 

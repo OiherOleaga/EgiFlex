@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class ClienteController extends Controller
 {
     public function index(Request $request)
     {
         $search = $request->input('search');
-    
+
         $clientes = Cliente::query()
             ->where(function ($query) use ($search) {
                 $query->where('nombre', 'LIKE', "%$search%")
@@ -20,14 +21,14 @@ class ClienteController extends Controller
                       ->orWhere('estado', 'LIKE', "%$search%");
             })
             ->paginate(5);
-            
+
         $clientes->appends(['search' => $search]);
-    
+
         return view('clientes.index', compact('clientes'));
     }
-    
-    
-    
+
+
+
     public function create()
     {
         return view('clientes.create');
@@ -81,8 +82,9 @@ class ClienteController extends Controller
             'apellido' => 'required|string',
         ]);
         */
-
-        Cliente::create($request->all());
+        $datos = $request->all();
+        $datos['constrasena'] = hash('sha256', $datos['constrasena']);
+        Cliente::create($datos);
 
         return response()->json(["ok" => true]);
     }
@@ -90,7 +92,7 @@ class ClienteController extends Controller
     function comprobarInicioSesion(Request $request)
     {
         $correo = $request->input('correo');
-        $contra = $request->input('contra');
+        $contra = hash('sha256', $request->input('contra'));
 
         $usuario = Cliente::where('correo', $correo)->where('contrasena', $contra)->first();
 

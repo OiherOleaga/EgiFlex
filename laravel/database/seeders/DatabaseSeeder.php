@@ -14,37 +14,37 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(Peliculasseeder::class); 
-        $this->call(SeriesSeeder::class); 
+        $this->call(Peliculasseeder::class);
+        $this->call(SeriesSeeder::class);
 
         User::create([
             'name' => 'David',
             'email' => 'david.moreno@ikasle.egibide.org',
-            'password' => bcrypt('contrasena')
+            'password' => hash('sha256', 'contrasena')
         ]);
 
         User::create([
             'name' => 'Markel',
             'email' => 'markel.onaindia@ikasle.egibide.org',
-            'password' => bcrypt('contrasena')
+            'password' => hash('sha256', 'contrasena')
         ]);
 
         User::create([
             'name' => 'Oiher',
             'email' => 'oiher.oleaga@ikasle.egibide.org',
-            'password' => bcrypt('contrasena')
+            'password' => hash('sha256', 'contrasena')
         ]);
 
         User::create([
             'name' => 'Anartz',
             'email' => 'anartz.pagaldai@ikasle.egibide.org',
-            'password' => bcrypt('contrasena')
+            'password' => hash('sha256', 'contrasena')
         ]);
 
         Cliente::create([
             'correo' => 'oiher@ikasle.egibide.org',
             'estado' => 'activo',
-            'contrasena' => bcrypt('12345'),
+            'contrasena' => hash('sha256', '12345'),
             'nombre' => 'Oiher',
             'apellido' => 'Oleaga'
         ]);
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
         Cliente::create([
             'correo' => 'david@ikasle.egibide.org',
             'estado' => 'activo',
-            'contrasena' => bcrypt('12345'),
+            'contrasena' => hash('sha256', '12345'),
             'nombre' => 'david',
             'apellido' => 'Moreno'
         ]);
@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
         Cliente::create([
             'correo' => 'anartz@ikasle.egibide.org',
             'estado' => 'activo',
-            'contrasena' => bcrypt('12345'),
+            'contrasena' => hash('sha256', '12345'),
             'nombre' => 'anartz',
             'apellido' => 'pato'
         ]);
@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
         Cliente::create([
             'correo' => 'markel@ikasle.egibide.org',
             'estado' => 'activo',
-            'contrasena' => bcrypt('12345'),
+            'contrasena' => hash('sha256', '12345'),
             'nombre' => 'Markel',
             'apellido' => 'trans'
         ]);
@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
         Cliente::create([
             'correo' => 'cliente5@example.com',
             'estado' => 'inactivo',
-            'contrasena' => bcrypt('contrasena5'),
+            'contrasena' => hash('sha256', 'contrasena5'),
             'nombre' => 'Pedro',
             'apellido' => 'López'
         ]);
