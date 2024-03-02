@@ -9,7 +9,7 @@ if (args[0] == 's') {
         detalles.value = res.detalles
     })
 } else if (args[0] == 'p') {
-POST("/getDetallesPelicula", { id: args[1] }).then(res => {
+    POST("/getDetallesPelicula", { id: args[1] }).then(res => {
         detalles.value = res.detalles
     })
 }
