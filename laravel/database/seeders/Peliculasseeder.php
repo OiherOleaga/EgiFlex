@@ -61,8 +61,8 @@ class Peliculasseeder extends Seeder
                     'sinopsis' => 'Descripción de la película Antes de ti.',
                     'duracion' => 233,
                     'archivo' => $url  . '/peliculas/antesDeTi.mp4',
-                    'portada' => $url . '/portadas/AntesDeTi.jpg',
-                    'poster' => $url . '/posters/antesDeTi.jpg',
+                    'portada' => $url . '/portadas/Antesdeti.jpg',
+                    'poster' => $url . '/posters/antesdeti.jpg',
                 ],
                 [
                     'titulo' => 'Divergente',

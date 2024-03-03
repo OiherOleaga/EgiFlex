@@ -1,17 +1,45 @@
 <script setup>
 import { ref } from 'vue';
+import router from '@/router';
 
 const detalles = ref();
+
 
 let args = window.location.search.split("?")[1].split("=")
 if (args[0] == 's') {
     POST("/getDetallesSerie", { id: args[1] }).then(res => {
         detalles.value = res.detalles
+
+        if (detalles.value.temporadas) {
+            detalles.value.temporadas = detalles.value.temporadas.split(',')
+            res.detalles.temporada = 1;
+            getEpisodios(res.detalles.temporadas[0])
+        } else {
+            detalles.value.temporadas = []
+            detalles.value.episodios = []
+        }
     })
 } else if (args[0] == 'p') {
     POST("/getDetallesPelicula", { id: args[1] }).then(res => {
         detalles.value = res.detalles
     })
+}
+
+function cambioTemporada(index, id) {
+    detalles.value.temporada = index + 1
+    getEpisodios(id)
+}
+
+function getEpisodios(id) {
+    POST("/episodios", { id: id }).then(res => {
+        detalles.value.episodios = res.episodios;
+        if (res.episodios[0]) {
+            args[1] = res.episodios[0].id
+        }
+    })
+}
+function watch(id) {
+    router.push(`/watch?${args[0]}=${id}` );
 }
 
 </script>
@@ -21,13 +49,11 @@ if (args[0] == 's') {
             <div class="container-fluid m-0 p-0 beam-portada">
                 <div class="row">
                     <div class="col-12 m-0 p-0">
-                        <a href="">
-                            <div class="portada-container">
-                                <img :src="detalles.poster" alt="Portada" class="portada-img" />
-                                <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png" alt="" width="120px"
-                                    class="play-button">
-                            </div>
-                        </a>
+                        <div class="portada-container">
+                            <img :src="detalles.poster" alt="Portada" class="portada-img" />
+                            <img @click="watch(args[1])" src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png" alt="" width="120px"
+                                class="play-button">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -38,12 +64,12 @@ if (args[0] == 's') {
                             <img :src="detalles.portada" class="rounded img img-fluid equal-image" alt="">
                             <figcaption v-if="args[0] == 'p'" class="gap-2 d-flex my-2">
                                 <button class="rounded-pill btn w-50 text-white p-2">Descargar</button>
-                                <button class="rounded-pill btn w-50 text-white p-2">Ver ahora</button>
+                                <button @click="watch(args[1])" class="rounded-pill btn w-50 text-white p-2">Ver ahora</button>
                             </figcaption>
                         </figure>
                         <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
                             <p class="m-0 fs-5">Géneros:</p>
-                            <p>Fantasia, Accion</p>
+                            <p> {{ detalles.generos }}</p>
                         </div>
                         <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
                             <p class="m-0 fs-5">Fecha de lanzamiento:</p>
@@ -55,7 +81,7 @@ if (args[0] == 's') {
                         </div>
                         <div v-if="args[0] == 's'" class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
                             <p class="m-0 fs-5">Temporadas:</p>
-                            <p>1</p>
+                            <p>{{ detalles.temporadas.length }}</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-9 text-start">
@@ -68,19 +94,20 @@ if (args[0] == 's') {
                             <div class="dropdown">
                                 <button class="btn bg-transparent text-white fw-bold dropdown-toggle" type="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    Temporada
+                                    Temporada {{ detalles.temporada }}
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">1</a></li>
+                                    <li v-for="(temporada, index) in detalles.temporadas" :key="index" @click="cambioTemporada(index, temporada)" class="dropdown-item">{{ index + 1 }}</li>
                                 </ul>
                             </div>
                             </p>
                             <div class="episodios overflow-y-scroll d-flex flex-column gap-2">
-                                <div class="d-flex align-items-center justify-content-around gap-3">
-                                    <p class="m-0 fw-semibold">1. No quiero decepcionarte</p>
+                                <div v-for="episodio in detalles.episodios" class="d-flex align-items-center justify-content-around gap-3">
+                                    <video :src="episodio.archivo" with="50" height="50"></video>
+                                    <p class="m-0 fw-semibold">{{ episodio.numero_episodio }}. {{ episodio.titulo }}</p>
                                     <div class="d-flex gap-2">
                                         <button class="rounded-pill btn text-white p-2">Descargar</button>
-                                        <button class="rounded-pill btn text-white p-2">Ver ahora</button>
+                                        <button class="rounded-pill btn text-white p-2" @click="watch(episodio.id)" >Ver ahora</button>
                                     </div>
                                 </div>
                             </div>

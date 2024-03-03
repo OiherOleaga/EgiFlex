@@ -1,18 +1,32 @@
+<script setup>
+import { ref } from 'vue'
+
+const div = ref(null)
+
+let args = window.location.search.split("?")[1].split("=")
+
+console.log(args)
+POST("/getVideo", { id: args[1], tipo: args[0] }).then(res => {
+
+    if (res.error) {
+        alert("error," + res.error);
+    } else {
+        console.log(res)
+        div.value.innerHTML = `
+        <video controls preload="auto" start="10" width="640" height="360">
+          <source src="${ res.video }" type="video/mp4">
+        </video>
+        `
+    }
+    
+})
+
+</script>
+
 <template>
-  <div>
-    <video ref="videoPlayer" class="video-js" controls preload="auto" width="640" height="360">
-      <source :src="videoSource" type="video/mp4">
-      Tu navegador no soporta la reproducción de video.
-    </video>
+  <div ref="div">
   </div>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-
-// Definir la ruta del video
-const videoSource = ref('../../../laravel/public/media/episodios/DragoiBola01.mp4');
-</script>
 
 <style scoped>
 /* Estilos opcionales para el reproductor de video */

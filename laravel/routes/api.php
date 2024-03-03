@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContenidoController;
+use App\Http\Controllers\EpisodioController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\SerieController;
 use Illuminate\Http\Request;
@@ -22,16 +24,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("/pelis/random", [PeliculaController::class, "getPelisRandom"]);
+Route::get("/pelis/popular", [PeliculaController::class, "getPelisRandom"]);
 Route::post("/getDetallesPelicula", [PeliculaController::class, "getDetallesPelicula"]);
 
 
 Route::post("/getDetallesSerie", [SerieController::class, "getDetallesSerie"]);
-Route::get("/series/random", [SerieController::class, "getSeriesRandom"]);
+Route::get("/series/popular", [SerieController::class, "getSeriesRandom"]);
 
 Route::post("/iniciarSesion", [ClienteController::class, "comprobarInicioSesion"]);
 Route::post("/registrar", [ClienteController::class, "regristro"]);
 Route::get("/checkSession", [ClienteController::class, "checkSession"]);
 
 Route::post("/filtro", [ContenidoController::class, "filtro"]);
-Route::get("/contenido/random", [ContenidoController::class, "getContenido"]);
+Route::get("/contenido/popular", [ContenidoController::class, "getContenido"]);
+Route::post("/getVideo", [ContenidoController::class, "getVideo"]);
+
+Route::get("/categorias", [CategoriaController::class, "categorias"]);
+
+Route::post("/episodios", [EpisodioController::class, "episodios"]);

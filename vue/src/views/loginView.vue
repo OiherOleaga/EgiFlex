@@ -18,7 +18,6 @@ fetch(route("/checkSession"), {
 function validar() {
     POST('/iniciarSesion', { correo: correo.value, contra: contra.value })
         .then(function (response) {
-            console.log(response)
             if (response.logged) {
                 localStorage.setItem("sessionId", response.sessionId);
                 router.push("/content");

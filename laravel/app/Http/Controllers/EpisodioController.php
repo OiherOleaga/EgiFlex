@@ -13,7 +13,7 @@ class EpisodioController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        
+
         $episodios = Episodio::query()
             ->whereHas('temporada.serie', function ($query) use ($search) {
                 $query->where('titulo', 'LIKE', "%$search%");
@@ -24,9 +24,9 @@ class EpisodioController extends Controller
             ->orWhere('sinopsis', 'LIKE', "%$search%")
             ->orWhere('fecha_estreno', 'LIKE', "%$search%")
             ->paginate(5);
-    
+
         $episodios->appends(['search' => $search]);
-    
+
         return view('episodios.index', compact('episodios'));
     }
 
@@ -41,11 +41,11 @@ class EpisodioController extends Controller
         if (empty($request->id_temporada) || empty($request->titulo) || empty($request->numero_episodio) || empty($request->duracion) || empty($request->sinopsis) || empty($request->fecha_estreno) || !$request->hasFile('archivo')) {
             return redirect()->route('episodios.index')->with('error', 'Por favor completa todos los campos y proporciona un archivo.');
         }
-    
+
         $archivo = $request->file('archivo');
         $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
         $archivo->move(public_path('media/episodios'), $nombreArchivo);
-    
+
         $portada = $request->file('portada');
         $nombrePortada = time() . '_' . $portada->getClientOriginalName();
         $portada->move(public_path('media/portadas'), $nombrePortada);
@@ -60,10 +60,10 @@ class EpisodioController extends Controller
             'archivo' => 'media/episodios/' . $nombreArchivo,
             'portada' => 'media/portadas/' . $nombrePortada,
         ]);
-    
+
         return redirect()->route('episodios.index')->with('success', 'Episodio creado exitosamente.');
     }
-    
+
 
     public function show(Episodio $episodio)
     {
@@ -81,13 +81,13 @@ class EpisodioController extends Controller
         if (empty($request->id_temporada) || empty($request->titulo) || empty($request->numero_episodio) || empty($request->duracion) || empty($request->sinopsis) || empty($request->fecha_estreno)) {
             return redirect()->route('episodios.index')->with('error', 'Por favor completa todos los campos obligatorios.');
         }
-    
+
         $episodio = Episodio::findOrFail($id);
-    
+
         if (!$request->hasFile('archivo') && !$episodio->archivo) {
             return redirect()->route('episodios.index')->with('error', 'Por favor selecciona un archivo.');
         }
-    
+
         $episodio->id_temporada = $request->id_temporada;
         $episodio->titulo = $request->titulo;
         $episodio->numero_episodio = $request->numero_episodio;
@@ -115,20 +115,20 @@ class EpisodioController extends Controller
                     File::delete(public_path($episodio->portada));
                 }
             }
-            
+
             $portada = $request->file('portada');
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
             $portada->move(public_path('media/portadas'), $nombrePortada);
 
             $episodio->portada = 'media/portadas/' . $nombrePortada;
         }
-    
+
         $episodio->save();
-    
+
         return redirect()->route('episodios.index')->with('success', 'Episodio editado exitosamente.');
     }
-    
-    
+
+
 
     public function destroy(Episodio $episodio)
     {
@@ -151,5 +151,9 @@ class EpisodioController extends Controller
             return redirect()->route('episodios.index')->with('error', 'No se encontró el archivo asociado.');
         }
     }
+
+    function episodios(Request $request) { return ClienteController::checkSession($request, function($request) {
+        return ["episodios" => Episodio::where("id_temporada", $request["id"])->get()];
+    });}
 
 }

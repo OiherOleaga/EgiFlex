@@ -1,82 +1,51 @@
 <script setup>
 import { ref } from 'vue';
-const props = defineProps({tipo: String});
-
-
-function cargarRandom() {
-    return GET('/contenido/random')
-        .then(function (response) {
-            return response;
-        })
-        .catch(function (error) {
-            console.error('Error al procesar la solicitud:', error);
-            throw error;
-        });
-}
-
-function cargarPelis() {
-    return GET('/pelis/random')
-        .then(function (response) {
-            return response;
-        })
-        .catch(function (error) {
-            console.error('Error al procesar la solicitud:', error);
-            throw error;
-        });
-}
-
-function detalles(id, tipo) {
-    return `/detalles?${tipo}=${id}`;
-}
-
-function cargarSeries() {
-    return GET('/series/random')
-        .then(function (response) {
-            return response;
-        })
-        .catch(function (error) {
-            console.error('Error al procesar la solicitud:', error);
-            throw error;
-        });
-}
+import filtro from '../components/filtro.vue'
 
 const datosAleatorios = ref([]);
 const Pelis = ref([]);
 const Series = ref([]);
+const filtrando = ref(false);
 
+function cambioFiltro() {
+    filtrando.value = !filtrando.value 
+}
 
-cargarRandom()
-    .then(function (response) {
+GET('/contenido/popular').then(function (response) {
         datosAleatorios.value = response.datosRandom;
-        console.log(datosAleatorios);
-    })
-    .catch(function (error) {
-        console.error('Error al cargar datos aleatorios:', error);
-    });
+})
+.catch(function (error) {
+    console.error('Error al cargar datos aleatorios:', error);
+});
 
-cargarPelis()
-    .then(function (response) {
-        Pelis.value = response.pelis;
-    })
-    .catch(function (error) {
-        console.error('Error al cargar datos de las peliculas:', error);
-    });
+GET('/pelis/popular').then(function (response) {
+    Pelis.value = response.pelis;
+})
+.catch(function (error) {
+    console.error('Error al cargar datos de las peliculas:', error);
+});
 
-cargarSeries()
-    .then(function (response) {
-        Series.value = response.series;
+GET('/series/popular').then(function (response) {
+    Series.value = response.series;
+})
+.catch(function (error) {
+    console.error('Error al cargar datos de las peliculas:', error);
+});
 
-    })
-    .catch(function (error) {
-        console.error('Error al cargar datos de las peliculas:', error);
-    });
-
-
+function detalles(id, tipo) {
+    return `/detalles?${tipo}=${id}`;
+}
 </script>
 
 <template>
     <article class="w-100 min-vh-100">
-        <div class="content">
+        <div class="container-fluid beam-populares">
+            <div class="row">
+                <filtro :tipo="'n'" @filtrando="cambioFiltro" />
+            </div>
+            
+        </div>
+        <div v-if="!filtrando" class="content">
             <section class="beam-populares-parent">
                 <div class="container-fluid beam-populares">
                     <div class="row">
@@ -129,7 +98,7 @@ cargarSeries()
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
                                     <div v-for="item in Pelis" :key="item.id" class="col-5 col-md-3 image-container">
-                                        <a :href="'detalles/p='">
+                                        <a :href="detalles(item.id, item.tipo)">
                                             <figure class="rounded">
                                                 <img :src="item.portada" class="rounded img img-fluid equal-image"
                                                     :alt="item.titulo">
@@ -164,13 +133,8 @@ cargarSeries()
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
 
-
-
-
-
-
                                     <div v-for="item in Series" :key="item.id" class="col-5 col-md-3 image-container">
-                                        <a :href="item.id">
+                                        <a :href="detalles(item.id, item.tipo)">
                                             <figure class="rounded">
                                                 <img :src="item.portada" class="rounded img img-fluid equal-image"
                                                     :alt="item.titulo">
@@ -180,13 +144,6 @@ cargarSeries()
                                             </figure>
                                         </a>
                                     </div>
-
-
-
-
-
-
-
 
                                 </div>
                             </div>

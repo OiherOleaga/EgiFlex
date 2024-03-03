@@ -10,15 +10,15 @@ class CategoriaController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-    
+
         $categorias = Categoria::query()
             ->where(function ($query) use ($search) {
                 $query->where('nombre', 'LIKE', "%$search%");
             })
             ->paginate(5);
-            
+
         $categorias->appends(['search' => $search]);
-    
+
         return view('categorias.index', compact('categorias'));
     }
 
@@ -32,14 +32,14 @@ class CategoriaController extends Controller
         if (empty($request->nombre)) {
             return redirect()->route('categorias.index')->with('error', 'Error: El campo nombre no puede estar vacío.');
         }
-    
+
         try {
             Categoria::create($request->all());
             return redirect()->route('categorias.index')->with('success', 'Categoria creada exitosamente.');
         } catch (\Exception $e) {
             return redirect()->route('categorias.index')->with('error', 'Error al crear la categoría: ' . $e->getMessage());
         }
-    }    
+    }
 
     public function show(Categoria $categoria)
     {
@@ -68,4 +68,8 @@ class CategoriaController extends Controller
 
         return redirect()->route('categorias.index')->with('success', 'Categoria eliminada exitosamente.');
     }
+
+    function categorias(Request $request) { return ClienteController::checkSession($request, function () {
+        return ["categorias" => Categoria::all()];
+    });}
 }

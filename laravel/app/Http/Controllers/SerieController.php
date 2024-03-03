@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Serie;
 use App\Models\Categoria;
-
+use App\Models\CategoriaSerie;
+use App\Models\Temporada;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -16,7 +17,7 @@ class SerieController extends Controller
     {
         $search = $request->input('search');
         $categoria = $request->input('categoria');
-    
+
         $series = Serie::query()
             ->where(function ($query) use ($search) {
                 $query->where('titulo', 'LIKE', "%$search%")
@@ -30,13 +31,13 @@ class SerieController extends Controller
                 });
             })
             ->paginate(5);
-    
+
         $series->appends(['search' => $search, 'categoria' => $categoria]);
-    
+
         return view('series.index', compact('series'));
     }
-    
-    
+
+
     public function create()
     {
         $categorias = Categoria::all();
@@ -118,7 +119,7 @@ class SerieController extends Controller
                     File::delete(public_path($serie->poster));
                 }
             }
-            
+
             $poster = $request->file('poster');
             $nombrePoster = time() . '_' . $poster->getClientOriginalName();
             $poster->move(public_path('media/posters'), $nombrePoster);
@@ -160,21 +161,33 @@ class SerieController extends Controller
         }
     }
 
-    function getDetallesSerie(Request $request)
-    {
+    function getDetallesSerie(Request $request) { return ClienteController::checkSession($request, function ($request) {
+        try {
 
-        return ClienteController::checkSession($request, function ($request) {
-            return ["detalles" => Serie::find($request["id"])];
-        });
-    }
+        return ["detalles" => DB::select(
+            "SELECT s.*,
+                group_concat(distinct c.nombre separator ', ') generos,
+                group_concat(distinct t.id separator ',') temporadas
+            FROM series s
+            left join categoria_series cs on cs.serie_id = s.id
+            left join categorias c on c.id = cs.categoria_id
+            left join temporadas t on t.id_serie = s.id
+            where s.id = ?
+            group by s.id",
+         [$request["id"]])[0]];
+        } catch(\Exception) {
+            return ["error" => "id incorrecto"];
+        }
+    });}
 
-    public function getSeriesRandom(Request $request)
-    {
-        return ClienteController::checkSession($request, function () {
-            $series = DB::table('series')->get()->toArray();
-            shuffle($series);
-            $seriesRandom = array_slice($series, 0, 8);
-            return ['series' => $seriesRandom];
-        });
-    }
+    public function getSeriesRandom(Request $request) { return ClienteController::checkSession($request, function () {
+        return ['series' => DB::select(
+            "SELECT s.id, s.titulo, s.portada, 's' tipo
+            from series s
+            left join historial_series h on h.serie_id = s.id
+            group by s.id
+            order by count(h.serie_id) desc
+            limit 8"
+        )];
+    });}
 }

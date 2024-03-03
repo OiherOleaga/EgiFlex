@@ -1,8 +1,19 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, defineEmits } from 'vue'
+
 const props = defineProps({tipo: String});
+const emit = defineEmits(['filtrando']);
+
 const contenido = ref([])
+const categorias = ref([])
 const busqueda = ref("")
+
+const filtrando = ref(false)
+
+watch(filtrando, () => {
+    console.log("emit")
+    emit("filtrando");
+})
 
 watch(busqueda, () => {
     filtrar(busqueda.value)
@@ -13,19 +24,34 @@ function detalles(id, tipo) {
 }
 
 function filtrar(busqueda) {
-    let filtor = {
+    let filtrando2 = false;
+
+    let filtro = {
         tipo: props.tipo,
     }
 
     if (busqueda) {
-        filtor.busqueda = busqueda
+        filtro.busqueda = busqueda
+        filtrando2 = true;
     }
 
-    POST("/filtro", filtor).then(res => {
-        contenido.value = res.contenido;
-        console.log(res)
-    })
+    filtrando.value = filtrando2;
+
+    if (filtro.tipo !== 'n' || filtrando.value) {
+
+        POST("/filtro", filtro).then(res => {
+            contenido.value = res.contenido;
+            console.log(res)
+        })
+    } else {
+        contenido.value = [];
+    }
+
 }
+
+GET("/categorias").then(res => {
+    categorias.value = res.categorias
+})
 
 filtrar();
 
@@ -43,7 +69,7 @@ filtrar();
                         Ordenar por
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Descargas</a></li>
+                        <li><a class="dropdown-item" href="#">Popularidad</a></li>
                         <li><a class="dropdown-item" href="#">Recientes</a></li>
                     </ul>
                 </div>
@@ -53,20 +79,7 @@ filtrar();
                         Género
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Horror</a></li>
-                        <li><a class="dropdown-item" href="#">Fantasia</a></li>
-                        <li><a class="dropdown-item" href="#">Drama</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Número de temporadas
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Horror</a></li>
-                        <li><a class="dropdown-item" href="#">Fantasia</a></li>
-                        <li><a class="dropdown-item" href="#">Drama</a></li>
+                        <li v-for="categoria in categorias"><a class="dropdown-item" href="#">{{ categoria.nombre }}</a></li>
                     </ul>
                 </div>
                 <div>

@@ -16,7 +16,7 @@ class PeliculaController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-    
+
         $peliculas = Pelicula::query()
             ->where('titulo', 'LIKE', "%$search%")
             ->orWhere('director', 'LIKE', "%$search%")
@@ -27,11 +27,11 @@ class PeliculaController extends Controller
             ->orWhere('portada', 'LIKE', "%$search%")
             ->orWhere('poster', 'LIKE', "%$search%")
             ->paginate(5);
-    
+
         $peliculas->appends(['search' => $search]);
-    
+
         return view('peliculas.index', compact('peliculas'));
-    }    
+    }
 
     public function create()
     {
@@ -184,13 +184,14 @@ class PeliculaController extends Controller
     }
 
 
-    public function getPelisRandom(Request $request)
-    {
-        return ClienteController::checkSession($request, function () {
-            $peliculas = DB::table('peliculas')->get()->toArray();
-            shuffle($peliculas);
-            $peliculasRandom = array_slice($peliculas, 0, 8);
-            return ['pelis' => $peliculasRandom];
-        });
-    }
+    public function getPelisRandom(Request $request) { return ClienteController::checkSession($request, function () {
+            return ['pelis' => DB::select(
+                "SELECT p.id, p.titulo, p.portada, 'p' tipo
+                    from peliculas p
+                    left join historial_peliculas h on h.id_pelicula = p.id
+                    group by p.id
+                    order by count(h.id_pelicula) desc
+                    limit 8
+            ")];
+    });}
 }

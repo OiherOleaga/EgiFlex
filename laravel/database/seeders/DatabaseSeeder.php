@@ -20,25 +20,25 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'David',
             'email' => 'david.moreno@ikasle.egibide.org',
-            'password' => hash('sha256', 'contrasena')
+            'password' => 'contrasena'
         ]);
 
         User::create([
             'name' => 'Markel',
             'email' => 'markel.onaindia@ikasle.egibide.org',
-            'password' => hash('sha256', 'contrasena')
+            'password' => 'contrasena'
         ]);
 
         User::create([
             'name' => 'Oiher',
             'email' => 'oiher.oleaga@ikasle.egibide.org',
-            'password' => hash('sha256', 'contrasena')
+            'password' => 'contrasena'
         ]);
 
         User::create([
             'name' => 'Anartz',
             'email' => 'anartz.pagaldai@ikasle.egibide.org',
-            'password' => hash('sha256', 'contrasena')
+            'password' => 'contrasena'
         ]);
 
         Cliente::create([

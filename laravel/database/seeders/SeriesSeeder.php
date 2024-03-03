@@ -31,7 +31,7 @@ class SeriesSeeder extends Seeder
                 'director' => 'Tatsuki Fujimoto',
                 'ano_lanzamiento' => '2018-01-01',
                 'sinopsis' => 'Un hombre se convierte en un cazador de demonios después de ser resucitado por su perro demonio.',
-                'portada' => $url . '/portadas/chainsaw_Man.jpg',
+                'portada' => $url . '/portadas/Chainsaw_Man.jpg',
                 'poster' => $url . '/posters/chainsawman.jpg',
             ],
             [

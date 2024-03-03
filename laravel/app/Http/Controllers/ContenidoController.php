@@ -2,24 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Episodio;
+use App\Models\Pelicula;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Break_;
 
 class ContenidoController extends Controller
 {
-    function getContenido(Request $request)
-    {
-        return ClienteController::checkSession($request, function () {
-            $peliculas = DB::table('peliculas')->get()->toArray();
-            $series = DB::table('series')->get()->toArray();
+    function getContenido(Request $request) { return ClienteController::checkSession($request, function () {
 
-            $contenido = array_merge($peliculas, $series);
+        return ["datosRandom" =>
+            DB::select(
+                "SELECT id, titulo, portada, tipo
+                from (
 
-            shuffle($contenido);
+                    SELECT p.id, p.titulo, p.portada, 'p' tipo, count(h.id_pelicula) fama
+                    from peliculas p
+                    left join historial_peliculas h on h.id_pelicula = p.id
+                    group by p.id
 
-            return ["datosRandom" => array_slice($contenido, 0, 8)];
-        });
-    }
+                    union all
+
+                    SELECT s.id, s.titulo, s.portada, 's' tipo, count(h.serie_id) fama
+                    from series s
+                    left join historial_series h on h.serie_id = s.id
+                    group by s.id
+
+                ) contenido order by fama desc limit 8
+            ")
+        ];
+
+    });}
 
     function filtro(Request $request) { return ClienteController::checkSession($request, function ($request) {
 
@@ -34,7 +48,7 @@ class ContenidoController extends Controller
                     SELECT id, titulo, portada, 'p' as tipo FROM peliculas
                     union all
                     SELECT id, titulo, portada, 's' as tipo FROM series
-                ) contenido";
+                ) contenido ";
                 break;
             case 's':
                 $consulta .= ", 's' as tipo from series ";
@@ -54,5 +68,28 @@ class ContenidoController extends Controller
         $select = $consulta . ($where == "where " ? "" : $where);
         //return ["select" => $select, "datos" => $datos];
         return ["contenido" => DB::select($select, $datos)];
+    });}
+
+
+    function getVideo(Request $request) { return ClienteController::checkSession($request, function ($request) {
+
+        switch ($request["tipo"]) {
+            case 's':
+                $tabla = "episodios";
+                break;
+            case 'p':
+                $tabla = "peliculas";
+                break;
+            default:
+                return ["error" => "ni p ni s"];
+        }
+
+        try {
+            return ["video" => DB::select("SELECT archivo from " . $tabla . " where id = ?", [$request["id"]])[0]->archivo];
+        } catch (\Exception) {
+            return ["error" => "en la peticion"];
+        }
+
+
     });}
 }
