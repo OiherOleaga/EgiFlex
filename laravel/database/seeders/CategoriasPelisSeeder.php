@@ -26,7 +26,7 @@ class CategoriasPelisSeeder extends Seeder
             $categoria = $categorias->random();
 
             // Crear una relación entre la pelicula y la categoría
-            CategoriaSerie::create([
+            CategoriaPelicula::create([
                 'pelicula_id' => $pelicula->id,
                 'categoria_id' => $categoria->id,
             ]);

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ClientesSeeder::class);
         $this->call(AdministradoresSeeder::class);
         $this->call(CategoriasSeriesSeeder::class);
-
+        $this->call(CategoriasPelisSeeder::class);
 
     }
 }
