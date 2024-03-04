@@ -44,6 +44,7 @@ function watch(id) {
 
 
 </script>
+
 <template>
     <article class="w-100 min-vh-100 overflow-x-hidden">
         <section v-if="detalles" class="container-fluid">
@@ -52,8 +53,8 @@ function watch(id) {
                     <div class="col-12 m-0 p-0">
                         <div class="portada-container">
                             <img :src="detalles.poster" alt="Portada" class="portada-img" />
-                            <a href="#pelicula"> <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png" alt=""
-                                    width="90px" class="play-button"></a>
+                            <a href="#pelicula"> <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png"
+                                    alt="" width="90px" class="play-button"></a>
                         </div>
                     </div>
                 </div>
@@ -63,7 +64,8 @@ function watch(id) {
                     <div class="col-12 col-md-3 beam-detalles text-sm-center text-md-start">
                         <figure>
                             <img :src="detalles.portada" class="rounded img img-fluid equal-image" alt="">
-                            <figcaption v-if="args[0] == 'p'" class="gap-2 d-flex align-items-center justify-content-center my-2">
+                            <figcaption v-if="args[0] == 'p'"
+                                class="gap-2 d-flex align-items-center justify-content-center my-2">
                                 <button class="rounded-pill btn w-100 text-white p-2">Descargar</button>
                             </figcaption>
                         </figure>
@@ -88,8 +90,10 @@ function watch(id) {
                         <p class="fw-semibold fs-2">{{ detalles.titulo }} ({{ detalles.ano_lanzamiento.split("-")[0] }})
                         </p>
                         <p class="fw-semibold fs-5">{{ detalles.sinopsis }}</p>
-                        <div v-if="args[0] == 'p'" class=" ratio ratio-16x9 d-flex align-items-center justify-content-center">
-                            <video id="pelicula" :src="detalles.archivo" class="rounded" controls preload  width="100%" height="100%"></video>
+                        <div v-if="args[0] == 'p'"
+                            class=" ratio ratio-16x9 d-flex align-items-center justify-content-center">
+                            <video id="pelicula" :src="detalles.archivo" class="rounded" controls preload
+                                width="100%"></video>
                         </div>
                         <div v-if="args[0] == 's'">
                             <p class="fw-semibold fs-2">Episodios
@@ -124,7 +128,7 @@ function watch(id) {
         </section>
     </article>
 </template>
-  
+
 <style>
 article {
     background-size: cover;
