@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Episodio;
 use App\Models\Pelicula;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\Break_;
 
@@ -73,22 +74,30 @@ class ContenidoController extends Controller
 
     function getVideo(Request $request) { return ClienteController::checkSession($request, function ($request) {
 
-        switch ($request["tipo"]) {
+        try {
+            switch ($request["tipo"]) {
             case 's':
-                $tabla = "episodios";
-                break;
+                return ["video" => DB::select(
+                    "SELECT e.archivo, ifnull(he.tiempo, 0) tiempo
+                    from episodios e
+                    join temporadas t on t.id = e.id_temporada
+                    join series s on s.id = t.id_serie
+                    left join historial_series hs on s.id = hs.serie_id and hs.cliente_id = " . Crypt::decrypt($request->header("sessionId")) . "
+                    left join historial_episodios he on he.historial_serie_id = hs.id and he.viendo = true
+                    where s.id = ?", [$request["id"]])[0]];
             case 'p':
-                $tabla = "peliculas";
-                break;
+                return ["video" => DB::select(
+                    "SELECT p.archivo, ifnull(hp.tiempo, 0) tiempo
+                    from peliculas p
+                    left join historial_peliculas hp on p.id = hp.id_pelicula
+                    where p.id = ?", [$request["id"]])[0]];
             default:
                 return ["error" => "ni p ni s"];
-        }
-
-        try {
-            return ["video" => DB::select("SELECT archivo from " . $tabla . " where id = ?", [$request["id"]])[0]->archivo];
+            }
         } catch (\Exception) {
             return ["error" => "en la peticion"];
         }
+
 
 
     });}

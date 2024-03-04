@@ -6,15 +6,14 @@ const videoSrc = ref('')
 
 let args = window.location.search.split("?")[1].split("=")
 
-console.log(args)
 POST("/getVideo", { id: args[1], tipo: args[0] }).then(res => {
 
     if (res.error) {
       alert("error," + res.error);
     } else {
-      videoSrc.value = res.video
+      videoSrc.value = res.video.archivo
       videoPlayer.value.load()
-      videoPlayer.value.currentTime = 10;
+      videoPlayer.value.currentTime = res.video.tiempo
     }
     
 })
@@ -23,7 +22,7 @@ POST("/getVideo", { id: args[1], tipo: args[0] }).then(res => {
 
 <template>
   <div>
-    <video ref="videoPlayer" muted controls preload="auto" width="640" height="360">
+    <video ref="videoPlayer" controls preload="auto" width="640" height="360">
       <source :src="videoSrc" type="video/mp4">
     </video>
   </div>
