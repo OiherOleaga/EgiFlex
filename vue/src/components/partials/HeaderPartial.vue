@@ -46,9 +46,6 @@ function cerrarSession() {
                         <div class="block block-tb-megamenu block-tb-megamenu-menu-blockmain">
                             <ul v-if="inicioSesion" class="tb-megamenu-nav nav level-1 items-6">
                                 <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="/content">Inicio</a>
-                                </li>
-                                <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="/series">Series</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
