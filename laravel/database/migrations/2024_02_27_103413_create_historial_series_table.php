@@ -17,6 +17,10 @@ return new class extends Migration
             $table->foreign('serie_id')->references('id')->on('series')->onDelete('cascade');
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
+            $table->unsignedBigInteger('episodio_id');
+            $table->foreign('episodio_id')->references('id')->on('episodios')->onDelete('cascade');
+            $table->boolean('visto')->default(false);
+            $table->boolean('viendo')->default(true);
             $table->timestamps();
         });
     }

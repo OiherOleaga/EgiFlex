@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HistorialPelicula extends Model
+class HistorialEpisodios extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'id_pelicula',
-        'id_cliente',
+        'episodio_id',
+        'historial_serie_id',
         'visto',
         'viendo',
         'tiempo'
     ];
+    
+    use HasFactory;
 }
