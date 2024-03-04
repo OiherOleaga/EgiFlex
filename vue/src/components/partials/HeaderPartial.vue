@@ -1,14 +1,17 @@
 <!-- HeaderPartial.vue -->
 <script setup>
+import router from "@/router";
 import { Collapse, Ripple, initMDB } from "mdb-ui-kit";
-import { ref } from "vue";
+import { ref } from 'vue'
 
 initMDB({ Collapse, Ripple });
 
-let inicioSesion=ref(false);
+const inicioSesion = ref(localStorage.getItem("sessionId") !== null)
 
-function getInicioSesion() {
-    
+function cerrarSession() {
+    localStorage.removeItem("sessionId")
+    inicioSesion.value = false;
+    router.push("/")
 }
 
 </script>
@@ -37,16 +40,7 @@ function getInicioSesion() {
                 <div class="collapse navbar-collapse justify-content-md-start">
                     <div class="region region-nav-main">
                         <div class="block block-tb-megamenu block-tb-megamenu-menu-blockmain">
-                            <ul class="tb-megamenu-nav nav level-1 items-6">
-                                <!-- <li class="nav-item dropdown px-2">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        CUENTA
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="/historial">Mis pedidos</a></li>
-                                    </ul>
-                                </li> -->
+                            <ul v-if="inicioSesion" class="tb-megamenu-nav nav level-1 items-6">
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="/content">Inicio</a>
                                 </li>
@@ -55,6 +49,26 @@ function getInicioSesion() {
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="/peliculas">Peliculas</a>
+                                </li>
+                                <li class="tb-megamenu-item level-2 mega px-2">
+                                    <a @click="cerrarSession">Cerrar session</a>
+                                </li>
+                                <li class="tb-megamenu-item level-2 mega px-2">
+                                    <a href="#faq">Preguntas Frecuentes</a>
+                                </li>
+                                <li class="tb-megamenu-item level-2 mega px-2">
+                                    <a href="#sponsors">Nuestros Patrocinadores</a>
+                                </li>
+                            </ul>
+                            <ul v-else class="tb-megamenu-nav nav level-1 items-6">
+                                <li class="tb-megamenu-item level-2 mega px-2">
+                                    <a href="#series">Series</a>
+                                </li>
+                                <li class="tb-megamenu-item level-2 mega px-2">
+                                    <a href="#peliculas">Peliculas</a>
+                                </li>
+                                <li class="tb-megamenu-item level-2 mega px-2">
+                                    <a href="/login">Iniciar session</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="#faq">Preguntas Frecuentes</a>

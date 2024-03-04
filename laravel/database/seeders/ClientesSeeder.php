@@ -16,35 +16,35 @@ class ClientesSeeder extends Seeder
             [
                 'correo' => 'oiher@ikasle.egibide.org',
                 'estado' => 'activo',
-                'contrasena' => hash('sha256','12345'),
+                'contrasena' => hash('sha256', '12345'),
                 'nombre' => 'Oiher',
                 'apellido' => 'Perro'
             ],
             [
                 'correo' => 'david@ikasle.egibide.org',
                 'estado' => 'activo',
-                'contrasena' => hash('sha256','12345'),
+                'contrasena' => hash('sha256', '12345'),
                 'nombre' => 'david',
                 'apellido' => 'Moreno'
             ],
             [
                 'correo' => 'anartz@ikasle.egibide.org',
                 'estado' => 'activo',
-                'contrasena' => hash('sha256','12345'),
+                'contrasena' => hash('sha256', '12345'),
                 'nombre' => 'anartz',
                 'apellido' => 'pato'
             ],
             [
                 'correo' => 'markel@ikasle.egibide.org',
                 'estado' => 'activo',
-                'contrasena' => hash('sha256','12345'),
+                'contrasena' => hash('sha256', '12345'),
                 'nombre' => 'Markel',
                 'apellido' => 'Guapo'
             ],
             [
                 'correo' => 'cliente5@example.com',
                 'estado' => 'inactivo',
-                'contrasena' => hash('sha256','12345'),
+                'contrasena' => hash('sha256', 'contrasena5'),
                 'nombre' => 'Pedro',
                 'apellido' => 'López'
             ],
