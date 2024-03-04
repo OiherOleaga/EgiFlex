@@ -41,8 +41,8 @@ class TemporadasSeeder extends Seeder
                 'numero_episodios' => 3,
                 'fecha_estreno' => '2021-02-15',
             ],
-             // Temporadas de Cyberpunk
-             [
+            // Temporadas de Cyberpunk
+            [
                 'id_serie' => 3,
                 'numero_temporada' => 1,
                 'numero_episodios' => 4,
@@ -53,6 +53,13 @@ class TemporadasSeeder extends Seeder
                 'numero_temporada' => 2,
                 'numero_episodios' => 3,
                 'fecha_estreno' => '2023-01-15',
+            ],
+            // Temporada de One Piece
+            [
+                'id_serie' => 8,
+                'numero_temporada' => 1,
+                'numero_episodios' =>1095,
+                'fecha_estreno' => '2022-05-01',
             ],
 
         ];
