@@ -1,13 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-<<<<<<< HEAD
 const div = ref(null)
 const loading = ref(true)
-=======
-const videoPlayer = ref(null)
-const videoSrc = ref('')
->>>>>>> 70653eb4af8cbd6464dfcbece7991a830497703a
 
 let args = window.location.search.split("?")[1].split("=")
 
