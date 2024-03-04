@@ -15,6 +15,7 @@ class TemporadasSeeder extends Seeder
     public function run()
     {
         $temporadas = [
+            // Temporadas de Dragon ball
             [
                 'id_serie' => 4,
                 'numero_temporada' => 1,
@@ -27,6 +28,20 @@ class TemporadasSeeder extends Seeder
                 'numero_episodios' => 6,
                 'fecha_estreno' => '2021-07-15',
             ],
+            // Temporadas de CSM
+            [
+                'id_serie' => 2,
+                'numero_temporada' => 1,
+                'numero_episodios' => 3,
+                'fecha_estreno' => '2020-05-01',
+            ],
+            [
+                'id_serie' => 2,
+                'numero_temporada' => 2,
+                'numero_episodios' => 3,
+                'fecha_estreno' => '2021-07-15',
+            ],
+
         ];
 
         foreach ($temporadas as $temporada) {
