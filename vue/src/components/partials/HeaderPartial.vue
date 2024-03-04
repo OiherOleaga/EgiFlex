@@ -29,14 +29,18 @@ function cerrarSession() {
                         <span></span>
                     </button>
                     <div class="navbar-brand d-flex align-items-center">
-                        <div>
+                        <div v-if="inicioSesion">
+                            <a href="/content">
+                                <img src="../img/generatedtext (2).png" alt="egiflex">
+                            </a>
+                        </div>
+                        <div v-else>
                             <a href="/">
                                 <img src="../img/generatedtext (2).png" alt="egiflex">
                             </a>
                         </div>
                     </div>
                 </div>
-
                 <div class="collapse navbar-collapse justify-content-md-start">
                     <div class="region region-nav-main">
                         <div class="block block-tb-megamenu block-tb-megamenu-menu-blockmain">
@@ -51,24 +55,15 @@ function cerrarSession() {
                                     <a href="/peliculas">Peliculas</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a @click="cerrarSession">Cerrar session</a>
-                                </li>
-                                <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="#faq">Preguntas Frecuentes</a>
-                                </li>
-                                <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="#sponsors">Nuestros Patrocinadores</a>
+                                    <a @click="cerrarSession">Cerrar sesion</a>
                                 </li>
                             </ul>
                             <ul v-else class="tb-megamenu-nav nav level-1 items-6">
                                 <li class="tb-megamenu-item level-2 mega px-2">
+                                    <a href="#important">Imprescindibles</a>
+                                </li>
+                                <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="#series">Series</a>
-                                </li>
-                                <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="#peliculas">Peliculas</a>
-                                </li>
-                                <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="/login">Iniciar session</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="#faq">Preguntas Frecuentes</a>
