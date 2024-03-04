@@ -22,7 +22,7 @@ POST("/getVideo", { id: args[1], tipo: args[0] }).then(res => {
     <div class="row ">
       <div class="col vh-100 d-flex align-items-center justify-content-center">
         <div class="container">
-          <video ref="videoPlayer" controls preload="auto" width="100%">
+          <video ref="videoPlayer" class="rounded" controls preload="auto" width="100%">
             <source :src="videoSrc" type="video/mp4">
           </video>
         </div>

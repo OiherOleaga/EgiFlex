@@ -84,7 +84,7 @@ class ContenidoController extends Controller
                     join series s on s.id = t.id_serie
                     left join historial_series hs on s.id = hs.serie_id and hs.cliente_id = " . Crypt::decrypt($request->header("sessionId")) . "
                     left join historial_episodios he on he.historial_serie_id = hs.id and he.viendo = true
-                    where s.id = ?", [$request["id"]])[0]];
+                    where e.id = ?", [$request["id"]])[0]];
             case 'p':
                 return ["video" => DB::select(
                     "SELECT p.archivo, ifnull(hp.tiempo, 0) tiempo
