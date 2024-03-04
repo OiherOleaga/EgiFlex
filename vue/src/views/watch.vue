@@ -19,12 +19,14 @@ POST("/getVideo", { id: args[1], tipo: args[0] }).then(res => {
 
 <template>
   <section class="container-fluid w-100 min-vh-100">
-    <div class="row ">
-      <div class="col vh-100 d-flex align-items-center justify-content-center">
-        <div class="container">
-          <video ref="videoPlayer" class="rounded" controls preload="auto" width="100%">
-            <source :src="videoSrc" type="video/mp4">
-          </video>
+    <div class="container">
+      <div class="row ">
+        <div class="col vh-100 d-flex align-items-center justify-content-center">
+          <div  >
+            <video ref="videoPlayer" class="rounded" controls preload="auto" width="100%">
+              <source :src="videoSrc" type="video/mp4">
+            </video>
+          </div>
         </div>
       </div>
     </div>
