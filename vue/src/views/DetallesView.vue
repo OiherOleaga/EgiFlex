@@ -53,8 +53,13 @@ function watch(id) {
                     <div class="col-12 m-0 p-0">
                         <div class="portada-container">
                             <img :src="detalles.poster" alt="Portada" class="portada-img" />
-                            <a href="#pelicula"> <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png"
-                                    alt="" width="90px" class="play-button"></a>
+                            <<<<<<< HEAD <a href="#pelicula"> <img
+                                    src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png" alt="" width="90px"
+                                    class="play-button"></a>
+                                =======
+                                <a href="#play"> <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png"
+                                        alt="" width="90px" class="play-button"></a>
+                                >>>>>>> 3c75c2d71e35507a00748ce5beebb85df0bd1add
                         </div>
                     </div>
                 </div>
@@ -86,14 +91,14 @@ function watch(id) {
                             <p>{{ detalles.temporadas.length }}</p>
                         </div>
                     </div>
-                    <div class="col-12 col-md-9 text-start">
+                    <div id="play" class="col-12 col-md-9 text-start">
                         <p class="fw-semibold fs-2">{{ detalles.titulo }} ({{ detalles.ano_lanzamiento.split("-")[0] }})
                         </p>
                         <p class="fw-semibold fs-5">{{ detalles.sinopsis }}</p>
                         <div v-if="args[0] == 'p'"
                             class=" ratio ratio-16x9 d-flex align-items-center justify-content-center">
-                            <video id="pelicula" :src="detalles.archivo" class="rounded" controls preload
-                                width="100%"></video>
+                            <video :src="detalles.archivo" class="rounded" controls preload width="100%"
+                                height="100%"></video>
                         </div>
                         <div v-if="args[0] == 's'">
                             <p class="fw-semibold fs-2">Episodios
@@ -111,7 +116,7 @@ function watch(id) {
                             </p>
                             <div class="episodios overflow-y-scroll d-flex flex-column gap-2">
                                 <div v-for="episodio in detalles.episodios"
-                                    class="d-flex align-items-center justify-content-around gap-3">
+                                    class="d-flex align-items-center justify-content-between gap-3">
                                     <video :src="episodio.archivo" with="50" height="50"></video>
                                     <p class="m-0 fw-semibold">{{ episodio.numero_episodio }}. {{ episodio.titulo }}</p>
                                     <div class="d-flex gap-2">
