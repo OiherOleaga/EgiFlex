@@ -103,7 +103,6 @@ class ClienteController extends Controller
         }
     }
 
-
     static function checkSession(Request $request, $callback = null)
     {
         try {

@@ -185,13 +185,13 @@ class PeliculaController extends Controller
 
 
     public function getPelisRandom(Request $request) { return ClienteController::checkSession($request, function () {
-            return ['pelis' => DB::select(
-                "SELECT p.id, p.titulo, p.portada, 'p' tipo
-                    from peliculas p
-                    left join historial_peliculas h on h.id_pelicula = p.id
-                    group by p.id
-                    order by count(h.id_pelicula) desc
-                    limit 8
-            ")];
+        return ['pelis' => DB::select(
+            "SELECT p.id, p.titulo, p.portada, 'p' tipo
+            from peliculas p
+            left join historial_peliculas h on h.id_pelicula = p.id
+            group by p.id
+            order by count(h.id_pelicula) desc
+            limit 8
+        ")];
     });}
 }
