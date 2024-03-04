@@ -15,9 +15,6 @@ import videoVue from '../components/video.vue'
   </section>
 </template>
 
-
-
-
 <style scoped>
 section {
   background-size: cover;

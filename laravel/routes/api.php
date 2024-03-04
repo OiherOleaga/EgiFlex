@@ -4,6 +4,8 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContenidoController;
 use App\Http\Controllers\EpisodioController;
+use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\ListaController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\SerieController;
 use Illuminate\Http\Request;
@@ -20,9 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 Route::get("/pelis/popular", [PeliculaController::class, "getPelisRandom"]);
 Route::post("/getDetallesPelicula", [PeliculaController::class, "getDetallesPelicula"]);
@@ -42,3 +41,7 @@ Route::post("/getVideo", [ContenidoController::class, "getVideo"]);
 Route::get("/categorias", [CategoriaController::class, "categorias"]);
 
 Route::post("/episodios", [EpisodioController::class, "episodios"]);
+
+Route::post("/historial", [HistorialController::class, "setHistorial"]);
+
+Route::post("/addLista", [ListaController::class, "addLista"]);

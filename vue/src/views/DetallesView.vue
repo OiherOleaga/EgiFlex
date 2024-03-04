@@ -1,9 +1,9 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
+import videoVue from '../components/video.vue'
 import router from '@/router';
 
 const detalles = ref();
-
 
 let args = window.location.search.split("?")[1].split("=")
 if (args[0] == 's') {
@@ -42,6 +42,25 @@ function watch(id) {
     router.push(`/watch?${args[0]}=${id}`);
 }
 
+function addLista() {
+    POST("/addLista", { tipo: args[1], id: args[0] })
+}
+
+function descargar(url) {
+    fetch(url).then(res => res.blob()).then(file => {
+        let tempUrl = URL.createObjectURL(file);
+        const aTag = document.createElement("a");
+        aTag.href = tempUrl;
+        aTag.download = url.replace(/^.*[\\\/]/, '');
+        document.body.appendChild(aTag);
+        aTag.click();
+        URL.revokeObjectURL(tempUrl);
+        aTag.remove();
+    }).catch(() => {
+        alert("Failed to download file!");
+    });
+}
+
 
 </script>
 
@@ -53,13 +72,8 @@ function watch(id) {
                     <div class="col-12 m-0 p-0">
                         <div class="portada-container">
                             <img :src="detalles.poster" alt="Portada" class="portada-img" />
-                            <<<<<<< HEAD <a href="#pelicula"> <img
-                                    src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png" alt="" width="90px"
-                                    class="play-button"></a>
-                                =======
                                 <a href="#play"> <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png"
                                         alt="" width="90px" class="play-button"></a>
-                                >>>>>>> 3c75c2d71e35507a00748ce5beebb85df0bd1add
                         </div>
                     </div>
                 </div>
@@ -71,7 +85,8 @@ function watch(id) {
                             <img :src="detalles.portada" class="rounded img img-fluid equal-image" alt="">
                             <figcaption v-if="args[0] == 'p'"
                                 class="gap-2 d-flex align-items-center justify-content-center my-2">
-                                <button class="rounded-pill btn w-100 text-white p-2">Descargar</button>
+                                <button class="rounded-pill btn w-100 text-white p-2" @click="descargar(detalles.archivo)">Descargar</button>
+                                <button class="rounded-pill btn w-100 text-white p-2" @click="addLista">+ lista</button>
                             </figcaption>
                         </figure>
                         <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
@@ -97,8 +112,7 @@ function watch(id) {
                         <p class="fw-semibold fs-5">{{ detalles.sinopsis }}</p>
                         <div v-if="args[0] == 'p'"
                             class=" ratio ratio-16x9 d-flex align-items-center justify-content-center">
-                            <video :src="detalles.archivo" class="rounded" controls preload width="100%"
-                                height="100%"></video>
+                            <videoVue />
                         </div>
                         <div v-if="args[0] == 's'">
                             <p class="fw-semibold fs-2">Episodios
@@ -120,7 +134,7 @@ function watch(id) {
                                     <video :src="episodio.archivo" with="50" height="50"></video>
                                     <p class="m-0 fw-semibold">{{ episodio.numero_episodio }}. {{ episodio.titulo }}</p>
                                     <div class="d-flex gap-2">
-                                        <button class="rounded-pill btn text-white p-2">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2" @click="descargar(episodio.archivo)">Descargar</button>
                                         <button class="rounded-pill btn text-white p-2" @click="watch(episodio.id)">Ver
                                             ahora</button>
                                     </div>

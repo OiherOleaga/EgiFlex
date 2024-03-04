@@ -74,31 +74,28 @@ class ContenidoController extends Controller
 
     function getVideo(Request $request) { return ClienteController::checkSession($request, function ($request) {
 
-        try {
-            switch ($request["tipo"]) {
+        switch ($request["tipo"]) {
             case 's':
-                return ["video" => DB::select(
-                    "SELECT e.archivo, ifnull(he.tiempo, 0) tiempo
+                $respuesta = DB::select(
+                    "SELECT e.archivo, ifnull(hs.tiempo, 0) tiempo
                     from episodios e
                     join temporadas t on t.id = e.id_temporada
                     join series s on s.id = t.id_serie
-                    left join historial_series hs on s.id = hs.serie_id and hs.cliente_id = " . Crypt::decrypt($request->header("sessionId")) . "
-                    left join historial_episodios he on he.historial_serie_id = hs.id and he.viendo = true
-                    where e.id = ?", [$request["id"]])[0]];
+                    left join historial_series hs on s.id = hs.serie_id and hs.episodio_id = e.id and hs.cliente_id = " . Crypt::decrypt($request->header("sessionId")) . "
+                    where e.id = ?", [$request["id"]]);
+                    break;
             case 'p':
-                return ["video" => DB::select(
+                $respuesta = DB::select(
                     "SELECT p.archivo, ifnull(hp.tiempo, 0) tiempo
                     from peliculas p
                     left join historial_peliculas hp on p.id = hp.id_pelicula
-                    where p.id = ?", [$request["id"]])[0]];
+                    where p.id = ?", [$request["id"]]);
+                    break;
             default:
                 return ["error" => "ni p ni s"];
             }
-        } catch (\Exception) {
-            return ["error" => "en la peticion"];
-        }
 
-
+        return ["video" => (isset($respuesta[0]) ? $respuesta[0] : null)];
 
     });}
 }
