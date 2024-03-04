@@ -29,8 +29,8 @@ class ContenidoController extends Controller
                     left join historial_series h on h.serie_id = s.id
                     group by s.id
 
-                ) contenido order by fama desc limit 8
-            ")
+                ) contenido order by fama desc limit 8"
+            )
         ];
 
     });}

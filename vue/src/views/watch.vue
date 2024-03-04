@@ -1,8 +1,13 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
+<<<<<<< HEAD
 const div = ref(null)
 const loading = ref(true)
+=======
+const videoPlayer = ref(null)
+const videoSrc = ref('')
+>>>>>>> 70653eb4af8cbd6464dfcbece7991a830497703a
 
 let args = window.location.search.split("?")[1].split("=")
 
@@ -11,22 +16,11 @@ onMounted(async () => {
     const res = await POST("/getVideo", { id: args[1], tipo: args[0] });
 
     if (res.error) {
-      console.error("Error:", res.error);
-      // Puedes manejar el error mostrando un mensaje en lugar de una alerta
-      loading.value = false;
+      alert("error," + res.error);
     } else {
-      console.log(res)
-      // Asegúrate de que div.value se haya inicializado antes de acceder a innerHTML
-      if (div.value) {
-        div.value.innerHTML = `
-            <video controls preload="auto" start="10" class="video-js rounded" width="100%">
-              <source src="${res.video}" type="video/mp4">
-            </video>
-        `;
-        loading.value = false;
-      } else {
-        console.error("Error: la referencia 'div' no está inicializada correctamente.");
-      }
+      videoSrc.value = res.video
+      videoPlayer.value.load()
+      videoPlayer.value.currentTime = 10;
     }
   } catch (error) {
     console.error("Error:", error);

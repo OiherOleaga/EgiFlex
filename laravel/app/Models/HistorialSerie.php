@@ -12,5 +12,8 @@ class HistorialSerie extends Model
     protected $fillable = [
         'id_serie',
         'id_cliente',
+        'cliente_id',
+        'visto',
+        'viendo'
     ];
 }

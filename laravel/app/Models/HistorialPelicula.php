@@ -12,5 +12,8 @@ class HistorialPelicula extends Model
     protected $fillable = [
         'id_pelicula',
         'id_cliente',
+        'visto',
+        'viendo',
+        'tiempo'
     ];
 }

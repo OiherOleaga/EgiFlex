@@ -1,11 +1,18 @@
 <script setup>
 import router from '@/router';
 
-GET("/checkSession").then(res => {
-  if (res.logged) {
-    router.push("/content");
-  }
-});
+fetch(route("/checkSession"), {
+    headers: { "sessionId": localStorage.getItem("sessionId") }
+  })
+  .then(res => res.json())
+  .then(res => {
+    if (res.logged) {
+      router.push("/content");
+    }
+  })
+  .catch(err => {
+    console.log(err)
+  });
 </script>
 
 <template>

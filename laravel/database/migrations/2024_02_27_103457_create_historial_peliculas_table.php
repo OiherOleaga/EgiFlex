@@ -17,6 +17,9 @@ return new class extends Migration
             $table->foreign('id_pelicula')->references('id')->on('peliculas')->onDelete('cascade');
             $table->unsignedBigInteger('id_cliente');
             $table->foreign('id_cliente')->references('id')->on('clientes')->onDelete('cascade');
+            $table->unsignedBigInteger('tiempo');
+            $table->boolean('visto')->default(false);
+            $table->boolean('viendo')->default(true);
             $table->timestamps();
         });
     }
