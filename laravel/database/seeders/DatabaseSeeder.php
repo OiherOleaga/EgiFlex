@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(Peliculasseeder::class);
         $this->call(SeriesSeeder::class);
+        $this->call(CategoriasSeeder::class);
 
         User::create([
             'name' => 'David',
