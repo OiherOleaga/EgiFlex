@@ -18,7 +18,7 @@ class ClientesSeeder extends Seeder
                 'estado' => 'activo',
                 'contrasena' => bcrypt('12345'),
                 'nombre' => 'Oiher',
-                'apellido' => 'Oleaga'
+                'apellido' => 'Perro'
             ],
             [
                 'correo' => 'david@ikasle.egibide.org',
@@ -39,7 +39,7 @@ class ClientesSeeder extends Seeder
                 'estado' => 'activo',
                 'contrasena' => bcrypt('12345'),
                 'nombre' => 'Markel',
-                'apellido' => 'trans'
+                'apellido' => 'Guapo'
             ],
             [
                 'correo' => 'cliente5@example.com',
