@@ -39,7 +39,20 @@ class TemporadasSeeder extends Seeder
                 'id_serie' => 2,
                 'numero_temporada' => 2,
                 'numero_episodios' => 3,
-                'fecha_estreno' => '2021-07-15',
+                'fecha_estreno' => '2021-02-15',
+            ],
+             // Temporadas de Cyberpunk
+             [
+                'id_serie' => 3,
+                'numero_temporada' => 1,
+                'numero_episodios' => 4,
+                'fecha_estreno' => '2022-05-01',
+            ],
+            [
+                'id_serie' => 3,
+                'numero_temporada' => 2,
+                'numero_episodios' => 3,
+                'fecha_estreno' => '2023-01-15',
             ],
 
         ];
