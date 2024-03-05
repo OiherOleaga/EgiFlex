@@ -61,6 +61,13 @@ class TemporadasSeeder extends Seeder
                 'numero_episodios' =>1095,
                 'fecha_estreno' => '2022-05-01',
             ],
+            // Temporada de Jujutsu
+            [
+                'id_serie' => 5,
+                'numero_temporada' => 1,
+                'numero_episodios' =>5,
+                'fecha_estreno' => '2025-05-01',
+            ],
 
         ];
 
