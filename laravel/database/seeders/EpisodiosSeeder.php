@@ -715,6 +715,28 @@ class EpisodiosSeeder extends Seeder
                 'archivo' => $url . '/episodios/jjk05.mp4',
                 'portada' => $url . '/portadas/JJK.jpg',
             ],
+            // Episodios de la casa de papel
+            [
+                'id_temporada' => 9,
+                'titulo' => 'Empieza el atraco',
+                'numero_episodio' => 1,
+                'duracion' => 22,
+                'sinopsis' => 'El profesor reune a un grupo de ladrones para el mayor robo jamas visto',
+                'fecha_estreno' => '2017-05-01',
+                'archivo' => $url . '/episodios/lcdp_01.mp4',
+                'portada' => $url . '/portadas/casapapel.jpg',
+            ],
+            // Episodios de kny
+            [
+                'id_temporada' => 10,
+                'titulo' => 'これは日本語のタイトルです',
+                'numero_episodio' => 1,
+                'duracion' => 25,
+                'sinopsis' => 'なぜこれを翻訳するのですか？センスがない',
+                'fecha_estreno' => '2019-05-01',
+                'archivo' => $url . '/episodios/kny_01.mp4',
+                'portada' => $url . '/portadas/kimetsu.jpg',
+            ],
             
         ];
 
