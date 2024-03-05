@@ -77,7 +77,7 @@ class ContenidoController extends Controller
         switch ($request["tipo"]) {
             case 's':
                 $respuesta = DB::select(
-                    "SELECT e.archivo, ifnull(hs.tiempo, 0) tiempo
+                    "SELECT e.archivo,s.poster ,ifnull(hs.tiempo, 0) tiempo
                     from episodios e
                     join temporadas t on t.id = e.id_temporada
                     join series s on s.id = t.id_serie
@@ -86,7 +86,7 @@ class ContenidoController extends Controller
                     break;
             case 'p':
                 $respuesta = DB::select(
-                    "SELECT p.archivo, ifnull(hp.tiempo, 0) tiempo
+                    "SELECT p.archivo,p.poster, ifnull(hp.tiempo, 0) tiempo
                     from peliculas p
                     left join historial_peliculas hp on p.id = hp.id_pelicula
                     where p.id = ?", [$request["id"]]);
