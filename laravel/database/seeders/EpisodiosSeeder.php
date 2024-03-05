@@ -746,7 +746,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => ' un chico que vive en un mundo lleno de magia, descubre que él es el único sin poderes mágicos',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_01.mp4',
-                'portada' => $url . '/portadas/mashel.jpg',
+                'portada' => $url . '/portadas/mashle.jpg',
             ],
             [
                 'id_temporada' => 11,
@@ -756,7 +756,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'A pesar de no tener magia, Mashle acepta el desafío y se prepara para enfrentar al estudiante usando solo su fuerza bruta',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_02.mp4',
-                'portada' => $url . '/portadas/mashel.jpg',
+                'portada' => $url . '/portadas/mashle.jpg',
             ],
             [
                 'id_temporada' => 11,
@@ -766,7 +766,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'La escuela de magia organiza una prueba en un laberinto mágico donde los estudiantes deben superar diversos obstáculos utilizando sus habilidades mágicas',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_03.mp4',
-                'portada' => $url . '/portadas/mashel.jpg',
+                'portada' => $url . '/portadas/mashle.jpg',
             ],
             [
                 'id_temporada' => 11,
@@ -776,7 +776,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los compañeros de Mashle descubren su falta de habilidades mágicas y lo confrontan sobre su origen',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_04.mp4',
-                'portada' => $url . '/portadas/mashel.jpg',
+                'portada' => $url . '/portadas/mashle.jpg',
             ],
             [
                 'id_temporada' => 11,
@@ -786,7 +786,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'La escuela organiza una competencia de las Olimpiadas Mágicas donde los estudiantes compiten en diversas pruebas que ponen a prueba sus habilidades mágicas. ',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_05.mp4',
-                'portada' => $url . '/portadas/mashel.jpg',
+                'portada' => $url . '/portadas/mashle.jpg',
             ],
             [
                 'id_temporada' => 11,
@@ -796,7 +796,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Mashle decide participar en un torneo de magia para demostrar que la fuerza física también puede ser poderosa en un mundo dominado por la magia.',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_06.mp4',
-                'portada' => $url . '/portadas/mashel.jpg',
+                'portada' => $url . '/portadas/mashle.jpg',
             ],
             
         ];
