@@ -71,7 +71,7 @@ class Peliculasseeder extends Seeder
                 'ano_lanzamiento' => '2015-03-20',
                 'sinopsis' => 'En un mundo distópico, Tris Prior busca respuestas y aliados mientras se enfrenta a las crecientes amenazas del régimen autoritario que controla su sociedad. En medio de la guerra, descubre la importancia de la lealtad y el sacrificio.',
                 'duracion' => 119,
-                'archivo' => $url . '/peliculas/insurgente.mp4',
+                'archivo' => $url . '/peliculas/insurgente.avi',
                 'portada' => $url . '/portadas/insurgente.jpg',
                 'poster' => $url . '/posters/insurgente.jpg',
             ],
