@@ -1,4 +1,5 @@
 <!-- HeaderPartial.vue -->
+
 <script setup>
 import router from "@/router";
 import { Collapse, Ripple, initMDB } from "mdb-ui-kit";
@@ -50,6 +51,9 @@ function cerrarSession() {
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="/peliculas">Peliculas</a>
+                                </li>
+                                <li class="tb-megamenu-item level-2 mega px-2">
+                                    <a href="/lista">Mi lista</a>
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a @click="cerrarSession">Cerrar sesion</a>
@@ -203,4 +207,3 @@ button {
     }
 }
 </style>
-  

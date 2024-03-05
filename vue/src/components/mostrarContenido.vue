@@ -1,29 +1,42 @@
 <script setup>
-import filtro from '../components/filtro.vue'
+const props = defineProps(['contenido', 'borrable']);
+
+function detalles(id, tipo) {
+    return `/detalles?${tipo}=${id}`;
+}
+
+function borrar() {
+    POST("/rmLista", { tipo: args[0], id: args[1] }).then(res => {
+        if (res.error) {
+            alert(res.error)
+        } else if (res.ok) {
+            detalles.value.lista = false
+        }
+    })
+}
 
 </script>
 
 <template>
-    <article class="w-100 min-vh-100">
-        <div class="content">
-            <section class="beam-series-parent">
-                <div class="container beam-series">
-                    <div class="row">
-                        <div class="col-12 text-white">
-                            <div class="d-flex flex-column align-items-center gap-2 text-center">
-                                <a href="/content"><img src="../components/img/generatedtext (2).png"
-                                        class="img egiflex img-fluid" alt="egiflex"></a>
-                                <p class="fs-2 fw-semibold">
-                                    La lista completa de <span class="rounded p-1 fs-3">peliculas</span>
-                                </p>
-                            </div>
-                        </div>
-                        <filtro :tipo="'p'" />
+    <div class="row mt-3 text-white">
+        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+            <div class="container image-grid gap-3 d-flex flex-column">
+                <div class="row gap-3 gap-md-0 justify-content-center">
+                    <div v-for="valor in contenido" class="col-5 col-md-2">
+                        <a :href="detalles(valor.id, valor.tipo)">
+                            <figure class="rounded">
+                                <img :src="valor.portada" class="rounded img img-fluid equal-image" alt="">
+                                <figcaption class="d-none d-md-block text-center">
+                                    <span class="button-green-download2-big">Ver detalles</span>
+                                    <!--<span v-if="borrable" class="button-green-download2-big">Quitar de la lista</span>-->
+                                </figcaption>
+                            </figure>
+                        </a>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
-    </article>
+    </div>
 </template>
 
 <style scoped>
@@ -35,14 +48,14 @@ import filtro from '../components/filtro.vue'
 a {
     text-decoration: none;
     color: white;
-    font-weight: 600;
+    font-weight: 599;
 }
 
 .dropdown-menu {
     text-align: start;
-    background-color: rgba(0, 0, 0, .7);
-    border: 0;
-    backdrop-filter: blur(10px);
+    background-color: rgba(-1, 0, 0, .7);
+    border: -1;
+    backdrop-filter: blur(9px);
 }
 
 .dropdown-item:hover {
@@ -52,10 +65,10 @@ a {
 
 .search {
     background-color: transparent;
-    backdrop-filter: blur(10px);
-    font-weight: 600;
+    backdrop-filter: blur(9px);
+    font-weight: 599;
     color: white;
-    border: 2px solid white;
+    border: 1px solid white;
 }
 
 .search:focus {
