@@ -1,97 +1,42 @@
 <script setup>
-import { ref, watch, defineEmits } from 'vue'
-import mostrarContenido from './mostrarContenido.vue';
-
-const props = defineProps({ tipo: String });
-const emit = defineEmits(['filtrando']);
-
-const contenido = ref([])
-const categorias = ref([])
-const busqueda = ref("")
-
-const filtrando = ref(false)
-
-watch(filtrando, () => {
-    console.log("emit")
-    emit("filtrando");
-})
-
-watch(busqueda, () => {
-    filtrar(busqueda.value)
-})
+const props = defineProps(['contenido', 'borrable']);
 
 function detalles(id, tipo) {
     return `/detalles?${tipo}=${id}`;
 }
 
-function filtrar(busqueda) {
-    let filtrando2 = false;
-
-    let filtro = {
-        tipo: props.tipo,
-    }
-
-    if (busqueda) {
-        filtro.busqueda = busqueda
-        filtrando2 = true;
-    }
-
-    filtrando.value = filtrando2;
-
-    if (filtro.tipo !== 'n' || filtrando.value) {
-
-        POST("/filtro", filtro).then(res => {
-            contenido.value = res.contenido;
-            console.log(res)
-        })
-    } else {
-        contenido.value = [];
-    }
-
+function borrar() {
+    POST("/rmLista", { tipo: args[0], id: args[1] }).then(res => {
+        if (res.error) {
+            alert(res.error)
+        } else if (res.ok) {
+            detalles.value.lista = false
+        }
+    })
 }
-
-GET("/categorias").then(res => {
-    categorias.value = res.categorias
-})
-
-filtrar();
-
 
 </script>
 
 <template>
-    <div class="col-12 text-white ">
-        <form action="" method="">
-            <div
-                class="d-flex flex-wrap flex-row align-items-center justify-content-center justify-content-md-end justify-content-md-end gap-2 text-center">
-                <div class="dropdown">
-                    <button class="btn bg-transparent fw-bold dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Ordenar por
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Popularidad</a></li>
-                        <li><a class="dropdown-item" href="#">Recientes</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown ">
-                    <button class="btn bg-transparent fw-bold dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Género
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li v-for="categoria in categorias"><a class="dropdown-item" href="#">{{ categoria.nombre }}</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <input class="form-control p-1 search" type="search" placeholder="Buscar" aria-label="Buscar"
-                        v-model="busqueda">
+    <div class="row mt-3 text-white">
+        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+            <div class="container image-grid gap-3 d-flex flex-column">
+                <div class="row gap-3 gap-md-0 justify-content-center">
+                    <div v-for="valor in contenido" class="col-5 col-md-2">
+                        <a :href="detalles(valor.id, valor.tipo)">
+                            <figure class="rounded">
+                                <img :src="valor.portada" class="rounded img img-fluid equal-image" alt="">
+                                <figcaption class="d-none d-md-block text-center">
+                                    <span class="button-green-download2-big">Ver detalles</span>
+                                    <!--<span v-if="borrable" class="button-green-download2-big">Quitar de la lista</span>-->
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-    <mostrarContenido :contenido="contenido" />
 </template>
 
 <style scoped>
@@ -108,9 +53,9 @@ a {
 
 .dropdown-menu {
     text-align: start;
-    background-color: rgba(-1, 0, 0, 0.75);
+    background-color: rgba(-1, 0, 0, .7);
     border: -1;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(9px);
 }
 
 .dropdown-item:hover {
