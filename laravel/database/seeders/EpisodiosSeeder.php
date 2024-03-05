@@ -663,8 +663,59 @@ class EpisodiosSeeder extends Seeder
                 'fecha_estreno' => '2020-12-25',
                 'archivo' => $url . '/episodios/OP1095.mp4',
                 'portada' => $url . '/portadas/onepiece.jpg',
-            ]
-
+            ],
+            // Episodios de Jujutsu
+            [
+                'id_temporada' => 8,
+                'titulo' => 'Maldicion X Bendicion',
+                'numero_episodio' => 1,
+                'duracion' => 22,
+                'sinopsis' => 'Una terrible maldicion se cierne sobre tokio mientras nadie se da cuenta',
+                'fecha_estreno' => '2025-05-01',
+                'archivo' => $url . '/episodios/jjk01.mp4',
+                'portada' => $url . '/portadas/JJK.jpg',
+            ],
+            [
+                'id_temporada' => 8,
+                'titulo' => 'Itadori Yuuji',
+                'numero_episodio' => 2,
+                'duracion' => 19,
+                'sinopsis' => 'Yuji se encuentra con poderosos aliados que le acompañaran en sus peleas',
+                'fecha_estreno' => '2025-05-02',
+                'archivo' => $url . '/episodios/jjk02.mp4',
+                'portada' => $url . '/portadas/JJK.jpg',
+            ],
+            [
+                'id_temporada' => 8,
+                'titulo' => 'Fushiguro Megumi',
+                'numero_episodio' => 3,
+                'duracion' => 22,
+                'sinopsis' => 'Todos los candidatos a absorber la maldicion se posan en el campo de batalla',
+                'fecha_estreno' => '2025-05-03',
+                'archivo' => $url . '/episodios/jjk03.mp4',
+                'portada' => $url . '/portadas/JJK.jpg',
+            ],
+            [
+                'id_temporada' => 8,
+                'titulo' => 'Modificacion del juego',
+                'numero_episodio' => 4,
+                'duracion' => 20,
+                'sinopsis' => 'Las reglas cambian a medida que nuestros heroes avanzan',
+                'fecha_estreno' => '2025-05-06',
+                'archivo' => $url . '/episodios/jjk04.mp4',
+                'portada' => $url . '/portadas/JJK.jpg',
+            ],
+            [
+                'id_temporada' => 8,
+                'titulo' => 'Los dedos de sukuna',
+                'numero_episodio' => 5,
+                'duracion' => 25,
+                'sinopsis' => 'Sukuna tiene... muchos dedos, y brazos, y manos...',
+                'fecha_estreno' => '2025-06-01',
+                'archivo' => $url . '/episodios/jjk05.mp4',
+                'portada' => $url . '/portadas/JJK.jpg',
+            ],
+            
         ];
 
         foreach ($episodios as $episodio) {
