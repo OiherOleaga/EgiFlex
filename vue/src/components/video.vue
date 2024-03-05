@@ -21,6 +21,11 @@ onMounted(async () => {
         if (res.error) {
             console.error("Error:", res.error);
         } else {
+            if (args[0] == 's') {
+                args[0] = 'e'
+                args[1] = res.video.episodio_id
+                history.pushState(null, null, 'watch?e='+args[1]);
+            }
             videoSrcs.value = res.video.archivo;
             posterUrl.value = res.video.poster;
             initVideoPlayer();

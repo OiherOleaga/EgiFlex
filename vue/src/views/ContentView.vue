@@ -5,6 +5,7 @@ import filtro from '../components/filtro.vue'
 const datosAleatorios = ref([]);
 const Pelis = ref([]);
 const Series = ref([]);
+const seguirViendo = ref([]);
 const filtrando = ref(false);
 
 function cambioFiltro() {
@@ -31,6 +32,10 @@ GET('/series/popular').then(function (response) {
     .catch(function (error) {
         console.error('Error al cargar datos de las peliculas:', error);
     });
+
+GET("/seguirViendo").then(res => {
+    seguirViendo.value = res.contenido    
+})
 
 function detalles(id, tipo) {
     return `/detalles?${tipo}=${id}`;
@@ -70,6 +75,39 @@ function detalles(id, tipo) {
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
                                     <div v-for="item in datosAleatorios" :key="item.id"
+                                        class="col-5 col-md-3 image-container">
+                                        <a :href="detalles(item.id, item.tipo)">
+                                            <figure class="rounded">
+                                                <img :src="item.portada" class="rounded img img-fluid equal-image"
+                                                    :alt="item.titulo">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section v-if="seguirViendo[0]" class="beam-populares-parent">
+                <div class="container-fluid beam-populares">
+                    <div class="row">
+                        <div class="col-12 text-white">
+                            <div class="d-flex flex-column align-items-center gap-2 text-center">
+                                <p class="fs-2 fw-semibold">
+                                    Segui viendo
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 text-white">
+                        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+                            <div class="container image-grid gap-3 d-flex flex-column">
+                                <div class="row gap-3 gap-md-0 justify-content-center">
+                                    <div v-for="item in seguirViendo" :key="item.id"
                                         class="col-5 col-md-3 image-container">
                                         <a :href="detalles(item.id, item.tipo)">
                                             <figure class="rounded">

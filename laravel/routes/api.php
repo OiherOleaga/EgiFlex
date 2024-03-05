@@ -8,7 +8,6 @@ use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\ListaController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\SerieController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +36,7 @@ Route::get("/checkSession", [ClienteController::class, "checkSession"]);
 Route::post("/filtro", [ContenidoController::class, "filtro"]);
 Route::get("/contenido/popular", [ContenidoController::class, "getContenido"]);
 Route::post("/getVideo", [ContenidoController::class, "getVideo"]);
+Route::get("/seguirViendo", [ContenidoController::class, "seguirViendo"]);
 
 Route::get("/categorias", [CategoriaController::class, "categorias"]);
 

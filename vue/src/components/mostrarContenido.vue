@@ -4,6 +4,9 @@ const props = defineProps(['contenido', 'borrable']);
 function detalles(id, tipo) {
     return `/detalles?${tipo}=${id}`;
 }
+function watch(id, tipo) {
+    return `/watch?${tipo}=${id}`;
+}
 
 function borrar(id, tipo, index) {
     POST("/rmLista", { tipo: tipo, id: id }).then(res => {
@@ -24,12 +27,13 @@ function borrar(id, tipo, index) {
                 <div class="row gap-3 gap-md-0 justify-content-center">
                     <div v-for="(valor, index) in contenido" :key="index" class="col-5 col-md-2">
                         <figure class="rounded">
-                            <a :href="detalles(valor.id, valor.tipo)">
+                            <a :href="watch(valor.id, valor.tipo)">
                                 <img :src="valor.portada" class="rounded img img-fluid equal-image" alt="">
                                 <figcaption class="d-none d-md-block text-center">
-                                    <span class="button-green-download2-big">Ver detalles</span>
+                                    <span class="button-green-download2-big">Ver</span>
                                 </figcaption>
                             </a>
+                            <a :href="detalles(valor.id, valor.tipo)"><span class="button-green-download2-big">Ver detalles</span></a>
                             <span v-if="borrable" @click="borrar(valor.id, valor.tipo, index)" class="button-green-download2-big">Quitar de la lista</span>
                         </figure>
                     </div>

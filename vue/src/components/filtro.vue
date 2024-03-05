@@ -12,7 +12,6 @@ const busqueda = ref("")
 const filtrando = ref(false)
 
 watch(filtrando, () => {
-    console.log("emit")
     emit("filtrando");
 })
 
@@ -42,7 +41,6 @@ function filtrar(busqueda) {
 
         POST("/filtro", filtro).then(res => {
             contenido.value = res.contenido;
-            console.log(res)
         })
     } else {
         contenido.value = [];

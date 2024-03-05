@@ -43,8 +43,8 @@ function getEpisodios(id) {
         detalles.value.episodios = res.episodios;
     })
 }
-function watch(id) {
-    router.push(`/watch?${args[0]}=${id}`);
+function watch(tipo, id) {
+    router.push(`/watch?${tipo}=${id}`);
 }
 
 function addLista() {
@@ -163,7 +163,7 @@ function descargar(url) {
                                         <button class="rounded-pill btn text-white p-2"
                                             @click="descargar(episodio.archivo)">Descargar</button>
                                         <button class="rounded-pill btn text-white p-2 flex-shrink-0"
-                                            @click="watch(episodio.id)">Ver
+                                            @click="watch('e', episodio.id)">Ver
                                             ahora</button>
                                     </div>
                                 </div>
