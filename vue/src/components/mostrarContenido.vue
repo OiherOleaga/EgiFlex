@@ -5,12 +5,12 @@ function detalles(id, tipo) {
     return `/detalles?${tipo}=${id}`;
 }
 
-function borrar() {
-    POST("/rmLista", { tipo: args[0], id: args[1] }).then(res => {
+function borrar(id, tipo, index) {
+    POST("/rmLista", { tipo: tipo, id: id }).then(res => {
         if (res.error) {
             alert(res.error)
         } else if (res.ok) {
-            detalles.value.lista = false
+            props.contenido.splice(index, 1)
         }
     })
 }
@@ -22,16 +22,16 @@ function borrar() {
         <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
             <div class="container image-grid gap-3 d-flex flex-column">
                 <div class="row gap-3 gap-md-0 justify-content-center">
-                    <div v-for="valor in contenido" class="col-5 col-md-2">
-                        <a :href="detalles(valor.id, valor.tipo)">
-                            <figure class="rounded">
+                    <div v-for="(valor, index) in contenido" :key="index" class="col-5 col-md-2">
+                        <figure class="rounded">
+                            <a :href="detalles(valor.id, valor.tipo)">
                                 <img :src="valor.portada" class="rounded img img-fluid equal-image" alt="">
                                 <figcaption class="d-none d-md-block text-center">
                                     <span class="button-green-download2-big">Ver detalles</span>
-                                    <!--<span v-if="borrable" class="button-green-download2-big">Quitar de la lista</span>-->
                                 </figcaption>
-                            </figure>
-                        </a>
+                            </a>
+                            <span v-if="borrable" @click="borrar(valor.id, valor.tipo, index)" class="button-green-download2-big">Quitar de la lista</span>
+                        </figure>
                     </div>
                 </div>
             </div>

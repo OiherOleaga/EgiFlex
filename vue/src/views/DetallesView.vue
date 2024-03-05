@@ -108,15 +108,12 @@ function descargar(url) {
                     <div class="col-12 col-md-3 beam-detalles text-sm-center text-md-start">
                         <figure>
                             <img :src="detalles.portada" class="rounded img img-fluid equal-image" alt="">
-                            <figcaption v-if="args[0] == 'p'"
-                                class="gap-2 d-flex align-items-center justify-content-center my-2">
-                                <button class="rounded-pill btn w-100 text-white p-2"
+                            <div class="gap-2 d-flex align-items-center justify-content-center my-2">
+                                <button v-if="args[0] == 'p'" class="rounded-pill btn w-100 text-white p-2"
                                     @click="descargar(detalles.archivo)">Descargar</button>
-                                <button v-if="!detalles.lista" class="rounded-pill btn w-100 text-white p-2"
-                                    @click="addLista">+ lista</button>
-                                <button v-else class="rounded-pill btn w-100 text-white p-2" @click="rmLista">-
-                                    lista</button>
-                            </figcaption>
+                                <button v-if="!detalles.lista" class="rounded-pill btn w-100 text-white p-2" @click="addLista">+ lista</button>
+                                <button v-else class="rounded-pill btn w-100 text-white p-2" @click="rmLista">- lista</button>
+                            </div>
                         </figure>
                         <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
                             <p class="m-0 fs-5">Géneros:</p>
