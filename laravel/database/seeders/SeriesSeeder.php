@@ -67,13 +67,14 @@ class SeriesSeeder extends Seeder
                 'poster' => $url . '/posters/demon-slayer.jpg',
             ],
             [
-                'titulo' => 'Miercoles',
-                'director' => 'Director de Miercoles',
-                'ano_lanzamiento' => '2020-01-01',
-                'sinopsis' => 'Inteligente, sarcástica y un poco muerta por dentro, Merlina Addams investiga una ola de asesinatos mientras hace nuevos amigos (y enemigos) en la Academia Nunca Más.',
-                'portada' => $url . '/portadas/miercoles.jpg',
-                'poster' => $url . '/posters/wednesday.jpg',
+                'titulo' => 'Mashle: Magic and Muscles',
+                'director' => 'Hajime Komoto',
+                'ano_lanzamiento' => '2020-01-05',
+                'sinopsis' => 'En un mundo donde la magia lo es todo, Mash Burnedead nace sin la capacidad de usarla. A pesar de eso, él posee una fuerza física sobrehumana. Para sobrevivir en una sociedad que valora la magia, Mash debe demostrar su valía a través de su fuerza bruta y habilidades ingeniosas.',
+                'portada' => $url . '/portadas/mashle.jpg',
+                'poster' => $url . '/posters/mashle.jpg',
             ],
+
             [
                 'titulo' => 'One Piece',
                 'director' => 'Eiichiro Oda',
@@ -83,13 +84,14 @@ class SeriesSeeder extends Seeder
                 'poster' => $url . '/posters/onepiece.jpg',
             ],
             [
-                'titulo' => 'Stranger Things',
-                'director' => 'Hermanos Duffer',
-                'ano_lanzamiento' => '2016-01-01',
-                'sinopsis' => 'Un grupo de niños en un pequeño pueblo descubre eventos sobrenaturales y experimentos gubernamentales secretos cuando su amigo desaparece.',
-                'portada' => $url . '/portadas/strangerthings.jpg',
-                'poster' => $url . '/posters/strangerthings.jpg',
+                'titulo' => 'Hajime no Ippo',
+                'director' => 'Jun Shishido',
+                'ano_lanzamiento' => '2000-10-03',
+                'sinopsis' => 'Makunouchi Ippo, un joven tímido y con poca confianza en sí mismo, descubre el mundo del boxeo después de ser salvado de unos matones por un famoso boxeador retirado. Con su determinación y trabajo duro, Ippo se embarca en un viaje para convertirse en el campeón de boxeo japonés.',
+                'portada' => $url . '/portadas/hajime_no_ippo.jpg',
+                'poster' => $url . '/posters/hajime_no_ippo.jpg',
             ],
+
             [
                 'titulo' => 'The Last of Us',
                 'director' => 'Director de The Last of Us',
@@ -99,13 +101,14 @@ class SeriesSeeder extends Seeder
                 'poster' => $url . '/posters/the-last-of-us.jpg',
             ],
             [
-                'titulo' => 'The Walking Dead',
-                'director' => 'Frank Darabont',
-                'ano_lanzamiento' => '2010-01-01',
-                'sinopsis' => 'Un grupo de supervivientes liderados por el oficial de policía Rick Grimes luchan por sobrevivir en un mundo dominado por zombies.',
-                'portada' => $url . '/portadas/thewalkingdead.jpg',
-                'poster' => $url . '/posters/the-walking-dead.jpg',
+                'titulo' => 'Naruto',
+                'director' => 'Hayato Date',
+                'ano_lanzamiento' => '2002-10-03',
+                'sinopsis' => 'Naruto Uzumaki es un ninja adolescente que busca reconocimiento y sueña con convertirse en el Hokage, el líder de su aldea. A lo largo de su viaje, Naruto y sus amigos enfrentan desafíos, enemigos poderosos y descubren la importancia del compañerismo y la perseverancia.',
+                'portada' => $url . '/portadas/naruto.jpg',
+                'poster' => $url . '/posters/naruto.jpg',
             ],
+
             [
                 'titulo' => 'La Reina Carlota',
                 'director' => 'Nombre del director (si está disponible)',
