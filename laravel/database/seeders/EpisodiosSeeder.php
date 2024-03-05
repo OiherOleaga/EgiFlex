@@ -663,10 +663,7 @@ class EpisodiosSeeder extends Seeder
                 'fecha_estreno' => '2020-12-25',
                 'archivo' => $url . '/episodios/OP1095.mp4',
                 'portada' => $url . '/portadas/onepiece.jpg',
-            ]
-
-            
-
+            ],
             // Episodios de Jujutsu
             [
                 'id_temporada' => 8,
