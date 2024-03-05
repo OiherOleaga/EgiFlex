@@ -58,14 +58,7 @@ class SeriesSeeder extends Seeder
                 'portada' => $url . '/portadas/JJK.jpg',
                 'poster' => $url . '/posters/jujutsukaisen0.jpg',
             ],
-            [
-                'titulo' => 'Bleach',
-                'director' => 'Tite Kubo',
-                'ano_lanzamiento' => '2004-10-05',
-                'sinopsis' => 'Ichigo Kurosaki es un estudiante de secundaria que tiene la capacidad de interactuar con espíritus. Su vida cambia drásticamente cuando accidentalmente obtiene los poderes de un Shinigami, un ser encargado de purificar a los muertos y guiar sus almas al más allá.',
-                'portada' => $url . '/portadas/bleach.jpg',
-                'poster' => $url . '/posters/bleach.jpg',
-            ],
+
             [
                 'titulo' => 'Demon Slayer',
                 'director' => 'Haruo Sotozaki',
@@ -108,6 +101,14 @@ class SeriesSeeder extends Seeder
                 'sinopsis' => 'Naruto Uzumaki es un ninja adolescente que busca reconocimiento y sueña con convertirse en el Hokage, el líder de su aldea. A lo largo de su viaje, Naruto y sus amigos enfrentan desafíos, enemigos poderosos y descubren la importancia del compañerismo y la perseverancia.',
                 'portada' => $url . '/portadas/naruto.jpg',
                 'poster' => $url . '/posters/naruto.jpg',
+            ],
+            [
+                'titulo' => 'Bleach',
+                'director' => 'Tite Kubo',
+                'ano_lanzamiento' => '2004-10-05',
+                'sinopsis' => 'Ichigo Kurosaki es un estudiante de secundaria que tiene la capacidad de interactuar con espíritus. Su vida cambia drásticamente cuando accidentalmente obtiene los poderes de un Shinigami, un ser encargado de purificar a los muertos y guiar sus almas al más allá.',
+                'portada' => $url . '/portadas/bleach.jpg',
+                'poster' => $url . '/posters/bleach.jpg',
             ],
 
             [
