@@ -43,6 +43,7 @@ Route::get("/categorias", [CategoriaController::class, "categorias"]);
 Route::post("/episodios", [EpisodioController::class, "episodios"]);
 
 Route::post("/historial", [HistorialController::class, "setHistorial"]);
+Route::post("/quitarViendo", [HistorialController::class, "quitarViendo"]);
 
 Route::post("/addLista", [ListaController::class, "addLista"]);
 Route::post("/rmLista", [ListaController::class, "rmLista"]);

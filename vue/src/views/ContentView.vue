@@ -37,6 +37,15 @@ GET("/seguirViendo").then(res => {
     seguirViendo.value = res.contenido    
 })
 
+function quitarViendo(historial_id, tipo, index) {
+    POST("/quitarViendo", {historial_id: historial_id, tipo: tipo}).then(res => {
+        if (res.error) {
+            alert(res.error)
+        } else {
+            seguirViendo.value.splice(index, 1);
+        }
+    })
+}
 function detalles(id, tipo) {
     return `/detalles?${tipo}=${id}`;
 }
@@ -107,17 +116,18 @@ function detalles(id, tipo) {
                         <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div v-for="item in seguirViendo" :key="item.id"
+                                    <div v-for="(item, index) in seguirViendo" :key="index"
                                         class="col-5 col-md-3 image-container">
-                                        <a :href="detalles(item.id, item.tipo)">
-                                            <figure class="rounded">
+                                        <figure class="rounded">
+                                            <a :href="detalles(item.id, item.tipo)">
                                                 <img :src="item.portada" class="rounded img img-fluid equal-image"
                                                     :alt="item.titulo">
                                                 <figcaption class="d-none d-md-block text-center">
                                                     <span class="button-green-download2-big">Ver detalles</span>
                                                 </figcaption>
-                                            </figure>
-                                        </a>
+                                            </a>
+                                            <span @click="quitarViendo(item.historial_id, item.tipo, index)" class="button-green-download2-big">Quitar</span>
+                                        </figure>
                                     </div>
                                 </div>
                             </div>

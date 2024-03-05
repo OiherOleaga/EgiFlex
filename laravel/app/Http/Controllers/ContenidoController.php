@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Episodio;
-use App\Models\Pelicula;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Stmt\Break_;
 
 class ContenidoController extends Controller
 {
@@ -117,15 +113,15 @@ class ContenidoController extends Controller
         $cliente_id = ClienteController::getIdCliente($request);
 
         return ["contenido" => DB::select(
-            "SELECT id, titulo, portada, tipo
+            "SELECT id, titulo, portada, tipo, historial_id
             from (
-                SELECT p.id, p.titulo, p.portada, 'p' as tipo, hp.updated_at
+                SELECT p.id, p.titulo, p.portada, 'p' as tipo, hp.id historial_id, hp.updated_at
                 FROM peliculas p
-                join historial_peliculas hp on hp.id_pelicula = p.id and hp.id_cliente = ?
+                join historial_peliculas hp on hp.id_pelicula = p.id and hp.id_cliente = ? and hp.viendo = 1
                 union all
-                SELECT s.id, s.titulo, s.portada, 's' as tipo, hs.updated_at
+                SELECT s.id, s.titulo, s.portada, 's' as tipo, hs.id historial_id, hs.updated_at
                 FROM series s
-                join historial_series hs on hs.serie_id = s.id and hs.cliente_id = ?
+                join historial_series hs on hs.serie_id = s.id and hs.cliente_id = ? and hs.viendo = 1
             ) c order by updated_at desc
             ",
             [$cliente_id, $cliente_id])];

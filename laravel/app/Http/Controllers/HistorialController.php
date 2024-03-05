@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HistorialPelicula;
 use App\Models\HistorialSerie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -46,7 +47,29 @@ class HistorialController extends Controller
             case 'p':
                 break;
             default:
+                return ["error" => "ni p ni e"];
+        }
+    });}
+
+    function quitarViendo(Request $request) { return ClienteController::checkSession($request, function ($request) {
+        switch($request["tipo"]) {
+            case 's':
+                $historial = HistorialSerie::find($request["historial_id"]);
+                break;
+            case 'p':
+                $historial = HistorialPelicula::find($request["historial_id"]);
+                break;
+            default:
                 return ["error" => "ni p ni s"];
         }
+
+        if (!$historial) {
+            return ["error" => "id o tipo incorrecto"];
+        }
+
+        $historial->viendo = false;
+        $historial->save();
+
+        return ["ok" => true];
     });}
 }
