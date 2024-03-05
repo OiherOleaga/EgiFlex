@@ -130,7 +130,7 @@ class Peliculasseeder extends Seeder
                 'ano_lanzamiento' => '2008-07-18',
                 'sinopsis' => 'Batman se enfrenta a su enemigo más grande, el Joker, quien siembra el caos y el terror en Gotham City.',
                 'duracion' => 152,
-                'archivo' => $url . '/peliculas/the_dark_knight.mp4',
+                'archivo' => $url . '/peliculas/batman.mp4',
                 'portada' => $url . '/portadas/the_dark_knight.jpg',
                 'poster' => $url . '/posters/the_dark_knight.jpg',
             ],
