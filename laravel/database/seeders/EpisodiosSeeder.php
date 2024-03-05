@@ -492,7 +492,47 @@ class EpisodiosSeeder extends Seeder
                 'fecha_estreno' => '2020-08-28',
                 'archivo' => $url . '/episodios/OP1078.mp4',
                 'portada' => $url . '/portadas/onepiece.jpg',
-            ]
+            ],
+            [
+                'id_temporada' => 7,
+                'titulo' => 'El giro del destino',
+                'numero_episodio' => 1079,
+                'duracion' => 25,
+                'sinopsis' => 'Los acontecimientos toman un rumbo inesperado para los protagonistas',
+                'fecha_estreno' => '2020-09-04',
+                'archivo' => $url . '/episodios/OP1079.mp4',
+                'portada' => $url . '/portadas/onepiece.jpg',
+            ],
+            [
+                'id_temporada' => 7,
+                'titulo' => 'El despertar de la tormenta',
+                'numero_episodio' => 1080,
+                'duracion' => 26,
+                'sinopsis' => 'Una nueva amenaza se alza en el horizonte',
+                'fecha_estreno' => '2020-09-11',
+                'archivo' => $url . '/episodios/OP1080.mp4',
+                'portada' => $url . '/portadas/onepiece.jpg',
+            ],
+            [
+                'id_temporada' => 7,
+                'titulo' => 'El secreto revelado',
+                'numero_episodio' => 1081,
+                'duracion' => 27,
+                'sinopsis' => 'Un antiguo misterio se desvela ante los ojos de los protagonistas',
+                'fecha_estreno' => '2020-09-18',
+                'archivo' => $url . '/episodios/OP1081.mp4',
+                'portada' => $url . '/portadas/onepiece.jpg',
+            ],
+            [
+                'id_temporada' => 7,
+                'titulo' => 'La prueba de fuego',
+                'numero_episodio' => 1082,
+                'duracion' => 28,
+                'sinopsis' => 'Los héroes se enfrentan a su desafío más peligroso hasta ahora',
+                'fecha_estreno' => '2020-09-25',
+                'archivo' => $url . '/episodios/OP1082.mp4',
+                'portada' => $url . '/portadas/onepiece.jpg',
+            ],
             
             
         ];

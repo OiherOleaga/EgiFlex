@@ -175,13 +175,21 @@ class PeliculaController extends Controller
             return redirect()->route('peliculas.index')->with('error', 'No se encontró el archivo asociado.');
         }
     }
-    function getDetallesPelicula(Request $request)
-    {
-
-        return ClienteController::checkSession($request, function ($request) {
-            return ["detalles" => Pelicula::find($request["id"])];
-        });
-    }
+    function getDetallesPelicula(Request $request) { return ClienteController::checkSession($request, function ($request) {
+        try {
+        return ["detalles" => DB::select(
+            "SELECT p.*,
+                group_concat(c.nombre separator ', ') generos
+            FROM peliculas p
+            left join categoria_peliculas cp on cp.pelicula_id = p.id
+            left join categorias c on c.id = cp.categoria_id
+            where p.id = ?
+            group by p.id",
+         [$request["id"]])[0]];
+        } catch(\Exception) {
+            return ["error" => "id incorrecto"];
+        }
+    });}
 
 
     public function getPelisRandom(Request $request) { return ClienteController::checkSession($request, function () {
