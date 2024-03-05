@@ -72,8 +72,8 @@ function descargar(url) {
                     <div class="col-12 m-0 p-0">
                         <div class="portada-container">
                             <img :src="detalles.poster" alt="Portada" class="portada-img" />
-                                <a href="#play"> <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png"
-                                        alt="" width="90px" class="play-button"></a>
+                            <a href="#play"> <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png" alt=""
+                                    width="90px" class="play-button"></a>
                         </div>
                     </div>
                 </div>
@@ -83,11 +83,11 @@ function descargar(url) {
                     <div class="col-12 col-md-3 beam-detalles text-sm-center text-md-start">
                         <figure>
                             <img :src="detalles.portada" class="rounded img img-fluid equal-image" alt="">
-                            <figcaption v-if="args[0] == 'p'"
-                                class="gap-2 d-flex align-items-center justify-content-center my-2">
-                                <button class="rounded-pill btn w-100 text-white p-2" @click="descargar(detalles.archivo)">Descargar</button>
+                            <div class="gap-2 d-flex align-items-center justify-content-center my-2">
+                                <button v-if="args[0] == 'p'" class="rounded-pill btn w-100 text-white p-2"
+                                    @click="descargar(detalles.archivo)">Descargar</button>
                                 <button class="rounded-pill btn w-100 text-white p-2" @click="addLista">+ lista</button>
-                            </figcaption>
+                            </div>
                         </figure>
                         <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
                             <p class="m-0 fs-5">Géneros:</p>
@@ -134,7 +134,8 @@ function descargar(url) {
                                     <video :src="episodio.archivo" with="50" height="50"></video>
                                     <p class="m-0 fw-semibold">{{ episodio.numero_episodio }}. {{ episodio.titulo }}</p>
                                     <div class="d-flex gap-2">
-                                        <button class="rounded-pill btn text-white p-2" @click="descargar(episodio.archivo)">Descargar</button>
+                                        <button class="rounded-pill btn text-white p-2"
+                                            @click="descargar(episodio.archivo)">Descargar</button>
                                         <button class="rounded-pill btn text-white p-2" @click="watch(episodio.id)">Ver
                                             ahora</button>
                                     </div>
