@@ -108,9 +108,9 @@ a {
 
 .dropdown-menu {
     text-align: start;
-    background-color: rgba(-1, 0, 0, .7);
+    background-color: rgba(-1, 0, 0, 0.75);
     border: -1;
-    backdrop-filter: blur(9px);
+    backdrop-filter: blur(10px);
 }
 
 .dropdown-item:hover {

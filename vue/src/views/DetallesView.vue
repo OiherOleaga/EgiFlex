@@ -68,19 +68,23 @@ function rmLista() {
 }
 
 function descargar(url) {
-    fetch(url).then(res => res.blob()).then(file => {
-        let tempUrl = URL.createObjectURL(file);
-        const aTag = document.createElement("a");
-        aTag.href = tempUrl;
-        aTag.download = url.replace(/^.*[\\\/]/, '');
-        document.body.appendChild(aTag);
-        aTag.click();
-        URL.revokeObjectURL(tempUrl);
-        aTag.remove();
-    }).catch(() => {
-        alert("Failed to download file!");
-    });
+    fetch(url,)
+        .then(res => res.blob())
+        .then(file => {
+            let tempUrl = URL.createObjectURL(file);
+            const aTag = document.createElement("a");
+            aTag.href = tempUrl;
+            aTag.download = url.replace(/^.*[\\\/]/, '');
+            document.body.appendChild(aTag);
+            aTag.click();
+            URL.revokeObjectURL(tempUrl);
+            aTag.remove();
+        })
+        .catch(() => {
+            alert("Failed to download file!");
+        });
 }
+
 
 
 </script>
@@ -104,14 +108,15 @@ function descargar(url) {
                     <div class="col-12 col-md-3 beam-detalles text-sm-center text-md-start">
                         <figure>
                             <img :src="detalles.portada" class="rounded img img-fluid equal-image" alt="">
-                            <div class="gap-2 d-flex align-items-center justify-content-center my-2">
-                                <button v-if="args[0] == 'p'" class="rounded-pill btn w-100 text-white p-2"
+                            <figcaption v-if="args[0] == 'p'"
+                                class="gap-2 d-flex align-items-center justify-content-center my-2">
+                                <button class="rounded-pill btn w-100 text-white p-2"
                                     @click="descargar(detalles.archivo)">Descargar</button>
                                 <button v-if="!detalles.lista" class="rounded-pill btn w-100 text-white p-2"
                                     @click="addLista">+ lista</button>
                                 <button v-else class="rounded-pill btn w-100 text-white p-2" @click="rmLista">-
                                     lista</button>
-                            </div>
+                            </figcaption>
                         </figure>
                         <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
                             <p class="m-0 fs-5">Géneros:</p>
@@ -152,15 +157,21 @@ function descargar(url) {
                                 </ul>
                             </div>
                             </p>
-                            <div class="episodios overflow-y-scroll d-flex flex-column gap-2">
+                            <div class="episodios overflow-y-scroll overflow-x-hidden d-flex flex-column gap-5">
                                 <div v-for="episodio in detalles.episodios"
-                                    class="d-flex align-items-center justify-content-between gap-3">
+                                    class="d-flex align-items-center justify-content-between gap-2">
                                     <video :src="episodio.archivo" with="50" height="50"></video>
-                                    <p class="m-0 fw-semibold">{{ episodio.numero_episodio }}. {{ episodio.titulo }}</p>
-                                    <div class="d-flex gap-2">
-                                        <button class="rounded-pill btn text-white p-2"
+                                    <div class="d-flex flex-column gap-2 text-center">
+                                        <p class="m-0 fw-semibold">{{ episodio.numero_episodio }}. {{ episodio.titulo }}
+                                        </p>
+                                        <p class="m-0 fw-semibold">{{ episodio.sinopsis }}</p>
+                                    </div>
+                                    <div
+                                        class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-2">
+                                        <button class="rounded-pill btn text-white p-2 flex-shrink-0"
                                             @click="descargar(episodio.archivo)">Descargar</button>
-                                        <button class="rounded-pill btn text-white p-2" @click="watch(episodio.id)">Ver
+                                        <button class="rounded-pill btn text-white p-2 flex-shrink-0"
+                                            @click="watch(episodio.id)">Ver
                                             ahora</button>
                                     </div>
                                 </div>

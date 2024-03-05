@@ -12,7 +12,6 @@ const inicioSesion = ref(localStorage.getItem("sessionId") !== null)
 function cerrarSession() {
     localStorage.removeItem("sessionId")
     inicioSesion.value = false;
-    router.push("/")
 }
 
 </script>
@@ -43,7 +42,7 @@ function cerrarSession() {
                     </div>
                 </div>
                 <div class="collapse navbar-collapse justify-content-md-start">
-                    <div class="region region-nav-main">
+                    <div class="region region-nav-main w-100">
                         <div class="block block-tb-megamenu block-tb-megamenu-menu-blockmain">
                             <ul v-if="inicioSesion" class="tb-megamenu-nav nav level-1 items-6">
                                 <li class="tb-megamenu-item level-2 mega px-2">
@@ -55,8 +54,8 @@ function cerrarSession() {
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="/lista">Mi lista</a>
                                 </li>
-                                <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a @click="cerrarSession">Cerrar sesion</a>
+                                <li class=" ms-auto">
+                                    <a href="/" @click="cerrarSession">Cerrar sesion</a>
                                 </li>
                             </ul>
                             <ul v-else class="tb-megamenu-nav nav level-1 items-6">
@@ -80,7 +79,18 @@ function cerrarSession() {
         </nav>
         <div class="collapse" id="navbarSupportedContent">
             <div class="pb-3">
-                <ul class="tb-megamenu-nav gap-2 d-flex flex-column nav level-0 items-6">
+                <ul v-if="inicioSesion" class="tb-megamenu-nav nav level-1 items-6 ga-2 d-flex flex-column">
+                    <li class="tb-megamenu-item level-2 mega px-2">
+                        <a href="/series">Series</a>
+                    </li>
+                    <li class="tb-megamenu-item level-2 mega px-2">
+                        <a href="/peliculas">Peliculas</a>
+                    </li>
+                    <li class=" tb-megamenu-item level-2 mega px-2">
+                        <a href="/" @click="cerrarSession">Cerrar sesion</a>
+                    </li>
+                </ul>
+                <ul v-else class="tb-megamenu-nav nav level-1 items-6">
                     <li class="tb-megamenu-item level-2 mega px-2">
                         <a href="#important">Imprescindibles</a>
                     </li>
