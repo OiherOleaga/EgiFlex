@@ -8,29 +8,29 @@ const Series = ref([]);
 const filtrando = ref(false);
 
 function cambioFiltro() {
-    filtrando.value = !filtrando.value 
+    filtrando.value = !filtrando.value
 }
 
 GET('/contenido/popular').then(function (response) {
-        datosAleatorios.value = response.datosRandom;
+    datosAleatorios.value = response.datosRandom;
 })
-.catch(function (error) {
-    console.error('Error al cargar datos aleatorios:', error);
-});
+    .catch(function (error) {
+        console.error('Error al cargar datos aleatorios:', error);
+    });
 
 GET('/pelis/popular').then(function (response) {
     Pelis.value = response.pelis;
 })
-.catch(function (error) {
-    console.error('Error al cargar datos de las peliculas:', error);
-});
+    .catch(function (error) {
+        console.error('Error al cargar datos de las peliculas:', error);
+    });
 
 GET('/series/popular').then(function (response) {
     Series.value = response.series;
 })
-.catch(function (error) {
-    console.error('Error al cargar datos de las peliculas:', error);
-});
+    .catch(function (error) {
+        console.error('Error al cargar datos de las peliculas:', error);
+    });
 
 function detalles(id, tipo) {
     return `/detalles?${tipo}=${id}`;
@@ -41,9 +41,17 @@ function detalles(id, tipo) {
     <article class="w-100 min-vh-100">
         <div class="container-fluid beam-populares">
             <div class="row">
-                <filtro :tipo="'n'" @filtrando="cambioFiltro" />
+                <div class="col justify-content-center align-items-center d-flex text-white flex-column">
+                    <img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid" alt="egiflex">
+                    <p class="fst-italic fs-4 fw-semibold">Disfruta de todos nuestros títulos más rompedores, las series y pel&iacute;culas
+                m&aacute;s aclamadas por la crítica.</p>
+                </div>
             </div>
-            
+            <div class="row">
+                <div class="col">
+                    <filtro :tipo="'n'" @filtrando="cambioFiltro" />
+                </div>
+            </div>
         </div>
         <div v-if="!filtrando" class="content">
             <section class="beam-populares-parent">
@@ -51,8 +59,6 @@ function detalles(id, tipo) {
                     <div class="row">
                         <div class="col-12 text-white">
                             <div class="d-flex flex-column align-items-center gap-2 text-center">
-                                <img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid"
-                                    alt="egiflex">
                                 <p class="fs-2 fw-semibold">
                                     Las <span class="rounded p-1 fs-3">descargas más populares</span> entre los alumnos
                                 </p>
@@ -129,7 +135,8 @@ function detalles(id, tipo) {
                         </div>
                     </div>
                     <div class="row mt-3 text-white">
-                        <div class="d-flex mb-2 flex-column col-md-4 align-items-center justify-content-center col-md-12">
+                        <div
+                            class="d-flex mb-2 flex-column col-md-4 align-items-center justify-content-center col-md-12">
                             <div class="container image-grid gap-3 d-flex flex-column">
                                 <div class="row gap-3 gap-md-0 justify-content-center">
 

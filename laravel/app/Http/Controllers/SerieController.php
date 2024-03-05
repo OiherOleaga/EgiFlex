@@ -167,14 +167,16 @@ class SerieController extends Controller
         return ["detalles" => DB::select(
             "SELECT s.*,
                 group_concat(distinct c.nombre separator ', ') generos,
-                group_concat(distinct t.id separator ',') temporadas
+                group_concat(distinct t.id separator ',') temporadas,
+                count(ls.id) lista
             FROM series s
             left join categoria_series cs on cs.serie_id = s.id
             left join categorias c on c.id = cs.categoria_id
             left join temporadas t on t.id_serie = s.id
+            left join lista_series ls on ls.serie_id = s.id and ls.cliente_id = ?
             where s.id = ?
             group by s.id",
-         [$request["id"]])[0]];
+        [ClienteController::getIdCliente($request), $request["id"]])[0]];
         } catch(\Exception) {
             return ["error" => "id incorrecto"];
         }

@@ -59,6 +59,14 @@ class SeriesSeeder extends Seeder
                 'poster' => $url . '/posters/jujutsukaisen0.jpg',
             ],
             [
+                'titulo' => 'Bleach',
+                'director' => 'Tite Kubo',
+                'ano_lanzamiento' => '2004-10-05',
+                'sinopsis' => 'Ichigo Kurosaki es un estudiante de secundaria que tiene la capacidad de interactuar con espíritus. Su vida cambia drásticamente cuando accidentalmente obtiene los poderes de un Shinigami, un ser encargado de purificar a los muertos y guiar sus almas al más allá.',
+                'portada' => $url . '/portadas/bleach.jpg',
+                'poster' => $url . '/posters/bleach.jpg',
+            ],
+            [
                 'titulo' => 'Demon Slayer',
                 'director' => 'Haruo Sotozaki',
                 'ano_lanzamiento' => '2019-01-01',
@@ -83,6 +91,7 @@ class SeriesSeeder extends Seeder
                 'portada' => $url . '/portadas/onepiece.jpg',
                 'poster' => $url . '/posters/onepiece.jpg',
             ],
+
             [
                 'titulo' => 'Hajime no Ippo',
                 'director' => 'Jun Shishido',
@@ -92,14 +101,6 @@ class SeriesSeeder extends Seeder
                 'poster' => $url . '/posters/hajime_no_ippo.jpg',
             ],
 
-            [
-                'titulo' => 'The Last of Us',
-                'director' => 'Director de The Last of Us',
-                'ano_lanzamiento' => '2020-01-01',
-                'sinopsis' => 'La trama describe las vivencias de Joel y Ellie, un par de supervivientes de una pandemia en Estados Unidos que provoca la mutación de los seres humanos en criaturas caníbales.',
-                'portada' => $url . '/portadas/the-last-of-u.jpg',
-                'poster' => $url . '/posters/the-last-of-us.jpg',
-            ],
             [
                 'titulo' => 'Naruto',
                 'director' => 'Hayato Date',
@@ -125,14 +126,7 @@ class SeriesSeeder extends Seeder
                 'portada' => $url . '/portadas/destino_saga_winx.jpg',
                 'poster' => $url . '/posters/destino_saga_winx.jpg',
             ],
-            [
-                'titulo' => 'La Chica de la Nieve',
-                'director' => 'Nombre del director (si está disponible)',
-                'ano_lanzamiento' => '2020-03-12',
-                'sinopsis' => 'Cuando la pequeña Amaya desaparece durante la cabalgata de los Reyes Magos de Málaga, una joven periodista se deja la piel para ayudar a sus padres a encontrarla.',
-                'portada' => $url . '/portadas/chica_nieve.jpg',
-                'poster' => $url . '/posters/chica_nieve.jpg',
-            ],
+
             [
                 'titulo' => 'Mi Vida con los Chicos Walter',
                 'director' => 'Nombre del director (si está disponible)',
@@ -205,6 +199,14 @@ class SeriesSeeder extends Seeder
                 'sinopsis' => 'Basada en las novelas de fantasía, sigue al cazador de monstruos Geralt de Rivia en su búsqueda de su destino en un mundo lleno de peligros.',
                 'portada' => $url . '/portadas/the_witcher.jpg',
                 'poster' => $url . '/posters/the_witcher.jpg',
+            ],
+            [
+                'titulo' => 'Stranger Things',
+                'director' => 'Hermanos Duffer',
+                'ano_lanzamiento' => '2016-01-01',
+                'sinopsis' => 'Un grupo de niños en un pequeño pueblo descubre eventos sobrenaturales y experimentos gubernamentales secretos cuando su amigo desaparece.',
+                'portada' => $url . '/portadas/strangerthings.jpg',
+                'poster' => $url . '/posters/strangerthings.jpg',
             ],
             [
                 'titulo' => 'Vikings',

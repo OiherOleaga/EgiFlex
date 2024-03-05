@@ -8,6 +8,10 @@ const detalles = ref();
 let args = window.location.search.split("?")[1].split("=")
 if (args[0] == 's') {
     POST("/getDetallesSerie", { id: args[1] }).then(res => {
+        if (res.error) {
+            alert(res.error);
+            return;
+        }
         detalles.value = res.detalles
 
         if (detalles.value.temporadas) {
@@ -32,10 +36,11 @@ function cambioTemporada(index, id) {
 
 function getEpisodios(id) {
     POST("/episodios", { id: id }).then(res => {
-        detalles.value.episodios = res.episodios;
-        if (res.episodios[0]) {
-            args[1] = res.episodios[0].id
+        if (res.error) {
+            alert(res.error);
+            return;
         }
+        detalles.value.episodios = res.episodios;
     })
 }
 function watch(id) {
@@ -43,23 +48,43 @@ function watch(id) {
 }
 
 function addLista() {
-    POST("/addLista", { tipo: args[1], id: args[0] })
+    POST("/addLista", { tipo: args[0], id: args[1] }).then(res => {
+        if (res.error) {
+            alert(res.error)
+        } else if (res.ok) {
+            detalles.value.lista = true
+        }
+    })
+}
+
+function rmLista() {
+    POST("/rmLista", { tipo: args[0], id: args[1] }).then(res => {
+        if (res.error) {
+            alert(res.error)
+        } else if (res.ok) {
+            detalles.value.lista = false
+        }
+    })
 }
 
 function descargar(url) {
-    fetch(url).then(res => res.blob()).then(file => {
-        let tempUrl = URL.createObjectURL(file);
-        const aTag = document.createElement("a");
-        aTag.href = tempUrl;
-        aTag.download = url.replace(/^.*[\\\/]/, '');
-        document.body.appendChild(aTag);
-        aTag.click();
-        URL.revokeObjectURL(tempUrl);
-        aTag.remove();
-    }).catch(() => {
-        alert("Failed to download file!");
-    });
+    fetch(url,)
+        .then(res => res.blob())
+        .then(file => {
+            let tempUrl = URL.createObjectURL(file);
+            const aTag = document.createElement("a");
+            aTag.href = tempUrl;
+            aTag.download = url.replace(/^.*[\\\/]/, '');
+            document.body.appendChild(aTag);
+            aTag.click();
+            URL.revokeObjectURL(tempUrl);
+            aTag.remove();
+        })
+        .catch(() => {
+            alert("Failed to download file!");
+        });
 }
+
 
 
 </script>
@@ -83,11 +108,15 @@ function descargar(url) {
                     <div class="col-12 col-md-3 beam-detalles text-sm-center text-md-start">
                         <figure>
                             <img :src="detalles.portada" class="rounded img img-fluid equal-image" alt="">
-                            <div class="gap-2 d-flex align-items-center justify-content-center my-2">
-                                <button v-if="args[0] == 'p'" class="rounded-pill btn w-100 text-white p-2"
+                            <figcaption v-if="args[0] == 'p'"
+                                class="gap-2 d-flex align-items-center justify-content-center my-2">
+                                <button class="rounded-pill btn w-100 text-white p-2"
                                     @click="descargar(detalles.archivo)">Descargar</button>
-                                <button class="rounded-pill btn w-100 text-white p-2" @click="addLista">+ lista</button>
-                            </div>
+                                <button v-if="!detalles.lista" class="rounded-pill btn w-100 text-white p-2"
+                                    @click="addLista">+ lista</button>
+                                <button v-else class="rounded-pill btn w-100 text-white p-2" @click="rmLista">-
+                                    lista</button>
+                            </figcaption>
                         </figure>
                         <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
                             <p class="m-0 fs-5">Géneros:</p>
@@ -128,15 +157,16 @@ function descargar(url) {
                                 </ul>
                             </div>
                             </p>
-                            <div class="episodios overflow-y-scroll d-flex flex-column gap-2">
+                            <div class="episodios overflow-y-scroll overflow-x-hidden d-flex flex-column gap-5">
                                 <div v-for="episodio in detalles.episodios"
                                     class="d-flex align-items-center justify-content-between gap-3">
-                                    <video :src="episodio.portada" with="50" height="50"></video>
+                                    <img :src="episodio.portada" with="50" height="50"></img>
                                     <p class="m-0 fw-semibold">{{ episodio.numero_episodio }}. {{ episodio.titulo }}</p>
                                     <div class="d-flex gap-2">
                                         <button class="rounded-pill btn text-white p-2"
                                             @click="descargar(episodio.archivo)">Descargar</button>
-                                        <button class="rounded-pill btn text-white p-2" @click="watch(episodio.id)">Ver
+                                        <button class="rounded-pill btn text-white p-2 flex-shrink-0"
+                                            @click="watch(episodio.id)">Ver
                                             ahora</button>
                                     </div>
                                 </div>

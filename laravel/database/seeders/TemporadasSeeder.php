@@ -61,6 +61,34 @@ class TemporadasSeeder extends Seeder
                 'numero_episodios' =>1095,
                 'fecha_estreno' => '2022-05-01',
             ],
+            // Temporada de Jujutsu
+            [
+                'id_serie' => 5,
+                'numero_temporada' => 1,
+                'numero_episodios' =>5,
+                'fecha_estreno' => '2025-05-01',
+            ],
+            // Temporada de la casa de papel
+            [
+                'id_serie' => 1,
+                'numero_temporada' => 1,
+                'numero_episodios' =>1,
+                'fecha_estreno' => '2017-05-01',
+            ],
+            // Temporada de kimetsu no yaiba
+            [
+                'id_serie' => 6,
+                'numero_temporada' => 1,
+                'numero_episodios' =>1,
+                'fecha_estreno' => '2019-05-01',
+            ],
+             // Temporada de mashle
+             [
+                'id_serie' => 8,
+                'numero_temporada' => 1,
+                'numero_episodios' =>6,
+                'fecha_estreno' => '2022-05-01',
+            ],
 
         ];
 

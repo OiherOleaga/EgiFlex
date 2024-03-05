@@ -1,7 +1,8 @@
 <script setup>
 import { ref, watch, defineEmits } from 'vue'
+import mostrarContenido from './mostrarContenido.vue';
 
-const props = defineProps({tipo: String});
+const props = defineProps({ tipo: String });
 const emit = defineEmits(['filtrando']);
 
 const contenido = ref([])
@@ -64,8 +65,8 @@ filtrar();
             <div
                 class="d-flex flex-wrap flex-row align-items-center justify-content-center justify-content-md-end justify-content-md-end gap-2 text-center">
                 <div class="dropdown">
-                    <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn bg-transparent fw-bold dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         Ordenar por
                     </button>
                     <ul class="dropdown-menu">
@@ -74,39 +75,23 @@ filtrar();
                     </ul>
                 </div>
                 <div class="dropdown ">
-                    <button class="btn bg-transparent fw-bold dropdown-toggle" type="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn bg-transparent fw-bold dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         Género
                     </button>
                     <ul class="dropdown-menu">
-                        <li v-for="categoria in categorias"><a class="dropdown-item" href="#">{{ categoria.nombre }}</a></li>
+                        <li v-for="categoria in categorias"><a class="dropdown-item" href="#">{{ categoria.nombre }}</a>
+                        </li>
                     </ul>
                 </div>
                 <div>
-                    <input class="form-control p-1 search" type="search" placeholder="Buscar"
-                        aria-label="Buscar" v-model="busqueda" >
+                    <input class="form-control p-1 search" type="search" placeholder="Buscar" aria-label="Buscar"
+                        v-model="busqueda">
                 </div>
             </div>
         </form>
     </div>
-    <div class="row mt-3 text-white">
-        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
-            <div class="container image-grid gap-3 d-flex flex-column">
-                <div class="row gap-3 gap-md-0 justify-content-center">
-                    <div v-for="valor in contenido" class="col-5 col-md-2">
-                        <a :href="detalles(valor.id, valor.tipo)">
-                            <figure class="rounded">
-                                <img :src="valor.portada" class="rounded img img-fluid equal-image" alt="">
-                                <figcaption class="d-none d-md-block text-center">
-                                    <span class="button-green-download2-big">Ver detalles</span>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <mostrarContenido :contenido="contenido" />
 </template>
 
 <style scoped>
@@ -123,9 +108,9 @@ a {
 
 .dropdown-menu {
     text-align: start;
-    background-color: rgba(-1, 0, 0, .7);
+    background-color: rgba(-1, 0, 0, 0.75);
     border: -1;
-    backdrop-filter: blur(9px);
+    backdrop-filter: blur(10px);
 }
 
 .dropdown-item:hover {

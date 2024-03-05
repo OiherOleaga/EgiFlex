@@ -1,6 +1,12 @@
 <script setup>
-import filtro from '../components/filtro.vue'
+import { ref } from 'vue'
+import mostrarContenido from '../components/mostrarContenido.vue'
 
+const contenido = ref([])
+
+GET("/getLista").then(res => {
+    contenido.value = res.contenido
+})
 </script>
 
 <template>
@@ -13,13 +19,13 @@ import filtro from '../components/filtro.vue'
                             <div class="d-flex flex-column align-items-center gap-2 text-center">
                                 <a href="/content"><img src="../components/img/generatedtext (2).png"
                                         class="img egiflex img-fluid" alt="egiflex"></a>
-                                <p class="fs-2 fw-semibold fst-italic">
-                                    La lista completa de <span class="rounded p-1 fs-3">peliculas</span>
+                                <p class="fs-2 fw-semibold">
+                                    Tu <span class="rounded p-1 fs-3">propia</span> lista
                                 </p>
                             </div>
                         </div>
-                        <filtro :tipo="'p'" />
                     </div>
+                    <mostrarContenido :contenido="contenido" :borrable="true" />
                 </div>
             </section>
         </div>
