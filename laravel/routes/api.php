@@ -45,3 +45,5 @@ Route::post("/episodios", [EpisodioController::class, "episodios"]);
 Route::post("/historial", [HistorialController::class, "setHistorial"]);
 
 Route::post("/addLista", [ListaController::class, "addLista"]);
+Route::post("/rmLista", [ListaController::class, "rmLista"]);
+Route::get("/getLista", [ListaController::class, "getLista"]);

@@ -82,7 +82,13 @@ class TemporadasSeeder extends Seeder
                 'numero_episodios' =>1,
                 'fecha_estreno' => '2019-05-01',
             ],
-            
+             // Temporada de mashle
+             [
+                'id_serie' => 7,
+                'numero_temporada' => 1,
+                'numero_episodios' =>6,
+                'fecha_estreno' => '2022-05-01',
+            ],
 
         ];
 

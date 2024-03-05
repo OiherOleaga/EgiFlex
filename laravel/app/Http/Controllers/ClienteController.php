@@ -122,4 +122,8 @@ class ClienteController extends Controller
         return response()->json(array_merge(["logged" => true], $callback($request)));
     }
 
+    static function getIdCliente($request) {
+        return Crypt::decrypt($request->header("sessionId"));
+    }
+
 }
