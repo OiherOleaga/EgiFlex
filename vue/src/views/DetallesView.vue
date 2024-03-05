@@ -131,7 +131,7 @@ function descargar(url) {
                             <div class="episodios overflow-y-scroll d-flex flex-column gap-2">
                                 <div v-for="episodio in detalles.episodios"
                                     class="d-flex align-items-center justify-content-between gap-3">
-                                    <video :src="episodio.portada" with="50" height="50"></video>
+                                    <img :src="episodio.portada" with="50" height="50"></img>
                                     <p class="m-0 fw-semibold">{{ episodio.numero_episodio }}. {{ episodio.titulo }}</p>
                                     <div class="d-flex gap-2">
                                         <button class="rounded-pill btn text-white p-2"
