@@ -10,7 +10,7 @@ class ListaPelicula extends Model
     use HasFactory;
 
     protected $fillable = [
-        'pelpelicula_id',
+        'pelicula_id',
         'cliente_id',
     ];
 }

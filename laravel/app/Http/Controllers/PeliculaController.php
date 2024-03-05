@@ -179,13 +179,15 @@ class PeliculaController extends Controller
         try {
         return ["detalles" => DB::select(
             "SELECT p.*,
-                group_concat(c.nombre separator ', ') generos
+                group_concat(c.nombre separator ', ') generos,
+                count(lp.id) lista
             FROM peliculas p
             left join categoria_peliculas cp on cp.pelicula_id = p.id
             left join categorias c on c.id = cp.categoria_id
+            left join lista_peliculas lp on lp.pelicula_id = p.id and lp.cliente_id = ?
             where p.id = ?
             group by p.id",
-         [$request["id"]])[0]];
+        [ClienteController::getIdCliente($request), $request["id"]])[0]];
         } catch(\Exception) {
             return ["error" => "id incorrecto"];
         }
