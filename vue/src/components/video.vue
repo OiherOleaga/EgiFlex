@@ -11,7 +11,13 @@ let args = window.location.search.split("?")[1].split("=");
 
 onBeforeUnmount(() => {
     if (videoPlayer.value) {
-        POST("/historial", { id: args[1], tipo: args[0], tiempo: videoPlayer.value.currentTime });
+        POST("/historial", { 
+            id: args[1],
+            tipo: args[0],
+            tiempo: videoPlayer.value.currentTime
+        }).then(res => {
+            
+        });
     }
 });
 

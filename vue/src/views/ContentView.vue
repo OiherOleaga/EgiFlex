@@ -46,6 +46,7 @@ function quitarViendo(historial_id, tipo, index) {
         }
     })
 }
+
 function detalles(id, tipo) {
     return `/detalles?${tipo}=${id}`;
 }
