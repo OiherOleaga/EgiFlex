@@ -43,6 +43,7 @@ function getEpisodios(id) {
         detalles.value.episodios = res.episodios;
     })
 }
+
 function watch(tipo, id) {
     router.push(`/watch?${tipo}=${id}`);
 }
@@ -97,8 +98,10 @@ function descargar(url) {
                     <div class="col-12 m-0 p-0">
                         <div class="portada-container">
                             <img :src="detalles.poster" alt="Portada" class="portada-img" />
-                            <a href="#play"> <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png" alt=""
+                            <a v-if="args[0] == 'p'"href="#play"> <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png" alt=""
                                     width="90px" class="play-button"></a>
+                            <a @click="watch('s', args[1])" v-else > <img src="https://cdn-icons-png.flaticon.com/512/7036/7036894.png" alt=""
+                                    width="91px" class="play-button"></a>
                         </div>
                     </div>
                 </div>
