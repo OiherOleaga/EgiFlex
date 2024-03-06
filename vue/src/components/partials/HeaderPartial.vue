@@ -59,9 +59,7 @@ function cerrarSession() {
                                 </li>
                             </ul>
                             <ul v-else class="tb-megamenu-nav nav level-1 items-6">
-                                <li class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="/login">Iniciar sesion</a>
-                                </li>
+                                
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="#important">Imprescindibles</a>
                                 </li>
@@ -73,6 +71,9 @@ function cerrarSession() {
                                 </li>
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="#sponsors">Nuestros Patrocinadores</a>
+                                </li>
+                                <li class="tb-megamenu-item level-2 mega px-2 ms-auto">
+                                    <a href="/login">Iniciar sesion</a>
                                 </li>
                             </ul>
                         </div>

@@ -154,13 +154,16 @@ function descargar(url) {
                                 </ul>
                             </div>
                             </p>
-                            <div class="episodios overflow-y-scroll overflow-x-hidden d-flex flex-column gap-5">
+                            <div class="episodios overflow-y-scroll overflow-x-auto d-flex flex-column gap-5">
                                 <div v-for="episodio in detalles.episodios"
-                                    class="d-flex align-items-center justify-content-between gap-3">
+                                    class="d-flex align-items-center justify-content-between gap-4">
                                     <img :src="episodio.portada" with="50" height="50"></img>
-                                    <p class="m-0 fw-semibold">{{ episodio.numero_episodio }}. {{ episodio.titulo }}</p>
+                                    <div class="text-center align-items-center justify-content-center">
+                                        <p class="m-0 fw-semibold">{{ episodio.numero_episodio }}. {{ episodio.titulo }}</p>
+                                        <p class="m-0 fw-semibold">{{ episodio.sinopsis }}</p>
+                                    </div>
                                     <div class="d-flex gap-2">
-                                        <button class="rounded-pill btn text-white p-2"
+                                        <button class="rounded-pill btn text-white p-2 "
                                             @click="descargar(episodio.archivo)">Descargar</button>
                                         <button class="rounded-pill btn text-white p-2 flex-shrink-0"
                                             @click="watch('e', episodio.id)">Ver
