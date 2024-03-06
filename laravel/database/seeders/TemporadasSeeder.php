@@ -104,6 +104,15 @@ class TemporadasSeeder extends Seeder
                 'fecha_estreno' => '2022-05-01',
             ],
 
+            //temporada de sololeveling
+            [
+                'id_serie' => 9,
+                'numero_temporada' => 1,
+                'numero_episodios' => 8,
+                'fecha_estreno' => '2022-05-01',
+            ],
+
+
         ];
 
         foreach ($temporadas as $temporada) {
