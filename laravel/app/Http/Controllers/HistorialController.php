@@ -31,7 +31,6 @@ class HistorialController extends Controller
                 }
 
                 if (!$historiales[0]->id) {
-                    // si lo a terminado ??
                     HistorialSerie::create([
                         'cliente_id' => $cliente_id,
                         'serie_id' => $serie_id,
@@ -62,6 +61,9 @@ class HistorialController extends Controller
                                         [
                                             "episodio_id" => $request["id"],
                                         ]);
+
+                            DB::select("SELECT * from episodios e 
+                                        join historial_series hs on hs.episodio_id = e.id");
                             // select para sacar el siguiente episodio y update
                         }
 
@@ -92,10 +94,12 @@ class HistorialController extends Controller
                     ]);
                 } else {
                     if (Pelicula::where("id", $request["id"])->where("duracion", "<=", $request["tiempo"] / 60)->exists()) {
-
+                        DB::update("update historial_peliculas set viendo = 0, visto = 1, tiempo = 0 where id = :id", [
+                            "tiempo" => $request["tiempo"],
+                            "id" => $historiales[0]->id
+                        ]);
                     } else {
-                        DB::update("update historial_peliculas set viendo = 1, id_pelicula = :pelicula_id, tiempo = :tiempo where id = :id", [
-                            "pelicula_id" => $request["id"],
+                        DB::update("update historial_peliculas set viendo = 1, tiempo = :tiempo where id = :id", [
                             "tiempo" => $request["tiempo"],
                             "id" => $historiales[0]->id
                         ]);

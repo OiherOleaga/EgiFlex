@@ -1057,6 +1057,90 @@ class EpisodiosSeeder extends Seeder
                 'portada' => $url . '/portadas/naruto.jpg',
             ],
 
+            //episodios solo leveling
+
+            [
+                'id_temporada' => 14,
+                'titulo' => 'Despertar',
+                'numero_episodio' => 1,
+                'duracion' => 24,
+                'sinopsis' => 'Sung Jin-Woo, un "cazador de rango E", se enfrenta a un peligro mortal en una mazmorra junto con otros cazadores. Un evento inesperado desencadena un cambio profundo en su vida.',
+                'fecha_estreno' => 'YYYY-MM-DD', // Ajusta la fecha de estreno según corresponda
+                'archivo' => $url . '/episodios/sololeveling01.mp4',
+                'portada' => $url . '/portadas/sololeveling.jpg',
+            ],
+            [
+                'id_temporada' => 14,
+                'titulo' => 'Despertar (Parte 2)',
+                'numero_episodio' => 2,
+                'duracion' => 24,
+                'sinopsis' => 'Sung Jin-Woo experimenta los efectos del "despertar" y comienza a explorar sus nuevas habilidades. Mientras tanto, la comunidad de cazadores se sorprende con su progreso.',
+                'fecha_estreno' => 'YYYY-MM-DD', // Ajusta la fecha de estreno según corresponda
+                'archivo' => $url . '/episodios/sololeveling02.mp4',
+                'portada' => $url . '/portadas/sololeveling.jpg',
+            ],
+            // Continúa con los siguientes episodios de manera similar
+            [
+                'id_temporada' => 14,
+                'titulo' => 'Título del Episodio 3',
+                'numero_episodio' => 3,
+                'duracion' => 24,
+                'sinopsis' => 'Sinopsis del episodio 3.',
+                'fecha_estreno' => 'YYYY-MM-DD',
+                'archivo' => $url . '/episodios/sololeveling03.mp4',
+                'portada' => $url . '/portadas/sololeveling.jpg',
+            ],
+            [
+                'id_temporada' => 14,
+                'titulo' => 'Título del Episodio 4',
+                'numero_episodio' => 4,
+                'duracion' => 24,
+                'sinopsis' => 'Sinopsis del episodio 4.',
+                'fecha_estreno' => 'YYYY-MM-DD',
+                'archivo' => $url . '/episodios/sololeveling04.mp4',
+                'portada' => $url . '/portadas/sololeveling.jpg',
+            ],
+            [
+                'id_temporada' => 14,
+                'titulo' => 'Título del Episodio 5',
+                'numero_episodio' => 5,
+                'duracion' => 24,
+                'sinopsis' => 'Sinopsis del episodio 5.',
+                'fecha_estreno' => 'YYYY-MM-DD',
+                'archivo' => $url . '/episodios/sololeveling05.mp4',
+                'portada' => $url . '/portadas/sololeveling.jpg',
+            ],
+            [
+                'id_temporada' => 14,
+                'titulo' => 'Título del Episodio 6',
+                'numero_episodio' => 6,
+                'duracion' => 24,
+                'sinopsis' => 'Sinopsis del episodio 6.',
+                'fecha_estreno' => 'YYYY-MM-DD',
+                'archivo' => $url . '/episodios/sololeveling06.mp4',
+                'portada' => $url . '/portadas/sololeveling.jpg',
+            ],
+            [
+                'id_temporada' => 14,
+                'titulo' => 'Título del Episodio 7',
+                'numero_episodio' => 7,
+                'duracion' => 24,
+                'sinopsis' => 'Sinopsis del episodio 7.',
+                'fecha_estreno' => 'YYYY-MM-DD',
+                'archivo' => $url . '/episodios/sololeveling07.mp4',
+                'portada' => $url . '/portadas/sololeveling.jpg',
+            ],
+            [
+                'id_temporada' => 14,
+                'titulo' => 'Título del Episodio 8',
+                'numero_episodio' => 8,
+                'duracion' => 24,
+                'sinopsis' => 'Sinopsis del episodio 8.',
+                'fecha_estreno' => 'YYYY-MM-DD',
+                'archivo' => $url . '/episodios/sololeveling08.mp4',
+                'portada' => $url . '/portadas/sololeveling.jpg',
+            ],
+
 
 
         ];

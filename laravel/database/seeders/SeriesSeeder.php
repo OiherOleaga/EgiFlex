@@ -86,12 +86,12 @@ class SeriesSeeder extends Seeder
             ],
 
             [
-                'titulo' => 'Hajime no Ippo',
-                'director' => 'Jun Shishido',
-                'ano_lanzamiento' => '2000-10-03',
-                'sinopsis' => 'Makunouchi Ippo, un joven tímido y con poca confianza en sí mismo, descubre el mundo del boxeo después de ser salvado de unos matones por un famoso boxeador retirado. Con su determinación y trabajo duro, Ippo se embarca en un viaje para convertirse en el campeón de boxeo japonés.',
-                'portada' => $url . '/portadas/hajime_no_ippo.jpg',
-                'poster' => $url . '/posters/hajime_no_ippo.jpg',
+                'titulo' => 'Solo Leveling',
+                'director' => 'Unknown',
+                'ano_lanzamiento' => '2003-10-22',
+                'sinopsis' => 'En un mundo donde los portales conectan nuestra realidad con un mundo de monstruos y mazmorras, los "cazadores" luchan contra estas criaturas para proteger a la humanidad. Sung Jin-Woo, un "cazador de rango E", es débil y apenas es considerado humano. Sin embargo, después de un incidente, se encuentra con una habilidad única que le permite crecer como cazador a un ritmo extraordinario. Sung Jin-Woo comienza su camino hacia la cima, desafiando las mazmorras más peligrosas y revelando secretos oscuros.',
+                'portada' => $url . '/portadas/solo_leveling.jpg',
+                'poster' => $url . '/posters/solo_leveling.jpg',
             ],
 
             [
