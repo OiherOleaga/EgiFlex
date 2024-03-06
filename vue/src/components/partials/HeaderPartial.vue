@@ -89,6 +89,9 @@ function cerrarSession() {
                     <li class="tb-megamenu-item level-2 mega px-2">
                         <a href="/peliculas">Peliculas</a>
                     </li>
+                    <li class="tb-megamenu-item level-2 mega px-2">
+                        <a href="/lista">Mi lista</a>
+                    </li>
                     <li class=" tb-megamenu-item level-2 mega px-2">
                         <a href="/" @click="cerrarSession">Cerrar sesion</a>
                     </li>

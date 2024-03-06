@@ -111,8 +111,8 @@ function descargar(url) {
                             <div class="gap-2 d-flex align-items-center justify-content-center my-2">
                                 <button v-if="args[0] == 'p'" class="rounded-pill btn w-100 text-white p-2"
                                     @click="descargar(detalles.archivo)">Descargar</button>
-                                <button v-if="!detalles.lista" class="rounded-pill btn w-100 text-white p-2" @click="addLista">+ lista</button>
-                                <button v-else class="rounded-pill btn w-100 text-white p-2" @click="rmLista">- lista</button>
+                                <button v-if="!detalles.lista" class="rounded-pill btn w-100 text-white p-2" @click="addLista">+ Lista</button>
+                                <button v-else class="rounded-pill btn w-100 text-white p-2" @click="rmLista">- Lista</button>
                             </div>
                         </figure>
                         <div class="d-flex flex-column gap-0 border-1 border-top fw-semibold">
@@ -262,8 +262,9 @@ article {
 }
 
 .dropdown-item:hover {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.4);
     color: white;
+    cursor: pointer;
 }
 
 .episodios {

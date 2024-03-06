@@ -26,15 +26,15 @@ function borrar(id, tipo, index) {
             <div class="container image-grid gap-3 d-flex flex-column">
                 <div class="row gap-3 gap-md-0 justify-content-center">
                     <div v-for="(valor, index) in contenido" :key="index" class="col-5 col-md-2">
-                        <figure class="rounded">
-                            <a :href="watch(valor.id, valor.tipo)">
+                        <figure class="rounded text-center">
+                            <a :href="detalles(valor.id, valor.tipo)">
                                 <img :src="valor.portada" class="rounded img img-fluid equal-image" alt="">
                                 <figcaption class="d-none d-md-block text-center">
-                                    <span class="button-green-download2-big">Ver</span>
+                                    <!-- <a :href="watch(valor.id, valor.tipo)"><span class="button-green-download2-big">Ver</span></a> -->
+                                    <a :href="detalles(valor.id, valor.tipo)"><span class="button-green-download2-big">Ver detalles</span></a>
+                                    <!-- <span v-if="borrable" @click="borrar(valor.id, valor.tipo, index)" class="button-green-download2-big">Quitar de la lista</span> -->
                                 </figcaption>
                             </a>
-                            <a :href="detalles(valor.id, valor.tipo)"><span class="button-green-download2-big">Ver detalles</span></a>
-                            <span v-if="borrable" @click="borrar(valor.id, valor.tipo, index)" class="button-green-download2-big">Quitar de la lista</span>
                         </figure>
                     </div>
                 </div>
@@ -47,6 +47,10 @@ function borrar(id, tipo, index) {
 .egiflex {
     transform: skew(-12deg);
     transform-origin: top;
+}
+
+span{
+    cursor: pointer;
 }
 
 a {

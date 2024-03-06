@@ -20,7 +20,7 @@ GET("/getLista").then(res => {
                                 <a href="/content"><img src="../components/img/generatedtext (2).png"
                                         class="img egiflex img-fluid" alt="egiflex"></a>
                                 <p class="fs-2 fw-semibold">
-                                    Tu <span class="rounded p-1 fs-3">propia</span> lista
+                                    Tu propia <span class="rounded p-1 fs-3">lista</span>
                                 </p>
                             </div>
                         </div>
