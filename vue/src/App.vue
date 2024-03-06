@@ -24,12 +24,12 @@ import Footer from './components/partials/FooterPartial.vue';
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(88, 31, 133);
   border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb:active{
-  background-color: rgb(171, 171, 171);
+  background-color: rgba(89, 31, 133, 0.736);
 }
 
 body{

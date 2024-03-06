@@ -97,7 +97,7 @@ function cerrarSession() {
                         <a href="/" @click="cerrarSession">Cerrar sesion</a>
                     </li>
                 </ul>
-                <ul v-else class="tb-megamenu-nav nav level-1 items-6">
+                <ul v-else class="tb-megamenu-nav nav level-1 items-6 d-flex flex-column">
                     <li class="tb-megamenu-item level-2 mega px-2">
                         <a href="#important">Imprescindibles</a>
                     </li>
