@@ -10,8 +10,8 @@ class HistorialSerie extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_serie',
-        'id_cliente',
+        'serie_id',
+        'cliente_id',
         'episodio_id',
         'tiempo',
         'visto',

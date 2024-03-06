@@ -15,7 +15,7 @@ import videoVue from '../components/video.vue'
   </section>
 </template>
 
-<style scoped>
+<style>
 section {
   background-size: cover;
   background-position: center center;
@@ -24,5 +24,15 @@ section {
 
 video {
   box-shadow: 0 0 50px #730DD9;
+}
+
+.vjs-poster img {
+    object-fit: cover;
+    filter: brightness(69%);
+}
+
+.video-js{
+    border: 2px solid #730DD9;
+    filter: drop-shadow(0 0 10px #730DD9);
 }
 </style>
