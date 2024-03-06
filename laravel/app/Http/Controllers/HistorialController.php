@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Episodio;
 use App\Models\HistorialPelicula;
 use App\Models\HistorialSerie;
+use App\Models\Pelicula;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -39,7 +40,7 @@ class HistorialController extends Controller
                     ]);
 
                 } else {
-                    if (Episodio::where("id", $request["id"])->where("duracion", "<=", $request["tiempo"])->exists()) {
+                    if (Episodio::where("id", $request["id"])->where("duracion", "<=", $request["tiempo"] / 60)->exists()) {
                         if (isset(DB::select("SELECT 'x'
                                             from temporadas t
                                             join episodios e on e.numero_episodio = t.numero_episodios and e.id = :episodio_id
@@ -47,7 +48,7 @@ class HistorialController extends Controller
                         [
                             "episodio_id" => $request["id"],
                             "serie_id" => $serie_id
-                        ]))) {
+                        ])[0])) {
                             DB::update("update historial_series set viendo = 0, visto = 1, episodio_id = 1, tiempo = 0 where id = :id", [
                                 "id" => $historiales[0]->id
                             ]);
@@ -66,21 +67,46 @@ class HistorialController extends Controller
 
                     } else {
                         DB::update("update historial_series set viendo = 1, episodio_id = :episodio_id, tiempo = :tiempo where id = :id", [
-                            "episodios_id" => $request["id"],
+                            "episodio_id" => $request["id"],
                             "tiempo" => $request["tiempo"],
                             "id" => $historiales[0]->id
                         ]);
                     }
                 }
 
-                return ["ok" => true];
 
                 break;
             case 'p':
+                $historiales = DB::select("SELECT hp.* from historial_peliculas hp 
+                                            where hp.id_cliente = :cliente_id and hp.id_pelicula = :pelicula_id",
+                                            [
+                                                "pelicula_id" => $request["id"],
+                                                "cliente_id" => $cliente_id
+                                            ]);
+
+                if (!isset($historiales[0])) {
+                    HistorialPelicula::create([
+                        "id_cliente" => $cliente_id,
+                        "id_pelicula" => $request["id"],
+                        "tiempo" => $request["tiempo"]
+                    ]);
+                } else {
+                    if (Pelicula::where("id", $request["id"])->where("duracion", "<=", $request["tiempo"] / 60)->exists()) {
+
+                    } else {
+                        DB::update("update historial_peliculas set viendo = 1, id_pelicula = :pelicula_id, tiempo = :tiempo where id = :id", [
+                            "pelicula_id" => $request["id"],
+                            "tiempo" => $request["tiempo"],
+                            "id" => $historiales[0]->id
+                        ]);
+                    }
+                }
+
                 break;
             default:
                 return ["error" => "ni p ni e"];
         }
+        return ["ok" => true];
         // todo esto, poner controles directos, barrita, filtro, deploy
     });}
 
