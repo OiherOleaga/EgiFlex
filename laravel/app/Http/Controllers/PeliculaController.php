@@ -44,7 +44,7 @@ class PeliculaController extends Controller
         if ($request->hasFile('archivo')) {
             $archivo = $request->file('archivo');
             $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
-            $archivo->move(public_path('media/pelis'), $nombreArchivo);
+            $archivo->move(public_path('media/peliculas'), $nombreArchivo);
 
             $portada = $request->file('portada');
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
@@ -60,7 +60,7 @@ class PeliculaController extends Controller
                 'ano_lanzamiento' => $request->ano_lanzamiento,
                 'sinopsis' => $request->sinopsis,
                 'duracion' => $request->duracion,
-                'archivo' => 'media/pelis/' . $nombreArchivo,
+                'archivo' => 'media/peliculas/' . $nombreArchivo,
                 'portada' => 'media/portadas/' . $nombrePortada,
                 'poster' => 'media/posters/' . $nombrePoster,
             ]);
@@ -107,9 +107,9 @@ class PeliculaController extends Controller
             }
             $archivo = $request->file('archivo');
             $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
-            $archivo->move(public_path('media/pelis'), $nombreArchivo);
+            $archivo->move(public_path('media/peliculas'), $nombreArchivo);
 
-            $pelicula->archivo = 'media/pelis/' . $nombreArchivo;
+            $pelicula->archivo = 'media/peliculas/' . $nombreArchivo;
         }
 
         if ($request->hasFile('portada')) {
