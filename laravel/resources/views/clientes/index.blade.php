@@ -40,7 +40,7 @@
                 <div class="row mb-4">
                     <div class="col-md-12">
                         @if ($clientes->isEmpty())
-                            <p class="mt-4">No se encontraron resultados para los criterios de búsqueda especificados.</p>
+                        <p class="mt-4 text-red-600">No se encontraron resultados para los criterios de búsqueda especificados.</p>
                         @else
                             {{ $clientes->links() }}
                         @endif
