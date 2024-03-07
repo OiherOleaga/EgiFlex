@@ -16,7 +16,6 @@ class SeriesSeeder extends Seeder
     {
         $url = "http://localhost/media";
 
-
         $series = [
             [
                 'titulo' => 'La Casa de Papel',
