@@ -54,9 +54,6 @@ function cerrarSession() {
                                 <li class="tb-megamenu-item level-2 mega px-2">
                                     <a href="/lista">Mi lista</a>
                                 </li>
-                                <li v-if="$route.path === '/content'" class="tb-megamenu-item level-2 mega px-2">
-                                    <a href="#historial">Historial</a>
-                                </li>
                                 <li class=" ms-auto">
                                     <a href="/" @click="cerrarSession">Cerrar sesion</a>
                                 </li>

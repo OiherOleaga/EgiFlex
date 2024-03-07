@@ -211,8 +211,8 @@ function detalles(id, tipo) {
                                                         <span class="button-green-download2-big">Ver detalles</span>
                                                     </figcaption>
                                                 </a>
-                                                <span @click="quitarViendo(item.historial_id, item.tipo, index)"
-                                                    class="button-green-download2-big">Quitar</span>
+                                                <!-- <span @click="quitarViendo(item.historial_id, item.tipo, index)"
+                                                    class="button-green-download2-big">Quitar</span> -->
                                             </figure>
                                         </div>
                                     </div>

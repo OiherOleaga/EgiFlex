@@ -37,12 +37,12 @@
                     <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Estadisticas
                     </h1>
                 </div>
-            <div class=" dark:bg-gray-800 text-white overflow-hidden dark:bg-dark-600 shadow-sm sm:rounded-lg mt-4">
+            <div class=" dark:bg-gray-800 text-black overflow-hidden dark:bg-dark-600 shadow-sm sm:rounded-lg mt-4">
                 <div class="p-6 border-b border-gray-200">
                     {!! $chart1->container() !!}
                 </div>
             </div>
-            <div class=" dark:bg-gray-800 text-white overflow-hidden dark:bg-dark-600 shadow-sm sm:rounded-lg mt-4">
+            <div class=" dark:bg-gray-800 text-black overflow-hidden dark:bg-dark-600 shadow-sm sm:rounded-lg mt-4">
                 <div class="p-6 border-b border-gray-200">
                     {!! $chart2->container() !!}
                 </div>
