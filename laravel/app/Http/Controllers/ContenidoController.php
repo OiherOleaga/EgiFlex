@@ -50,7 +50,7 @@ class ContenidoController extends Controller
                     count(hp.id_pelicula) fama 
                     FROM peliculas p
                     left join categoria_peliculas cp on cp.pelicula_id = p.id
-                    left join historial_peliculas h on h.id_pelicula = p.id
+                    left join historial_peliculas hp on hp.id_pelicula = p.id
                     group by p.id
 
                     union all
@@ -60,7 +60,7 @@ class ContenidoController extends Controller
                     count(hs.serie_id) fama 
                     FROM series s
                     left join categoria_series cs on cs.serie_id = s.id
-                    left join historial_series h on h.serie_id = s.id
+                    left join historial_series hs on hs.serie_id = s.id
                     group by s.id
                 ) c ";
                 break;
@@ -114,7 +114,7 @@ class ContenidoController extends Controller
             $hayOrderBy = true;
         }
 
-        $select = $consulta . ($hayWhere ? $where : "") . "group by c.id " .($hayOrderBy ? substr($orderBy, 0, -2) : "") ;
+        $select = $consulta . ($hayWhere ? $where : "") . ($request["tipo"] != 'n' ? "group by c.id " : "") . ($hayOrderBy ? substr($orderBy, 0, -2) : "") ;
         //return ["select" => $select, "datos" => $datos];
         return ["contenido" => DB::select($select, $datos)];
     });}
