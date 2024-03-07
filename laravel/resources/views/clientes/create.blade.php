@@ -1,9 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Crear Cliente') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
+@section('content')
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -11,7 +7,6 @@
                 <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                     <form action="{{ route('clientes.store') }}" method="POST" class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700">
                         @csrf
-
                         <div class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700 sm:space-y-5">
                             <div class="space-y-6 sm:space-y-5">
                                 <div>
@@ -69,4 +64,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection

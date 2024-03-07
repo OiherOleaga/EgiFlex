@@ -1,7 +1,5 @@
 <script setup>
 import { ref, onBeforeUnmount, onMounted } from 'vue';
-import videojs from 'video.js';
-import 'video.js/dist/video-js.css';
 
 const videoPlayer = ref(null);
 const videoSrcs = ref([]);
@@ -40,41 +38,30 @@ onMounted(async () => {
         console.error("Error al obtener el video:", error);
     }
 });
-
-const initVideoPlayer = () => {
-    const options = {
-        controls: true,
-        fluid: true,
-        sources: videoSrcs.value,
-        poster: posterUrl.value,
-    };
-
-    const player = videojs(videoPlayer.value, options);
-
-    player.ready(() => {
-        player.currentTime(args.tiempo);
-    });
-};
 </script>
 
 <template>
-    <video ref="videoPlayer" class="video-js">
-        <p class="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a
-            web browser that
-            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-        </p>
-    </video>
+    <div class="video-container">
+        <video ref="videoPlayer" class="video-js" controls :src="videoSrcs" :poster="posterUrl">
+            <p>
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
 </template>
 
 <style>
-.vjs-poster img {
-    object-fit: cover;
-    filter: brightness(69%);
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.video-js{
-    border: 2px solid #730DD9;
-    filter: drop-shadow(0 0 10px #730DD9);
+.video-js {
+    width: 100%;
+    max-width: 100rem; 
+    height: auto;
 }
 </style>

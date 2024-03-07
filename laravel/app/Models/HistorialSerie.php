@@ -17,4 +17,9 @@ class HistorialSerie extends Model
         'visto',
         'viendo'
     ];
+
+    public function serie()
+    {
+        return $this->belongsTo(Serie::class);
+    }
 }

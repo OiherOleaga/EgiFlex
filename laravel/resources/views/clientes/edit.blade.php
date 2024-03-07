@@ -12,7 +12,6 @@
                     <form action="{{ route('clientes.update', $cliente->id) }}" method="POST" class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700">
                         @csrf
                         @method('PUT')
-
                         <div class="space-y-8 divide-y divide-gray-200 dark:divide-gray-700 sm:space-y-5">
                             <div class="space-y-6 sm:space-y-5">
                                 <div>

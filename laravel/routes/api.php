@@ -30,7 +30,7 @@ Route::post("/getDetallesSerie", [SerieController::class, "getDetallesSerie"]);
 Route::get("/series/popular", [SerieController::class, "getSeriesRandom"]);
 
 Route::post("/iniciarSesion", [ClienteController::class, "comprobarInicioSesion"]);
-Route::post("/registrar", [ClienteController::class, "regristro"]);
+Route::post("/registrar", [ClienteController::class, "registro"]);
 Route::get("/checkSession", [ClienteController::class, "checkSession"]);
 
 Route::post("/filtro", [ContenidoController::class, "filtro"]);

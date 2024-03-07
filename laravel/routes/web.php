@@ -27,6 +27,7 @@ use App\Http\Controllers\HistorialSerieController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TemporadaController;
+use App\Http\Controllers\EstadisticasController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -54,6 +55,8 @@ Route::middleware('auth')->group(function () {
 
     //Clientes
     Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.index');
+    Route::get('/aceptar/{id}/cliente', [ClienteController::class, 'aceptar']);
+
     Route::get('/clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
     Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
     Route::get('/clientes/{cliente}', [ClienteController::class, 'show'])->name('clientes.show');
@@ -97,7 +100,10 @@ Route::middleware('auth')->group(function () {
     Route::put('/temporadas/{temporada}', [TemporadaController::class, 'update'])->name('temporadas.update');
     Route::delete('/temporadas/{temporada}', [TemporadaController::class, 'destroy'])->name('temporadas.destroy');
 
+    //Estadisticas
+    Route::get('/estadisticas', [EstadisticasController::class, 'index']);
+
 
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
