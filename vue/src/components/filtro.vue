@@ -7,8 +7,9 @@ const emit = defineEmits(['filtrando']);
 
 const contenido = ref([])
 const categorias = ref([])
+const categoriasElegidas = new Set()
+const orden = ref([])
 const busqueda = ref("")
-const categoriasElegidas = ref([])
 
 const filtrando = ref(false)
 
@@ -20,23 +21,55 @@ watch(busqueda, () => {
     filtrar()
 })
 
-function detalles(id, tipo) {
-    return `/detalles?${tipo}=${id}`;
+function cambioElegidoCategoria(index) {
+    categorias.value[index].elegido = !categorias.value[index].elegido;
+
+    if (categorias.value[index].elegido) {
+        categoriasElegidas.add(categorias.value[index].id)
+    } else {
+        categoriasElegidas.delete(categorias.value[index].id)
+    }
+
+    filtrar()
 }
 
-function addCategoria(index) {
-    categoriasElegidas.value.push(categorias.value.splice(index, 1)[0])
+function estilosElegidos(elegido) {
+    if (elegido) {
+        return "bg-info";
+    }
 }
 
-function rmCategoria(index) { 
-    categorias.value.push(categoriasElegidas.value.splice(index, 1)[0])
+function borrarElegidos() {
+    categoriasElegidas.clear();
+    for (let cat of categorias.value) {
+        cat.elegido = false
+    }
+
+    filtrar()
 }
 
+function orderby(tipo) {
+    if (tipo == 'n') {
+        orden.value = []
+    } else {
+        let index = orden.value.indexOf(tipo);
+        if (index == -1) {
+            orden.value.push(tipo)
+        } else {
+            orden.value.splice(index, 1)
+        }
+    }
+}
 function filtrar() {
     let filtrando2 = false;
 
     let filtro = {
         tipo: props.tipo,
+    }
+
+    if (categoriasElegidas.size !== 0) {
+        filtrando2 = true
+        filtro.categorias = Array.from(categoriasElegidas)
     }
 
     if (busqueda.value) {
@@ -49,6 +82,7 @@ function filtrar() {
     if (filtro.tipo !== 'n' || filtrando.value) {
 
         POST("/filtro", filtro).then(res => {
+            console.log(res)
             contenido.value = res.contenido;
         })
     } else {
@@ -77,8 +111,11 @@ filtrar();
                         Ordenar por
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Popularidad</a></li>
-                        <li><a class="dropdown-item" href="#">Recientes</a></li>
+                        <li><a class="dropdown-item bg-danger" href="#" @click="orderby('n')">Nada</a></li>
+                        <li :class="estilosElegidos(orden[0] == 'p' || orden[1] == 'p')"><a class="dropdown-item"
+                                @click="orderby('p')">Popularidad</a></li>
+                        <li :class="estilosElegidos(orden[0] == 'r' || orden[1] == 'r')"><a class="dropdown-item"
+                                @click="orderby('r')">Recientes</a></li>
                     </ul>
                 </div>
                 <div class="dropdown ">
@@ -87,9 +124,13 @@ filtrar();
                         Género
                     </button>
                     <ul class="dropdown-menu">
-                        <li v-for="(categoria, index) in categorias" :key="index"><a class="dropdown-item" @click="addCategoria(index)">{{ categoria.nombre }}</a>
+                        <li @click="borrarElegidos" class="bg-danger"><a class="dropdown-item"> Sin
+                                categorias </a>
                         </li>
-                        <span v-for="(categoria, index) in categoriasElegidas" :key="index" @click="rmCategoria(index)">{{ categoria.nombre }}</span>
+                        <li v-for="(categoria, index) in categorias" :key="index" @click="cambioElegidoCategoria(index)"
+                            :class="estilosElegidos(categoria.elegido)"><a class="dropdown-item">{{ categoria.nombre
+                                }}</a>
+                        </li>
                     </ul>
                 </div>
                 <div>
