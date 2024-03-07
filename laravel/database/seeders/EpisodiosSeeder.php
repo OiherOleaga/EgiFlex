@@ -25,7 +25,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Goku pesca tranquilamente hasta que un inesperado suceso cambia el rumbo de su vida',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/db01.mp4',
-                'portada' => $url . '/portadas/dragonball.jpg',
+                'portada' => $url . '/posters/dragonball.jpg',
             ],
             [
                 'id_temporada' => 1,
@@ -35,7 +35,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Bulma se lleva a goku en busca de las bolas del dragon',
                 'fecha_estreno' => '2020-05-08',
                 'archivo' => $url . '/episodios/db02.mp4',
-                'portada' => $url . '/portadas/dragonball.jpg',
+                'portada' => $url . '/posters/dragonball.jpg',
             ],
             [
                 'id_temporada' => 1,
@@ -45,7 +45,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Este chico no es humano ',
                 'fecha_estreno' => '2020-05-08',
                 'archivo' => $url . '/episodios/db03.mp4',
-                'portada' => $url . '/portadas/dragonball.jpg',
+                'portada' => $url . '/posters/dragonball.jpg',
             ],
             [
                 'id_temporada' => 1,
@@ -55,7 +55,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'En mitad del desierto un villano acecha',
                 'fecha_estreno' => '2020-05-08',
                 'archivo' => $url . '/episodios/db04.mp4',
-                'portada' => $url . '/portadas/dragonball.jpg',
+                'portada' => $url . '/posters/dragonball.jpg',
             ],
             // Episodios de Dragon ball, temporada 2
             [
@@ -66,7 +66,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Goku y bulma hallan la quinta bola del dragon',
                 'fecha_estreno' => '2020-05-08',
                 'archivo' => $url . '/episodios/db05.mp4',
-                'portada' => $url . '/portadas/dragonball.jpg',
+                'portada' => $url . '/posters/dragonball.jpg',
             ],
             [
                 'id_temporada' => 2,
@@ -76,7 +76,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Comienza una feroz batalla',
                 'fecha_estreno' => '2020-05-08',
                 'archivo' => $url . '/episodios/db06.mp4',
-                'portada' => $url . '/portadas/dragonball.jpg',
+                'portada' => $url . '/posters/dragonball.jpg',
             ],
             [
                 'id_temporada' => 2,
@@ -86,7 +86,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'GNuestros heroes al fin descansan',
                 'fecha_estreno' => '2020-05-08',
                 'archivo' => $url . '/episodios/db07.mp4',
-                'portada' => $url . '/portadas/dragonball.jpg',
+                'portada' => $url . '/posters/dragonball.jpg',
             ],
             [
                 'id_temporada' => 2,
@@ -96,7 +96,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Duro entrenamiento con iratxo dordoka',
                 'fecha_estreno' => '2020-05-08',
                 'archivo' => $url . '/episodios/db08.mp4',
-                'portada' => $url . '/portadas/dragonball.jpg',
+                'portada' => $url . '/posters/dragonball.jpg',
             ],
             [
                 'id_temporada' => 2,
@@ -106,7 +106,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Casi estan todas las bolas',
                 'fecha_estreno' => '2020-05-08',
                 'archivo' => $url . '/episodios/db05.mp4',
-                'portada' => $url . '/portadas/dragonball.jpg',
+                'portada' => $url . '/posters/dragonball.jpg',
             ],
             [
                 'id_temporada' => 2,
@@ -116,7 +116,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Goku invoca al dragon y el final se avecina',
                 'fecha_estreno' => '2020-05-08',
                 'archivo' => $url . '/episodios/db10.mp4',
-                'portada' => $url . '/portadas/dragonball.jpg',
+                'portada' => $url . '/posters/dragonball.jpg',
             ],
             // Episodios de CSM, temporada 1
             [
@@ -127,7 +127,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'nuestro protagonista conoce a su amigo de por vida',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/csm01.mp4',
-                'portada' => $url . '/portadas/Chainsaw_Man.jpg',
+                'portada' => $url . '/posters/chainsawman.jpg',
             ],
             [
                 'id_temporada' => 3,
@@ -137,7 +137,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Denji es empujado entre la espada y la pared por aquellos que consideraba amigos',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/csm02.mp4',
-                'portada' => $url . '/portadas/Chainsaw_Man.jpg',
+                'portada' => $url . '/posters/chainsawman.jpg',
             ],
             [
                 'id_temporada' => 3,
@@ -147,7 +147,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Para sobrevivir se convertira en demonio',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/csm03.mp4',
-                'portada' => $url . '/portadas/Chainsaw_Man.jpg',
+                'portada' => $url . '/posters/chainsawman.jpg',
             ],
             // Episodios de CSM, temporada 2
             [
@@ -158,7 +158,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Brummmmm bruuumm brrrrr',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/csm04.mp4',
-                'portada' => $url . '/portadas/Chainsaw_Man.jpg',
+                'portada' => $url . '/posters/chainsawman.jpg',
             ],
             [
                 'id_temporada' => 4,
@@ -168,7 +168,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'La pelea entre una motosierra y una espada ¿Quien ganara?',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/csm05.mp4',
-                'portada' => $url . '/portadas/Chainsaw_Man.jpg',
+                'portada' => $url . '/posters/chainsawman.jpg',
             ],
             [
                 'id_temporada' => 4,
@@ -178,7 +178,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'WOooof woof pisame mommy ñamñam',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/csm06.mp4',
-                'portada' => $url . '/portadas/Chainsaw_Man.jpg',
+                'portada' => $url . '/posters/chainsawman.jpg',
             ],
             // Episodios de cyberpunk, temporada 1
             [
@@ -189,7 +189,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'El prota es bien de pobre asi que se va a drogar con chips pa vengar a su madre',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/cyberpunk01.mp4',
-                'portada' => $url . '/portadas/cyberpunk.jpg',
+                'portada' => $url . '/posters/cyberpunk.jpg',
             ],
             [
                 'id_temporada' => 5,
@@ -199,7 +199,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Si se sigue haciendo modificaciones va a terminar como el mosnstruo de frankenstein',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/cyberpunk02.mp4',
-                'portada' => $url . '/portadas/cyberpunk.jpg',
+                'portada' => $url . '/posters/cyberpunk.jpg',
             ],
             [
                 'id_temporada' => 5,
@@ -209,7 +209,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Vamos a la torre mas alta dek mundo',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/cyberpunk03.mp4',
-                'portada' => $url . '/portadas/cyberpunk.jpg',
+                'portada' => $url . '/posters/cyberpunk.jpg',
             ],
             [
                 'id_temporada' => 5,
@@ -219,7 +219,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Vamos a la torre mas alta dek mundo',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/cyberpunk04.mp4',
-                'portada' => $url . '/portadas/cyberpunk.jpg',
+                'portada' => $url . '/posters/cyberpunk.jpg',
             ],
             // Episodios de cyberpunk, temporada 2
             [
@@ -230,7 +230,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'he soñado que tenia piernas',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/cyberpunk05.mp4',
-                'portada' => $url . '/portadas/cyberpunk.jpg',
+                'portada' => $url . '/posters/cyberpunk.jpg',
             ],
             [
                 'id_temporada' => 6,
@@ -240,7 +240,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'El fin de una era',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/cyberpunk06.mp4',
-                'portada' => $url . '/portadas/cyberpunk.jpg',
+                'portada' => $url . '/posters/cyberpunk.jpg',
             ],
             [
                 'id_temporada' => 6,
@@ -250,7 +250,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'AAAAAAAAAAAAAHHHHHHHHHADSKJDHASLDJBASLDJABSDLJBAS',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/cyberpunk07.mp4',
-                'portada' => $url . '/portadas/cyberpunk.jpg',
+                'portada' => $url . '/posters/cyberpunk.jpg',
             ],
             // Episodios de One piece
             [
@@ -261,7 +261,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'las garras malvadas de Orochi se acercan',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/OP1058.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -271,7 +271,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => ' ¡un monstruo! King la Conflagración',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/OP1059.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -281,7 +281,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'La espada confiada a Zoro y el pues tambien supongo',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/OP1060.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -291,7 +291,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sanji VS Queen y la brigada ninja samurai',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/OP1061.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -301,7 +301,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sanji VS Queen y la brigada ninja samurai',
                 'fecha_estreno' => '2020-05-01',
                 'archivo' => $url . '/episodios/OP1061.5.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -311,7 +311,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'El pasado de un personaje importante al descubierto',
                 'fecha_estreno' => '2020-05-08',
                 'archivo' => $url . '/episodios/OP1062.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -321,7 +321,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Piratas del Sombrero de Paja se enfrentan a una nueva amenaza',
                 'fecha_estreno' => '2020-05-15',
                 'archivo' => $url . '/episodios/OP1063.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -331,7 +331,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Una misteriosa isla emerge en el Grand Line',
                 'fecha_estreno' => '2020-05-22',
                 'archivo' => $url . '/episodios/OP1064.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -341,7 +341,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los planes de una organización oscura se revelan',
                 'fecha_estreno' => '2020-05-29',
                 'archivo' => $url . '/episodios/OP1065.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -351,7 +351,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los planes de una organización oscura se revelan',
                 'fecha_estreno' => '2020-05-29',
                 'archivo' => $url . '/episodios/OP1065.5.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -361,7 +361,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'El poder oculto de un antiguo artefacto se manifiesta',
                 'fecha_estreno' => '2020-06-05',
                 'archivo' => $url . '/episodios/OP1066.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -371,7 +371,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Las acciones de otros piratas cambian el curso del viaje',
                 'fecha_estreno' => '2020-06-12',
                 'archivo' => $url . '/episodios/OP1067.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -381,7 +381,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Un antiguo tesoro revela su conexión con el pasado',
                 'fecha_estreno' => '2020-06-19',
                 'archivo' => $url . '/episodios/OP1068.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -391,7 +391,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Una bestia legendaria emerge de las profundidades',
                 'fecha_estreno' => '2020-06-26',
                 'archivo' => $url . '/episodios/OP1069.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -401,7 +401,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Piratas del Sombrero de Paja se preparan para su batalla más difícil',
                 'fecha_estreno' => '2020-07-03',
                 'archivo' => $url . '/episodios/OP1070.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -411,7 +411,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Un enemigo del pasado regresa con un nuevo poder',
                 'fecha_estreno' => '2020-07-10',
                 'archivo' => $url . '/episodios/OP1071.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -421,7 +421,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Enemigos se convierten en aliados por una causa común',
                 'fecha_estreno' => '2020-07-17',
                 'archivo' => $url . '/episodios/OP1072.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -431,7 +431,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Piratas del Sombrero de Paja exploran nuevas tierras',
                 'fecha_estreno' => '2020-07-24',
                 'archivo' => $url . '/episodios/OP1073.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -441,7 +441,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Piratas del Sombrero de Paja exploran nuevas tierras',
                 'fecha_estreno' => '2020-07-24',
                 'archivo' => $url . '/episodios/OP1073.5.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -451,7 +451,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los corazones se unen para enfrentar un desafío imposible',
                 'fecha_estreno' => '2020-07-31',
                 'archivo' => $url . '/episodios/OP1074.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -461,7 +461,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los sacrificios necesarios para alcanzar la victoria',
                 'fecha_estreno' => '2020-08-07',
                 'archivo' => $url . '/episodios/OP1075.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -471,7 +471,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los personajes descubren nuevas habilidades dentro de sí mismos',
                 'fecha_estreno' => '2020-08-14',
                 'archivo' => $url . '/episodios/OP1076.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -481,7 +481,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Una aventura marina lleva a los piratas a nuevos horizontes',
                 'fecha_estreno' => '2020-08-21',
                 'archivo' => $url . '/episodios/OP1077.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -491,7 +491,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Un nuevo personaje se cruza en el camino de los Piratas del Sombrero de Paja',
                 'fecha_estreno' => '2020-08-28',
                 'archivo' => $url . '/episodios/OP1078.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -501,7 +501,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los acontecimientos toman un rumbo inesperado para los protagonistas',
                 'fecha_estreno' => '2020-09-04',
                 'archivo' => $url . '/episodios/OP1079.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -511,7 +511,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Una nueva amenaza se alza en el horizonte',
                 'fecha_estreno' => '2020-09-11',
                 'archivo' => $url . '/episodios/OP1080.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -521,7 +521,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Un antiguo misterio se desvela ante los ojos de los protagonistas',
                 'fecha_estreno' => '2020-09-18',
                 'archivo' => $url . '/episodios/OP1081.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -531,7 +531,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los héroes se enfrentan a su desafío más peligroso hasta ahora',
                 'fecha_estreno' => '2020-09-25',
                 'archivo' => $url . '/episodios/OP1082.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -541,7 +541,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Mugiwara se enfrentan a un nuevo enemigo',
                 'fecha_estreno' => '2020-10-02',
                 'archivo' => $url . '/episodios/OP1083.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -551,7 +551,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Secretos del pasado salen a la luz',
                 'fecha_estreno' => '2020-10-09',
                 'archivo' => $url . '/episodios/OP1084.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -561,7 +561,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'La lucha entre el bien y el mal alcanza su punto álgido',
                 'fecha_estreno' => '2020-10-16',
                 'archivo' => $url . '/episodios/OP1085.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -571,7 +571,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Mugiwara preparan su respuesta al ataque enemigo',
                 'fecha_estreno' => '2020-10-23',
                 'archivo' => $url . '/episodios/OP1086.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -581,7 +581,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Un poder dormido se manifiesta en la batalla',
                 'fecha_estreno' => '2020-10-30',
                 'archivo' => $url . '/episodios/OP1087.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -591,7 +591,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los aliados de los Mugiwara llegan para ayudar en la batalla',
                 'fecha_estreno' => '2020-11-06',
                 'archivo' => $url . '/episodios/OP1088.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -601,7 +601,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Mugiwara demuestran la fuerza de la amistad y la cooperación',
                 'fecha_estreno' => '2020-11-13',
                 'archivo' => $url . '/episodios/OP1089.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
 
             [
@@ -612,7 +612,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'El enfrentamiento final entre los Mugiwara y sus enemigos',
                 'fecha_estreno' => '2020-11-20',
                 'archivo' => $url . '/episodios/OP1090.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -622,7 +622,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Mugiwara emergen victoriosos de la batalla',
                 'fecha_estreno' => '2020-11-27',
                 'archivo' => $url . '/episodios/OP1091.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -632,7 +632,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Mugiwara se preparan para nuevas aventuras',
                 'fecha_estreno' => '2020-12-04',
                 'archivo' => $url . '/episodios/OP1092.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -642,7 +642,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Mugiwara encuentran un tesoro oculto',
                 'fecha_estreno' => '2020-12-11',
                 'archivo' => $url . '/episodios/OP1093.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -652,7 +652,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Mugiwara se despiden de una gran aventura',
                 'fecha_estreno' => '2020-12-18',
                 'archivo' => $url . '/episodios/OP1094.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             [
                 'id_temporada' => 7,
@@ -662,7 +662,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los Mugiwara regresan a casa después de su larga travesía',
                 'fecha_estreno' => '2020-12-25',
                 'archivo' => $url . '/episodios/OP1095.mp4',
-                'portada' => $url . '/portadas/onepiece.jpg',
+                'portada' => $url . '/posters/onepiece.jpg',
             ],
             // Episodios de Jujutsu
             [
@@ -673,7 +673,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Una terrible maldicion se cierne sobre tokio mientras nadie se da cuenta',
                 'fecha_estreno' => '2025-05-01',
                 'archivo' => $url . '/episodios/jjk01.mp4',
-                'portada' => $url . '/portadas/JJK.jpg',
+                'portada' => $url . '/posters/JJK.jpg',
             ],
             [
                 'id_temporada' => 8,
@@ -683,7 +683,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Yuji se encuentra con poderosos aliados que le acompañaran en sus peleas',
                 'fecha_estreno' => '2025-05-02',
                 'archivo' => $url . '/episodios/jjk02.mp4',
-                'portada' => $url . '/portadas/JJK.jpg',
+                'portada' => $url . '/posters/JJK.jpg',
             ],
             [
                 'id_temporada' => 8,
@@ -693,7 +693,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Todos los candidatos a absorber la maldicion se posan en el campo de batalla',
                 'fecha_estreno' => '2025-05-03',
                 'archivo' => $url . '/episodios/jjk03.mp4',
-                'portada' => $url . '/portadas/JJK.jpg',
+                'portada' => $url . '/posters/JJK.jpg',
             ],
             [
                 'id_temporada' => 8,
@@ -703,7 +703,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Las reglas cambian a medida que nuestros heroes avanzan',
                 'fecha_estreno' => '2025-05-06',
                 'archivo' => $url . '/episodios/jjk04.mp4',
-                'portada' => $url . '/portadas/JJK.jpg',
+                'portada' => $url . '/posters/JJK.jpg',
             ],
             [
                 'id_temporada' => 8,
@@ -713,7 +713,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sukuna tiene... muchos dedos, y brazos, y manos...',
                 'fecha_estreno' => '2025-06-01',
                 'archivo' => $url . '/episodios/jjk05.mp4',
-                'portada' => $url . '/portadas/JJK.jpg',
+                'portada' => $url . '/posters/JJK.jpg',
             ],
             // Episodios de la casa de papel
             [
@@ -724,7 +724,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'El profesor reune a un grupo de ladrones para el mayor robo jamas visto',
                 'fecha_estreno' => '2017-05-01',
                 'archivo' => $url . '/episodios/lcdp_01.mp4',
-                'portada' => $url . '/portadas/casapapel.jpg',
+                'portada' => $url . '/posters/money-heist.jpg',
             ],
             // Episodios de kny
             [
@@ -735,7 +735,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'なぜこれを翻訳するのですか？センスがない',
                 'fecha_estreno' => '2019-05-01',
                 'archivo' => $url . '/episodios/kny_01.mp4',
-                'portada' => $url . '/portadas/kimetsu.jpg',
+                'portada' => $url . '/posters/demon-slayer.jpg',
             ],
             // Episodios de mashle
             [
@@ -746,7 +746,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => ' un chico que vive en un mundo lleno de magia, descubre que él es el único sin poderes mágicos',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_01.mp4',
-                'portada' => $url . '/portadas/mashle.jpg',
+                'portada' => $url . '/posters/mashle.jpg',
             ],
             [
                 'id_temporada' => 11,
@@ -756,7 +756,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'A pesar de no tener magia, Mashle acepta el desafío y se prepara para enfrentar al estudiante usando solo su fuerza bruta',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_02.mp4',
-                'portada' => $url . '/portadas/mashle.jpg',
+                'portada' => $url . '/posters/mashle.jpg',
             ],
             [
                 'id_temporada' => 11,
@@ -766,7 +766,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'La escuela de magia organiza una prueba en un laberinto mágico donde los estudiantes deben superar diversos obstáculos utilizando sus habilidades mágicas',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_03.mp4',
-                'portada' => $url . '/portadas/mashle.jpg',
+                'portada' => $url . '/posters/mashle.jpg',
             ],
             [
                 'id_temporada' => 11,
@@ -776,7 +776,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los compañeros de Mashle descubren su falta de habilidades mágicas y lo confrontan sobre su origen',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_04.mp4',
-                'portada' => $url . '/portadas/mashle.jpg',
+                'portada' => $url . '/posters/mashle.jpg',
             ],
             [
                 'id_temporada' => 11,
@@ -786,7 +786,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'La escuela organiza una competencia de las Olimpiadas Mágicas donde los estudiantes compiten en diversas pruebas que ponen a prueba sus habilidades mágicas. ',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_05.mp4',
-                'portada' => $url . '/portadas/mashle.jpg',
+                'portada' => $url . '/posters/mashle.jpg',
             ],
             [
                 'id_temporada' => 11,
@@ -796,7 +796,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Mashle decide participar en un torneo de magia para demostrar que la fuerza física también puede ser poderosa en un mundo dominado por la magia.',
                 'fecha_estreno' => '2022-05-01',
                 'archivo' => $url . '/episodios/mashle_06.mp4',
-                'portada' => $url . '/portadas/mashle.jpg',
+                'portada' => $url . '/posters/mashle.jpg',
             ],
 
 
@@ -810,7 +810,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Ichigo Kurosaki, un estudiante de secundaria, obtiene poderes de un Shinigami para proteger a su familia y amigos de los espíritus malignos llamados Hollows.',
                 'fecha_estreno' => '2004-10-05',
                 'archivo' => $url . '/episodios/bleach001.mp4',
-                'portada' => $url . '/portadas/bleach.jpg',
+                'portada' => $url . '/posters/bleach.jpg',
             ],
             [
                 'id_temporada' => 12,
@@ -820,7 +820,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Ichigo comienza su entrenamiento como Shinigami bajo la guía de Rukia Kuchiki.',
                 'fecha_estreno' => '2004-10-12',
                 'archivo' => $url . '/episodios/bleach002.mp4',
-                'portada' => $url . '/portadas/bleach.jpg',
+                'portada' => $url . '/posters/bleach.jpg',
             ],
             [
                 'id_temporada' => 12,
@@ -830,7 +830,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Ichigo y Rukia enfrentan un Hollow más poderoso mientras investigan la misteriosa desaparición de personas en su ciudad.',
                 'fecha_estreno' => '2004-10-19',
                 'archivo' => $url . '/episodios/bleach003.mp4',
-                'portada' => $url . '/portadas/bleach.jpg',
+                'portada' => $url . '/posters/bleach.jpg',
             ],
             [
                 'id_temporada' => 12,
@@ -840,7 +840,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Ichigo y Rukia investigan la aparición de un Hollow cerca de la ciudad.',
                 'fecha_estreno' => '2004-10-26',
                 'archivo' => $url . '/episodios/bleach004.mp4',
-                'portada' => $url . '/portadas/bleach.jpg',
+                'portada' => $url . '/posters/bleach.jpg',
             ],
             [
                 'id_temporada' => 12,
@@ -850,7 +850,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Ichigo debe enfrentar la responsabilidad de proteger a los vivos y los muertos mientras lucha contra los Hollows.',
                 'fecha_estreno' => '2004-11-02',
                 'archivo' => $url . '/episodios/bleach005.mp4',
-                'portada' => $url . '/portadas/bleach.jpg',
+                'portada' => $url . '/posters/bleach.jpg',
             ],
             [
                 'id_temporada' => 12,
@@ -860,7 +860,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Ichigo lucha contra un Hollow enviado por la Sociedad de Almas.',
                 'fecha_estreno' => '2004-11-09',
                 'archivo' => $url . '/episodios/bleach006.mp4',
-                'portada' => $url . '/portadas/bleach.jpg',
+                'portada' => $url . '/posters/bleach.jpg',
             ],
             [
                 'id_temporada' => 12,
@@ -870,7 +870,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Renji Abarai, un shinigami de la Sociedad de Almas, llega a la ciudad para llevarse a Ichigo.',
                 'fecha_estreno' => '2004-11-16',
                 'archivo' => $url . '/episodios/bleach007.mp4',
-                'portada' => $url . '/portadas/bleach.jpg',
+                'portada' => $url . '/posters/bleach.jpg',
             ],
             [
                 'id_temporada' => 12,
@@ -880,7 +880,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Ichigo debe decidir entre proteger a sus amigos y rendirse ante la Sociedad de Almas.',
                 'fecha_estreno' => '2004-11-23',
                 'archivo' => $url . '/episodios/bleach008.mp4',
-                'portada' => $url . '/portadas/bleach.jpg',
+                'portada' => $url . '/posters/bleach.jpg',
             ],
             [
                 'id_temporada' => 12,
@@ -890,7 +890,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Ichigo lucha contra Renji para proteger a sus amigos.',
                 'fecha_estreno' => '2004-11-30',
                 'archivo' => $url . '/episodios/bleach009.mp4',
-                'portada' => $url . '/portadas/bleach.jpg',
+                'portada' => $url . '/posters/bleach.jpg',
             ],
             [
                 'id_temporada' => 12,
@@ -900,7 +900,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Ichigo y sus amigos enfrentan a un Hollow en la casa de Ichigo.',
                 'fecha_estreno' => '2004-12-07',
                 'archivo' => $url . '/episodios/bleach010.mp4',
-                'portada' => $url . '/portadas/bleach.jpg',
+                'portada' => $url . '/posters/bleach.jpg',
             ],
 
             //capitulos naruto
@@ -914,7 +914,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto Uzumaki, un joven ninja con el sueño de convertirse en el Hokage de su aldea, lucha por ser reconocido por sus compañeros y superar su pasado.',
                 'fecha_estreno' => '2002-10-03',
                 'archivo' => $url . '/episodios/Naruto01.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -924,7 +924,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto y sus compañeros enfrentan su primera misión como equipo ninja.',
                 'fecha_estreno' => '2002-10-10',
                 'archivo' => $url . '/episodios/Naruto02.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -934,7 +934,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto se enfrenta a Sasuke Uchiha, su compañero de equipo y rival, en una batalla intensa.',
                 'fecha_estreno' => '2002-10-17',
                 'archivo' => $url . '/episodios/Naruto03.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -944,7 +944,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto y sus compañeros comienzan su entrenamiento para convertirse en verdaderos ninjas.',
                 'fecha_estreno' => '2002-10-24',
                 'archivo' => $url . '/episodios/Naruto04.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -954,7 +954,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto y sus compañeros se enfrentan a una prueba de supervivencia en el Bosque de la Muerte.',
                 'fecha_estreno' => '2002-10-31',
                 'archivo' => $url . '/episodios/Naruto05.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -964,7 +964,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Los aspirantes a ninja se enfrentan a desafíos mortales en la segunda etapa del Examen Chunin.',
                 'fecha_estreno' => '2002-11-07',
                 'archivo' => $url . '/episodios/Naruto06.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -974,7 +974,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto y sus compañeros luchan en equipos en la segunda etapa del Examen Chunin.',
                 'fecha_estreno' => '2002-11-14',
                 'archivo' => $url . '/episodios/Naruto07.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -984,7 +984,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto lucha contra Kiba en un emocionante enfrentamiento durante el Examen Chunin.',
                 'fecha_estreno' => '2002-11-21',
                 'archivo' => $url . '/episodios/Naruto08.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -994,7 +994,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto sorprende a sus oponentes con una técnica ninja secreta durante el Examen Chunin.',
                 'fecha_estreno' => '2002-11-28',
                 'archivo' => $url . '/episodios/Naruto09.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -1004,7 +1004,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto demuestra su valentía y determinación durante una prueba decisiva del Examen Chunin.',
                 'fecha_estreno' => '2002-12-05',
                 'archivo' => $url . '/episodios/Naruto10.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -1014,7 +1014,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sasuke Uchiha enfrenta una prueba difícil cuando se encuentra con Orochimaru, un peligroso enemigo.',
                 'fecha_estreno' => '2002-12-12',
                 'archivo' => $url . '/episodios/Naruto11.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -1024,7 +1024,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto y sus compañeros se enfrentan al misterioso ninja Gaara durante la tercera etapa del Examen Chunin.',
                 'fecha_estreno' => '2002-12-19',
                 'archivo' => $url . '/episodios/Naruto12.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -1034,7 +1034,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Rock Lee desafía a Gaara en una batalla épica durante el Examen Chunin.',
                 'fecha_estreno' => '2002-12-26',
                 'archivo' => $url . '/episodios/Naruto13.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -1044,7 +1044,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Naruto y sus compañeros enfrentan sus miedos y luchan por su futuro como ninjas.',
                 'fecha_estreno' => '2003-01-09',
                 'archivo' => $url . '/episodios/Naruto14.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
             [
                 'id_temporada' => 13,
@@ -1054,7 +1054,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sakura Haruno demuestra su valentía y determinación durante una difícil batalla.',
                 'fecha_estreno' => '2003-01-16',
                 'archivo' => $url . '/episodios/Naruto15.mp4',
-                'portada' => $url . '/portadas/naruto.jpg',
+                'portada' => $url . '/posters/naruto.jpg',
             ],
 
             //episodios solo leveling
@@ -1067,7 +1067,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sung Jin-Woo, un "cazador de rango E", se enfrenta a un peligro mortal en una mazmorra junto con otros cazadores. Un evento inesperado desencadena un cambio profundo en su vida.',
                 'fecha_estreno' => 'YYYY-MM-DD', // Ajusta la fecha de estreno según corresponda
                 'archivo' => $url . '/episodios/sololeveling01.mp4',
-                'portada' => $url . '/portadas/sololeveling.jpg',
+                'portada' => $url . '/posters/solo_leveling.jpg',
             ],
             [
                 'id_temporada' => 14,
@@ -1077,7 +1077,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sung Jin-Woo experimenta los efectos del "despertar" y comienza a explorar sus nuevas habilidades. Mientras tanto, la comunidad de cazadores se sorprende con su progreso.',
                 'fecha_estreno' => 'YYYY-MM-DD', // Ajusta la fecha de estreno según corresponda
                 'archivo' => $url . '/episodios/sololeveling02.mp4',
-                'portada' => $url . '/portadas/sololeveling.jpg',
+                'portada' => $url . '/posters/solo_leveling.jpg',
             ],
             // Continúa con los siguientes episodios de manera similar
             [
@@ -1088,7 +1088,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sinopsis del episodio 3.',
                 'fecha_estreno' => 'YYYY-MM-DD',
                 'archivo' => $url . '/episodios/sololeveling03.mp4',
-                'portada' => $url . '/portadas/sololeveling.jpg',
+                'portada' => $url . '/posters/solo_leveling.jpg',
             ],
             [
                 'id_temporada' => 14,
@@ -1098,7 +1098,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sinopsis del episodio 4.',
                 'fecha_estreno' => 'YYYY-MM-DD',
                 'archivo' => $url . '/episodios/sololeveling04.mp4',
-                'portada' => $url . '/portadas/sololeveling.jpg',
+                'portada' => $url . '/posters/solo_leveling.jpg',
             ],
             [
                 'id_temporada' => 14,
@@ -1108,7 +1108,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sinopsis del episodio 5.',
                 'fecha_estreno' => 'YYYY-MM-DD',
                 'archivo' => $url . '/episodios/sololeveling05.mp4',
-                'portada' => $url . '/portadas/sololeveling.jpg',
+                'portada' => $url . '/posters/solo_leveling.jpg',
             ],
             [
                 'id_temporada' => 14,
@@ -1118,7 +1118,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sinopsis del episodio 6.',
                 'fecha_estreno' => 'YYYY-MM-DD',
                 'archivo' => $url . '/episodios/sololeveling06.mp4',
-                'portada' => $url . '/portadas/sololeveling.jpg',
+                'portada' => $url . '/posters/solo_leveling.jpg',
             ],
             [
                 'id_temporada' => 14,
@@ -1128,7 +1128,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sinopsis del episodio 7.',
                 'fecha_estreno' => 'YYYY-MM-DD',
                 'archivo' => $url . '/episodios/sololeveling07.mp4',
-                'portada' => $url . '/portadas/sololeveling.jpg',
+                'portada' => $url . '/posters/solo_leveling.jpg',
             ],
             [
                 'id_temporada' => 14,
@@ -1138,7 +1138,7 @@ class EpisodiosSeeder extends Seeder
                 'sinopsis' => 'Sinopsis del episodio 8.',
                 'fecha_estreno' => 'YYYY-MM-DD',
                 'archivo' => $url . '/episodios/sololeveling08.mp4',
-                'portada' => $url . '/portadas/sololeveling.jpg',
+                'portada' => $url . '/posters/solo_leveling.jpg',
             ],
 
 
