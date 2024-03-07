@@ -165,6 +165,7 @@ a {
 .dropdown-item:hover {
     background-color: transparent;
     color: white;
+    cursor: pointer;
 }
 
 .search {
