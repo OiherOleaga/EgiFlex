@@ -19,8 +19,8 @@ GET("/getLista").then(res => {
                             <div class="d-flex flex-column align-items-center gap-2 text-center">
                                 <a href="/content"><img src="../components/img/generatedtext (2).png"
                                         class="img egiflex img-fluid" alt="egiflex"></a>
-                                <p class="fs-2 fw-semibold">
-                                    Tu propia <span class="rounded p-1 fs-3">lista</span>
+                                <p class="fs-2 fw-semibold fst-italic">
+                                    Tu propia <span class="rounded p-1 fs-3 ">lista</span>
                                 </p>
                             </div>
                         </div>
