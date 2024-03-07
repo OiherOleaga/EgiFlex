@@ -37,26 +37,46 @@ class ContenidoController extends Controller
         $consulta = "SELECT c.id, c.titulo, c.portada ";
         $where = "where ";
         $hayWhere = false;
+        $orderBy = "order by ";
+        $hayOrderBy = false;
 
         $datos = [];
         switch ($request["tipo"]) {
             case 'n':
                 $consulta .= ", tipo from
                 (
-                    SELECT p.id, p.titulo, p.portada, 'p' as tipo, cp.categoria_id categoria_id FROM peliculas p
+                    SELECT p.id, p.titulo, p.portada, 'p' as tipo, p.created_at, 
+                    cp.categoria_id categoria_id, 
+                    count(hp.id_pelicula) fama 
+                    FROM peliculas p
                     left join categoria_peliculas cp on cp.pelicula_id = p.id
+                    left join historial_peliculas h on h.id_pelicula = p.id
+                    group by p.id
+
                     union all
-                    SELECT s.id, s.titulo, s.portada, 's' as tipo, cs.categoria_id categoria_id FROM series s
+
+                    SELECT s.id, s.titulo, s.portada, 's' as tipo, s.created_at, 
+                    cs.categoria_id categoria_id, 
+                    count(hs.serie_id) fama 
+                    FROM series s
                     left join categoria_series cs on cs.serie_id = s.id
+                    left join historial_series h on h.serie_id = s.id
+                    group by s.id
                 ) c ";
                 break;
             case 's':
-                $consulta .= ", 's' as tipo from series c
-                                left join categoria_series cs on cs.serie_id = c.id ";
+                $consulta .= ", 's' as tipo,
+                            count(hs.serie_id) fama 
+                            from series c
+                            left join categoria_series cs on cs.serie_id = c.id 
+                            left join historial_series hs on hs.serie_id = c.id ";
                 break;
             case 'p':
-                $consulta .= ", 'p' as tipo from peliculas c
-                            left join categoria_peliculas cp on cp.pelicula_id = c.id ";
+                $consulta .= ", 'p' as tipo,
+                            count(hp.id_pelicula) fama 
+                            from peliculas c
+                            left join categoria_peliculas cp on cp.pelicula_id = c.id 
+                            left join historial_peliculas hp on hp.id_pelicula = c.id ";
                 break;
             default:
                 return [];
@@ -80,7 +100,21 @@ class ContenidoController extends Controller
             $hayWhere = true;
         }
 
-        $select = $consulta . ($hayWhere ? $where : "");
+        if (isset($request["orden"])) {
+            foreach ($request["orden"] as $tipo) {
+                switch($tipo) {
+                    case 'p':
+                        $orderBy .= "fama desc, ";
+                        break;
+                    case 'r':
+                        $orderBy .= "c.created_at desc, ";
+                        break;
+                }
+            }
+            $hayOrderBy = true;
+        }
+
+        $select = $consulta . ($hayWhere ? $where : "") . "group by c.id " .($hayOrderBy ? substr($orderBy, 0, -2) : "") ;
         //return ["select" => $select, "datos" => $datos];
         return ["contenido" => DB::select($select, $datos)];
     });}

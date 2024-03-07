@@ -59,7 +59,10 @@ function orderby(tipo) {
             orden.value.splice(index, 1)
         }
     }
+
+    filtrar()
 }
+
 function filtrar() {
     let filtrando2 = false;
 
@@ -74,6 +77,11 @@ function filtrar() {
 
     if (busqueda.value) {
         filtro.busqueda = busqueda.value
+        filtrando2 = true;
+    }
+
+    if (orden.value.length !== 0) {
+        filtro.orden = orden.value
         filtrando2 = true;
     }
 
