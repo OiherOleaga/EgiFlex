@@ -14,6 +14,7 @@ class EstadisticasController extends Controller
 {
     public function index()
     {
+        //Series
         $resultados = DB::select("
         SELECT
             s.Titulo,
@@ -32,13 +33,43 @@ class EstadisticasController extends Controller
             $labels[] = $resultado->Titulo;
             $data[] = $resultado->TotalUsuarios;
         }
+        
 
         $chart1 = LarapexChart::barChart()
-            ->setTitle('Usuarios Viendo/Siguiendo Series')
+            ->setTitle('Series mas populares')
             ->setXAxis($labels)
             ->addData('Usuarios', $data)
-            ->setColors(['#334FFF']);
+            ->setColors(['#730DD9']);
 
-        return view('estadisticas.index', compact('chart1'));
+
+        //Peliculas
+        $resultados2 = DB::select("
+        SELECT
+            p.Titulo,
+            COUNT(hp.id) AS TotalUsuarios
+            FROM
+                Peliculas p
+                JOIN Historial_Peliculas hp ON p.id = hp.id_pelicula
+            GROUP BY
+                p.Titulo;
+        ");
+
+        $labels2 = [];
+        $data2 = [];
+
+        foreach ($resultados2 as $resultado) {
+            $labels2[] = $resultado->Titulo;
+            $data2[] = $resultado->TotalUsuarios;
+        }
+        
+
+        $chart2 = LarapexChart::barChart()
+            ->setTitle('Peliculas mas populares')
+            ->setXAxis($labels2)
+            ->addData('Usuarios', $data2)
+            ->setColors(['#730DD9']);
+
+
+        return view('estadisticas.index', compact('chart1', 'chart2'));
     }
 }

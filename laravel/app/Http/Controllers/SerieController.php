@@ -46,6 +46,8 @@ class SerieController extends Controller
 
     public function store(Request $request)
     {
+        $url = "http://localhost/";
+
         if ($request->hasFile('portada')) {
             $portada = $request->file('portada');
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
@@ -60,8 +62,8 @@ class SerieController extends Controller
                 'director' => $request->director,
                 'ano_lanzamiento' => $request->ano_lanzamiento,
                 'sinopsis' => $request->sinopsis,
-                'portada' => 'media/portadas/' . $nombrePortada,
-                'poster' => 'media/posters/' . $nombrePoster,
+                'portada' => $url . 'media/portadas/' . $nombrePortada,
+                'poster' => $url . 'media/posters/' . $nombrePoster,
             ]);
 
             if ($request->has('categoria')) {
@@ -89,6 +91,7 @@ class SerieController extends Controller
 
     public function update(Request $request, $id)
     {
+        $url = "http://localhost/";
         $serie = Serie::findOrFail($id);
 
         if (!$request->hasFile('portada') && !$serie->portada) {
@@ -110,7 +113,7 @@ class SerieController extends Controller
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
             $portada->move(public_path('media/portadas'), $nombrePortada);
 
-            $serie->portada = 'media/portadas/' . $nombrePortada;
+            $serie->portada = $url . 'media/portadas/' . $nombrePortada;
         }
 
         if ($request->hasFile('poster')) {
@@ -124,7 +127,7 @@ class SerieController extends Controller
             $nombrePoster = time() . '_' . $poster->getClientOriginalName();
             $poster->move(public_path('media/posters'), $nombrePoster);
 
-            $serie->poster = 'media/posters/' . $nombrePoster;
+            $serie->poster = $url . 'media/posters/' . $nombrePoster;
         }
 
         if ($request->has('categoria')) {

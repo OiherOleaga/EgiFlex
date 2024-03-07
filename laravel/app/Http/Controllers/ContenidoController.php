@@ -34,35 +34,53 @@ class ContenidoController extends Controller
 
     function filtro(Request $request) { return ClienteController::checkSession($request, function ($request) {
 
-        $consulta = "SELECT id, titulo, portada ";
-
+        $consulta = "SELECT c.id, c.titulo, c.portada ";
         $where = "where ";
+        $hayWhere = false;
+
         $datos = [];
         switch ($request["tipo"]) {
             case 'n':
                 $consulta .= ", tipo from
                 (
-                    SELECT id, titulo, portada, 'p' as tipo FROM peliculas
+                    SELECT p.id, p.titulo, p.portada, 'p' as tipo, cp.categoria_id categoria_id FROM peliculas p
+                    left join categoria_peliculas cp on cp.pelicula_id = p.id
                     union all
-                    SELECT id, titulo, portada, 's' as tipo FROM series
-                ) contenido ";
+                    SELECT s.id, s.titulo, s.portada, 's' as tipo, cs.categoria_id categoria_id FROM series s
+                    left join categoria_series cs on cs.serie_id = s.id
+                ) c ";
                 break;
             case 's':
-                $consulta .= ", 's' as tipo from series ";
+                $consulta .= ", 's' as tipo from series c
+                                left join categoria_series cs on cs.serie_id = c.id ";
                 break;
             case 'p':
-                $consulta .= ", 'p' as tipo from peliculas ";
+                $consulta .= ", 'p' as tipo from peliculas c
+                            left join categoria_peliculas cp on cp.pelicula_id = c.id ";
                 break;
             default:
                 return [];
         }
 
         if (isset($request["busqueda"])) {
-            $where .= "titulo like ?";
+            $where .= "titulo like ? ";
             array_push($datos, "%" . $request["busqueda"] . "%");
+            $hayWhere = true;
         }
 
-        $select = $consulta . ($where == "where " ? "" : $where);
+        if (isset($request["categorias"])) {
+
+            $condicones = "0 ";
+            foreach ($request["categorias"] as $id) {
+                $condicones .= "or categoria_id = ? ";
+                array_push($datos, $id);
+            }
+
+            $where .=  ($hayWhere ? "and ( ": "( ") . $condicones . " )"; 
+            $hayWhere = true;
+        }
+
+        $select = $consulta . ($hayWhere ? $where : "");
         //return ["select" => $select, "datos" => $datos];
         return ["contenido" => DB::select($select, $datos)];
     });}
