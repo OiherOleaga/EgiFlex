@@ -27,6 +27,7 @@ use App\Http\Controllers\HistorialSerieController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TemporadaController;
+use App\Http\Controllers\EstadisticasController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -96,6 +97,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/temporadas/{temporada}/edit', [TemporadaController::class, 'edit'])->name('temporadas.edit');
     Route::put('/temporadas/{temporada}', [TemporadaController::class, 'update'])->name('temporadas.update');
     Route::delete('/temporadas/{temporada}', [TemporadaController::class, 'destroy'])->name('temporadas.destroy');
+
+    //Estadisticas
+    Route::get('/estadisticas', [EstadisticasController::class, 'index']);
 
 
 });
