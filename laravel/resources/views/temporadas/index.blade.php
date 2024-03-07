@@ -59,7 +59,7 @@
                     <div class="row mb-4">
                         <div class="col-md-12">
                             @if ($temporadas->isEmpty())
-                                <p class="mt-4">No se encontraron resultados para los criterios de búsqueda especificados.
+                                <p class="mt-4 text-red-600">No se encontraron resultados para los criterios de búsqueda especificados.
                                 </p>
                             @else
                                 {{ $temporadas->links() }}
