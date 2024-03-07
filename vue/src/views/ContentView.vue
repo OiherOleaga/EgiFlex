@@ -55,7 +55,7 @@ function detalles(id, tipo) {
 
 <template>
     <article class="w-100 min-vh-100">
-        <div class="container-fluid beam-populares">
+        <div class="container-fluid beam-populares blur">
             <div class="row">
                 <div class="col justify-content-center align-items-center d-flex text-white flex-column">
                     <img src="../components/img/generatedtext (2).png" class="img egiflex img-fluid" alt="egiflex">
@@ -96,40 +96,6 @@ function detalles(id, tipo) {
                                                 </figcaption>
                                             </figure>
                                         </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section v-if="seguirViendo[0]" class="beam-populares-parent">
-                <div class="container-fluid beam-populares">
-                    <div class="row">
-                        <div class="col-12 text-white">
-                            <div class="d-flex flex-column align-items-center gap-2 text-center">
-                                <p class="fs-2 fw-semibold">
-                                    Segui viendo
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3 text-white">
-                        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
-                            <div class="container image-grid gap-3 d-flex flex-column">
-                                <div class="row gap-3 gap-md-0 justify-content-center">
-                                    <div v-for="(item, index) in seguirViendo" :key="index"
-                                        class="col-5 col-md-3 image-container">
-                                        <figure class="rounded">
-                                            <a :href="detalles(item.id, item.tipo)">
-                                                <img :src="item.portada" class="rounded img img-fluid equal-image"
-                                                    :alt="item.titulo">
-                                                <figcaption class="d-none d-md-block text-center">
-                                                    <span class="button-green-download2-big">Ver detalles</span>
-                                                </figcaption>
-                                            </a>
-                                            <span @click="quitarViendo(item.historial_id, item.tipo, index)" class="button-green-download2-big">Quitar</span>
-                                        </figure>
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +172,40 @@ function detalles(id, tipo) {
                             </div>
                             <a href="/series" class="rounded-pill btn btn-md px-4 fw-bold text-white">Ver todas las
                                 series</a>
-
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section v-if="seguirViendo[0]" class="beam-populares-parent">
+                <div class="container-fluid beam-populares">
+                    <div class="row">
+                        <div class="col-12 text-white">
+                            <div class="d-flex flex-column align-items-center gap-2 text-center">
+                                <p class="fs-2 fw-semibold">
+                                    Continua por donde lo <span class="rounded p-1 fs-3">dejaste</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="historial" class="row mt-3 text-white">
+                        <div class="d-flex flex-column col-md-4 align-items-center justify-content-center col-md-12">
+                            <div class="container image-grid gap-3 d-flex flex-column">
+                                <div class="row gap-3 gap-md-0 justify-content-center">
+                                    <div v-for="(item, index) in seguirViendo" :key="index"
+                                        class="col-5 col-md-3 image-container">
+                                        <figure class="rounded">
+                                            <a :href="detalles(item.id, item.tipo)">
+                                                <img :src="item.portada" class="rounded img img-fluid equal-image"
+                                                    :alt="item.titulo">
+                                                <figcaption class="d-none d-md-block text-center">
+                                                    <span class="button-green-download2-big">Ver detalles</span>
+                                                </figcaption>
+                                            </a>
+                                            <span @click="quitarViendo(item.historial_id, item.tipo, index)" class="button-green-download2-big">Quitar</span>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -230,8 +229,11 @@ article {
     background-image: linear-gradient(to top, transparent, #730dd921), linear-gradient(to bottom, transparent, #730dd921), url('../components/img/1KgjKh5.png');
 }
 
-.content {
+.blur, .content{
     backdrop-filter: blur(2px);
+}
+
+.content {
     min-height: 100vh;
 }
 
