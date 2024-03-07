@@ -69,6 +69,7 @@ class EstadisticasController extends Controller
             ->addData('Usuarios', $data2)
             ->setColors(['#730DD9']);
 
+
         return view('estadisticas.index', compact('chart1', 'chart2'));
     }
 }

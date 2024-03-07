@@ -62,6 +62,6 @@ onMounted(async () => {
 .video-js {
     width: 100%;
     max-width: 100rem; 
-    height: auto;
+    height:  100%;
 }
 </style>

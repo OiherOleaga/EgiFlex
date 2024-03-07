@@ -41,6 +41,7 @@ class PeliculaController extends Controller
 
     public function store(Request $request)
     {
+        $url = "http://localhost/";
         if ($request->hasFile('archivo')) {
             $archivo = $request->file('archivo');
             $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
@@ -60,9 +61,9 @@ class PeliculaController extends Controller
                 'ano_lanzamiento' => $request->ano_lanzamiento,
                 'sinopsis' => $request->sinopsis,
                 'duracion' => $request->duracion,
-                'archivo' => 'media/peliculas/' . $nombreArchivo,
-                'portada' => 'media/portadas/' . $nombrePortada,
-                'poster' => 'media/posters/' . $nombrePoster,
+                'archivo' => $url . 'media/peliculas/' . $nombreArchivo,
+                'portada' => $url . 'media/portadas/' . $nombrePortada,
+                'poster' => $url . 'media/posters/' . $nombrePoster,
             ]);
 
             if ($request->has('categoria')) {
@@ -92,6 +93,7 @@ class PeliculaController extends Controller
     public function update(Request $request, $id)
     {
         $pelicula = Pelicula::findOrFail($id);
+        $url = "http://localhost/";
 
         $pelicula->titulo = $request->titulo;
         $pelicula->director = $request->director;
@@ -109,7 +111,7 @@ class PeliculaController extends Controller
             $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
             $archivo->move(public_path('media/peliculas'), $nombreArchivo);
 
-            $pelicula->archivo = 'media/peliculas/' . $nombreArchivo;
+            $pelicula->archivo = $url . 'media/peliculas/' . $nombreArchivo;
         }
 
         if ($request->hasFile('portada')) {
@@ -123,7 +125,7 @@ class PeliculaController extends Controller
             $nombrePortada = time() . '_' . $portada->getClientOriginalName();
             $portada->move(public_path('media/portadas'), $nombrePortada);
 
-            $pelicula->portada = 'media/portadas/' . $nombrePortada;
+            $pelicula->portada = $url . 'media/portadas/' . $nombrePortada;
         }
 
         if ($request->hasFile('poster')) {
@@ -137,7 +139,7 @@ class PeliculaController extends Controller
             $nombrePoster = time() . '_' . $poster->getClientOriginalName();
             $poster->move(public_path('media/posters'), $nombrePoster);
 
-            $pelicula->poster = 'media/posters/' . $nombrePoster;
+            $pelicula->poster = $url . 'media/posters/' . $nombrePoster;
         }
 
         if ($request->has('categoria')) {
