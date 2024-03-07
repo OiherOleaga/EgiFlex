@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="py-12">
         <div class="mx-1 sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -13,10 +14,14 @@
                     {!! $chart1->container() !!}
                 </div>
             </div>
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    {!! $chart2->container() !!}
+                </div>
+            </div>
         </div>
     </div>
-@endsection
-
-@push('scripts')
     {!! $chart1->script() !!}
-@endpush
+    {!! $chart2->script() !!}
+
+@endsection
