@@ -160,10 +160,12 @@
                                         {{-- <form id="aceptarClienteForm{{ $cliente->id }}"
                                     action="{{ route('clientes.aceptar', $cliente->id) }}" method="POST"> --}}
                                         @csrf
-                                        <button type="submit"
+                                        <a href="/aceptar/{{$cliente->id}}/cliente">
+                                        <button type="submit" 
                                             class="px-5 py-2.5 hover:bg-green-500 hover:text-green-900 text-green-500 rounded-lg text-sm font-semibold">
                                             Aceptar Cliente
                                         </button>
+                                        </a>
                                         </form>
                                     @endif
                                     <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST">
