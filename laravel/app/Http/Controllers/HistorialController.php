@@ -62,7 +62,7 @@ class HistorialController extends Controller
                                             "episodio_id" => $request["id"],
                                         ]);
 
-                            DB::select("SELECT * from episodios e 
+                            DB::select("SELECT * from episodios e
                                         join historial_series hs on hs.episodio_id = e.id");
                             // select para sacar el siguiente episodio y update
                         }
@@ -79,7 +79,7 @@ class HistorialController extends Controller
 
                 break;
             case 'p':
-                $historiales = DB::select("SELECT hp.* from historial_peliculas hp 
+                $historiales = DB::select("SELECT hp.* from historial_peliculas hp
                                             where hp.id_cliente = :cliente_id and hp.id_pelicula = :pelicula_id",
                                             [
                                                 "pelicula_id" => $request["id"],
@@ -111,7 +111,7 @@ class HistorialController extends Controller
                 return ["error" => "ni p ni e"];
         }
         return ["ok" => true];
-        // todo esto, poner controles directos, barrita, filtro, deploy
+        // TODO barrita, filtro, deploy
     });}
 
     function quitarViendo(Request $request) { return ClienteController::checkSession($request, function ($request) {

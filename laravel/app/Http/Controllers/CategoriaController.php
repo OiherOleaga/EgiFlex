@@ -70,6 +70,6 @@ class CategoriaController extends Controller
     }
 
     function categorias(Request $request) { return ClienteController::checkSession($request, function () {
-        return ["categorias" => Categoria::all()];
+        return ["categorias" => Categoria::select("id", "nombre")->get()];
     });}
 }

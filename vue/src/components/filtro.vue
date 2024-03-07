@@ -8,6 +8,7 @@ const emit = defineEmits(['filtrando']);
 const contenido = ref([])
 const categorias = ref([])
 const busqueda = ref("")
+const categoriasElegidas = ref([])
 
 const filtrando = ref(false)
 
@@ -16,22 +17,30 @@ watch(filtrando, () => {
 })
 
 watch(busqueda, () => {
-    filtrar(busqueda.value)
+    filtrar()
 })
 
 function detalles(id, tipo) {
     return `/detalles?${tipo}=${id}`;
 }
 
-function filtrar(busqueda) {
+function addCategoria(index) {
+    categoriasElegidas.value.push(categorias.value.splice(index, 1)[0])
+}
+
+function rmCategoria(index) { 
+    categorias.value.push(categoriasElegidas.value.splice(index, 1)[0])
+}
+
+function filtrar() {
     let filtrando2 = false;
 
     let filtro = {
         tipo: props.tipo,
     }
 
-    if (busqueda) {
-        filtro.busqueda = busqueda
+    if (busqueda.value) {
+        filtro.busqueda = busqueda.value
         filtrando2 = true;
     }
 
@@ -78,8 +87,9 @@ filtrar();
                         Género
                     </button>
                     <ul class="dropdown-menu">
-                        <li v-for="categoria in categorias"><a class="dropdown-item" href="#">{{ categoria.nombre }}</a>
+                        <li v-for="(categoria, index) in categorias" :key="index"><a class="dropdown-item" @click="addCategoria(index)">{{ categoria.nombre }}</a>
                         </li>
+                        <span v-for="(categoria, index) in categoriasElegidas" :key="index" @click="rmCategoria(index)">{{ categoria.nombre }}</span>
                     </ul>
                 </div>
                 <div>
