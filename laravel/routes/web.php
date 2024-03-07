@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function () {
 
     //Clientes
     Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.index');
+    Route::get('/aceptar/{id}/cliente', [ClienteController::class, 'aceptar']);
+
     Route::get('/clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
     Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
     Route::get('/clientes/{cliente}', [ClienteController::class, 'show'])->name('clientes.show');
@@ -104,4 +106,4 @@ Route::middleware('auth')->group(function () {
 
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
