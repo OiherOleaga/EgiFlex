@@ -43,7 +43,7 @@
                             </li>
                         </ol>
                     </nav>
-                    <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Todos los pedidos
+                    <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Todos los clientes
                     </h1>
                 </div>
             <div class="mb-4">
