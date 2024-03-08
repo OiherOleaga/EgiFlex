@@ -11,7 +11,7 @@ let ruta = location.pathname
             <div class="col-12 col-md-6 text-white">
                 <h1 class="h1">Awww... No llores.</h1>
                 <p class="fs-2">¡Es solo un error 404!</p>
-                <p class="fs-5">Seguro que encuentras lo que estas buscando. ¡Confiamos en ti!</p>
+                <p class="fs-5">¡Seguro que encuentras lo que estas buscando!</p>
             </div>
         </div>
     </section>
