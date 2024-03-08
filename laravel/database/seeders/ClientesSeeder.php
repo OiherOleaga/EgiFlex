@@ -46,7 +46,7 @@ class ClientesSeeder extends Seeder
                 'estado' => 'inactivo',
                 'contrasena' => hash('sha256', 'contrasena5'),
                 'nombre' => 'Pedro',
-                'apellido' => 'López'
+                'apellido' => 'Sanchez'
             ],
         ];
 
