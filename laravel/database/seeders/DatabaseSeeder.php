@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(AdministradoresSeeder::class);
         $this->call(CategoriasSeriesSeeder::class);
         $this->call(CategoriasPelisSeeder::class);
-        $this->call(HistorialSeriesSeeder::class);
-        $this->call(HistorialPeliculasSeeder::class);
+        //$this->call(HistorialSeriesSeeder::class);
+        //$this->call(HistorialPeliculasSeeder::class);
 
     }
 }

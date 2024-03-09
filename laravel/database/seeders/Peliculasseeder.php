@@ -39,7 +39,7 @@ class Peliculasseeder extends Seeder
                 'director' => 'James Gunn',
                 'ano_lanzamiento' => '2021-01-01',
                 'sinopsis' => 'El gobierno envía a los supervillanos más peligrosos del mundo a la remota isla de Corto Maltés, atestada de enemigos. Armados con armas de alta tecnología',
-                'duracion' => 12,
+                'duracion' => 116,
                 'archivo' => $url . '/peliculas/suicide_squad.mp4',
                 'portada' => $url . '/portadas/El_Escuadraon_Suicida.jpg',
                 'poster' => $url . '/posters/the-suicide-squad.jpg',

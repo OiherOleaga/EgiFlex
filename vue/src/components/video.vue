@@ -2,26 +2,30 @@
 import { ref, onBeforeUnmount, onMounted } from 'vue';
 
 const videoPlayer = ref(null);
-const videoSrcs = ref([]);
+const videoSrc = ref([]);
 const posterUrl = ref('');
+let lastTime;
 
 let args = window.location.search.split("?")[1].split("=");
 
-onBeforeUnmount(() => {
-    if (videoPlayer.value) {
+function timeupdate() {
+    if (lastTime + 5 < videoPlayer.value.currentTime || lastTime > videoPlayer.value.currentTime) {
         POST("/historial", { 
             id: args[1],
             tipo: args[0],
             tiempo: videoPlayer.value.currentTime
         }).then(res => {
-            
+            console.log(res)
         });
+
+        lastTime = videoPlayer.value.currentTime
     }
-});
+}
 
 onMounted(async () => {
     try {
         const res = await POST("/getVideo", { id: args[1], tipo: args[0] });
+        console.log(res)
         if (res.error) {
             console.error("Error:", res.error);
         } else {
@@ -30,9 +34,10 @@ onMounted(async () => {
                 args[1] = res.video.episodio_id
                 history.pushState(null, null, 'watch?e='+args[1]);
             }
-            videoSrcs.value = res.video.archivo;
+            videoSrc.value = res.video.archivo;
             posterUrl.value = res.video.poster;
-            initVideoPlayer();
+            lastTime = parseInt(res.video.tiempo)
+            videoPlayer.value.currentTime = lastTime
         }
     } catch (error) {
         console.error("Error al obtener el video:", error);
@@ -42,7 +47,7 @@ onMounted(async () => {
 
 <template>
     <div class="video-container">
-        <video ref="videoPlayer" class="video-js" controls :src="videoSrcs" :poster="posterUrl">
+        <video ref="videoPlayer" class="video-js" @timeupdate="timeupdate" controls :src="videoSrc" :poster="posterUrl">
             <p>
                 To view this video please enable JavaScript, and consider upgrading to a
                 web browser that
