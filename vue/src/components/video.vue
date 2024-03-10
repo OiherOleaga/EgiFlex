@@ -57,6 +57,14 @@ function siguienteEpisodio() {
     });
 }
 
+document.addEvenetListener("keydown", function (event) => {
+    if (event.key === "ArrowLeft") {
+        videoPlayer.value.currentTime -= 5
+    } else if (event.key === "ArrowRight") {
+        videoPlayer.value.currentTime += 5
+    }
+})
+
 </script>
 
 <template>
