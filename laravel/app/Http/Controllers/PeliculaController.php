@@ -41,7 +41,7 @@ class PeliculaController extends Controller
 
     public function store(Request $request)
     {
-        $url = "http://localhost/";
+        $url = "http://admin.egiflex.es/";
         if ($request->hasFile('archivo')) {
             $archivo = $request->file('archivo');
             $nombreArchivo = time() . '_' . $archivo->getClientOriginalName();
@@ -93,7 +93,7 @@ class PeliculaController extends Controller
     public function update(Request $request, $id)
     {
         $pelicula = Pelicula::findOrFail($id);
-        $url = "http://localhost/";
+        $url = "http://admin.egiflex.es/";
 
         $pelicula->titulo = $request->titulo;
         $pelicula->director = $request->director;

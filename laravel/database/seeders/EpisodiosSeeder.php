@@ -14,7 +14,7 @@ class EpisodiosSeeder extends Seeder
      */
     public function run()
     {
-        $url = "http://localhost/media";
+        $url = "http://admin.egiflex.es/media";
         $episodios = [
             // Episodios de Dragon ball, temporada 1
             [

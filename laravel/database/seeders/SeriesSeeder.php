@@ -14,7 +14,7 @@ class SeriesSeeder extends Seeder
      */
     public function run()
     {
-        $url = "http://localhost/media";
+        $url = "http://admin.egiflex.es/media";
 
         $series = [
             [

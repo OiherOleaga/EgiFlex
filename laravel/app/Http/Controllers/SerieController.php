@@ -46,7 +46,7 @@ class SerieController extends Controller
 
     public function store(Request $request)
     {
-        $url = "http://localhost/";
+        $url = "http://admin.egiflex.es/";
 
         if ($request->hasFile('portada')) {
             $portada = $request->file('portada');
@@ -91,7 +91,7 @@ class SerieController extends Controller
 
     public function update(Request $request, $id)
     {
-        $url = "http://localhost/";
+        $url = "http://admin.egiflex.es/";
         $serie = Serie::findOrFail($id);
 
         if (!$request->hasFile('portada') && !$serie->portada) {
