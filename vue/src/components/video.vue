@@ -58,11 +58,12 @@ function siguienteEpisodio() {
 }
 
 document.addEventListener("keydown", function (event) {
-    if (event.key === "ArrowLeft") {
+/*    if (event.key === "ArrowLeft") {
         videoPlayer.value.currentTime -= 5
     } else if (event.key === "ArrowRight") {
         videoPlayer.value.currentTime += 5
     }
+*/
 })
 
 </script>
