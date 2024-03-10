@@ -48,7 +48,7 @@ class HistorialController extends Controller
                                 from temporadas t
                                 join episodios e on e.id_temporada = t.id and e.id = :episodio_id
                                 where e.numero_episodio - (
-                                                            select ifnull(max(e.numero_episodio), 0), 0)
+                                                            select ifnull(max(e.numero_episodio), 0)
                                                             from temporadas t2
                                                             join episodios e on e.id_temporada = t2.id
                                                             where t2.numero_temporada = t.numero_temporada - 1 and t2.id_serie = :serie_id2
