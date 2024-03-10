@@ -45,9 +45,9 @@ class ContenidoController extends Controller
             case 'n':
                 $consulta .= ", tipo from
                 (
-                    SELECT p.id, p.titulo, p.portada, 'p' as tipo, p.created_at, 
-                    cp.categoria_id categoria_id, 
-                    count(hp.id_pelicula) fama 
+                    SELECT p.id, p.titulo, p.portada, 'p' as tipo, p.created_at,
+                    cp.categoria_id categoria_id,
+                    count(hp.id_pelicula) fama
                     FROM peliculas p
                     left join categoria_peliculas cp on cp.pelicula_id = p.id
                     left join historial_peliculas hp on hp.id_pelicula = p.id
@@ -55,9 +55,9 @@ class ContenidoController extends Controller
 
                     union all
 
-                    SELECT s.id, s.titulo, s.portada, 's' as tipo, s.created_at, 
-                    cs.categoria_id categoria_id, 
-                    count(hs.serie_id) fama 
+                    SELECT s.id, s.titulo, s.portada, 's' as tipo, s.created_at,
+                    cs.categoria_id categoria_id,
+                    count(hs.serie_id) fama
                     FROM series s
                     left join categoria_series cs on cs.serie_id = s.id
                     left join historial_series hs on hs.serie_id = s.id
@@ -66,16 +66,16 @@ class ContenidoController extends Controller
                 break;
             case 's':
                 $consulta .= ", 's' as tipo,
-                            count(hs.serie_id) fama 
+                            count(hs.serie_id) fama
                             from series c
-                            left join categoria_series cs on cs.serie_id = c.id 
+                            left join categoria_series cs on cs.serie_id = c.id
                             left join historial_series hs on hs.serie_id = c.id ";
                 break;
             case 'p':
                 $consulta .= ", 'p' as tipo,
-                            count(hp.id_pelicula) fama 
+                            count(hp.id_pelicula) fama
                             from peliculas c
-                            left join categoria_peliculas cp on cp.pelicula_id = c.id 
+                            left join categoria_peliculas cp on cp.pelicula_id = c.id
                             left join historial_peliculas hp on hp.id_pelicula = c.id ";
                 break;
             default:
@@ -96,7 +96,7 @@ class ContenidoController extends Controller
                 array_push($datos, $id);
             }
 
-            $where .=  ($hayWhere ? "and ( ": "( ") . $condicones . " )"; 
+            $where .=  ($hayWhere ? "and ( ": "( ") . $condicones . " )";
             $hayWhere = true;
         }
 

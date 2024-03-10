@@ -1,21 +1,28 @@
 <script setup>
 import { ref, onBeforeUnmount, onMounted } from 'vue';
+import router from '@/router';
 
 const videoPlayer = ref(null);
 const videoSrc = ref([]);
 const posterUrl = ref('');
 let lastTime;
+let siguiente = ref(false);
 
 let args = window.location.search.split("?")[1].split("=");
 
 function timeupdate() {
-    if (lastTime + 5 < videoPlayer.value.currentTime || lastTime > videoPlayer.value.currentTime) {
+    if (lastTime + 5 < videoPlayer.value.currentTime && !siguiente.value || lastTime > videoPlayer.value.currentTime) {
         POST("/historial", { 
             id: args[1],
             tipo: args[0],
             tiempo: videoPlayer.value.currentTime
         }).then(res => {
-            console.log(res)
+            console.log(res);
+            if (res.ok === "cambio episodio" || res.ok === "cambio temporada") {
+               siguiente.value = true;
+            } else {
+               siguiente.value = false;
+            }
         });
 
         lastTime = videoPlayer.value.currentTime
@@ -43,6 +50,13 @@ onMounted(async () => {
         console.error("Error al obtener el video:", error);
     }
 });
+
+function siguienteEpisodio() {
+    POST("/getSerieId", {id: args[1]}).then(res => {
+        window.location.search = "?s="+res.id
+    });
+}
+
 </script>
 
 <template>
@@ -54,12 +68,14 @@ onMounted(async () => {
                 <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
             </p>
         </video>
+        <button v-if="siguiente" id="siguiente" @click="siguienteEpisodio" >siguiente episodio</button>
     </div>
 </template>
 
 <style>
 .video-container {
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
 }
@@ -69,4 +85,19 @@ onMounted(async () => {
     max-width: 100rem; 
     height:  100%;
 }
+
+#siguiente {
+    position: absolute;
+    top: 80%;
+    left: 85%;
+    transform: translate(-80%, -85%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: #730DD9;
+    color: white;
+    font-size: 70%; 
+    padding: 1%;
+    border-radius: 10px;
+    z-index: 10;
+}
+
 </style>

@@ -195,4 +195,11 @@ class SerieController extends Controller
             limit 8"
         )];
     });}
+
+    function getSerieId(Request $request) { return ClienteController::checkSession($request, function ($request) {
+        return ["id" => DB::select("SELECT s.id from series s
+                                    join temporadas t on t.id_serie = s.id
+                                    join episodios e on e.id_temporada = t.id and e.id = ?",
+                [$request["id"]])[0]->id];
+    });}
 }
