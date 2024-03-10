@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('id_temporada')->references('id')->on('temporadas')->onDelete('cascade');
             $table->string('titulo');
             $table->integer('numero_episodio');
-            $table->integer('duracion');
+            $table->float('duracion');
             $table->text('sinopsis');
             $table->date('fecha_estreno');
             $table->char('archivo', 255);
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-    
+
 
     /**
      * Reverse the migrations.

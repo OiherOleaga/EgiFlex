@@ -40,31 +40,69 @@ class HistorialController extends Controller
 
                 } else {
                     if (Episodio::where("id", $request["id"])->where("duracion", "<=", $request["tiempo"] / 60)->exists()) {
-                        if (isset(DB::select("SELECT 'x'
-                                            from temporadas t
-                                            join episodios e on e.numero_episodio = t.numero_episodios and e.id = :episodio_id
-                                            where t.numero_temporada = (select count(*) from temporada where id_serie = :serie_id)",
+                        $visto = DB::select(
+                                "SELECT case
+                                            when t.numero_temporada = (select count(*) from temporadas where id_serie = :serie_id) then 1
+                                            else 0
+                                        end visto
+                                from temporadas t
+                                join episodios e on e.id_temporada = t.id and e.id = :episodio_id
+                                where e.numero_episodio - (
+                                                            select max(e.numero_episodio)
+                                                            from temporadas t2
+                                                            join episodios e on e.id_temporada = t2.id
+                                                            where t2.numero_temporada = t.numero_temporada - 1 and t2.id_serie = :serie_id2
+                                                          ) = t.numero_episodios",
                         [
                             "episodio_id" => $request["id"],
-                            "serie_id" => $serie_id
-                        ])[0])) {
-                            DB::update("update historial_series set viendo = 0, visto = 1, episodio_id = 1, tiempo = 0 where id = :id", [
-                                "id" => $historiales[0]->id
-                            ]);
+                            "serie_id" => $serie_id,
+                            "serie_id2" => $serie_id
+                        ]);
 
-                        } else {
-                            DB::select("SELECT e.id
+                        if (!isset($visto[0])) {
+                            $episodio_id = DB::select(
+                                        "SELECT e.id
                                         from episodios e
-                                        join (select numero_episodio + 1 numero_episodio, e.temporada_id from episodios where id = :episodio_id) sub
-                                            on e.numero_episodio = sub.numero_episodio and e.temporada_id = sub.temporada_id
-                                        where e.numero_episodio = ",
+                                        join (select e.numero_episodio + 1 numero_episodio, e.id_temporada
+                                              from episodios e
+                                              where e.id = :episodio_id
+                                            ) sub on e.numero_episodio = sub.numero_episodio and e.id_temporada = sub.id_temporada",
                                         [
                                             "episodio_id" => $request["id"],
                                         ]);
 
-                            DB::select("SELECT * from episodios e
-                                        join historial_series hs on hs.episodio_id = e.id");
-                            // select para sacar el siguiente episodio y update
+                            DB::update("update historial_series set episodio_id = :episodio_id, tiempo = 0 where id = :id", [
+                                "episodio_id" => $episodio_id[0]->id,
+                                "id" => $historiales[0]->id
+                            ]);
+
+                            return ["ok" => "cambio episodio"];
+                        } else if (!$visto[0]->visto) {
+                            $episodio_id = DB::select(
+                                        "SELECT e.id
+                                        from episodios e
+                                        join temporadas t on e.id_temporada = t.id and t.id_serie = :serie_id and
+                                                            t.numero_temporada = (select t.numero_temporada + 1 from temporadas t join episodios e on t.id = e.id_temporada and e.id = :episodio_id)
+                                        where e.numero_episodio = (SELECT MIN(e2.numero_episodio)
+                                                                    FROM episodios e2
+                                                                    WHERE e2.id_temporada = e.id_temporada) ",
+                                        [
+                                            "episodio_id" => $request["id"],
+                                            "serie_id" => $serie_id,
+                                        ]);
+
+                            DB::update("update historial_series set episodio_id = :episodio_id, tiempo = 0 where id = :id", [
+                                "episodio_id" => $episodio_id[0]->id,
+                                "id" => $historiales[0]->id
+                            ]);
+
+                            return ["ok" => "cambio temporada"];
+                        } else {
+                            DB::update("update historial_series set viendo = 0, visto = 1, episodio_id = 1, tiempo = 0 where id = :id", [
+                                "id" => $historiales[0]->id
+                            ]);
+
+                            return ["ok" => "visto"];
                         }
 
                     } else {
@@ -95,7 +133,6 @@ class HistorialController extends Controller
                 } else {
                     if (Pelicula::where("id", $request["id"])->where("duracion", "<=", $request["tiempo"] / 60)->exists()) {
                         DB::update("update historial_peliculas set viendo = 0, visto = 1, tiempo = 0 where id = :id", [
-                            "tiempo" => $request["tiempo"],
                             "id" => $historiales[0]->id
                         ]);
                     } else {
@@ -111,7 +148,6 @@ class HistorialController extends Controller
                 return ["error" => "ni p ni e"];
         }
         return ["ok" => true];
-        // TODO barrita, filtro, deploy
     });}
 
     function quitarViendo(Request $request) { return ClienteController::checkSession($request, function ($request) {

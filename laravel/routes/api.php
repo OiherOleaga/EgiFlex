@@ -28,6 +28,7 @@ Route::post("/getDetallesPelicula", [PeliculaController::class, "getDetallesPeli
 
 Route::post("/getDetallesSerie", [SerieController::class, "getDetallesSerie"]);
 Route::get("/series/popular", [SerieController::class, "getSeriesRandom"]);
+Route::post("/getSerieId", [SerieController::class, "getSerieId"]);
 
 Route::post("/iniciarSesion", [ClienteController::class, "comprobarInicioSesion"]);
 Route::post("/registrar", [ClienteController::class, "registro"]);
