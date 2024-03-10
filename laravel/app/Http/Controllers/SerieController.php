@@ -166,12 +166,17 @@ class SerieController extends Controller
 
     function getDetallesSerie(Request $request) { return ClienteController::checkSession($request, function ($request) {
         try {
-
+        $cliente_id = ClienteController::getIdCliente($request);
         return ["detalles" => DB::select(
             "SELECT s.*,
                 group_concat(distinct c.nombre separator ', ') generos,
                 group_concat(distinct t.id separator ',') temporadas,
-                count(ls.id) lista
+                count(ls.id) lista,
+                ifnull((select t.numero_temporada
+                        from temporadas t
+                        join historial_series hs on hs.serie_id = s.id and cliente_id = ?
+                        join episodios e on e.id = hs.episodio_id and e.id_temporada = t.id)
+                , 1) temporada
             FROM series s
             left join categoria_series cs on cs.serie_id = s.id
             left join categorias c on c.id = cs.categoria_id
@@ -179,7 +184,7 @@ class SerieController extends Controller
             left join lista_series ls on ls.serie_id = s.id and ls.cliente_id = ?
             where s.id = ?
             group by s.id",
-        [ClienteController::getIdCliente($request), $request["id"]])[0]];
+        [$cliente_id, $cliente_id, $request["id"]])[0]];
         } catch(\Exception) {
             return ["error" => "id incorrecto"];
         }

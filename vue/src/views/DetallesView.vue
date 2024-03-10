@@ -16,7 +16,6 @@ if (args[0] == 's') {
 
         if (detalles.value.temporadas) {
             detalles.value.temporadas = detalles.value.temporadas.split(',')
-            res.detalles.temporada = 1;
             getEpisodios(res.detalles.temporadas[0])
         } else {
             detalles.value.temporadas = []
