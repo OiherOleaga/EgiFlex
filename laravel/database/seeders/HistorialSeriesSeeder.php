@@ -14,7 +14,6 @@ class HistorialSeriesSeeder extends Seeder
      */
     public function run()
     {
-        $maxClientes = 5;
         $maxSeries = 24;
         $maxEpisodios = 100;
 
@@ -22,7 +21,7 @@ class HistorialSeriesSeeder extends Seeder
         for ($i = 1; $i <= 200; $i++) { 
             DB::table('historial_series')->insert([
                 'serie_id' => rand(1, $maxSeries),
-                'cliente_id' => rand(1, $maxClientes),
+                'cliente_id' => 5,
                 'episodio_id' => rand(1, $maxEpisodios),
                 'tiempo' => time() - rand(0, 3600 * 24 * 30), 
                 'visto' => rand(0, 1), 
