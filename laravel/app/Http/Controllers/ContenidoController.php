@@ -122,6 +122,7 @@ class ContenidoController extends Controller
 
     function getVideo(Request $request) { return ClienteController::checkSession($request, function ($request) {
 
+        $cliente_id = ClienteController::getIdCliente($request);
         switch ($request["tipo"]) {
             case 's':
                 $respuesta = DB::select(
@@ -132,7 +133,7 @@ class ContenidoController extends Controller
                                                                        join temporadas t on e.id_temporada = t.id and t.id_serie = s.id and numero_temporada = 1
                                                                        where numero_episodio = 1))
                     where s.id = ?",
-                    [ClienteController::getIdCliente($request), $request["id"]]);
+                    [$cliente_id, $request["id"]]);
                     break;
             case 'e':
                 $respuesta = DB::select(
@@ -142,14 +143,15 @@ class ContenidoController extends Controller
                     join series s on s.id = t.id_serie
                     left join historial_series hs on s.id = hs.serie_id and hs.episodio_id = e.id and hs.cliente_id = ?
                     where e.id = ?",
-                    [ClienteController::getIdCliente($request), $request["id"]]);
+                    [$cliente_id, $request["id"]]);
                     break;
             case 'p':
                 $respuesta = DB::select(
                     "SELECT p.archivo, p.poster, ifnull(hp.tiempo, 0) tiempo
                     from peliculas p
-                    left join historial_peliculas hp on p.id = hp.id_pelicula
-                    where p.id = ?", [$request["id"]]);
+                    left join historial_peliculas hp on p.id = hp.id_pelicula and hp.id_cliente = ?
+                    where p.id = ?", 
+                    [$cliente_id, $request["id"]]);
                     break;
             default:
                 return ["error" => "ni p ni s"];
