@@ -113,8 +113,8 @@ function descargar(url) {
                         <figure>
                             <img :src="detalles.portada" class="rounded img img-fluid equal-image" alt="">
                             <div class="gap-2 d-flex align-items-center justify-content-center my-2">
-                                <button v-if="args[0] == 'p'" class="rounded-pill btn w-100 text-white p-2"
-                                    @click="descargar(detalles.archivo)">Descargar</button>
+                                <!-- <button v-if="args[0] == 'p'" class="rounded-pill btn w-100 text-white p-2"
+                                    @click="descargar(detalles.archivo)">Descargar</button> -->
                                 <button v-if="!detalles.lista" class="rounded-pill btn w-100 text-white p-2"
                                     @click="addLista">+ Lista</button>
                                 <button v-else class="rounded-pill btn w-100 text-white p-2" @click="rmLista">-
