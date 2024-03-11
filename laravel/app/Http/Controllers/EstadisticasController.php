@@ -20,8 +20,8 @@ class EstadisticasController extends Controller
             s.Titulo,
             COUNT(hs.id) AS TotalUsuarios
             FROM
-                Series s
-                JOIN Historial_Series hs ON s.id = hs.serie_id
+                series s
+                JOIN historial_series hs ON s.id = hs.serie_id
             GROUP BY
                 s.Titulo;
         ");
@@ -48,8 +48,8 @@ class EstadisticasController extends Controller
             p.Titulo,
             COUNT(hp.id) AS TotalUsuarios
             FROM
-                Peliculas p
-                JOIN Historial_Peliculas hp ON p.id = hp.id_pelicula
+                peliculas p
+                JOIN historial_peliculas hp ON p.id = hp.id_pelicula
             GROUP BY
                 p.Titulo;
         ");
