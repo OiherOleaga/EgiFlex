@@ -13,7 +13,7 @@
 
   <p align="center">Bienvenido al repositorio oficial de EgiFlex, en este repositorio podras encontrarte todo el codigo de nuestra aplicación web.</p>
   <p align="center"><a href="http://egiflex.es">Vue</a></p>
-  <p align="center"><a href="http://killerbeer.blog:8000">Laravel</a></p>
+  <p align="center"><a href="http://admin.egiflex.es">Laravel</a></p>
 
 
 </div>
