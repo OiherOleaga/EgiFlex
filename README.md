@@ -113,10 +113,10 @@ Instalar [node.js](https://nodejs.org/en) si no esta instalado.
 #### Administradores
 | Correo  | Contraseña |
 | ------------- | -------------
-| oiher@gamil.com  | contrasena1
-| david@gamil.com | contrasena2 
-| anartz@gamil.com  | contrasena3
-| markel@gamil.com  | contrasena4
+| oiher@gmail.com  | contrasena1
+| david@gmail.com | contrasena2 
+| anartz@gmail.com  | contrasena3
+| markel@gmail.com  | contrasena4
 
 #### Clientes
 | Correo    |Nombre |Apellido | Contraseña | Estado |
