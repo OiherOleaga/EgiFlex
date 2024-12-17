@@ -35,9 +35,9 @@
 
 # Como desplegar el repositorio
 
-Para desplegar el repositorio lo podras realizar con el siguiente comando de docker:
+Para desplegar el repositorio lo podras realizar con el siguiente comando de Git:
 ```
-git clone https://github.com/OiherOleaga/KillerBeer
+git clone https://github.com/OiherOleaga/EgiFlex
 ```
 
 # Ejecutar aplicacion backend en local [![Laravel][Laravel.com]][Laravel-url] [![Tailwind][Tailwind.com]][Tailwind-url]
